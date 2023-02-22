@@ -53,17 +53,10 @@
                             </div>
                             <a class="header__search-trigger" href="#0"></a>
                         </div>
-                        <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M1 1L22.9203 22.9203" stroke="#61B87C" stroke-width="2"/>
-                                <path d="M1 23L22.9203 1.07969" stroke="#61B87C" stroke-width="2"/>
-                            </svg>
-                        </a>
 
-                        <a class="header__toggle-menu header__overlay-close close-mobile-menu" href="#0" title="Menu">
+                        <a class="header__toggle-menu" href="#0" title="Menu">
                             <span>Menu</span>
                         </a>
-
 
                         <nav class="header__nav-wrap">
                             <div class="container-fluid header__pos">
@@ -85,47 +78,47 @@
                                 </div>
 
                                 <ul class="header__nav">
-                                            
-                                            
-                                            <li >
-                                                <a href="/fixed-prices/" title="Фиксированные цены">Фиксированные цены</a>
-                                            </li>
-                                            
-                                            
-                                            
-                                            <li >
-                                                <a href="/demand-management/" title="Управление спросом">Управление спросом</a>
-                                            </li>
-                                            
-                                            
-                                            
-                                            <li >
-                                                <a href="/energy-trading/" title="Энерготрейдинг">Энерготрейдинг</a>
-                                            </li>
-                                            
-                                            
-                                            
-                                            <li >
-                                                <a href="/pricing-solutions/" title="Ценовые решения">Ценовые решения</a>
-                                            </li>
-                                            
-                                            
-                                            
-                                            <li >
-                                                <a href="/about-us/" title="О компании">О компании</a>
-                                            </li>
-                                            
-                                            
-                                            
-                                            <li >
-                                                <a href="/contacts/" title="Контакты">Контакты</a>
-                                            </li>
-                                            
-                                            
-                                </ul>
+    
+    
+    <li >
+        <a href="/fixed-prices/" title="Фиксированные цены">Фиксированные цены</a>
+    </li>
+    
+    
+    
+    <li >
+        <a href="/demand-management/" title="Управление спросом">Управление спросом</a>
+    </li>
+    
+    
+    
+    <li >
+        <a href="/energy-trading/" title="Энерготрейдинг">Энерготрейдинг</a>
+    </li>
+    
+    
+    
+    <li >
+        <a href="/pricing-solutions/" title="Ценовые решения">Ценовые решения</a>
+    </li>
+    
+    
+    
+    <li >
+        <a href="/about-us/" title="О компании">О компании</a>
+    </li>
+    
+    
+    
+    <li >
+        <a href="/contacts/" title="Контакты">Контакты</a>
+    </li>
+    
+    
+</ul>
 
 
-                                
+                                <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Закрыть</a>
                             </div>
                         </nav> <!-- end header__nav-wrap -->
 
@@ -135,87 +128,56 @@
         </div>
 
         <div class="site-index">
-            <div class="container">
-                <h1 class="lc-wrapper__title">
-                    Заявка на заключение договора
-                                
-                    </h1>
-            </div>
+           
             <div class="container bid-forms-container" id="contract-bid-page-content" style="margin-bottom: 3rem">
-               
-                <div class="row">
-                    <div class="col-lg-3">
-                        <button class="btn btn-outline-primary card__mobile__toggle-btn">
-                            Процесс заполнения заявки
-                        </button>
-                        <div class="card">
-                            <h5 class="card-header">
-                                Процесс заполнения заявки
-                            </h5>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <a href="/bid/" title="Изменить тип договора.">
-                                        <strong>Тип договора</strong>
-                                    </a>
-                                    <div class="text-muted">физ. лицо</div>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="/bid/?client_type=fiz" title="Изменить способ заключения договора.">
-                                        <strong>Способ заключения договора</strong>
-                                    </a>
-                                    <div class="text-muted">по упрощенной схеме</div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="text-muted">
-                                        Персональные данные
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="text-muted">
-                                        Правоустанавливающие документы
-                                    </div>
-                                </li>
-                            </ul>
+                <div class="row mt-5">
+                    <div class="col-sm-4 mb-3">
+                        <button class="button button_style-1 button_small apply-filter-button">Показать</button>
+                    </div>
+                    <div class="col-sm-4 mb-3">
+                        <label class="btn btn-outline-primary btn-file" for="file_upload">
+                            <input id="file_upload" type="file" name="file" style="display:none" onchange="$(&quot;#upload-file-info&quot;).html(this.files[0].name)">
+                            Добавить файл
+                        </label>
+                    </div>
+                    <div class="col-sm-4 mb-3">
+                        <a href="/users/lk/history/" class="button button_style-2 button_small">Сбросить</a>
+                    </div>
+                    <div class="col-sm-4 mb-3">
+                        <div class="form-group">
+                            <label for="id_company_name">Название компании</label>
+                            <input id="id_company_name" type="text" name="company_name" class="form-control default_at_pageload" placeholder="" required="">
                         </div>
                     </div>
-                    <div class="col-lg-9">
-                        <h2 class="lc-wrapper__subtitle">
-                            Выберите Ваш тип договора
-                        </h2>
-                        <div class="row">
-                            <div class="col-sm-6 mb-3">
-                                <div class="gr__cloak w-100">
-                                    <a class="gr__cloak-link" href="#"></a>
-                                    <p>Юридическое лицо</p>
-                                </div>
+                    <div class="col-sm-4 mb-3">
+                        <div class="form-check form-check-custom">
+                            <input class="form-check-input" type="checkbox" value="" id="consent">
+                            <label class="form-check-label" for="consent">
+                                Даю <a href="/personal-data-agrement/">согласие</a> на обработку персональных данных в соответствии с <a href="/legal-notice-and-privacy-policy/">политикой</a>
+                            </label>
+                            <div class="form-group-message form-group-message-inline form-group-message-warning" style="display: none;">
+                                <a href="javascript:;" class="msg_close_btn"></a>
+                                <p>Для завершения регистрации необходимо дать согласие</p>
                             </div>
-                            <div class="col-sm-6 mb-3">
-                                <div class="gr__cloak w-100">
-                                    <a class="gr__cloak-link" href="#"></a>
-                                    <p>ИП/физическое<br> лицо (не бытовое<br> потребление)</p>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 mb-3">
-                                <div class="gr__cloak w-100">
-                                    <a class="gr__cloak-link" href="#"></a>
-                                    <p>Стандартный</p>
-                                    <span>Договор на бумажном носителе, направленный Почтой России, или в электронном виде - через систему ЭДО</span>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 mb-3">
-                                <div class="gr__cloak w-100">
-                                    <a class="gr__cloak-link" href="#"></a>
-                                    <p>По упрощенной схеме</p>
-                                    <span>Осуществление акцепта оферты с фиксированной ценой со сроком заключения до 5 дней (заключение договора путем принятия условий типового договора, размещенного <a href="#">здесь</a>. Дальнейшее взаимодействие посредством личного кабинета (код доступа направляем в день направления Вашего обращения), без бумажных носителей, документы максимально в электронном виде.</span>
-                                </div>
-                            </div>
-                            <div class="col-12 mb-3">
-                                <a class="gr__btn" type="btn" href="#">Назад</a>
-                            </div>
+                        </div>
+                    </div>
+                 
+                    <div class="col-sm-4 mb-3">
+                        <div class="form-element">
+                            <label class="form-element__label" for="id_message">Введите ваше сообщение</label>
+                            <textarea name="message" cols="40" rows="3" class="form-element__input input_invalid" required="" id="id_message"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 mb-3">
+                        <div class="form-element">
+                            <label for="id_attach">Файлы для сообщения (если требуется)</label>
+                            <input type="file" name="attach" multiple="" rows="3" class="form-element__input" id="id_attach">
                         </div>
                     </div>
 
                 </div>
+
                 
                             
                 </div>
