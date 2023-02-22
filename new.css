@@ -8775,15 +8775,21 @@
     top: 0;
     width: 100%; }
 
-  .header:before{
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, #61B87C -2.04%, #FAB216 100%);
-    z-index: 1;
+  
+
+  @media (max-width: 850px) {
+    
+    .header:before{
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #61B87C -2.04%, #FAB216 100%);
+      z-index: 1;
+    }
+
   }
   
   .header__content {
