@@ -596,12 +596,11 @@
     z-index: 1;
     font-family: 'Roboto';
     font-weight: 400;
-    font-size: 22px;
     line-height: 26px;
-    padding: 10px 22px;
+    padding: 11px 31px!important;
     color: #000000;
     background: #FFFFFF;
-    border: 2px solid #61B87C;
+    border: 2px solid #61B87C!important;
     border-radius: 7px;
   }
 
