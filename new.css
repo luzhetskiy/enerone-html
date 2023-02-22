@@ -593,35 +593,16 @@
   .gr__btn{
     display: inline-block;
     position: relative;
-    background-image: linear-gradient(to right,rgba(97, 184, 125, 0.801), rgba(250, 178, 22, 0.801));
-    border-radius: 7px;
     z-index: 1;
     font-family: 'Roboto';
     font-weight: 400;
     font-size: 22px;
     line-height: 26px;
-    padding: 15px 25px!important;
+    padding: 10px 22px;
     color: #000000;
-
-  }
-
-  .gr__btn:before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: calc(100% - 4px);
-    height: calc(100% - 4px);
-    background-color: #fff;
-    border-radius: 5px;
-    top: 2px;
-    left: 2px;
-    z-index: -1;
-  }
-
-  .gr__btn span{
-    position: relative;
-    color: #000;
+    background: #FFFFFF;
+    border: 2px solid #61B87C;
+    border-radius: 7px;
   }
 
   .gr__btn:hover{
