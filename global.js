@@ -567,6 +567,10 @@ function prepareContentTablesToDisplay() {
     }
 }
 
+$(".card__mobile__toggle-btn").click(function(){
+    $(this).parent().find('.card').slideToggle(200)
+})
+
 $(document).ready(function (event) {
     popup.init();
 });
