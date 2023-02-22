@@ -641,7 +641,10 @@
     .lc-wrapper_type-2 {
       display: flex; }
     .lc-wrapper__title {
+      margin-top: 40px;
       margin-bottom: 40px; }
+    .lc-wrapper__subtitle {
+      margin-bottom: 20px; }
     .lc-wrapper .container {
       padding: 0 20px;
       max-width: 1305px; }
@@ -673,6 +676,8 @@
         padding: 40px 0 60px 0; }
         .lc-wrapper__title {
           font-size: 34px; }
+        .lc-wrapper__subtitle {
+          font-size: 28px; }
         .lc-wrapper textarea.form-control {
           height: 56px;
           padding: 26px 18px 0 !important; } }
