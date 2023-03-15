@@ -1,4 +1,4 @@
-  .select2-container {
+.select2-container {
     box-sizing: border-box;
     display: inline-block;
     margin: 0;
@@ -4331,7 +4331,7 @@
     .card__mobile__toggle-btn {
       display: inline-block;
     }
-    .card{
+    .card.mobile-hide{
       display: none;
     }
   }  
@@ -8389,7 +8389,8 @@
     border-radius: 7px; }
   
   .form-check-label:before {
-    background-color: transparent; }
+    background-color: transparent;
+    background-image: none; }
   
   .form-check-label:after {
     background-color: #61B87C;
@@ -8751,7 +8752,8 @@
   
   .s-pageheader {
     min-height: 180px;
-    position: relative; }
+    position: relative;
+    }
   
   @media (max-width: 1000px) {
     .s-pageheader {
@@ -11988,7 +11990,9 @@
     text-align: center;
     background-color: #fff;
     color: #000;
-    cursor: pointer; }
+    cursor: pointer; 
+    border-radius: 7px;
+}
   
   .form-group-message.form-group-message-inline {
     position: relative;
