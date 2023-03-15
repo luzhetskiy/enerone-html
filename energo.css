@@ -107,6 +107,11 @@ input[type=number]::-webkit-inner-spin-button {
   display: flex;
   align-items: flex-end;
 }
+.popup-block.energo__popap .show__energo-form:disabled {
+  background-color: rgb(156, 156, 156);
+  opacity: 0.5;
+  pointer-events: none;
+}
 
 @media (max-width: 991px) {
   .popup-block.energo__popap .n-form__item {
