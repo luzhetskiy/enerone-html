@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>clean temp</title>
+    <title>eneron</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -10,15 +10,15 @@
     <link rel="stylesheet" href="lk.css">
     <link rel="stylesheet" href="energo.css">
 </head>
-<body class="">
+<body>
 
+ 
     <!-- ПОПАП - Ваш тариф на электроэнергию (id - vash-tarif) -->
-    <div class="popup popup-form" id="vash-tarif" data-scroll-lock-scrollable data-scroll-lock-fill-gap>
+    <div class="popup popup-form active" id="vash-tarif" data-scroll-lock-scrollable data-scroll-lock-fill-gap>
         <div class="popup-block energo__popap">
             <div class="popup-block__container popup-form__container">
                 <h6 class="popup__title">Ваш тариф на электроэнергию</h6>
                 <a class="popup__close" href="javascript:void(0);" data-popup-close></a>
-                <form action="">
                     <input type="hidden" name="csrfmiddlewaretoken" value="d7brLQ6GBo9NsKmWMsqLFyDx57ZLUvAeuyo6fyohgIXFwkeOZTpnZchxJfuuS40Y">
                     <div class="n-form__container row">
                         <div class="col-12">
@@ -41,56 +41,42 @@
                             <p>Тариф действителен на период .....</p>
                         </div>
                         <div class="col-sm-12 n-form__item">
-                            <button class="button btn-primary" type="submit"  data-popup-open>Подать заявку</button>
+                            <button class="button btn-primary show__energo-form">Подать заявку</button>
                             <a href="#vash-tarif-konsultacia" class="any_questions" data-popup-open>Остались вопросы?</a>
                         </div>
-                    </div>
-                    
-                </form>
-            </div>
-        </div>
-    </div>
-
-     <!-- ПОПАП - Наш специалист поможет вам узнать ваш уровень тарифного напряжения. (id - vash-tarif-konsultacia) -->
-     <div class="popup popup-form" id="vash-tarif-konsultacia" data-scroll-lock-scrollable data-scroll-lock-fill-gap>
-        <div class="popup-block energo__popap">
-            <div class="popup-block__container popup-form__container">
-                <h6 class="popup__title text-left">Наш специалист поможет вам узнать ваш уровень тарифного напряжения.</h6>
-                <a class="popup__close" href="javascript:void(0);" data-popup-close></a>
-                    <input type="hidden" name="csrfmiddlewaretoken" value="d7brLQ6GBo9NsKmWMsqLFyDx57ZLUvAeuyo6fyohgIXFwkeOZTpnZchxJfuuS40Y">
-                    <div class="n-form__container row">
-                        <form action="">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="id_fio">ФИО</label>
-                                        <input id="id_fio" type="text" name="fio" class="form-control default_at_pageload" placeholder="" required="">
+                        <div class="col-12 hidden-form" style="display: none;">
+                            <form action="">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="id_fio">ФИО</label>
+                                            <input id="id_fio" type="text" name="fio" class="form-control default_at_pageload" placeholder="" required="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="id_phone">Телефон</label>
+                                            <input type="text" name="phone" maxlength="16" class="form-control" required id="id_phone">
+                                        </div>
+                                        
                                     </div>
-                                    <div class="form-group">
-                                        <label for="id_phone">Телефон</label>
-                                        <input type="text" name="phone" maxlength="16" class="form-control" required id="id_phone">
+                                    <div class="col-md-6">
+                                        <p class="file_input-text">Прикрепите акт технологического
+                                            присоединения</p>
+                                        <div class="form-element">
+                                            <input type="file" name="attach" multiple="" rows="3" class="form-element__input" id="id_attach">
+                                        </div>
+                                        
                                     </div>
-                                    
-                                </div>
-                                <div class="col-md-6">
-                                    <p class="file_input-text">Прикрепите акт технологического
-                                        присоединения</p>
-                                    <div class="form-element">
-                                        <input type="file" name="attach" multiple="" rows="3" class="form-element__input" id="id_attach">
+                                    <div class="col-12 text-center">
+                                        <button class="btn btn-primary" type="submit">Получить
+                                            консультацию</button>
                                     </div>
-                                    
                                 </div>
-                                <div class="col-12 text-center">
-                                    <button class="btn btn-primary">Получить
-                                        консультацию</button>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
             </div>
         </div>
     </div>
-
 
 
     <div class="s-pageheader">
