@@ -1,35 +1,35 @@
 /* Roboto */
 @font-face {
   font-family: "Roboto";
-  src: url("../font/Roboto/Roboto-Regular.ttf") format("truetype");
+  src: url("./font/Roboto/Roboto-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 /* Roboto */
 @font-face {
   font-family: "Roboto";
-  src: url("../font/Roboto/Roboto-Medium.ttf") format("truetype");
+  src: url("./font/Roboto/Roboto-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 /* Roboto */
 @font-face {
   font-family: "Roboto";
-  src: url("../font/Roboto/Roboto-MediumItalic.ttf") format("truetype");
+  src: url("./font/Roboto/Roboto-MediumItalic.ttf") format("truetype");
   font-weight: 500;
   font-style: italic;
 }
 /* Oswald Bold */
 @font-face {
   font-family: "Oswald";
-  src: url("../font/Oswald/Oswald-Bold.ttf") format("truetype");
+  src: url("./font/Oswald/Oswald-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 /* Oswald Medium */
 @font-face {
   font-family: "Oswald";
-  src: url("../font/Oswald/Oswald-Medium.ttf") format("truetype");
+  src: url("./font/Oswald/Oswald-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
