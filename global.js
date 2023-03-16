@@ -74,14 +74,6 @@ function prepareInputs() {
 } // отрисовка инпутов по фокусу и его потере
 
 
-// после клика Подать заявку в попапе, открывается форма в попапе 
-$(document).ready(function () {
-    $('.show__energo-form').click(function(){
-        $(this).attr("disabled", true)
-        $(this).parents('.popup').find('.hidden-form').slideDown(400)
-    })
-});
-
 $(document).on('focus blur change', 'input , textarea', function (event) {
     var self = $(this);
     var label = self.parents('.form-group').eq(0).find('label[for="' + self.attr('id') + '"]');
