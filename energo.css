@@ -75,14 +75,6 @@ input[type=number]::-webkit-inner-spin-button {
 .popup-block.energo__popap .result_text p a, .popup-block.energo__popap .result_text p span {
   margin: 0 10px;
 }
-.popup-block.energo__popap .result_info {
-  width: 100%;
-  display: inline-block;
-}
-.popup-block.energo__popap .result_info p {
-  font-weight: 500;
-  padding-top: 20px;
-}
 .popup-block.energo__popap .n-form__item {
   display: flex;
   align-items: center;
@@ -94,23 +86,11 @@ input[type=number]::-webkit-inner-spin-button {
   white-space: inherit;
   line-height: 23px;
 }
-.popup-block.energo__popap .n-form__item .any_questions {
-  font-weight: 500;
-  position: absolute;
-  right: 20px;
-  max-width: 183px;
-  width: 100%;
-}
 .popup-block.energo__popap .file_input-text {
   min-height: 64px;
   font-weight: 500;
   display: flex;
   align-items: flex-end;
-}
-.popup-block.energo__popap .show__energo-form:disabled {
-  background-color: rgb(156, 156, 156);
-  opacity: 0.5;
-  pointer-events: none;
 }
 
 @media (max-width: 991px) {
@@ -120,13 +100,6 @@ input[type=number]::-webkit-inner-spin-button {
   .popup-block.energo__popap .n-form__item .btn-primary {
     max-width: 100%;
     width: 100%;
-  }
-  .popup-block.energo__popap .n-form__item .any_questions {
-    position: relative;
-    right: 0;
-    margin-top: 15px;
-    max-width: 100%;
-    text-align: center;
   }
   .popup-block.energo__popap .btn-primary {
     max-width: 100%;

@@ -34,44 +34,11 @@
                         <div class="result_text col-12">
                             <p class="result_text">
                                 <span>6,9 руб./кВт*ч</span>
-                                <a href="#sc_pluses" data-popup-close>В чем преимущество?</a>
                             </p>
                         </div>
-                        <div class="result_info col-12">
-                            <p>Тариф действителен на период .....</p>
-                        </div>
+                       
                         <div class="col-sm-12 n-form__item">
-                            <button class="button btn-primary show__energo-form">Подать заявку</button>
-                            <a href="#vash-tarif-konsultacia" class="any_questions" data-popup-open>Остались вопросы?</a>
-                        </div>
-                        <div class="col-12 hidden-form" style="display: none;">
-                            <form action="">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="id_fio">ФИО</label>
-                                            <input id="id_fio" type="text" name="fio" class="form-control default_at_pageload" placeholder="" required="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="id_phone">Телефон</label>
-                                            <input type="text" name="phone" maxlength="16" class="form-control" required id="id_phone">
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p class="file_input-text">Прикрепите акт технологического
-                                            присоединения</p>
-                                        <div class="form-element">
-                                            <input type="file" name="attach" multiple="" rows="3" class="form-element__input" id="id_attach">
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="col-12 text-center">
-                                        <button class="btn btn-primary" type="submit">Получить
-                                            консультацию</button>
-                                    </div>
-                                </div>
-                            </form>
+                            <a href="/start/" class="button btn-primary">Подать заявку</a>
                         </div>
                     </div>
             </div>
@@ -338,7 +305,8 @@
                                     <p><span>Если вы затрудняетесь 
                                         в определении вашего уровня, 
                                         выберите пункт «Не знаю»</span></p>
-                                    <a href="#vash-tarif" class="btn btn-primary" data-popup-open>Узнать тариф</a>
+                                    <a href="javascript:void(0)" class="btn btn-primary getRateHiddenCopy" style="display: none;">Узнать тариф</a>
+                                    <a href="#vash-tarif" class="btn btn-primary getRate">Узнать тариф</a>
                                 </div>
                             </div>
                         </div>
@@ -356,7 +324,7 @@
         </div>
     </section>
 
-    <section class="sc-form">
+    <section class="sc-form" id="ne-znayu-form" style="display: none">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3"></div>
@@ -391,7 +359,7 @@
         </div>
     </section>
 
-    <section class="sc-pluses" id="sc_pluses">
+    <section class="sc-pluses">
         <div class="container-fluid">
             <div class="row">
                 <div class="title--box">
