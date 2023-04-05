@@ -629,6 +629,152 @@
 
   }
 
+  .sc-clients-service{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    
+  }
+
+  .sc-clients-service h2{
+    margin-bottom: 30px;
+  }
+
+  .cl--service-box{
+    display: inline-block;
+    padding: 50px 36px 22px 36px;
+    position: relative;
+    background-image: linear-gradient(to right,rgba(97, 184, 125, 0.801), rgba(250, 178, 22, 0.801));
+    border-radius: 7px;
+    z-index: 1;
+    text-align: center;
+    transition: 0.2s;
+    max-width: 280px;
+    margin: 32.5px 0;
+  }
+
+  .cl--service-box:hover p,
+  .cl--service-box:hover span{
+    color: #fff;
+  }
+
+  .cl--service-box:hover:before{
+    opacity: 0;
+  }
+
+  .cl--service-box::after{
+    content: "";
+    background: linear-gradient(135deg, #61B87C 0%, #FAB216 100%);
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 100%;
+    position: absolute;
+    top: -20px;
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+
+  .cl--service-box:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    background-color: #fff;
+    border-radius: 5px;
+    top: 2px;
+    left: 2px;
+    z-index: -1;
+    transition: 0.2s;
+  }
+
+  .cl--service-box-link{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  .cl--service-box p{
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #000000;
+    transition: 0.2s;
+    margin-bottom: 30px;
+  }
+
+  .cl--service-box span{
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    display: inline-block;
+    color: #606060;
+    transition: 0.2s;
+  }
+
+
+  @media only screen and (max-width: 767px) {
+
+    .cl--service-box{
+      padding: 25px 20px 15px 20px;
+      margin: 15px 0;
+      max-width: 100%;
+    }
+
+    .cl--service-box::after{
+      width: 30px;
+      height: 30px;
+      top: -15px;
+    }
+
+    .cl--service-box p {
+      font-size: 14px;
+    line-height: 17px;
+      margin-bottom: 10px;
+    }
+
+    .cl--service-box span{
+      font-size: 12px;
+      line-height: 14px;
+    }
+
+  }
+
+  .sc-esk-energia{
+    padding-top: 15px;
+    padding-bottom: 20px;
+  }
+
+  .sc-esk-energia h1{
+    margin-bottom: 29px;
+  }
+
+  .sc-esk-energia p{
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+  }
+
+  @media only screen and (max-width: 767px){
+    .sc-esk-energia h1{
+      margin-bottom: 20px;
+    }
+    .sc-esk-energia p{
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+
+ 
   
   /*!
    * Bootstrap v4.1.3 (https://getbootstrap.com/)
