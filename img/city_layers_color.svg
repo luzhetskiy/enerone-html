@@ -100,6 +100,7 @@
     .car{
         animation-delay: 7000ms;
         animation-fill-mode: forwards;
+        animation-timing-function:linear;
         animation-duration: 3s;
     }
 
@@ -110,19 +111,23 @@
 
 
   @keyframes car1 {
-        30%{fill: #EFB73A}
-        100% {fill: #EFB73A; transform: translateX(50%); opacity: 0 }
+        10%{fill: #EFB73A}
+        99%{fill: #EFB73A; transform: translateX(46%); opacity: 1 }
+        100% {transform: translateX(46%); opacity: 0 }
   }
   @keyframes car2 {
-        30%{fill: #FAEC69}
-        100%{fill: #FAEC69; transform: translateX(50%); opacity: 0 }
+        10%{fill: #FAEC69}
+        99%{fill: #FAEC69; transform: translateX(46%); opacity: 1 }
+        100%{ transform: translateX(46%); opacity: 0 }
   }
   @keyframes car3 {
-        30%{fill: #CE4650}
-        100%{fill: #CE4650; transform: translateX(50%); opacity: 0 }
+        10%{fill: #CE4650}
+        99%{fill: #CE4650; transform: translateX(46%); opacity: 1 }
+        100%{ transform: translateX(46%); opacity: 0 }
   }
    @keyframes care {
-        100%{  transform: translateX(50%); opacity: 0 }
+        99%{transform: translateX(46%); opacity: 1 }
+        100%{ transform: translateX(46%); opacity: 0 }
   }
 
 
