@@ -1,0 +1,56 @@
+.sc-banner .head-info p span {
+	font-size: 32px;
+	line-height: 32px;
+}
+
+.sc-banner .head-info h1 {
+	max-width: 330px;
+	line-height: 58px;
+}
+
+.sc-banner .head-info h4 {
+	font-size: 20px;
+}
+
+.sc-services {
+	padding-top: 30px;
+}
+
+.sc-draft-agree .agree-box {
+	max-width: none;
+}
+
+.sc-special {
+	background-color: #FCBED4;
+}
+
+@media (max-width: 991px) {
+
+.city_anim-block {
+	display: none;
+}
+
+.sc-banner .head-info {
+	padding-top: 75px;
+}
+
+.sc-banner .head-info p span {
+	width: 80%;
+	margin-top: 5px;
+}
+
+.sc-banner .head-info h1 {
+	font-size: 32px;
+	margin-bottom: 0px;
+}
+
+.sc-banner .head-info h4 {
+	font-size: 16px;
+}
+
+.title--box-2 {
+	margin-top: 15px;
+}
+
+
+}
