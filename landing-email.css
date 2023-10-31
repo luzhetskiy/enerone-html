@@ -24,6 +24,10 @@
 	background-color: #FCBED4;
 }
 
+.h4-lp {
+	max-width: none!important;
+}
+
 @media (max-width: 991px) {
 
 .city_anim-block {
