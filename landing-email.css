@@ -45,11 +45,20 @@
 }
 
 
+.disc-desc-green{
+	font-size: 20px!important;
+	margin-top: 0px!important;
+	font-weight: 600!important;
+	color: #5abe86!important;
+	display: inline!important;
+}
+
 .disc-price1{
 	font-size: 20px!important;
 	margin-top: 0px!important;
 	font-weight: 600!important;
 	color: #6d6e71!important;
+	display: inline!important;
 }
 
 .disc-price2{
