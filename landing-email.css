@@ -68,6 +68,12 @@
 	color: #5abe86!important;
 }
 
+.disc-desc3 {
+	font-size: 18px!important;
+	font-weight: 400!important;
+	padding-bottom: 20px;
+}
+
 @media (max-width: 991px) {
 
 .city_anim-block {
