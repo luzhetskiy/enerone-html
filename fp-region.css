@@ -1,0 +1,19 @@
+
+
+
+
+@media (max-width: 991px) {
+	
+.city_anim-block {
+	display: none;
+}
+
+.sc-banner .head-info h1 {
+	font-size: 38px;
+}
+	
+	}
+	
+.sc-banner .head-info p {
+	width: 90%;
+}
