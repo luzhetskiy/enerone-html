@@ -203,12 +203,12 @@ input[type=number]::-webkit-inner-spin-button {
   font-family: "Roboto";
 }
 .sc-banner .head-info h1 {
-  font-size: 48px;
+  font-size: 42px;
   line-height: 50px;
   color: #6d6e71;
   font-weight: 700;
   font-family: "Oswald";
-  max-width: 347px;
+  max-width: 350px;
   margin-bottom: 15px;
 }
 .sc-banner .head-info h1 span {
