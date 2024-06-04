@@ -46,3 +46,27 @@
     color: #4a4a4a;
 
 }
+
+/* fixed-price may-24 */
+
+.may24ul {
+	color: #6d6e71;
+}
+
+
+@media (max-width: 992px) {
+
+.may24h1 {
+	padding-top: 50px;
+}
+
+.may24p {
+	width: 70%;
+}
+
+.may24ul {
+	color: #6d6e71;
+    padding-top: 20px;
+}
+
+}
