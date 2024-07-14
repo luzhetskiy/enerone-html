@@ -148,10 +148,10 @@
                     Статьи
                 </h1>
 
-                <form class="article-filter">
+                <form class="article-filter js-search-article">
                     <div class="form-group article-filter-search">
-                        <label for="searchArticles" class="label_invalid_input">Поиск по тегам</label>
-                        <input id="searchArticles" type="text" name="search" class="form-control input_invalid" placeholder="" required>
+                        <label for="searchArticles" class="label_invalid_input">Поиск</label>
+                        <input id="searchArticles" type="text" name="search" class="form-control input_invalid js-search-article-input" placeholder="" required>
                         <button type="button" class="btn form-groug-submit">
                             <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -199,6 +199,9 @@
                             Для крупных потребителей электроэнергии грядут серьезные изменения в части оплаты, так называемой «резервируемой максимальной мощности». В Минэнерго России подготовлен проект постановления Правительства РФ, предусматривающий взыскание с потребителей платы за мощность, которую они фактически не используют. То есть сумма в счетах за энергоснабжение может значительно вырасти. Когда, кому, а главное, сколько придется платить подробнее читайте в нашей статье.
                         </p>
                     </div>
+                    <a href="#" class="article-button">
+                        Читать статью
+                    </a>
                 </div>
                 <div class="article-picture">
                     <a href="#" class="article-link"></a>
@@ -236,6 +239,9 @@
                             Для крупных потребителей электроэнергии грядут серьезные изменения в части оплаты, так называемой «резервируемой максимальной мощности». В Минэнерго России подготовлен проект постановления Правительства РФ, предусматривающий взыскание с потребителей платы за мощность, которую они фактически не используют. То есть сумма в счетах за энергоснабжение может значительно вырасти. Когда, кому, а главное, сколько придется платить подробнее читайте в нашей статье.
                         </p>
                     </div>
+                    <a href="#" class="article-button">
+                        Читать статью
+                    </a>
                 </div>
                 <div class="article-picture">
                     <a href="#" class="article-link"></a>
@@ -246,6 +252,34 @@
                     </picture>
                 </div>
             </article>
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination article-pagination">
+                    <li class="page-item">
+                        <a class="page-link article-pagination-item" href="#">
+                            <svg class="article-pagination-item-icon article-pagination-item-prev" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 7L10 12L15 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link article-pagination-item" href="#">
+                            <svg class="article-pagination-item-icon article-pagination-item-next" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 7L10 12L15 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
         
     </div>

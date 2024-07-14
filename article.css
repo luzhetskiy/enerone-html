@@ -108,6 +108,11 @@
 .article-filter {
 	width: 30%;
 	min-width: 200px;
+	transition: flex 300ms ease-in-out, width 300ms ease-in-out;
+}
+
+.article-filter.is-focus {
+	width: 50%;
 }
 
 .article-filter-search {
@@ -137,6 +142,23 @@
 	transform: translateY(-50%);
 }
 
+.article-pagination {
+	margin-block: 32px;
+}
+
+.article-pagination-item {
+	padding: .375rem .375rem .375rem .25rem;
+}
+
+.article-pagination-item-icon {
+	width: 24px;
+	height: 24px;
+}
+
+.article-pagination-item-next {
+	transform: rotate(180deg);
+}
+
 @media (hover: hover) {
 	.form-groug-submit:is(:hover) {
 		color: #61B87C;
@@ -163,6 +185,11 @@
 
 	.article-filter {
 		width: 50%;
+		flex-basis: 50%;
+	}
+
+	.article-filter.is-focus {
+		flex: 1;
 	}
 
 	.article-content {
@@ -222,5 +249,9 @@
 	.form-groug-submit {
 		width: 20px;
 		height: 20px;
+	}
+
+	.article-pagination {
+		margin-block: 24px;
 	}
 }
