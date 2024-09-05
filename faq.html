@@ -278,7 +278,7 @@ var search = document.querySelector(".js-search");
 		        txtValue2 = searchAccBody[i].textContent || searchAccBody[i].innerText;
 	                if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
 	                    searchAccHeader[i].closest('.accordion-item').style.display = "";
-			    searchAccHeader[i].closest('.accordion-item').parentNode.querySelector('.lc-wrapper__title').style.display = "";
+			    searchAccHeader[i].closest('.accordion-item').parentNode.querySelector('.lc-wrapper__title').style.display = "block!important";
 	                } else {
 			    searchAccHeader[i].closest('.accordion-item').style.display = "none";
 			    searchAccHeader[i].closest('.accordion-item').parentNode.querySelector('.lc-wrapper__title').style.display = "none";
