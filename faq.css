@@ -4,6 +4,9 @@
     justify-content: space-between;
     margin: 27px 0px;
 }
+.faq-title .lc-wrapper__title{
+   width: 59%;
+}
 .faq-title .search__box {
     margin: 27px 0px;
     width: 41%;
