@@ -279,7 +279,7 @@ var search = document.querySelector(".js-search");
 	                if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
 	                    searchAccHeader[i].closest('.accordion-item').style.display = "";
 	                } else {
-			     searchAccHeader[i].closest('.lc-wrapper__title').style.display = "none";
+			    searchAccHeader[i].closest('.accordion-item').style.display = "none";
 	                }
 	     	}
             }
