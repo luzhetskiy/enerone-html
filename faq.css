@@ -2,7 +2,6 @@
     display: flex;
     flex-wrap: wrap; 
     justify-content: space-between;
-    margin: 27px 0px;
 }
 .faq-title .lc-wrapper__title{
    width: 59%;
