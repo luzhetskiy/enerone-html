@@ -275,7 +275,7 @@ var search = document.querySelector(".js-search");
             for (let i = 0; i < searchAccHeader.length; i++) {
 		    for (let b = 0; b < searchAccBody.length; b++){
 	                txtValue = searchAccHeader[i].textContent || searchAccHeader[i].innerText;
-		        txtValue2 = searchAccBody[b].textContent || searchAccBody[b].innerText;
+		        txtValue2 = searchAccBody[i].textContent || searchAccBody[i].innerText;
 	                if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
 			    var accItem =  searchAccHeader[i].closest('.accordion-item');
 	                    searchAccHeader[i].closest('.accordion-item').style.display = "";
