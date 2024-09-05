@@ -107,6 +107,9 @@
 	.faq-content .accordion-button{
 		font-size: 20px;
 	}
+	.faq-content .lc-wrapper__title {
+	        margin-bottom: 25px;
+	    }
 	.faq-title .search__box .search {
     		padding: 11px 15px !important;
 	}
