@@ -263,11 +263,23 @@ width: 30px;
             
 <div class="container faq-title">
     <h1 class="lc-wrapper__title">Часто задаваемые вопросы</h1>
-    <div class="search__box"><input type="search" placeholder="SEARCH" class="search"></div>
+    <div class="search__box"><input type="search" placeholder="SEARCH" class="search js-search"></div>
 </div>
 <!-- скрипт для поиска -->
 <script>
-
+var search = document.querySelector(".js-search");
+  search.addEventListener('input', function(e){
+            var filter = e.target.value.toUpperCase();
+            var searchItem = document.querySelectorAll(".faq-content .accordion-header");
+            for (let i = 0; i < searchItem.length; i++) {
+                txtValue = searchItem[i].textContent || searchItem[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    searchItem[i].style.display = "";
+                } else {
+                    searchItem[i].style.display = "none";
+                }
+            }
+        })
 </script>
 <!-- конец скрипт для поиска -->
 <div class="container mb-4 faq-content">
