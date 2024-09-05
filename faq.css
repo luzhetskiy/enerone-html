@@ -101,7 +101,7 @@
 	}
 }
 @media (max-width: 576px) {
-	    .lc-wrapper__title {
+	   .faq-content .lc-wrapper__title {
 	        font-size: 28px;
 	    }
 	.faq-content .accordion-button{
