@@ -275,11 +275,13 @@ var search = document.querySelector(".js-search");
             for (let i = 0; i < searchAccHeader.length; i++) {
 		    for (let b = 0; b < searchAccBody.length; b++){
 	                txtValue = searchAccHeader[i].textContent || searchAccHeader[i].innerText;
-		        txtValue2 = searchAccBody[i].textContent || searchAccBody[i].innerText;
+		        txtValue2 = searchAccBody[b].textContent || searchAccBody[b].innerText;
 	                if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
 	                    searchAccHeader[i].closest('.accordion-item').style.display = "";
+			    searchAccHeader[i].closest('.accordion-item').closest('.lc-wrapper__title').style.display = "";
 	                } else {
 	                     searchAccHeader[i].closest('.accordion-item').style.display = "none";
+			     searchAccHeader[i].closest('.accordion-item').closest('.lc-wrapper__title').style.display = "none";
 	                }
 	     	}
             }
