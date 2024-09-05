@@ -277,11 +277,14 @@ var search = document.querySelector(".js-search");
 	                txtValue = searchAccHeader[i].textContent || searchAccHeader[i].innerText;
 		        txtValue2 = searchAccBody[b].textContent || searchAccBody[b].innerText;
 	                if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
+			    var accItem =  searchAccHeader[i].closest('.accordion-item');
 	                    searchAccHeader[i].closest('.accordion-item').style.display = "";
-			    searchAccHeader[i].closest('.lc-wrapper__title').style.display = "";
+			    accItem.closest('.lc-wrapper__title').style.display = "";
 	                } else {
+			     var accItem =  searchAccHeader[i].closest('.accordion-item');
 	                     searchAccHeader[i].closest('.accordion-item').style.display = "none";
 			     searchAccHeader[i].closest('.lc-wrapper__title').style.display = "none";
+			     accItem.closest('.lc-wrapper__title').style.display = "none";
 	                }
 	     	}
             }
