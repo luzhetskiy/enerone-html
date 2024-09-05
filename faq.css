@@ -1,3 +1,4 @@
+/*  правки 05.09.2024 */
 .faq-title{
     display: flex;
     flex-wrap: wrap; 
@@ -15,7 +16,7 @@
     width: 100%;
     height: 100%;
 }
-
+/* конец  правки 05.09.2024 */
 .faq-content{
     padding-bottom: 50px;
 }
@@ -88,6 +89,7 @@
 }
 
 }
+/*  правки 05.09.2024 */
 @media (max-width: 991px) {
 	.faq-title .lc-wrapper__title,
 	.faq-title .search__box{
@@ -115,3 +117,4 @@
 	}
 	
 }
+/* конец правки 05.09.2024 */
