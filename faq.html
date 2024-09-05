@@ -270,16 +270,16 @@ width: 30px;
 var search = document.querySelector(".js-search");
   search.addEventListener('input', function(e){
             var filter = e.target.value.toUpperCase();
-            var searchAccHeader = document.querySelectorAll(".faq-content .accordion-header");
-	    var searchAccBody = document.querySelectorAll(".faq-content .accordion-body");
+            var searchAccHeader = document.querySelectorAll(".accordion-header");
+	    var searchAccBody = document.querySelectorAll(".accordion-body");
             for (let i = 0; i < searchAccHeader.length; i++) {
 		    for (let b = 0; b < searchAccBody.length; b++){
 	                txtValue = searchAccHeader[i].textContent || searchAccHeader[i].innerText;
 		        txtValue2 = searchAccBody[i].textContent || searchAccBody[i].innerText;
 	                if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
-	                    searchAccHeader[i].style.display = "";
+	                    searchAccHeader[i].closest('.accordion-item').style.display = "";
 	                } else {
-	                    searchAccHeader[i].style.display = "none";
+	                     searchAccHeader[i].closest('.accordion-item').style.display = "none";
 	                }
 	     	}
             }
