@@ -1,3 +1,23 @@
+/*  правки 05.09.2024 */
+.faq-title{
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+}
+.faq-title .lc-wrapper__title{
+   width: 59%;
+}
+.faq-title .search__box {
+    margin: 27px 0px;
+    width: 41%;
+}
+.faq-title .search__box .search{
+    padding: 11px 29px;
+    width: 100%;
+    height: 100%;
+    font-size: 16.6px!important;
+}
+/* конец  правки 05.09.2024 */
 .faq-content{
     padding-bottom: 50px;
 }
@@ -70,3 +90,32 @@
 }
 
 }
+/*  правки 05.09.2024 */
+@media (max-width: 991px) {
+	.faq-title .lc-wrapper__title,
+	.faq-title .search__box{
+	   width: 100%;
+	}
+	.faq-title .lc-wrapper__title{
+		margin-bottom: 10px;
+	}
+	.faq-title .search__box {
+    		margin: 9px 0px;
+	}
+}
+@media (max-width: 576px) {
+	   .faq-content .lc-wrapper__title {
+	        font-size: 28px;
+	    }
+	.faq-content .accordion-button{
+		font-size: 20px;
+	}
+	.faq-content .lc-wrapper__title {
+	        margin-bottom: 25px;
+	    }
+	.faq-title .search__box .search {
+    		padding: 11px 15px !important;
+	}
+	
+}
+/* конец правки 05.09.2024 */
