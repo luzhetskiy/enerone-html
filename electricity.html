@@ -29,6 +29,8 @@
         
         <link rel="stylesheet" href="new.css?v9fba079" type="text/css">
         <link rel="stylesheet" href="lk.css?v9fba079" type="text/css">
+        <link rel="stylesheet" href="energo.css" type="text/css">
+        <link rel="stylesheet" href="calc.css" type="text/css">
         
         
 <link rel="stylesheet" href="/static/scripts/ui/OwlCarousel2/owl.carousel.min.css"><link rel="stylesheet" href="/static/scripts/ui/OwlCarousel2/owl.theme.default.min.css">
@@ -217,6 +219,63 @@
                             </div>
                         </div>
                     </div>
+
+                    <section class="sc-rate">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="w-100">
+                                    <div class="title--box">
+                                        <h2>УЗНАЙТЕ СВОЙ ТАРИФ 
+                                            НА ЭЛЕКТРОЭНЕРГИЮ</h2>
+                                    </div>
+                                </div>
+                                <div class="col-lg-9 order-lg-3">
+                                    <div class="info-box">
+                                        <div class="row">
+                                            <div class="col-xl-5 col-md-6 p-lg-0">
+                                                <div class="n-form__item calc-form mb-md-0">
+                                                    <div class="form-element form-element_small">
+                                                        <label for="id_region" class="form-element__label">
+                                                            Выберите регион
+                                                        </label>
+                                                        <select id="id_region" class="form-element__select" name="region" required></select>
+                                                    </div>
+                                                    <div class="form-element form-element_small">
+                                                        <label for="id_power_supplier" class="form-element__label">
+                                                            Выберите своего поставщика
+                                                        </label>
+                                                        <select id="id_power_supplier" class="form-element__select" name="power_supplier" required></select>
+                                                    </div>
+                                                    <div class="form-element form-element_small">
+                                                        <label for="id_maximum_power" class="form-element__label">
+                                                            Выберите категорию макс. мощности
+                                                        </label>
+                                                        <select id="id_maximum_power" class="form-element__select" name="maximum_power" required></select>
+                                                    </div>
+                                                    <div class="form-element form-element_small">
+                                                        <label for="id_consumption_volume" class="form-element__label"> 
+                                                            Ваш среднемесячный объем потребления
+                                                        </label>
+                                                        <input type="text" id="id_consumption_volume" class="form-element__input" name="consumption_volume" maxlength="128" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-5 col-lg-4 col-md-6">
+                                                <div class="rate-info h-100 d-flex flex-column py-0">
+                                                    <p>Возможное Экономия в год: <span><span id="id_result_display">0</span> ₽</span></p>
+                                                    <div class="mt-auto">
+                                                        <a href="#" class="btn btn-primary getRate">Узнать тариф</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 order-lg-2"></div>
+                            </div>
+                        </div>
+                    </section>
+
                     <div class="service-connect">
                         <div class="container">
                             <div class="row">
@@ -639,11 +698,28 @@
 
         </div>
 
-
-
         <script src="/static/scripts/jquery.min.js"></script>
         <script type="text/javascript" src="/jsi18n/"></script>
-<script src="/static/scripts/babel.min.js"></script><script src="/static/scripts/popper.min.js"></script><script src="/static/scripts/bootstrap.min.js"></script><script src="/static/scripts/bootstrap-select.js"></script><script src="/static/scripts/jquery.validate.js"></script><script src="/static/scripts/additional-methods.js"></script><script src="/static/scripts/messages_ru.js"></script><script src="/static/scripts/daterangepicker.js"></script><script src="/static/scripts/select2.js"></script><script src="/static/scripts/imask.min.js"></script><script src="/static/scripts/js.cookie.js"></script><script src="/static/scripts/csrf.js"></script><script src="/static/scripts/vendor/jquery-validation/jquery.validate.js"></script><script src="/static/scripts/vendor/jquery-validation/additional-methods.js"></script><script src="/static/scripts/vendor/jquery-validation/localization/messages_ru.min.js"></script><script src="/static/feedback/js/feedback.js?v9fba079"></script><script src="/static/libs/popper.min.js?v9fba079"></script><script src="/static/libs/tippy-bundle.umd.min.js?v9fba079"></script><script src="/static/lk/js/lk.js?v9fba079"></script><script src="/static/scripts/bootstrap.bundle.min.js"></script>
+        <script src="/static/scripts/babel.min.js"></script>
+        <script src="/static/scripts/popper.min.js"></script>
+        <script src="/static/scripts/bootstrap.min.js"></script>
+        <script src="/static/scripts/bootstrap-select.js"></script>
+        <script src="/static/scripts/jquery.validate.js"></script>
+        <script src="/static/scripts/additional-methods.js"></script>
+        <script src="/static/scripts/messages_ru.js"></script>
+        <script src="/static/scripts/daterangepicker.js"></script>
+        <script src="/static/scripts/select2.js"></script>
+        <script src="/static/scripts/imask.min.js"></script>
+        <script src="/static/scripts/js.cookie.js"></script>
+        <script src="/static/scripts/csrf.js"></script>
+        <script src="/static/scripts/vendor/jquery-validation/jquery.validate.js"></script>
+        <script src="/static/scripts/vendor/jquery-validation/additional-methods.js"></script>
+        <script src="/static/scripts/vendor/jquery-validation/localization/messages_ru.min.js"></script>
+        <script src="/static/feedback/js/feedback.js?v9fba079"></script>
+        <script src="/static/libs/popper.min.js?v9fba079"></script>
+        <script src="/static/libs/tippy-bundle.umd.min.js?v9fba079"></script>
+        <script src="/static/lk/js/lk.js?v9fba079"></script>
+        <script src="/static/scripts/bootstrap.bundle.min.js"></script>
 
 
 
@@ -652,85 +728,84 @@
         <script src="/static/rusfdev/scripts/global.js?v9fba079"></script>
         <script src="/static/scripts/jquery.mask.min.js"></script>
         <script src="/static/scripts/custom.js?v9fba079"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="  crossorigin="anonymous"></script>
+        <script src="calc.js"></script>
+        <script src="global.js"></script>
+        <script src="custom.js"></script>
+        <script src="lk.js"></script>
 
-        
-        
-
-        
-<div class="popup popup-form" id="feedback" data-scroll-lock-scrollable data-scroll-lock-fill-gap>
-    <div class="popup-block">
-        <div class="popup-block__container popup-form__container">
-            <h6 class="popup__title">Заказ обратного звонка</h6>
-            <a class="popup__close" href="javascript:void(0);" data-popup-close></a>
-            <form id="callme-request-form" class="n-form feedback-request-form" method="POST" action="/feedback/callme_request/">
-                <input type="hidden" name="csrfmiddlewaretoken" value="RuJh72LJSFovhzlKfNC20G3d8vdVQOfwVfjGU5dUqn4p1ioaGRww9en2F8zPPg0o">
-                <div class="n-form__container row">
-                    
-                    <div class="col-12">
-                        <div class="form-group">
-                            <label for="id_name">Имя</label>
-                            <input type="text" name="name" maxlength="64" class="form-control" required id="id_name">
+        <div class="popup popup-form" id="feedback" data-scroll-lock-scrollable data-scroll-lock-fill-gap>
+            <div class="popup-block">
+                <div class="popup-block__container popup-form__container">
+                    <h6 class="popup__title">Заказ обратного звонка</h6>
+                    <a class="popup__close" href="javascript:void(0);" data-popup-close></a>
+                    <form id="callme-request-form" class="n-form feedback-request-form" method="POST" action="/feedback/callme_request/">
+                        <input type="hidden" name="csrfmiddlewaretoken" value="RuJh72LJSFovhzlKfNC20G3d8vdVQOfwVfjGU5dUqn4p1ioaGRww9en2F8zPPg0o">
+                        <div class="n-form__container row">
                             
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-group">
-                            <label for="id_phone">Телефон</label>
-                            <input type="text" name="phone" maxlength="32" class="form-control" required id="id_phone">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="id_name">Имя</label>
+                                    <input type="text" name="name" maxlength="64" class="form-control" required id="id_name">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="id_phone">Телефон</label>
+                                    <input type="text" name="phone" maxlength="32" class="form-control" required id="id_phone">
+                                    
+                                </div>
+                            </div>
                             
-                        </div>
-                    </div>
-                    
-                    
-                    
+                            
+                            
 
-                    
-<div class="col-sm-8 offset-sm-2">
-    <div class="form-check form-check-custom">
-        <input class="agree-form-field form-check-input" type="checkbox" value="" id="callme_form_agree_field">
-        <label class="form-check-label" for="callme_form_agree_field">
-            Даю <a href="/personal-data-agrement/">согласие</a> на обработку персональных данных в соответствии с <a href="/legal-notice-and-privacy-policy/">политикой</a>
-        </label>
-        <div class="form-group-message form-group-message-inline form-group-message-warning"
-             style="display: none;">
-            <a href="javascript:;" class="msg_close_btn"></a>
-            <p>Обязательное поле</p>
-        </div>
-    </div>
-</div>
-
-
-                    <div class="col-sm-6 n-form__item">
-                        <button class="button button_style-1 w-100" type="submit">Отправить</button>
-                    </div>
-                    <div class="col-auto n-form__item d-sm-inline-block d-none">
-                        <button class="button button_style-2 w-100" type="button" aria-label="close popup" data-popup-close>Закрыть</button>
-                    </div>
+                            
+        <div class="col-sm-8 offset-sm-2">
+            <div class="form-check form-check-custom">
+                <input class="agree-form-field form-check-input" type="checkbox" value="" id="callme_form_agree_field">
+                <label class="form-check-label" for="callme_form_agree_field">
+                    Даю <a href="/personal-data-agrement/">согласие</a> на обработку персональных данных в соответствии с <a href="/legal-notice-and-privacy-policy/">политикой</a>
+                </label>
+                <div class="form-group-message form-group-message-inline form-group-message-warning"
+                    style="display: none;">
+                    <a href="javascript:;" class="msg_close_btn"></a>
+                    <p>Обязательное поле</p>
                 </div>
-                <script src="https://www.google.com/recaptcha/api.js?render=6LfIVRUaAAAAANoZMxYI0CC7olOmjwZe7VEpDeTo"></script>
-<script type="text/javascript">
-    grecaptcha.ready(function() {
-        grecaptcha.execute('6LfIVRUaAAAAANoZMxYI0CC7olOmjwZe7VEpDeTo', {action: 'form'})
-        .then(function(token) {
-            console.log("reCAPTCHA validated for 'data-widget-uuid=\"634338aab76547a99003b58f7c813f88\"'. Setting input value...")
-            var element = document.querySelector('.g-recaptcha[data-widget-uuid="634338aab76547a99003b58f7c813f88"]');
-            element.value = token;
-        });
-    });
-</script>
-
-<input class="g-recaptcha"
-    type="hidden"
-    name="captcha"
-     required_score="None" data-sitekey="6LfIVRUaAAAAANoZMxYI0CC7olOmjwZe7VEpDeTo" required id="id_captcha" data-widget-uuid="634338aab76547a99003b58f7c813f88" data-callback="onSubmit_634338aab76547a99003b58f7c813f88" data-size="normal"
->
-            </form>
+            </div>
         </div>
-    </div>
-</div>
 
 
-        
+                            <div class="col-sm-6 n-form__item">
+                                <button class="button button_style-1 w-100" type="submit">Отправить</button>
+                            </div>
+                            <div class="col-auto n-form__item d-sm-inline-block d-none">
+                                <button class="button button_style-2 w-100" type="button" aria-label="close popup" data-popup-close>Закрыть</button>
+                            </div>
+                        </div>
+                        <script src="https://www.google.com/recaptcha/api.js?render=6LfIVRUaAAAAANoZMxYI0CC7olOmjwZe7VEpDeTo"></script>
+        <script type="text/javascript">
+            grecaptcha.ready(function() {
+                grecaptcha.execute('6LfIVRUaAAAAANoZMxYI0CC7olOmjwZe7VEpDeTo', {action: 'form'})
+                .then(function(token) {
+                    console.log("reCAPTCHA validated for 'data-widget-uuid=\"634338aab76547a99003b58f7c813f88\"'. Setting input value...")
+                    var element = document.querySelector('.g-recaptcha[data-widget-uuid="634338aab76547a99003b58f7c813f88"]');
+                    element.value = token;
+                });
+            });
+        </script>
+
+        <input class="g-recaptcha"
+            type="hidden"
+            name="captcha"
+            required_score="None" data-sitekey="6LfIVRUaAAAAANoZMxYI0CC7olOmjwZe7VEpDeTo" required id="id_captcha" data-widget-uuid="634338aab76547a99003b58f7c813f88" data-callback="onSubmit_634338aab76547a99003b58f7c813f88" data-size="normal"
+        >
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <!-- Yandex.Metrika counter -->
         <script type="text/javascript" >
             (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -747,29 +822,23 @@
         </script>
         <noscript><div><img src="https://mc.yandex.ru/watch/51638033" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
         <!-- /Yandex.Metrika counter -->
-        
 
-        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-            
-        </svg>
-        
-        
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"></svg>
+
         <div class="popup popup-vtb" id="vtbpopup" data-scroll-lock-scrollable data-scroll-lock-fill-gap>
-    <div class="popup-block">
-        <div class="popup-block__container popup-form__container text-center">
-            <h4>Ваша организация является клиентом Банка ВТБ?</h4>
-            <a class="popup__close" href="javascript:void(0);" data-popup-close></a>
-            <div class="vtb-popup-options">
-                <a target="_blank"
-                   href="https://db.vtb.ru/login?returtTo=/credits/express/new/newenergy">Да</a>
-                <a target="_blank"
-                   href="https://kabinet.vtb.ru/ui/smb/smep/credits?src=newenergy">Нет</a>
+            <div class="popup-block">
+                <div class="popup-block__container popup-form__container text-center">
+                    <h4>Ваша организация является клиентом Банка ВТБ?</h4>
+                    <a class="popup__close" href="javascript:void(0);" data-popup-close></a>
+                    <div class="vtb-popup-options">
+                        <a target="_blank"
+                        href="https://db.vtb.ru/login?returtTo=/credits/express/new/newenergy">Да</a>
+                        <a target="_blank"
+                        href="https://kabinet.vtb.ru/ui/smb/smep/credits?src=newenergy">Нет</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-
-        
 
     </body>
 </html>

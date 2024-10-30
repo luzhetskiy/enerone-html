@@ -8854,6 +8854,7 @@
   .select2-container--disabled:after {
     content: "";
     display: block;
+    border-radius: 7px;
     position: absolute;
     top: 0;
     right: 0;
