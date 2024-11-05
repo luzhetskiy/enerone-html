@@ -21,7 +21,7 @@ function calculateResult() {
 	const percentage = getPercentage(consumptionVolume)
 
 	const result = consumptionVolume * maxPowerValue * percentage * 12
-	resultDisplay.text(Math.trunc(result))
+	resultDisplay.text(Math.trunc(result).toLocaleString('ru-RU'))
 }
 
 // Функция для обновления powerSupplierSelect и maxPowerSelect
@@ -62,8 +62,9 @@ function updateMaxPowerSelect() {
 	// Проверяем, были ли найдены данные
 	if (filteredData.length > 0) {
 		const dataItem = filteredData[0]
-		Object.keys(dataItem).forEach(key => {
-			if (key !== 'Регион' && key !== 'ГП') { // Исключаем не относящиеся к мощности поля
+		const neededKeys = ['до 670 кВтч', 'от 670 до 10', 'свыше 10']
+		neededKeys.forEach(key => {
+			if (dataItem.hasOwnProperty(key)) {
 				const value = dataItem[key]
 				maxPowerSelect.append(new Option(key, value))
 			}

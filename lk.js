@@ -141,14 +141,17 @@ function formElements() {
   }); //selects
 
   var $selects = $('.form-element__select');
-  $selects.select2({
-    theme: 'new-select',
-    minimumResultsForSearch: Infinity,
-    placeholder: {
-      id: '',
-      text: ''
-    },
-    allowClear: true
+  $selects.each(function() {
+      var $select = $(this);
+      $select.select2({
+          theme: 'new-select',
+          minimumResultsForSearch: $select.is('[data-has-search]') ? 0 : Infinity,
+          placeholder: {
+              id: '',
+              text: ''
+          },
+          allowClear: true
+      });
   });
   $selects.on('select2:select select2:open select2:close', function (event) {
     var $this = $(event.target),
