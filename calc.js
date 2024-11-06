@@ -20,8 +20,21 @@ function calculateResult() {
 	const maxPowerValue = parseFloat(maxPowerSelect.val().replace(',', '.')) || 0
 	const percentage = getPercentage(consumptionVolume)
 
+	// Проверяем, выбраны ли все необходимые поля
+	if (!regionSelect.val() || !powerSupplierSelect.val() || !maxPowerSelect.val() || consumptionVolume === 0) {
+		resultDisplay.text('') // Очищаем поле результата, если выбор не завершён
+		return
+	}
+
+	// Рассчитываем экономию
 	const result = consumptionVolume * maxPowerValue * percentage * 12
-	resultDisplay.text(Math.trunc(result).toLocaleString('ru-RU'))
+
+	// Проверяем, есть ли экономия
+	if (result > 0) {
+		resultDisplay.text(`Возможная экономия в год: ${Math.trunc(result).toLocaleString('ru-RU')} ₽`)
+	} else {
+		resultDisplay.text('К сожалению, при таком объеме потребления экономии от работы на оптовом рынке не будет.')
+	}
 }
 
 // Функция для обновления powerSupplierSelect и maxPowerSelect
@@ -95,7 +108,7 @@ $(document).ready(function () {
 	maxPowerSelect.on('change', calculateResult)
 	regionSelect.on('change', function () {
 		powerSupplierSelect.closest('.form-element').removeClass('filled')
-		
+
 		updatePowerSupplierSelect()
 		updateMaxPowerSelect() // Сбросить maxPowerSelect при изменении региона
 	})
