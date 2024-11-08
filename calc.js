@@ -122,11 +122,16 @@ $(document).ready(function () {
 			jsonData = data // Сохраняем данные в глобальную переменную
 
 			// Получаем уникальные регионы для заполнения selectов
-			const regions = [...new Set(jsonData.map(item => item['Регион']))].sort()
+			const regions = [...new Set(jsonData.map(item => item['Регион']))]
 
 			// Заполняем regionSelect
 			regionSelect.append(new Option('', '')) // Пустая опция сначала
-			regions.forEach(region => {
+
+			// Фильтруем и сортируем регионы
+			const sortedRegions = regions
+				.sort((a, b) => a.localeCompare(b)) // Алфавитная сортировка остальных регионов
+			// Добавляем отсортированные регионы в regionSelect
+			sortedRegions.forEach(region => {
 				regionSelect.append(new Option(region, region))
 			})
 		},
