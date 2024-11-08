@@ -225,8 +225,7 @@
                             <div class="row">
                                 <div class="w-100">
                                     <div class="title--box">
-                                        <h2>УЗНАЙТЕ СВОЙ ТАРИФ 
-                                            НА ЭЛЕКТРОЭНЕРГИЮ</h2>
+                                        <h2>УЗНАЙТЕ ВОЗМОЖНУЮ ЭКОНОМИЮ ОТ РАБОТЫ НА ОПТОВОМ РЫНКЕ</h2>
                                     </div>
                                 </div>
                                 <div class="col-lg-9 order-lg-3">
@@ -276,8 +275,7 @@
                     <div class="service-connect">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-6"></div>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="btn-box">
                                         <a href="" class="btn primary-btn">Подключить</a>
                                     </div>
@@ -319,8 +317,10 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="features">
-                    <div class="container">
+                    <div class="features-bg-top"></div>
+                    <div class="container" style="padding-top: 30px;">
                         <div class="row">
                             <div class="col-12">
                                 <h2>ДОПОЛНИТЕЛЬНЫЕ ВОЗМОЖНОСТИ:</h2>
@@ -455,15 +455,12 @@
                     width: 100%;
                     height: 100%;
                     align-items: flex-end;
-                    justify-content: flex-end;
+                    justify-content: center;
                 }
                 .sc-electricity .service-connect{
                     padding-top: 27px;
                     padding-bottom: 27px;
-                    background-image: url(img/electricity-bg-2.webp);
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    background-position: center center;
+                    background-color: #ffea85;
                 }
                 .sc-electricity .services-2{
                     background-image: linear-gradient(#F7C145, #83C596);
@@ -473,6 +470,8 @@
                     line-height: 24px;
                     position: relative;
                     overflow: hidden;
+                    padding-top: 30px;
+                    padding-bottom: 30px;
                 }
                 .sc-electricity .service-box-2 {
                     padding-top: 40px;
@@ -483,13 +482,13 @@
                     padding-left: 50px;
                     padding-right: 50px;
                     background-color: #fff;
+                    border-radius: 7px;
                 }
                 .sc-electricity .service-box-2 ol{
                     padding-left: 20px;
                 }
                 .sc-electricity .features{
                     background-color: #F7C145;
-                    padding-top: 30px;
                     color: #4A4A4A;
                 }
                 .sc-electricity .features h2{
@@ -526,6 +525,13 @@
                     background-position: center center;
                     height: 70px;
                     margin-top: 30px;
+                }
+                .sc-electricity .features-bg-top{
+                    background-image: url(img/electricity-bg.webp);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center center;
+                    height: 70px;
                 }
 
                 @media (max-width: 1200px) {
@@ -781,44 +787,12 @@
                                 <button class="button button_style-2 w-100" type="button" aria-label="close popup" data-popup-close>Закрыть</button>
                             </div>
                         </div>
-                        <script src="https://www.google.com/recaptcha/api.js?render=6LfIVRUaAAAAANoZMxYI0CC7olOmjwZe7VEpDeTo"></script>
-        <script type="text/javascript">
-            grecaptcha.ready(function() {
-                grecaptcha.execute('6LfIVRUaAAAAANoZMxYI0CC7olOmjwZe7VEpDeTo', {action: 'form'})
-                .then(function(token) {
-                    console.log("reCAPTCHA validated for 'data-widget-uuid=\"634338aab76547a99003b58f7c813f88\"'. Setting input value...")
-                    var element = document.querySelector('.g-recaptcha[data-widget-uuid="634338aab76547a99003b58f7c813f88"]');
-                    element.value = token;
-                });
-            });
-        </script>
 
-        <input class="g-recaptcha"
-            type="hidden"
-            name="captcha"
-            required_score="None" data-sitekey="6LfIVRUaAAAAANoZMxYI0CC7olOmjwZe7VEpDeTo" required id="id_captcha" data-widget-uuid="634338aab76547a99003b58f7c813f88" data-callback="onSubmit_634338aab76547a99003b58f7c813f88" data-size="normal"
-        >
                     </form>
                 </div>
             </div>
         </div>
 
-        <!-- Yandex.Metrika counter -->
-        <script type="text/javascript" >
-            (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-                m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-            ym(51638033, "init", {
-                id:51638033,
-                clickmap:true,
-                trackLinks:true,
-                accurateTrackBounce:true,
-                webvisor:true
-            });
-        </script>
-        <noscript><div><img src="https://mc.yandex.ru/watch/51638033" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-        <!-- /Yandex.Metrika counter -->
 
         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"></svg>
 
