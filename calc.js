@@ -129,7 +129,7 @@ $(document).ready(function () {
 
 			// Фильтруем и сортируем регионы
 			const sortedRegions = regions
-				.sort((a, b) => a.localeCompare(b)) // Алфавитная сортировка остальных регионов
+				.sort((a, b) => a.localeCompare(b, 'ru')) // Алфавитная сортировка остальных регионов
 			// Добавляем отсортированные регионы в regionSelect
 			sortedRegions.forEach(region => {
 				regionSelect.append(new Option(region, region))
