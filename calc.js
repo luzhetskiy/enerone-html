@@ -14,9 +14,21 @@ function getPercentage(consumptionVolume) {
 	return 0.9
 }
 
+function formatNumber(value) {
+	// Удаляем все символы, кроме цифр
+	const cleanedValue = value.replace(/\D/g, '')
+	// Форматируем число с разделителями тысяч
+	return cleanedValue.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+}
+
+// Функция для получения числа без форматирования
+function parseFormattedNumber(value) {
+	return parseFloat(value.replace(/\s/g, '')) || 0
+}
+
 // Функция расчета результата
 function calculateResult() {
-	const consumptionVolume = parseFloat(consumptionVolumeInput.val()) || 0
+	const consumptionVolume = parseFormattedNumber(consumptionVolumeInput.val())
 	const maxPowerValue = parseFloat(maxPowerSelect.val().replace(',', '.')) || 0
 	const percentage = getPercentage(consumptionVolume)
 
@@ -104,7 +116,18 @@ $(document).ready(function () {
 	powerSupplierSelect.prop('disabled', true).closest('.form-element').removeClass('filled')
 
 	// Обработчики для пересчета при изменении значений
-	consumptionVolumeInput.on('input', calculateResult)
+	consumptionVolumeInput.on('input', function () {
+		const input = $(this)
+		const cursorPosition = input[0].selectionStart
+
+		const formattedValue = formatNumber(input.val())
+		input.val(formattedValue)
+
+		const diff = formattedValue.length - input.val().length
+		input[0].setSelectionRange(cursorPosition + diff, cursorPosition + diff)
+
+		calculateResult()
+	})
 	maxPowerSelect.on('change', calculateResult)
 	regionSelect.on('change', function () {
 		powerSupplierSelect.closest('.form-element').removeClass('filled')
