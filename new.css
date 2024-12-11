@@ -1555,6 +1555,10 @@
   .offset-11 {
     margin-left: 91.6666666667%; }
   
+  .gap-y-3 {
+    column-gap: 2rem;
+  }
+
   @media (min-width: 576px) {
     .col-sm {
       -ms-flex-preferred-size: 0;
@@ -13476,7 +13480,9 @@
   .contacts_page__wrapper h1,
   .custom_request_form__wrapper h1,
   .contacts_page__wrapper h2,
-  .custom_request_form__wrapper h2 {
+  .custom_request_form__wrapper h2,
+  .contacts_page__wrapper h3,
+  .custom_request_form__wrapper h3 {
     display: block;
     width: 100%;
     max-width: 100%;
@@ -13487,6 +13493,13 @@
     line-height: 42px;
     font-weight: 500;
     color: #4A4A4A; }
+
+  .contacts_page__wrapper h3,
+  .custom_request_form__wrapper h3 {
+    font-size: 24px;
+    line-height: 1.25;
+    margin-bottom: 20px;
+  }
   
   .contacts__person__info {
     padding-top: 50px;
@@ -13514,6 +13527,11 @@
     .custom_request_form__wrapper h2 {
       font-size: 30px;
       line-height: 36px; }
+    .contacts_page__wrapper h3,
+    .custom_request_form__wrapper h3 {
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
     .contacts__person__info {
       padding-top: 35px;
       font-size: 16px;

@@ -52,7 +52,7 @@ $(window).resize(function (event) {
 }); // если в них есть данные, то приводим к активному виду
 
 function prepareInputs() {
-    $('input , textarea').not('.input_placeholder, .form-checkbox__input, .form-radio__input').each(function (index) {
+    $('input , textarea').not('.input_placeholder, .form-checkbox__input, .form-radio__input, .form-check-input').each(function (index) {
         var self = $(this);
         var label = self.parent().eq(0).find('label[for="' + self.attr('id') + '"]');
 
