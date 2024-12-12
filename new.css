@@ -13731,13 +13731,13 @@
     padding-bottom: 20px;
     position: relative; }
   
-  .feedback__page__wrapper .radio-custom label,
   .custom_request_form__wrapper .radio-custom label {
     position: initial;
     left: initial;
     top: initial;
     bottom: initial;
-    right: initial; }
+    right: initial;
+  }
   
   .feedback__page__wrapper .form__action__message,
   .custom_request_form__wrapper .form__action__message {
@@ -13770,7 +13770,6 @@
       margin: 0 !important;
       padding-bottom: 10px;
       position: relative; }
-    .feedback__page__wrapper .radio-custom label,
     .custom_request_form__wrapper .radio-custom label {
       position: initial;
       left: initial;
