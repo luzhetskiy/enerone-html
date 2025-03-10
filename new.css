@@ -21500,7 +21500,7 @@ input.error,
 
 .custom-table-cell-status button.accordion-button {
   gap: 4px;
-  color: #c69500;
+  color: #1e7e34;
   cursor: pointer;
 }
 
@@ -21514,7 +21514,7 @@ input.error,
 }
 
 .custom-table-cell-status p.accordion-button {
-  color: #1e7e34;
+  color: #c69500;
 }
 
 .response-status p:not(:last-child) {
