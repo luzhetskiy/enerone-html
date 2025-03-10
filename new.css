@@ -21501,6 +21501,7 @@ input.error,
 .custom-table-cell-status button.accordion-button {
   gap: 4px;
   color: #c69500;
+  cursor: pointer;
 }
 
 .custom-table-cell-status button.accordion-button .accordion-button-icon {
