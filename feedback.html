@@ -244,8 +244,7 @@
                                             <label for="id-client-identifier-select-offer" class="form-element__label">
                                                 Номера договора
                                             </label>
-                                            <select id="id-client-identifier-select-offer" class="form-element__select" data-has-search name="offer" required
-                                                data-input-collapse-id="id-client-step-2">
+                                            <select id="id-client-identifier-select-offer" class="form-element__select" data-has-search name="offer" required>
                                                 <option value=""></option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -262,8 +261,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="id-client-identifier-input-email">Электронная почта*</label>
-                                        <input id="id-client-identifier-input-email" type="email" name="email" class="form-control default_at_pageload" placeholder="" required=""
-                                            data-input-collapse-id="id-client-step-2">
+                                        <input id="id-client-identifier-input-email" type="email" name="email" class="form-control default_at_pageload" placeholder="" required="">
                                     </div>
                                 </div>
                             </div>
@@ -273,14 +271,13 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="id-client-identifier-input-inn">ИНН</label>
-                                        <input id="id-client-identifier-input-inn" type="text" name="inn" class="form-control" placeholder="" maxlength="18"
-                                            data-input-collapse-id="id-client-step-2">
+                                        <input id="id-client-identifier-input-inn" type="text" name="inn" class="form-control" placeholder="" maxlength="18">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row"
-                                data-input-collapse-target="id-client-step-2">
+                                data-checked-target="id-client-identifier-all">
                                 <div class="col-12">
                                     <div class="mb-3 pb-1">
                                         <div class="form-element">
@@ -315,14 +312,18 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="row"
-                                data-input-collapse-target="id-client-step-3">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="id-client-textarea-feedback">Текст вопроса*</label>
+                                        <label for="id-client-textarea-feedback">Введите ваше сообщение</label>
                                         <textarea id="id-client-textarea-feedback" name="text" class="form-control default_at_pageload" required=""></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-element mb-3 pb-1">
+                                        <label for="id_attach">Файлы для сообщения (если требуется)</label>
+                                        <input type="file" name="attach" multiple="" rows="3" class="form-element__input" id="id_attach">
                                     </div>
                                 </div>
                             </div>

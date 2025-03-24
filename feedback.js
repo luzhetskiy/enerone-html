@@ -30,6 +30,17 @@ $(document).ready(function () {
 				initial ? targetElement.hide() : targetElement.slideUp(300) // Скрытие сразу при загрузке или с анимацией
 			}
 		})
+
+		// Если выбран хотя бы один вариант, показываем общий блок
+		if ($(`input[name="${name}"]:checked`).length > 0) {
+			const commonElement = $(`[data-checked-target="id-client-identifier-all"]`);
+			commonElement.find(':input').prop('disabled', false);
+			initial ? commonElement.show() : commonElement.slideDown(300);
+		} else {
+			const commonElement = $(`[data-checked-target="id-client-identifier-all"]`);
+			commonElement.find(':input').prop('disabled', true);
+			initial ? commonElement.hide() : commonElement.slideUp(300);
+		}
 	}
 
 	function toggleInputCollapseTarget(initial = false, resetInput = false) {
