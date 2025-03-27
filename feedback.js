@@ -31,87 +31,37 @@ $(document).ready(function () {
 			}
 		})
 
-		// Если выбран хотя бы один вариант, показываем общий блок
-		if ($(`input[name="${name}"]:checked`).length > 0) {
-			const commonElement = $(`[data-checked-target="id-client-identifier-all"]`);
-			commonElement.find(':input').prop('disabled', false);
-			initial ? commonElement.show() : commonElement.slideDown(300);
+		const commonElement = $(`[data-checked-target="id-client-identifier-all"]`);
+		// Если меняется client-type – смотрим, какой вариант выбран
+		if (name === "client-type") {
+			const selectedId = $(`input[name="client-type"]:checked`).attr("id");
+			if (selectedId === "id-client-type-1") {
+				commonElement.find(':input').prop('disabled', false);
+				initial ? commonElement.show() : commonElement.slideDown(300);
+			} else if (selectedId === "id-client-type-2") {
+				commonElement.find(':input').prop('disabled', true);
+				initial ? commonElement.hide() : commonElement.slideUp(300);
+			}
 		} else {
-			const commonElement = $(`[data-checked-target="id-client-identifier-all"]`);
-			commonElement.find(':input').prop('disabled', true);
-			initial ? commonElement.hide() : commonElement.slideUp(300);
-		}
-	}
-
-	function toggleInputCollapseTarget(initial = false, resetInput = false) {
-		if (resetInput) {
-			$('[data-input-collapse-id]').each(function () {
-				const collapseId = $(this).data('input-collapse-id')
-				const targetElement = $(`[data-input-collapse-target="${collapseId}"]`)
-
-				resetInputFields($(this))
-
-				targetElement.find(':input').each(function () {
-					resetInputFields($(this))
-				})
-
-				targetElement.find(':input').prop('disabled', true)
-				initial ? targetElement.hide() : targetElement.slideUp(300)
-			})
-
-			return
-		}
-
-
-		$('[data-input-collapse-id]:not(:disabled)').each(function () {
-			const collapseId = $(this).data('input-collapse-id')
-			const targetElement = $(`[data-input-collapse-target="${collapseId}"]`)
-			const value = $(this).val()
-
-			if (!$(this).hasClass('input_invalid') && value && value.trim() !== '') {
-				targetElement.find(':input').prop('disabled', false)
-				initial ? targetElement.show() : targetElement.slideDown(300)
+			// Для остальных групп (например, client-identifier) оставляем прежнюю логику
+			if ($(`input[name="${name}"]:checked`).length > 0) {
+				commonElement.find(':input').prop('disabled', false);
+				initial ? commonElement.show() : commonElement.slideDown(300);
 			} else {
-				targetElement.find(':input').prop('disabled', true)
-				initial ? targetElement.hide() : targetElement.slideUp(300)
+				commonElement.find(':input').prop('disabled', true);
+				initial ? commonElement.hide() : commonElement.slideUp(300);
 			}
-
-			const collapseIdNumber = parseInt(collapseId.match(/\d+/))
-
-			if (!value.trim()) {
-				$('[data-input-collapse-target]').each(function () {
-					const targetId = $(this).data('input-collapse-target')
-					const targetIdNumber = parseInt(targetId.match(/\d+/))
-
-					if (targetIdNumber > collapseIdNumber) {
-						initial ? targetElement.hide() : targetElement.slideUp(300)
-						targetElement.find(':input').each(function () {
-							resetInputFields($(this))
-						})
-						$(this).find(':input').each(function () {
-							resetInputFields($(this))
-						})
-					}
-				})
-			}
-		})
+		}
 	}
 
 	toggleCheckedTarget('client-type', true)
 	toggleCheckedTarget('client-identifier', true)
-	toggleInputCollapseTarget(false, true)
 
 	$('input[name="client-type"]').on('change', function () {
 		toggleCheckedTarget('client-type')
-		toggleInputCollapseTarget(false, true)
 	})
 
 	$('input[name="client-identifier"]').on('change', function () {
 		toggleCheckedTarget('client-identifier')
-		toggleInputCollapseTarget(false, true)
-	})
-
-	$(document).on('change keyup', '[data-input-collapse-id]', function () {
-		toggleInputCollapseTarget()
 	})
 })
