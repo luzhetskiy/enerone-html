@@ -1,0 +1,72 @@
+.swiper-slide {
+  height: auto;
+}
+
+.swiper-slide-button,
+.swiper-slide-back {
+  --#{$prefix}btn-icon-color: var(--#{$prefix}success);
+
+  --#{$prefix}btn-icon-size: .75rem;
+}
+
+.swiper-slide-button {
+  justify-content: space-between;
+}
+
+.swiper-controlls {
+  display: flex;
+  gap: .75rem;
+
+  @include media-breakpoint-up(lg) {
+    gap: 2.5rem;
+  }
+
+  > .btn {
+    flex: 1 1;
+
+    @include media-breakpoint-up(lg) {
+      flex: initial;
+      min-width: 12.5rem;
+    }
+  }
+}
+
+.swiper-navigation {
+  display: contents;
+
+  @include media-breakpoint-up(lg) {
+    display: flex;
+    gap: .75rem;
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  --#{$prefix}btn-padding-x: .875rem;
+
+  --#{$prefix}btn-hover-color: var(--#{$prefix}body-bg);
+
+  --#{$prefix}btn-bg: var(--#{$prefix}body-bg);
+  --#{$prefix}btn-hover-bg: var(--#{$prefix}success);
+  --#{$prefix}btn-active-bg: var(--#{$prefix}body-bg);
+
+  --#{$prefix}btn-hover-border-color: var(--#{$prefix}success);
+
+  margin: unset;
+  top: unset;
+  left: unset;
+  right: unset;
+  width: unset;
+}
+
+.swiper-button-prev {
+  --#{$prefix}btn-border-color: var(--#{$prefix}gradient-primary-to-success);
+  --#{$prefix}btn-active-border-color: var(--#{$prefix}gradient-primary-to-success);
+
+  order: -1;
+}
+
+.swiper-button-next {
+  --#{$prefix}btn-border-color: var(--#{$prefix}gradient-success-to-primary);
+  --#{$prefix}btn-active-border-color: var(--#{$prefix}gradient-success-to-primary);
+}

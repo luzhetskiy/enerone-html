@@ -1,0 +1,64 @@
+.news {
+
+  &-swiper {
+
+    .swiper-slide {
+
+      &:nth-child(3n+2) {
+
+        .news-item {
+          --#{$prefix}news-bg: var(--#{$prefix}success);
+        }
+      }
+
+      &:nth-child(3n+3) {
+
+        .news-item {
+          --#{$prefix}news-bg: var(--#{$prefix}info);
+        }
+      }
+    }
+  }
+
+  &-item {
+    --#{$prefix}news-bg: var(--#{$prefix}primary);
+
+    height: 100%;
+    color: var(--#{$prefix}body-bg);
+    background-color: var(--#{$prefix}news-bg);
+    transition: #{$btn-transition};
+    position: relative;
+    overflow: hidden;
+
+    @media (hover: hover) {
+
+      &:is(:hover, :focus-visible) {
+        --#{$prefix}news-bg: var(--#{$prefix}body-bg) !important;
+
+        color: #{$headings-color};
+
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      border-radius: inherit;
+      padding: .125rem;
+      background: var(--#{$prefix}gradient-success-to-primary);
+      mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      user-select: none;
+      pointer-events: none;
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: #{$btn-transition};
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.widget {
+  background-color: var(--#{$prefix}body-bg);
+  border-radius: .5rem;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    border-radius: inherit;
+    padding: var(--#{$prefix}border-width);
+    background-image: var(--#{$prefix}gradient-success-to-primary);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+  }
+}

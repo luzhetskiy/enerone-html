@@ -1,0 +1,40 @@
+.cases {
+
+  &-item {
+    --#{$prefix}cases-bg: var(--#{$prefix}body-bg);
+
+    height: 100%;
+    background-color: var(--#{$prefix}cases-bg);
+    transition: #{$btn-transition};
+    position: relative;
+    overflow: hidden;
+
+    @media (hover: hover) {
+
+      &:is(:hover, :focus-visible) {
+        --#{$prefix}cases-bg: var(--#{$prefix}secondary);
+
+        &::after {
+          opacity: 0;
+        }
+      }
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      border-radius: inherit;
+      padding: .125rem;
+      background: var(--#{$prefix}gradient-success-to-primary);
+      mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      user-select: none;
+      pointer-events: none;
+      position: absolute;
+      inset: 0;
+      transition: #{$btn-transition};
+    }
+  }
+}

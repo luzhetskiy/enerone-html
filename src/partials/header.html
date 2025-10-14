@@ -1,0 +1,364 @@
+<header class="header">
+  <div class="container">
+    <div class="header-top py-16px py-lg-24px">
+      <div class="d-flex d-lg-none">
+        <button type="button" class="btn btn-has-icon btn-icon"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvas-menu"
+          aria-controls="offcanvas-menu">
+          <span class="icon-container">
+            <span class="icon icon-gradient" style="--bs-icon-gradient: url('../img/icons/menu.svg#svg-menu')">
+              <svg>
+                <use xlink:href="img/icons/menu.svg#svg-menu"></use>
+              </svg>
+            </span>
+            <span class="icon">
+              <svg>
+                <use xlink:href="img/icons/menu.svg#svg-menu"></use>
+              </svg>
+            </span>
+          </span>
+        </button>
+      </div>
+
+      <div class="header-start">
+        <div class="navbar-brand">
+          <a class="navbar-brand-link" href="/">
+            <img loading="lazy" src="./img/logo.svg" class="image" width="210" height="68" alt="Новая энергия">
+          </a>
+        </div>
+      </div>
+
+      <div class="d-flex d-lg-none">
+        <button type="button" class="btn btn-has-icon btn-icon"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvas-user"
+          aria-controls="offcanvas-user">
+          <span class="icon-container">
+            <span class="icon icon-gradient" style="--bs-icon-gradient: url('../img/icons/user.svg#svg-user')">
+              <svg>
+                <use xlink:href="img/icons/user.svg#svg-user"></use>
+              </svg>
+            </span>
+            <span class="icon">
+              <svg>
+                <use xlink:href="img/icons/user.svg#svg-user"></use>
+              </svg>
+            </span>
+          </span>
+        </button>
+      </div>
+
+      <div class="d-none d-lg-flex align-items-lg-center justify-content-lg-between">
+        <div class="d-none d-lg-flex gap-lg-24px gap-xl-32px gap-xxl-40px">
+          <a href="#" class="btn btn-base btn-border-gradient btn-primary">
+            <span>ИП и малый бизнес</span>
+          </a>
+          <a href="#" class="btn btn-base btn-border-gradient btn-success">
+            <span>Средний и крупный бизнес</span>
+          </a>
+        </div>
+
+        <div class="d-none d-lg-flex flex-lg-column align-items-lg-end gap-lg-8px">
+          <a href="tel:+78002221200" class="btn btn-link btn-link--regular">
+            <span>+7 (800) 222-12-00</span>
+          </a>
+          <button type="button" class="btn btn-link"
+            data-bs-toggle="modal"
+            data-bs-target="#modal-callback">
+            <span>Заказать звонок</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-bottom">
+      <div class="header-start">
+        @if (auth) {
+          <a href="#" class="btn btn-base btn-has-icon btn-info w-100">
+            <span class="icon">
+              <svg>
+                <use xlink:href="img/icons/user.svg#svg-user"></use>
+              </svg>
+            </span>
+            <span>
+              zayavka@enerone.ru
+            </span>
+          </a>
+        }
+
+        @if (!auth) {
+          <a href="./login.html" class="btn btn-base btn-has-icon btn-border-gradient btn-outline-primary w-100">
+            <span class="icon">
+              <svg>
+                <use xlink:href="img/icons/user.svg#svg-user"></use>
+              </svg>
+            </span>
+            <span>
+              Личный кабинет
+            </span>
+          </a>
+        }
+      </div>
+
+      <nav class="navbar-nav">
+        <div class="dropdown">
+          <button type="button" class="btn btn-link btn-link--regular nav-link dropdown-toggle"
+            data-bs-toggle="dropdown-hover"
+            data-bs-offset="-40,16"
+            aria-expanded="false">
+            Наши услуги
+          </button>
+          <div class="dropdown-menu">
+            <div class="dropdown-menu-inner">
+              <div class="dropdown-header">
+                Наши услуги
+              </div>
+              <ul class="dropdown-list list-group list-group--plaintext">
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Энергоснабжение под ключ
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Индивидуальная фиксированная цена
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Энергоснабжение с оптового рынка
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Зеленая электроэнергия
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Умное потребление
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button type="button" class="btn btn-link btn-link--regular nav-link dropdown-toggle"
+            data-bs-toggle="dropdown-hover"
+            data-bs-offset="-40,16"
+            aria-expanded="false">
+            Полезное
+          </button>
+          <div class="dropdown-menu">
+            <div class="dropdown-menu-inner">
+              <div class="dropdown-header">
+                Полезное
+              </div>
+              <ul class="dropdown-list list-group list-group--plaintext">
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Работа на розничном рынке
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Работа на оптовом рынке
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Энергоснабжение с оптового рынка
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Технологическое присоединение
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Снижение затрат на электроэнергию
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button type="button" class="btn btn-link btn-link--regular nav-link dropdown-toggle"
+            data-bs-toggle="dropdown-hover"
+            data-bs-offset="-40,16"
+            aria-expanded="false">
+            Инструменты
+          </button>
+          <div class="dropdown-menu">
+            <div class="dropdown-menu-inner">
+              <div class="dropdown-header">
+                Инструменты
+              </div>
+              <ul class="dropdown-list list-group list-group--plaintext">
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Аналитика по сбытовым надбавкам и котловым тарифам
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Калькулятор расчета ценовых категорий
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Калькулятор экономии от выхода на оптовый рынок электроэнергии
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Шаблоны документов
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Заявка на заключение договора энергоснабжения
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button type="button" class="btn btn-link btn-link--regular nav-link dropdown-toggle"
+            data-bs-toggle="dropdown-hover"
+            data-bs-offset="-40,16"
+            aria-expanded="false">
+            О компании
+          </button>
+          <div class="dropdown-menu">
+            <div class="dropdown-menu-inner">
+              <div class="dropdown-header">
+                О компании
+              </div>
+              <ul class="dropdown-list list-group list-group--plaintext">
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    История
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Команда
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Контакты, реквизиты
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Раскрытие информации
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button type="button" class="btn btn-link btn-link--regular nav-link dropdown-toggle"
+            data-bs-toggle="dropdown-hover"
+            data-bs-offset="-40,16"
+            aria-expanded="false">
+            Консультации
+          </button>
+          <div class="dropdown-menu">
+            <div class="dropdown-menu-inner">
+              <div class="dropdown-header">
+                Консультации
+              </div>
+              <ul class="dropdown-list list-group list-group--plaintext">
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Получение технологического присоединения
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Увеличение мощности
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Заключение договора энергоснабжения
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Работа на оптовом рынке
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Решение проблем в энергоснабжении
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Ценообразование и тарифы
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button type="button" class="btn btn-link btn-link--regular nav-link dropdown-toggle"
+            data-bs-toggle="dropdown-hover"
+            data-bs-offset="-40,16"
+            aria-expanded="false">
+            Новости
+          </button>
+          <div class="dropdown-menu">
+            <div class="dropdown-menu-inner">
+              <div class="dropdown-header">
+                Новости
+              </div>
+              <ul class="dropdown-list list-group list-group--plaintext">
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Жизнь компании
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Законодательные изменения
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Тенденции рынка
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a class="dropdown-item" href="#">
+                    Для клиентов
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <a class="btn btn-link btn-link--regular nav-link" href="#">
+          Вопрос-ответ
+        </a>
+        <a class="btn btn-link btn-link--regular nav-link" href="#">
+          Кейсы
+        </a>
+        <a class="btn btn-link btn-link--regular nav-link" href="#">
+          Контакты
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,20 @@
+// Base
+@use "fonts";
+@use "settings";
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "./bootstrap/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+// Components
+@import "./components/section";
+@import "./components/icons";
+@import "./components/header";
+@import "./components/widget";
+@import "./components/swiper";
+@import "./components/hero";
+@import "./components/services";
+@import "./components/news";
+@import "./components/cases";
+@import "./components/choices";
+@import "./components/footer";

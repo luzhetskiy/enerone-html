@@ -1,0 +1,5 @@
+@use "mixins" as mixins;
+
+@include mixins.font-face("Roboto", "Roboto-Regular", 400, normal);
+@include mixins.font-face("Roboto", "Roboto-Medium", 500, normal);
+@include mixins.font-face("Oswald", "Oswald-Medium", 500, normal);

@@ -1,0 +1,17 @@
+.services {
+
+  &-item {
+    color: #{$headings-color};
+    background-color: #eee;
+    text-align: center;
+    transition: #{$btn-transition};
+
+    @media (hover: hover) {
+
+      &:is(:hover, :focus-visible) {
+        color: var(--#{$prefix}body-bg);
+        background-color: var(--#{$prefix}info);
+      }
+    }
+  }
+}

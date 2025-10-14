@@ -1,0 +1,122 @@
+.hero {
+  @include media-breakpoint-down(sm) {
+    margin-top: 0;
+  }
+
+  > .container {
+    @include media-breakpoint-down(sm) {
+      margin-right: 0;
+      margin-left: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &-main {
+    color: var(--#{$prefix}body-bg);
+    background-color: var(--#{$prefix}body-color);
+    position: relative;
+    overflow: hidden;
+
+    @include media-breakpoint-up(sm) {
+      border-radius: .5rem;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      background-image: url(../img/decor/image-mob-1.webp);
+      background-position: left bottom;
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: absolute;
+      inset: 0;
+
+      @include media-breakpoint-up(lg) {
+        background-image: url(../img/decor/image-1.webp);
+      }
+    }
+  }
+
+  &-item {
+    color: var(--#{$prefix}body-bg);
+    transition: #{$btn-transition};
+
+    @media (hover: hover) {
+
+      &:is(:hover, :focus-visible) {
+        color: #{$headings-color};
+      }
+    }
+
+    &-bg {
+      background-color: var(--#{$prefix}stretched-link-bg);
+      border-radius: inherit;
+      transition: #{$btn-transition};
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+
+      &::after {
+        content: '';
+        display: block;
+        border-radius: inherit;
+        padding: .125rem;
+        background: var(--#{$prefix}gradient-success-to-primary);
+        mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        mask-composite: exclude;
+        user-select: none;
+        pointer-events: none;
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: #{$btn-transition};
+      }
+    }
+
+    &-link {
+      --#{$prefix}btn-color: var(--#{$prefix}body-bg);
+      --#{$prefix}btn-hover-color: var(--#{$prefix}body-bg);
+      --#{$prefix}btn-active-color: var(--#{$prefix}body-bg);
+
+      @media (hover: hover) {
+        --#{$prefix}btn-hover-color: var(--#{$prefix}success);
+        --#{$prefix}btn-active-color: var(--#{$prefix}success);
+
+        &:is(:hover, :focus-visible) {
+
+          ~ .hero-item-bg {
+            background-color: var(--#{$prefix}body-bg);
+
+            &::after {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+    &:nth-child(1) {
+
+      .hero-item-bg {
+        --#{$prefix}stretched-link-bg: var(--#{$prefix}primary);
+      }
+    }
+
+    &:nth-child(2) {
+
+      .hero-item-bg {
+        --#{$prefix}stretched-link-bg: var(--#{$prefix}success);
+      }
+    }
+
+    &:nth-child(3) {
+
+      .hero-item-bg {
+        --#{$prefix}stretched-link-bg: var(--#{$prefix}info);
+      }
+    }
+  }
+}

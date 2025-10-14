@@ -1,0 +1,30 @@
+.footer {
+  background-color: var(--#{$prefix}body-bg);
+  border-radius: .5rem .5rem 0 0;
+  position: relative;
+
+  &-inner {
+    border-radius: .5rem .5rem 0 0;
+
+    @include media-breakpoint-up(lg) {
+      position: relative;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      border-radius: inherit;
+      padding: .125rem .125rem 0rem .125rem;
+      background: var(--#{$prefix}gradient-success-to-primary);
+      mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      user-select: none;
+      pointer-events: none;
+      position: absolute;
+      inset: 0;
+      transition: #{$btn-transition};
+    }
+  }
+}
