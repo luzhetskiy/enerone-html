@@ -754,7 +754,7 @@ $utilities: map-merge(
     "background-color": (
       property: background-color,
       responsive: true,
-      class: bg,
+      class: bs-bg,
       local-vars: (
         "bg-opacity": 1
       ),

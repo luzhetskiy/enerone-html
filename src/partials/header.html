@@ -1,8 +1,8 @@
-<header class="header">
-  <div class="container">
-    <div class="header-top py-16px py-lg-24px">
+<header class="bs-header" data-header>
+  <div class="bs-container">
+    <div class="bs-header-top py-16px py-lg-24px">
       <div class="d-flex d-lg-none">
-        <button type="button" class="btn btn-has-icon btn-icon"
+        <button type="button" class="bs-btn bs-btn-has-icon bs-btn-icon"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvas-menu"
           aria-controls="offcanvas-menu">
@@ -21,16 +21,16 @@
         </button>
       </div>
 
-      <div class="header-start">
-        <div class="navbar-brand">
-          <a class="navbar-brand-link" href="/">
+      <div class="bs-header-start">
+        <div class="bs-navbar-brand">
+          <a class="bs-navbar-brand-link" href="/">
             <img loading="lazy" src="./img/logo.svg" class="image" width="210" height="68" alt="Новая энергия">
           </a>
         </div>
       </div>
 
       <div class="d-flex d-lg-none">
-        <button type="button" class="btn btn-has-icon btn-icon"
+        <button type="button" class="bs-btn bs-btn-has-icon bs-btn-icon"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvas-user"
           aria-controls="offcanvas-user">
@@ -51,19 +51,19 @@
 
       <div class="d-none d-lg-flex align-items-lg-center justify-content-lg-between">
         <div class="d-none d-lg-flex gap-lg-24px gap-xl-32px gap-xxl-40px">
-          <a href="#" class="btn btn-base btn-border-gradient btn-primary">
+          <a href="#" class="bs-btn bs-btn-base bs-btn-border-gradient bs-btn-primary">
             <span>ИП и малый бизнес</span>
           </a>
-          <a href="#" class="btn btn-base btn-border-gradient btn-success">
+          <a href="#" class="bs-btn bs-btn-base bs-btn-border-gradient bs-btn-success">
             <span>Средний и крупный бизнес</span>
           </a>
         </div>
 
         <div class="d-none d-lg-flex flex-lg-column align-items-lg-end gap-lg-8px">
-          <a href="tel:+78002221200" class="btn btn-link btn-link--regular">
+          <a href="tel:+78002221200" class="bs-btn bs-btn-link bs-btn-link--regular">
             <span>+7 (800) 222-12-00</span>
           </a>
-          <button type="button" class="btn btn-link"
+          <button type="button" class="bs-btn bs-btn-link"
             data-bs-toggle="modal"
             data-bs-target="#modal-callback">
             <span>Заказать звонок</span>
@@ -72,10 +72,10 @@
       </div>
     </div>
 
-    <div class="header-bottom">
-      <div class="header-start">
+    <div class="bs-header-bottom">
+      <div class="bs-header-start">
         @if (auth) {
-          <a href="#" class="btn btn-base btn-has-icon btn-info w-100">
+          <a href="#" class="bs-btn bs-btn-base bs-btn-has-icon bs-btn-info w-100">
             <span class="icon">
               <svg>
                 <use xlink:href="img/icons/user.svg#svg-user"></use>
@@ -88,7 +88,7 @@
         }
 
         @if (!auth) {
-          <a href="./login.html" class="btn btn-base btn-has-icon btn-border-gradient btn-outline-primary w-100">
+          <a href="./login.html" class="bs-btn bs-btn-base bs-btn-has-icon bs-btn-border-gradient bs-btn-outline-primary w-100">
             <span class="icon">
               <svg>
                 <use xlink:href="img/icons/user.svg#svg-user"></use>
@@ -101,42 +101,42 @@
         }
       </div>
 
-      <nav class="navbar-nav">
-        <div class="dropdown">
-          <button type="button" class="btn btn-link btn-link--regular nav-link dropdown-toggle"
+      <nav class="bs-navbar-nav">
+        <div class="bs-dropdown dropdown">
+          <button type="button" class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link bs-bs-dropdown-toggle"
             data-bs-toggle="dropdown-hover"
             data-bs-offset="-40,16"
             aria-expanded="false">
             Наши услуги
           </button>
-          <div class="dropdown-menu">
-            <div class="dropdown-menu-inner">
-              <div class="dropdown-header">
+          <div class="bs-dropdown-menu dropdown-menu">
+            <div class="bs-dropdown-menu-inner">
+              <div class="bs-dropdown-header">
                 Наши услуги
               </div>
-              <ul class="dropdown-list list-group list-group--plaintext">
+              <ul class="bs-dropdown-list list-group list-group--plaintext">
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Энергоснабжение под ключ
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Индивидуальная фиксированная цена
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Энергоснабжение с оптового рынка
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Зеленая электроэнергия
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Умное потребление
                   </a>
                 </li>
@@ -144,41 +144,41 @@
             </div>
           </div>
         </div>
-        <div class="dropdown">
-          <button type="button" class="btn btn-link btn-link--regular nav-link dropdown-toggle"
+        <div class="bs-dropdown dropdown">
+          <button type="button" class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link bs-dropdown-toggle"
             data-bs-toggle="dropdown-hover"
             data-bs-offset="-40,16"
             aria-expanded="false">
             Полезное
           </button>
-          <div class="dropdown-menu">
-            <div class="dropdown-menu-inner">
-              <div class="dropdown-header">
+          <div class="bs-dropdown-menu dropdown-menu">
+            <div class="bs-dropdown-menu-inner">
+              <div class="bs-dropdown-header">
                 Полезное
               </div>
-              <ul class="dropdown-list list-group list-group--plaintext">
+              <ul class="bs-dropdown-list list-group list-group--plaintext">
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Работа на розничном рынке
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Работа на оптовом рынке
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Энергоснабжение с оптового рынка
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Технологическое присоединение
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Снижение затрат на электроэнергию
                   </a>
                 </li>
@@ -186,41 +186,41 @@
             </div>
           </div>
         </div>
-        <div class="dropdown">
-          <button type="button" class="btn btn-link btn-link--regular nav-link dropdown-toggle"
+        <div class="bs-dropdown dropdown">
+          <button type="button" class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link bs-dropdown-toggle"
             data-bs-toggle="dropdown-hover"
             data-bs-offset="-40,16"
             aria-expanded="false">
             Инструменты
           </button>
-          <div class="dropdown-menu">
-            <div class="dropdown-menu-inner">
-              <div class="dropdown-header">
+          <div class="bs-dropdown-menu dropdown-menu">
+            <div class="bs-dropdown-menu-inner">
+              <div class="bs-dropdown-header">
                 Инструменты
               </div>
-              <ul class="dropdown-list list-group list-group--plaintext">
+              <ul class="bs-dropdown-list list-group list-group--plaintext">
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Аналитика по сбытовым надбавкам и котловым тарифам
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Калькулятор расчета ценовых категорий
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Калькулятор экономии от выхода на оптовый рынок электроэнергии
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Шаблоны документов
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Заявка на заключение договора энергоснабжения
                   </a>
                 </li>
@@ -228,36 +228,36 @@
             </div>
           </div>
         </div>
-        <div class="dropdown">
-          <button type="button" class="btn btn-link btn-link--regular nav-link dropdown-toggle"
+        <div class="bs-dropdown dropdown">
+          <button type="button" class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link bs-dropdown-toggle"
             data-bs-toggle="dropdown-hover"
             data-bs-offset="-40,16"
             aria-expanded="false">
             О компании
           </button>
-          <div class="dropdown-menu">
-            <div class="dropdown-menu-inner">
-              <div class="dropdown-header">
+          <div class="bs-dropdown-menu dropdown-menu">
+            <div class="bs-dropdown-menu-inner">
+              <div class="bs-dropdown-header">
                 О компании
               </div>
-              <ul class="dropdown-list list-group list-group--plaintext">
+              <ul class="bs-dropdown-list list-group list-group--plaintext">
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     История
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Команда
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Контакты, реквизиты
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Раскрытие информации
                   </a>
                 </li>
@@ -265,46 +265,46 @@
             </div>
           </div>
         </div>
-        <div class="dropdown">
-          <button type="button" class="btn btn-link btn-link--regular nav-link dropdown-toggle"
+        <div class="bs-dropdown dropdown">
+          <button type="button" class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link bs-dropdown-toggle"
             data-bs-toggle="dropdown-hover"
             data-bs-offset="-40,16"
             aria-expanded="false">
             Консультации
           </button>
-          <div class="dropdown-menu">
-            <div class="dropdown-menu-inner">
-              <div class="dropdown-header">
+          <div class="bs-dropdown-menu dropdown-menu">
+            <div class="bs-dropdown-menu-inner">
+              <div class="bs-dropdown-header">
                 Консультации
               </div>
-              <ul class="dropdown-list list-group list-group--plaintext">
+              <ul class="bs-dropdown-list list-group list-group--plaintext">
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Получение технологического присоединения
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Увеличение мощности
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Заключение договора энергоснабжения
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Работа на оптовом рынке
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Решение проблем в энергоснабжении
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Ценообразование и тарифы
                   </a>
                 </li>
@@ -312,36 +312,36 @@
             </div>
           </div>
         </div>
-        <div class="dropdown">
-          <button type="button" class="btn btn-link btn-link--regular nav-link dropdown-toggle"
+        <div class="bs-dropdown dropdown">
+          <button type="button" class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link bs-dropdown-toggle"
             data-bs-toggle="dropdown-hover"
             data-bs-offset="-40,16"
             aria-expanded="false">
             Новости
           </button>
-          <div class="dropdown-menu">
-            <div class="dropdown-menu-inner">
-              <div class="dropdown-header">
+          <div class="bs-dropdown-menu dropdown-menu">
+            <div class="bs-dropdown-menu-inner">
+              <div class="bs-dropdown-header">
                 Новости
               </div>
-              <ul class="dropdown-list list-group list-group--plaintext">
+              <ul class="bs-dropdown-list list-group list-group--plaintext">
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Жизнь компании
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Законодательные изменения
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Тенденции рынка
                   </a>
                 </li>
                 <li class="list-group-item">
-                  <a class="dropdown-item" href="#">
+                  <a class="bs-dropdown-item" href="#">
                     Для клиентов
                   </a>
                 </li>
@@ -349,13 +349,13 @@
             </div>
           </div>
         </div>
-        <a class="btn btn-link btn-link--regular nav-link" href="#">
+        <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
           Вопрос-ответ
         </a>
-        <a class="btn btn-link btn-link--regular nav-link" href="#">
+        <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
           Кейсы
         </a>
-        <a class="btn btn-link btn-link--regular nav-link" href="#">
+        <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
           Контакты
         </a>
       </nav>

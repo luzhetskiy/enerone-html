@@ -3,7 +3,7 @@
 
 @include('partials/head.html', {title: 'Главная страница'})
 
-<body class="page-body bg-secondary bg-lg-transparent">
+<body class="page-body bs-bg-secondary bs-bg-lg-transparent">
   @include('partials/offcanvases.html')
   @include('partials/modals.html')
 
@@ -14,36 +14,36 @@
 
     <main class="main">
       <section class="section">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-sm-9 col-md-6 col-lg-5 col-xl-4">
+        <div class="bs-container">
+          <div class="bs-row justify-content-center">
+            <div class="bs-col-sm-9 bs-col-md-6 bs-col-lg-5 bs-col-xl-4">
               <form class="widget h-100 d-flex flex-column gap-16px rounded-8px pt-32px pt-lg-48px px-16px px-lg-32px pb-20px pb-lg-32px position-relative">
                 <div class="d-flex flex-column gap-24px">
                   <div class="d-flex flex-column gap-16px fs-14px text-center px-lg-12px">
-                    <h3>
+                    <h3 class="bs-h3">
                       Вход в личный кабинет
                     </h3>
                   </div>
 
-                  <div class="row g-0px justify-content-center">
-                    <div class="col-10 col-xxl-9">
+                  <div class="bs-row g-0px justify-content-center">
+                    <div class="bs-col-10 bs-col-xxl-9">
                       <div class="d-flex flex-column gap-16px">
                         <div class="d-flex flex-column gap-12px">
-                          <input type="text" class="form-control" name="name" placeholder="Ваше имя*" aria-label="Ваше имя*" required="">
-                          <input type="tel" class="form-control" name="phone" placeholder="Ваш телефон*" aria-label="Ваш телефон*" required="">
+                          <input type="text" class="bs-form-control" name="name" placeholder="Ваше имя*" aria-label="Ваше имя*" required="">
+                          <input type="tel" class="bs-form-control" name="phone" placeholder="Ваш телефон*" aria-label="Ваш телефон*" required="">
                         </div>
 
-                        <button type="submit" class="btn btn-base btn-success">
+                        <button type="submit" class="bs-btn bs-btn-base bs-btn-success">
                           <span>
                             Отправить
                           </span>
                         </button>
 
                         <div class="d-flex flex-column align-items-center gap-8px mt-8px text-center">
-                          <a href="#" class="btn btn-link">
+                          <a href="#" class="bs-btn bs-btn-link">
                             <span>Зарегистрироваться</span>
                           </a>
-                          <a href="#" class="btn btn-link">
+                          <a href="#" class="bs-btn bs-btn-link">
                             <span>Забыли пароль?</span>
                           </a>
                         </div>

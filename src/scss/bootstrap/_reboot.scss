@@ -90,7 +90,7 @@ hr {
   color: var(--#{$prefix}heading-color);
 }
 
-h1 {
+h1, .bs-h1 {
   @extend %heading;
   font-size: 2rem;
 
@@ -99,7 +99,7 @@ h1 {
   }
 }
 
-h2 {
+h2, .bs-h2 {
   @extend %heading;
   font-size: 2rem;
 
@@ -108,7 +108,7 @@ h2 {
   }
 }
 
-h3 {
+h3, .bs-h3 {
   @extend %heading;
   font-size: 1.25rem;
 
@@ -117,17 +117,17 @@ h3 {
   }
 }
 
-h4 {
+h4, .bs-h4 {
   @extend %heading;
   @include font-size($h4-font-size);
 }
 
-h5 {
+h5, .bs-h5 {
   @extend %heading;
   @include font-size($h5-font-size);
 }
 
-h6 {
+h6, .bs-h6 {
   @extend %heading;
   @include font-size($h6-font-size);
 }

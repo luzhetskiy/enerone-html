@@ -3,7 +3,7 @@
 // Provide a static navbar from which we expand to create full-width, fixed, and
 // other navbar variations.
 
-.navbar {
+.bs-navbar {
   // scss-docs-start navbar-css-vars
   --#{$prefix}navbar-padding-x: #{if($navbar-padding-x == null, 0, $navbar-padding-x)};
   --#{$prefix}navbar-padding-y: #{$navbar-padding-y};
@@ -62,7 +62,7 @@
 //
 // Used for brand, project, or site names.
 
-.navbar-brand {
+.bs-navbar-brand {
   display: flex;
   padding-top: var(--#{$prefix}navbar-brand-padding-y);
   padding-bottom: var(--#{$prefix}navbar-brand-padding-y);
@@ -86,7 +86,7 @@
 //
 // Custom navbar navigation (doesn't require `.nav`, but does make use of `.nav-link`).
 
-.navbar-nav {
+.bs-navbar-nav {
   // scss-docs-start navbar-nav-css-vars
   --#{$prefix}nav-link-padding-x: 0;
   --#{$prefix}nav-link-padding-y: #{$nav-link-padding-y};
@@ -102,14 +102,14 @@
   margin: 0;
   list-style: none;
 
-  .nav-link {
+  .bs-nav-link {
     display: inline-flex;
     align-items: center;
     padding: var(--#{$prefix}nav-link-padding-y) var(--#{$prefix}nav-link-padding-x);
   }
 }
 
-.navbar-nav--sort {
+.bs-navbar-nav--sort {
   gap: 2rem;
   overflow-y: hidden;
   overflow-x: auto;
@@ -118,7 +118,7 @@
     gap: 2.5rem;
   }
 
-  .nav-link {
+  .bs-nav-link {
     --#{$prefix}btn-active-color: var(--#{$prefix}success);
 
     flex-shrink: 0;
@@ -158,14 +158,14 @@
   }
 }
 
-.navbar-nav--footer {
+.bs-navbar-nav--footer {
   --#{$prefix}nav-link-font-size: .875rem;
   --#{$prefix}nav-link-padding-y: .625rem;
 
   flex-direction: column;
   gap: initial;
 
-  .nav-link {
+  .bs-nav-link {
     --#{$prefix}btn-line-height: normal;
   }
 }
@@ -174,7 +174,7 @@
 //
 //
 
-.navbar-text {
+.bs-navbar-text {
   padding-top: $nav-link-padding-y;
   padding-bottom: $nav-link-padding-y;
   color: var(--#{$prefix}navbar-color);
@@ -194,7 +194,7 @@
 // When collapsed, prevent the toggleable navbar contents from appearing in
 // the default flexbox row orientation. Requires the use of `flex-wrap: wrap`
 // on the `.navbar` parent.
-.navbar-collapse {
+.bs-navbar-collapse {
   flex-grow: 1;
   flex-basis: 100%;
   // For always expanded or extra full navbars, ensure content aligns itself
@@ -203,7 +203,7 @@
 }
 
 // Button for toggling the navbar when in its collapsed state
-.navbar-toggler {
+.bs-navbar-toggler {
   --#{$prefix}btn-font-size: var(--#{$prefix}navbar-toggler-font-size);
   --#{$prefix}btn-border-width: var(--#{$prefix}border-width);
   --#{$prefix}btn-border-radius: var(--#{$prefix}border-radius-pill);
@@ -225,7 +225,7 @@
 
 // Keep as a separate element so folks can easily override it with another icon
 // or image file as needed.
-.navbar-nav-scroll {
+.bs-navbar-nav-scroll {
   max-height: var(--#{$prefix}scroll-height, 75vh);
   overflow-y: auto;
 }
@@ -233,7 +233,7 @@
 // scss-docs-start navbar-expand-loop
 // Generate series of `.navbar-expand-*` responsive classes for configuring
 // where your navbar collapses.
-.navbar-expand {
+.bs-navbar-expand {
   @each $breakpoint in map-keys($grid-breakpoints) {
     $next: breakpoint-next($breakpoint, $grid-breakpoints);
     $infix: breakpoint-infix($next, $grid-breakpoints);
@@ -241,7 +241,7 @@
     // stylelint-disable-next-line scss/selector-no-union-class-name
     &#{$infix} {
 
-      .navbar-main {
+      .bs-navbar-main {
         flex: 1 1;
         display: flex;
         gap: .25rem;
@@ -251,33 +251,33 @@
         flex-wrap: nowrap;
         justify-content: flex-start;
 
-        ~ .header-end {
+        ~ .bs-header-end {
           display: none;
         }
 
-        .navbar-nav {
+        .bs-navbar-nav {
           flex-direction: row;
 
-          .dropdown-menu {
+          .bs-dropdown-menu {
             position: absolute;
           }
         }
 
-        .navbar-main {
+        .bs-navbar-main {
           justify-content: center;
         }
 
 
-        .navbar-nav-scroll {
+        .bs-navbar-nav-scroll {
           overflow: visible;
         }
 
-        .navbar-collapse {
+        .bs-navbar-collapse {
           display: flex !important; // stylelint-disable-line declaration-no-important
           flex-basis: auto;
         }
 
-        .navbar-toggler {
+        .bs-navbar-toggler {
           display: none;
         }
 
@@ -319,19 +319,19 @@
             flex-direction: column;
             gap: 1rem;
 
-            .navbar-brand {
+            .bs-navbar-brand {
               display: none;
             }
 
-            .navbar-main {
+            .bs-navbar-main {
               flex-direction: column;
               justify-content: space-between;
             }
 
-            .navbar-nav {
+            .bs-navbar-nav {
               border-radius: 1.25rem;
 
-              .nav-link {
+              .bs-nav-link {
                 justify-content: center;
                 text-align: center;
               }
@@ -348,12 +348,12 @@
 //
 // Styles for switching between navbars with light or dark background.
 
-.navbar-light {
+.bs-navbar-light {
   @include deprecate("`.navbar-light`", "v5.2.0", "v6.0.0", true);
 }
 
-.navbar-dark,
-.navbar[data-#{$prefix}theme="dark"] {
+.bs-navbar-dark,
+.bs-navbar[data-#{$prefix}theme="dark"] {
   // scss-docs-start navbar-dark-css-vars
   --#{$prefix}navbar-color: #{$navbar-dark-color};
   --#{$prefix}navbar-hover-color: #{$navbar-dark-hover-color};
@@ -365,10 +365,10 @@
   --#{$prefix}navbar-toggler-icon-bg: #{escape-svg($navbar-dark-toggler-icon-bg)};
   // scss-docs-end navbar-dark-css-vars
 
-  .navbar-nav {
+  .bs-navbar-nav {
     background-color: rgba($black, .80);
 
-    .nav-link {
+    .bs-nav-link {
       --#{$prefix}btn-border-color: rgba(255, 255, 255, 0.15);
       --#{$prefix}btn-hover-border-color: linear-gradient(90deg, rgba(255, 255, 255, .15) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, .10) 100%);
       --#{$prefix}btn-active-border-color: linear-gradient(90deg, rgba(255, 255, 255, .15) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, .10) 100%);
@@ -392,9 +392,9 @@
     }
   }
 
-  .navbar-socials {
+  .bs-navbar-socials {
 
-    .nav-link {
+    .bs-nav-link {
       --#{$prefix}btn-color: var(--#{$prefix}white);
       --#{$prefix}btn-bg: rgba(0, 0, 0, .80);
     }
@@ -403,7 +403,7 @@
 
 @if $enable-dark-mode {
   @include color-mode(dark) {
-    .navbar-toggler-icon {
+    .bs-navbar-toggler-icon {
       --#{$prefix}navbar-toggler-icon-bg: #{escape-svg($navbar-dark-toggler-icon-bg)};
     }
   }

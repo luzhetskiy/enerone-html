@@ -3,12 +3,9 @@
     margin-top: 0;
   }
 
-  > .container {
+  > .bs-container {
     @include media-breakpoint-down(sm) {
-      margin-right: 0;
-      margin-left: 0;
-      padding-left: 0;
-      padding-right: 0;
+      --#{$prefix}gutter-x: 0;
     }
   }
 

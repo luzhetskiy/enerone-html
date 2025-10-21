@@ -21,7 +21,7 @@
   $next: breakpoint-next($breakpoint, $grid-breakpoints);
   $infix: breakpoint-infix($next, $grid-breakpoints);
 
-  .offcanvas#{$infix} {
+  .bs-offcanvas#{$infix} {
     @extend %offcanvas-css-vars;
   }
 }
@@ -30,7 +30,7 @@
   $next: breakpoint-next($breakpoint, $grid-breakpoints);
   $infix: breakpoint-infix($next, $grid-breakpoints);
 
-  .offcanvas#{$infix} {
+  .bs-offcanvas#{$infix} {
     @include media-breakpoint-down($next) {
       position: fixed;
       bottom: 0;
@@ -46,7 +46,7 @@
       @include box-shadow(var(--#{$prefix}offcanvas-box-shadow));
       @include transition(var(--#{$prefix}offcanvas-transition));
 
-      &.offcanvas-start {
+      &.bs-offcanvas-start {
         top: 0;
         left: 0;
         width: var(--#{$prefix}offcanvas-width);
@@ -54,7 +54,7 @@
         transform: translateX(-100%);
       }
 
-      &.offcanvas-end {
+      &.bs-offcanvas-end {
         top: 0;
         right: 0;
         width: var(--#{$prefix}offcanvas-width);
@@ -62,7 +62,7 @@
         transform: translateX(100%);
       }
 
-      &.offcanvas-top {
+      &.bs-offcanvas-top {
         top: 0;
         right: 0;
         left: 0;
@@ -72,7 +72,7 @@
         transform: translateY(-100%);
       }
 
-      &.offcanvas-bottom {
+      &.bs-offcanvas-bottom {
         right: 0;
         left: 0;
         height: var(--#{$prefix}offcanvas-height);
@@ -99,11 +99,11 @@
         --#{$prefix}offcanvas-border-width: 0;
         background-color: transparent !important; // stylelint-disable-line declaration-no-important
 
-        .offcanvas-header {
+        .bs-offcanvas-header {
           display: none;
         }
 
-        .offcanvas-body {
+        .bs-offcanvas-body {
           display: flex;
           flex-grow: 0;
           padding: 0;
@@ -120,23 +120,23 @@
   @include overlay-backdrop($zindex-offcanvas-backdrop, $offcanvas-backdrop-bg, $offcanvas-backdrop-opacity);
 }
 
-.offcanvas-header {
+.bs-offcanvas-header {
   display: flex;
   align-items: center;
   padding: var(--#{$prefix}offcanvas-padding-y) var(--#{$prefix}offcanvas-padding-x);
 
-  .btn-close {
+  .bs-btn-close {
     // Split properties to avoid invalid calc() function if value is 0
     margin-inline: auto;
   }
 }
 
-.offcanvas-title {
+.bs-offcanvas-title {
   margin-bottom: 0;
   line-height: var(--#{$prefix}offcanvas-title-line-height);
 }
 
-.offcanvas-body {
+.bs-offcanvas-body {
   flex-grow: 1;
   padding: var(--#{$prefix}offcanvas-padding-y) var(--#{$prefix}offcanvas-padding-x);
   overflow-y: auto;
@@ -144,15 +144,15 @@
 
 
 
-.offcanvas--menu {
+.bs-offcanvas--menu {
 
-  &.offcanvas-start,
-  &.offcanvas-end,
-  &.offcanvas-top {
+  &.bs-offcanvas-start,
+  &.bs-offcanvas-end,
+  &.bs-offcanvas-top {
     top: var(--header-height);
   }
 
-  .navbar-nav {
+  .bs-navbar-nav {
     --#{$prefix}nav-link-font-size: .875rem;
     --#{$prefix}nav-link-padding-y: .75rem;
 

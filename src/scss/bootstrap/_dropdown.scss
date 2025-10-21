@@ -1,14 +1,14 @@
 // The dropdown wrapper (`<div>`)
-.dropup,
-.dropend,
-.dropdown,
-.dropstart,
-.dropup-center,
-.dropdown-center {
+.bs-dropup,
+.bs-dropend,
+.bs-dropdown,
+.bs-dropstart,
+.bs-dropup-center,
+.bs-dropdown-center {
   position: relative;
 }
 
-.dropdown-toggle {
+.bs-dropdown-toggle {
   display: inline-flex;
   align-items: center;
   gap: .5rem;
@@ -23,7 +23,7 @@
 }
 
 // The dropdown menu
-.dropdown-menu {
+.bs-dropdown-menu {
   // scss-docs-start dropdown-css-vars
   --#{$prefix}dropdown-zindex: #{$zindex-dropdown};
   --#{$prefix}dropdown-min-width: #{$dropdown-min-width};
@@ -97,7 +97,7 @@
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-    .dropdown-menu#{$infix}-start {
+    .bs-dropdown-menu#{$infix}-start {
       --bs-position: start;
 
       &[data-bs-popper] {
@@ -106,7 +106,7 @@
       }
     }
 
-    .dropdown-menu#{$infix}-end {
+    .bs-dropdown-menu#{$infix}-end {
       --bs-position: end;
 
       &[data-bs-popper] {
@@ -120,8 +120,8 @@
 
 // Allow for dropdowns to go bottom up (aka, dropup-menu)
 // Just add .dropup after the standard .dropdown class and you're set.
-.dropup {
-  .dropdown-menu[data-bs-popper] {
+.bs-dropup {
+  .bs-dropdown-menu[data-bs-popper] {
     top: auto;
     bottom: 100%;
     margin-top: 0;
@@ -129,8 +129,8 @@
   }
 }
 
-.dropend {
-  .dropdown-menu[data-bs-popper] {
+.bs-dropend {
+  .bs-dropdown-menu[data-bs-popper] {
     top: 0;
     right: auto;
     left: 100%;
@@ -139,8 +139,8 @@
   }
 }
 
-.dropstart {
-  .dropdown-menu[data-bs-popper] {
+.bs-dropstart {
+  .bs-dropdown-menu[data-bs-popper] {
     top: 0;
     right: 100%;
     left: auto;
@@ -151,7 +151,7 @@
 
 
 // Dividers (basically an `<hr>`) within the dropdown
-.dropdown-divider {
+.bs-dropdown-divider {
   height: 0;
   margin: var(--#{$prefix}dropdown-divider-margin-y) 0;
   overflow: hidden;
@@ -159,14 +159,14 @@
   opacity: 1; // Revisit in v6 to de-dupe styles that conflict with <hr> element
 }
 
-.dropdown-list {
+.bs-dropdown-list {
   gap: 1.25rem;
 }
 
 // Links, buttons, and more within the dropdown menu
 //
 // `<button>`-specific styles are denoted with `// For <button>s`
-.dropdown-item {
+.bs-dropdown-item {
   width: 100%; // For `<button>`s
   display: flex;
   padding: var(--#{$prefix}dropdown-item-padding-y) var(--#{$prefix}dropdown-item-padding-x);
@@ -208,14 +208,14 @@
   }
 }
 
-.dropdown-menu.show {
+.bs-dropdown-menu.show {
   display: flex;
   flex-direction: column;
   gap: .25rem;
 }
 
 // Dropdown section headers
-.dropdown-header {
+.bs-dropdown-header {
   font-family: var(--#{$prefix}font-monospace);
   font-size: 1.5rem;
   font-weight: 500;
@@ -226,14 +226,14 @@
 }
 
 // Dropdown text
-.dropdown-item-text {
+.bs-dropdown-item-text {
   display: block;
   padding: var(--#{$prefix}dropdown-item-padding-y) var(--#{$prefix}dropdown-item-padding-x);
   color: var(--#{$prefix}dropdown-link-color);
 }
 
 // Dark dropdowns
-.dropdown-menu-dark {
+.bs-dropdown-menu-dark {
   // scss-docs-start dropdown-dark-css-vars
   --#{$prefix}dropdown-color: #{$dropdown-dark-color};
   --#{$prefix}dropdown-bg: #{$dropdown-dark-bg};

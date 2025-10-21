@@ -177,7 +177,7 @@
   mask-size: contain;
 }
 
-.header {
+.bs-header {
   width: 100%;
   background-color: var(--bs-body-bg);
   position: fixed;
@@ -186,11 +186,11 @@
   z-index: 1030;
 }
 @media (min-width: 992px) {
-  .header {
+  .bs-header {
     position: absolute;
   }
 }
-.header::after {
+.bs-header::after {
   content: "";
   display: block;
   width: 100%;
@@ -201,83 +201,83 @@
   left: 0;
 }
 @media (min-width: 992px) {
-  .header::after {
+  .bs-header::after {
     all: initial;
   }
 }
-.header-top, .header-bottom {
+.bs-header-top, .bs-header-bottom {
   -ms-grid-columns: auto 1fr auto;
   grid-template-columns: auto 1fr auto;
   gap: 1rem;
 }
 @media (min-width: 992px) {
-  .header-top, .header-bottom {
+  .bs-header-top, .bs-header-bottom {
     -ms-grid-columns: 12.5rem 1fr;
     grid-template-columns: 12.5rem 1fr;
     gap: 2rem;
   }
 }
 @media (min-width: 1200px) {
-  .header-top, .header-bottom {
+  .bs-header-top, .bs-header-bottom {
     gap: 3rem;
   }
 }
 @media (min-width: 1400px) {
-  .header-top, .header-bottom {
+  .bs-header-top, .bs-header-bottom {
     gap: 4.75rem;
   }
 }
-.header-top {
+.bs-header-top {
   display: -ms-grid;
   display: grid;
 }
-.header-bottom {
+.bs-header-bottom {
   display: none;
 }
 @media (min-width: 992px) {
-  .header-bottom {
+  .bs-header-bottom {
     display: -ms-grid;
     display: grid;
   }
 }
-.header-bottom .nav-link {
+.bs-header-bottom .bs-nav-link {
   --bs-btn-font-size: .75rem;
 }
 @media (min-width: 1200px) {
-  .header-bottom .nav-link {
+  .bs-header-bottom .bs-nav-link {
     --bs-btn-font-size: .875rem;
   }
 }
-.header-bottom .dropdown-menu {
+.bs-header-bottom .bs-dropdown-menu {
   --bs-dropdown-font-size: .75rem;
 }
-.header .navbar-brand {
+.bs-header .bs-navbar-brand {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
 }
 @media (min-width: 992px) {
-  .header .navbar-brand {
+  .bs-header .bs-navbar-brand {
     -webkit-box-pack: initial;
     -ms-flex-pack: initial;
     justify-content: initial;
   }
 }
-.header .navbar-brand img {
+.bs-header .bs-navbar-brand img {
   max-width: 8.75rem;
 }
 @media (min-width: 992px) {
-  .header .navbar-brand img {
+  .bs-header .bs-navbar-brand img {
     width: 100%;
   }
 }
-.header .navbar-nav {
+.bs-header .bs-navbar-nav {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
   position: relative;
 }
-.header .navbar-nav::after {
+.bs-header .bs-navbar-nav::after {
   content: "";
   display: block;
   height: 0.1875rem;
@@ -342,13 +342,13 @@
     gap: 2.5rem;
   }
 }
-.swiper-controlls > .btn {
+.swiper-controlls > .bs-btn {
   -webkit-box-flex: 1;
   -ms-flex: 1 1;
   flex: 1 1;
 }
 @media (min-width: 992px) {
-  .swiper-controlls > .btn {
+  .swiper-controlls > .bs-btn {
     -webkit-box-flex: initial;
     -ms-flex: initial;
     flex: initial;
@@ -402,11 +402,8 @@
   }
 }
 @media (max-width: 575.98px) {
-  .hero > .container {
-    margin-right: 0;
-    margin-left: 0;
-    padding-left: 0;
-    padding-right: 0;
+  .hero > .bs-container {
+    --bs-gutter-x: 0;
   }
 }
 .hero-main {
@@ -1089,20 +1086,20 @@
   opacity: 1;
 }
 
-.footer {
+.bs-footer {
   background-color: var(--bs-body-bg);
   border-radius: 0.5rem 0.5rem 0 0;
   position: relative;
 }
-.footer-inner {
+.bs-footer-inner {
   border-radius: 0.5rem 0.5rem 0 0;
 }
 @media (min-width: 992px) {
-  .footer-inner {
+  .bs-footer-inner {
     position: relative;
   }
 }
-.footer-inner::after {
+.bs-footer-inner::after {
   content: "";
   display: block;
   border-radius: inherit;
@@ -1125,4 +1122,4 @@
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, text-shadow 0.15s ease-in-out, opacity 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, text-shadow 0.15s ease-in-out, opacity 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, text-shadow 0.15s ease-in-out, opacity 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-}/*# sourceMappingURL=main.css.map */
+}

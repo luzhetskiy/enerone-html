@@ -7,7 +7,7 @@
 
 
 // Container that the modal scrolls within
-.modal {
+.modal.bs-modal {
   // scss-docs-start modal-css-vars
   --#{$prefix}modal-zindex: #{$zindex-modal};
   --#{$prefix}modal-width: #{$modal-md};
@@ -55,7 +55,7 @@
 }
 
 // Shell div to position the modal with bottom padding
-.modal-dialog {
+.modal-dialog.bs-modal-dialog {
   position: relative;
   width: auto;
   margin: var(--#{$prefix}modal-margin);
@@ -63,41 +63,41 @@
   pointer-events: none;
 
   // When fading in the modal, animate it to slide down
-  .modal.fade & {
+  .modal.bs-modal.fade & {
     transform: $modal-fade-transform;
     @include transition($modal-transition);
   }
-  .modal.show & {
+  .modal.bs-modal.show & {
     transform: $modal-show-transform;
   }
 
   // When trying to close, animate focus to scale
-  .modal.modal-static & {
+  .modal.bs-modal.modal-static & {
     transform: $modal-scale-transform;
   }
 }
 
-.modal-dialog-scrollable {
+.bs-modal-dialog-scrollable {
   height: calc(100% - var(--#{$prefix}modal-margin) * 2);
 
-  .modal-content {
+  .bs-modal-content {
     max-height: 100%;
     overflow: hidden;
   }
 
-  .modal-body {
+  .modal-body.bs-modal-body {
     overflow-y: auto;
   }
 }
 
-.modal-dialog-centered {
+.bs-modal-dialog-centered {
   display: flex;
   align-items: center;
   min-height: calc(100% - var(--#{$prefix}modal-margin) * 2);
 }
 
 // Actual modal
-.modal-content {
+.bs-modal-content {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -113,7 +113,7 @@
   // Remove focus outline from opened modal
   outline: 0;
 
-  .btn-close {
+  .bs-btn-close {
     --#{$prefix}btn-border-width: 0;
     --#{$prefix}btn-border-radius: 0;
     --#{$prefix}btn-padding-x: 0;
@@ -134,7 +134,7 @@
     --_bg: var(--#{$prefix}white);
   }
 
-  .form-control {
+  .bs-form-control {
 
     &,
     &:focus {
@@ -156,7 +156,7 @@
 
 // Modal header
 // Top section of the modal w/ title and dismiss
-.modal-header {
+.bs-modal-header {
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -167,7 +167,7 @@
 }
 
 // Title text within header
-.modal-title {
+.bs-modal-title {
   font-size: map-get($font-sizes, '24px');
   font-weight: 500;
   line-height: var(--#{$prefix}modal-title-line-height);
@@ -177,7 +177,7 @@
 
 // Modal body
 // Where all modal content resides (sibling of .modal-header and .modal-footer)
-.modal-body {
+.modal-body.bs-modal-body {
   position: relative;
   // Enable `flex-grow: 1` so that the body take up as much space as possible
   // when there should be a fixed height on `.modal-dialog`.
@@ -190,7 +190,7 @@
 }
 
 // Footer (for actions)
-.modal-footer {
+.bs-modal-footer {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -202,32 +202,32 @@
 
 // Scale up the modal
 @include media-breakpoint-up(sm) {
-  .modal {
+  .modal.bs-modal {
     --#{$prefix}modal-margin: #{$modal-dialog-margin-y-sm-up};
     --#{$prefix}modal-box-shadow: #{$modal-content-box-shadow-sm-up};
   }
 
   // Automatically set modal's width for larger viewports
-  .modal-dialog {
+  .modal-dialog.bs-modal-dialog {
     max-width: var(--#{$prefix}modal-width);
     margin-right: auto;
     margin-left: auto;
   }
 
-  .modal-sm {
+  .modal.bs-modal-sm {
     --#{$prefix}modal-width: #{$modal-sm};
   }
 }
 
 @include media-breakpoint-up(lg) {
-  .modal-lg,
-  .modal-xl {
+  .modal.bs-modal-lg,
+  .modal.bs-modal-xl {
     --#{$prefix}modal-width: #{$modal-lg};
   }
 }
 
 @include media-breakpoint-up(xl) {
-  .modal-xl {
+  .modal.bs-modal-xl {
     --#{$prefix}modal-width: #{$modal-xl};
   }
 }
@@ -238,24 +238,24 @@
   $postfix: if($infix != "", $infix + "-down", "");
 
   @include media-breakpoint-down($breakpoint) {
-    .modal-fullscreen#{$postfix} {
+    .bs-modal-fullscreen#{$postfix} {
       width: 100vw;
       max-width: none;
       height: 100%;
       margin: 0;
 
-      .modal-content {
+      .bs-modal-content {
         height: 100%;
         border: 0;
         @include border-radius(0);
       }
 
-      .modal-header,
-      .modal-footer {
+      .bs-modal-header,
+      .bs-modal-footer {
         @include border-radius(0);
       }
 
-      .modal-body {
+      .modal-body.bs-modal-body {
         overflow-y: auto;
       }
     }

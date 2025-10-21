@@ -4,19 +4,19 @@
 
 @if $enable-container-classes {
   // Single container class with breakpoint max-widths
-  .container,
+  .bs-container,
   // 100% wide container at all breakpoints
-  .container-fluid {
+  .bs-container-fluid {
     @include make-container();
   }
 
-  .container-padding {
+  .bs-container-padding {
     padding-inline: calc($container-padding-x * .5);
   }
 
   // Responsive containers that are 100% wide until a breakpoint
   @each $breakpoint, $container-max-width in $container-max-widths {
-    .container-#{$breakpoint} {
+    .bs-container-#{$breakpoint} {
       @extend .container-fluid;
     }
 
@@ -30,11 +30,11 @@
 
       @each $name, $width in $grid-breakpoints {
         @if ($extend-breakpoint) {
-          .container#{breakpoint-infix($name, $grid-breakpoints)} {
+          .bs-container#{breakpoint-infix($name, $grid-breakpoints)} {
             @extend %responsive-container-#{$breakpoint};
           }
 
-          .container-padding#{breakpoint-infix($name, $grid-breakpoints)} {
+          .bs-container-padding#{breakpoint-infix($name, $grid-breakpoints)} {
             padding-inline: calc((100% - $container-max-width + $container-padding-x) * .5);
           }
 

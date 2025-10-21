@@ -1,4 +1,4 @@
-.header {
+.bs-header {
   width: 100%;
   background-color: var(--#{$prefix}body-bg);
   position: fixed;
@@ -55,7 +55,7 @@
       display: grid;
     }
 
-    .nav-link {
+    .bs-nav-link {
       --#{$prefix}btn-font-size: .75rem;
 
       @include media-breakpoint-up(xl) {
@@ -63,12 +63,12 @@
       }
     }
 
-    .dropdown-menu {
+    .bs-dropdown-menu {
       --#{$prefix}dropdown-font-size: .75rem;
     }
   }
 
-  .navbar-brand {
+  .bs-navbar-brand {
     justify-content: center;
 
     @include media-breakpoint-up(lg) {
@@ -84,7 +84,7 @@
     }
   }
 
-  .navbar-nav {
+  .bs-navbar-nav {
     justify-content: space-between;
     position: relative;
 

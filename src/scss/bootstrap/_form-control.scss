@@ -2,7 +2,7 @@
 // General form controls (plus a few specific high-level interventions)
 //
 
-.form-control {
+.bs-form-control {
   display: block;
   width: 100%;
   padding: $input-padding-y $input-padding-x;
@@ -45,10 +45,10 @@
   }
 
   &::-webkit-date-and-time-value {
-    // On Android Chrome, form-control's "width: 100%" makes the input width too small
+    // On Android Chrome, bs-form-control's "width: 100%" makes the input width too small
     // Tested under Android 11 / Chrome 89, Android 12 / Chrome 100, Android 13 / Chrome 109
     //
-    // On iOS Safari, form-control's "appearance: none" + "width: 100%" makes the input width too small
+    // On iOS Safari, bs-form-control's "appearance: none" + "width: 100%" makes the input width too small
     // Tested under iOS 16.2 / Safari 16.2
     min-width: 85px; // Seems to be a good minimum safe width
 
@@ -112,17 +112,17 @@
   }
 }
 
-.form-control-prefix {
+.bs-form-control-prefix {
   color: rgba(var(--#{$prefix}black-rgb), .2);
 }
 
-label.form-control {
+label.bs-form-control {
   display: flex;
   align-items: center;
   gap: .25rem;
   padding-left: .5rem;
 
-  .form-control-plaintext {
+  .bs-form-control-plaintext {
     max-width: 100%;
     min-width: 0;
     flex: 1 1 auto;
@@ -143,7 +143,7 @@ label.form-control {
 // Apply class to a readonly input to make it appear like regular plain
 // text (without any border, background color, focus indicator)
 
-.form-control-plaintext {
+.bs-form-control-plaintext {
   display: block;
   width: 100%;
   padding: $input-padding-y 0;
@@ -165,8 +165,8 @@ label.form-control {
     opacity: 1;
   }
 
-  &.form-control-sm,
-  &.form-control-lg {
+  &.bs-form-control-sm,
+  &.bs-form-control-lg {
     padding-right: 0;
     padding-left: 0;
   }
@@ -174,12 +174,12 @@ label.form-control {
 
 // Form control sizing
 //
-// Build on `.form-control` with modifier classes to decrease or increase the
+// Build on `.bs-form-control` with modifier classes to decrease or increase the
 // height and font-size of form controls.
 //
 // Repeated in `_input_group.scss` to avoid Sass extend issues.
 
-.form-control-sm {
+.bs-form-control-sm {
   min-height: $input-height-sm;
   padding: $input-padding-y-sm $input-padding-x-sm;
   @include font-size($input-font-size-sm);
@@ -192,7 +192,7 @@ label.form-control {
   }
 }
 
-.form-control-lg {
+.bs-form-control-lg {
   min-height: $input-height-lg;
   font-family: var(--#{$prefix}font-roboto);
   font-weight: 700;
@@ -220,21 +220,21 @@ label.form-control {
 textarea {
   resize: none;
 
-  &.form-control {
+  &.bs-form-control {
     min-height: $input-height;
   }
 
-  &.form-control-sm {
+  &.bs-form-control-sm {
     min-height: $input-height-sm;
   }
 
-  &.form-control-lg {
+  &.bs-form-control-lg {
     min-height: $input-height-lg;
   }
 }
 // stylelint-enable selector-no-qualifying-type
 
-.form-control-color {
+.bs-form-control-color {
   width: $form-color-width;
   height: $input-height;
   padding: $input-padding-y;
@@ -253,6 +253,6 @@ textarea {
     @include border-radius($input-border-radius);
   }
 
-  &.form-control-sm { height: $input-height-sm; }
-  &.form-control-lg { height: $input-height-lg; }
+  &.bs-form-control-sm { height: $input-height-sm; }
+  &.bs-form-control-lg { height: $input-height-lg; }
 }

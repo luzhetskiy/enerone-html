@@ -2,18 +2,18 @@
 // Check/radio
 //
 
-.form-check {
+.bs-form-check {
   display: flex;
   align-items: center;
   gap: .75rem;
   cursor: pointer;
 }
 
-.form-check-reverse {
+.bs-form-check-reverse {
   flex-direction: row-reverse;
 }
 
-.form-check-input {
+.bs-form-check-input {
   --#{$prefix}form-check-bg: #{$form-check-input-bg};
 
   flex-shrink: 0;
@@ -101,7 +101,7 @@
   }
 }
 
-.form-check-label {
+.bs-form-check-label {
   font-size: .875rem;
   color: $form-check-label-color;
   cursor: $form-check-label-cursor;
@@ -111,10 +111,10 @@
 // Switch
 //
 
-.form-switch {
+.bs-form-switch {
   padding-left: $form-switch-padding-start;
 
-  .form-check-input {
+  .bs-form-check-input {
     --#{$prefix}form-switch-bg: #{escape-svg($form-switch-bg-image)};
 
     width: $form-switch-width;
@@ -139,23 +139,23 @@
     }
   }
 
-  &.form-check-reverse {
+  &.bs-form-check-reverse {
     padding-right: $form-switch-padding-start;
     padding-left: 0;
 
-    .form-check-input {
+    .bs-form-check-input {
       margin-right: $form-switch-padding-start * -1;
       margin-left: 0;
     }
   }
 }
 
-.form-check-inline {
+.bs-form-check-inline {
   display: inline-block;
   margin-right: $form-check-inline-margin-end;
 }
 
-.btn-check {
+.bs-btn-check {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
@@ -172,7 +172,7 @@
 
 @if $enable-dark-mode {
   @include color-mode(dark) {
-    .form-switch .form-check-input:not(:checked):not(:focus) {
+    .bs-form-switch .bs-form-check-input:not(:checked):not(:focus) {
       --#{$prefix}form-switch-bg: #{escape-svg($form-switch-bg-image-dark)};
     }
   }
