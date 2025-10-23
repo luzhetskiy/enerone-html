@@ -2,7 +2,7 @@
 //
 // Easily usable on <ul>, <ol>, or <div>.
 
-.list-group {
+.list-group.bs-list-group {
   // scss-docs-start list-group-css-vars
   --#{$prefix}list-group-color: #{$list-group-color};
   --#{$prefix}list-group-bg: #{$list-group-bg};
@@ -32,7 +32,7 @@
   @include border-radius(var(--#{$prefix}list-group-border-radius));
 }
 
-.list-group-numbered {
+.list-group-numbered.bs-list-group-numbered {
   list-style-type: none;
   counter-reset: section;
 
@@ -47,7 +47,7 @@
 //
 // Use on `li`s or `div`s within the `.list-group` parent.
 
-.list-group-item {
+.list-group-item.bs-list-group-item {
   position: relative;
   display: block;
   padding: var(--#{$prefix}list-group-item-padding-y) var(--#{$prefix}list-group-item-padding-x);
@@ -80,7 +80,7 @@
   }
 
   // stylelint-disable-next-line scss/selector-no-redundant-nesting-selector
-  & + .list-group-item {
+  & + .list-group-item.bs-list-group-item {
     border-top-width: 0;
 
     &.active {
@@ -95,7 +95,7 @@
 // Use anchor or button elements instead of `li`s or `div`s to create interactive
 // list items. Includes an extra `.active` modifier class for selected items.
 
-.list-group-item-action {
+.list-group-item-action.bs-list-group-item-action {
   width: 100%; // For `<button>`s (anchors become 100% by default though)
   color: var(--#{$prefix}list-group-action-color);
   text-align: inherit; // For `<button>`s (anchors inherit)
@@ -125,10 +125,10 @@
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-    .list-group-horizontal#{$infix} {
+    .list-group-horizontal#{$infix}.bs-list-group-horizontal#{$infix} {
       flex-direction: row;
 
-      > .list-group-item {
+      > .list-group-item.bs-list-group-item {
         &:first-child:not(:last-child) {
           @include border-bottom-start-radius(var(--#{$prefix}list-group-border-radius));
           @include border-top-end-radius(0);
@@ -143,7 +143,7 @@
           margin-top: 0;
         }
 
-        + .list-group-item {
+        + .list-group-item.bs-list-group-item {
           border-top-width: var(--#{$prefix}list-group-border-width);
           border-left-width: 0;
 
@@ -163,7 +163,7 @@
 // Remove borders and border-radius to keep list group items edge-to-edge. Most
 // useful within other components (e.g., cards).
 
-.list-group-flush {
+.list-group-flush.bs-list-group-flush {
   @include border-radius(0);
 
   > .list-group-item {
@@ -200,7 +200,7 @@
 
 
 
-.list-group--plaintext {
+.list-group--plaintext.bs-list-group--plaintext {
   --#{$prefix}list-group-color: inherit;
   --#{$prefix}list-group-bg: transparent;
   --#{$prefix}list-group-border-color: transparent;

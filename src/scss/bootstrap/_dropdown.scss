@@ -23,7 +23,7 @@
 }
 
 // The dropdown menu
-.bs-dropdown-menu {
+.dropdown-menu.bs-dropdown-menu {
   // scss-docs-start dropdown-css-vars
   --#{$prefix}dropdown-zindex: #{$zindex-dropdown};
   --#{$prefix}dropdown-min-width: #{$dropdown-min-width};
@@ -121,7 +121,7 @@
 // Allow for dropdowns to go bottom up (aka, dropup-menu)
 // Just add .dropup after the standard .dropdown class and you're set.
 .bs-dropup {
-  .bs-dropdown-menu[data-bs-popper] {
+  .dropdown-menu.bs-dropdown-menu[data-bs-popper] {
     top: auto;
     bottom: 100%;
     margin-top: 0;
@@ -130,7 +130,7 @@
 }
 
 .bs-dropend {
-  .bs-dropdown-menu[data-bs-popper] {
+  .dropdown-menu.bs-dropdown-menu[data-bs-popper] {
     top: 0;
     right: auto;
     left: 100%;
@@ -140,7 +140,7 @@
 }
 
 .bs-dropstart {
-  .bs-dropdown-menu[data-bs-popper] {
+  .dropdown-menu.bs-dropdown-menu[data-bs-popper] {
     top: 0;
     right: 100%;
     left: auto;
