@@ -28,7 +28,9 @@
                     <button type="button" class="bs-btn bs-btn-base bs-btn-primary"
                       data-bs-toggle="modal"
                       data-bs-target="#modal-callback">
-                      <span>Оставить заявку</span>
+                      <span class="text">
+                        Оставить заявку
+                      </span>
                     </button>
                   </div>
                 </div>
@@ -41,7 +43,9 @@
                     ИП и малый бизнес
                   </h3>
                   <a href="#" class="bs-btn bs-btn-link stretched-link hero-item-link">
-                    Подробнее
+                    <span class="text">
+                      Подробнее
+                    </span>
                   </a>
                   <span class="hero-item-bg"></span>
                 </div>
@@ -50,7 +54,9 @@
                     Средний и крупный бизнес
                   </h3>
                   <a href="#" class="bs-btn bs-btn-link stretched-link hero-item-link">
-                    Подробнее
+                    <span class="text">
+                      Подробнее
+                    </span>
                   </a>
                   <span class="hero-item-bg"></span>
                 </div>
@@ -59,7 +65,9 @@
                     Для клиентов
                   </h3>
                   <a href="#" class="bs-btn bs-btn-link stretched-link hero-item-link">
-                    Подробнее
+                    <span class="text">
+                      Подробнее
+                    </span>
                   </a>
                   <span class="hero-item-bg"></span>
                 </div>
@@ -78,13 +86,19 @@
 
             <nav class="bs-navbar-nav bs-navbar-nav--sort">
               <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
-                Все
+                <span class="text">
+                  Все
+                </span>
               </a>
               <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
-                ИП и малый бизнес
+                <span class="text">
+                  ИП и малый бизнес
+                </span>
               </a>
               <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
-                Средний и крупный бизнес
+                <span class="text">
+                  Средний и крупный бизнес
+                </span>
               </a>
             </nav>
           </div>
@@ -179,39 +193,24 @@
               </div>
             </div>
             <div class="bs-col-sm-6 bs-col-md-4">
-              <form class="widget h-100 d-flex flex-column gap-16px rounded-8px pt-32px pt-lg-48px px-16px px-lg-32px pb-20px pb-lg-32px position-relative">
-                <div class="d-flex flex-column gap-24px">
-                  <div class="d-flex flex-column gap-16px fs-14px text-center px-lg-12px">
-                    <h3 class="bs-h3">
-                      Запросить
-                      <br>
-                      консультацию
-                    </h3>
-                    <p class="m-0px">
-                      Оставьте заявку, и наш специалист
-                      <br>
-                      свяжеться с вами
-                    </p>
-                  </div>
-
-                  <div class="bs-row g-0px justify-content-center">
-                    <div class="bs-col-10 bs-col-xxl-9">
-                      <div class="d-flex flex-column gap-16px">
-                        <div class="d-flex flex-column gap-12px">
-                          <input type="text" class="bs-form-control" name="name" placeholder="Ваше имя*" aria-label="Ваше имя*" required>
-                          <input type="tel" class="bs-form-control" name="phone" placeholder="Ваш телефон*" aria-label="Ваш телефон*" required>
-                        </div>
-
-                        <button type="submit" class="bs-btn bs-btn-base bs-btn-success">
-                          <span>
-                            Отправить
-                          </span>
-                        </button>
+              <div class="widget h-100 d-flex flex-column gap-16px rounded-8px pt-32px pt-lg-48px px-16px px-lg-32px pb-20px pb-lg-32px position-relative">
+                <div class="bs-row g-0px justify-content-center">
+                  <div class="bs-col-10 bs-col-xl-9 bs-col-xxl-8">
+                    <div class="d-flex flex-column gap-24px">
+                      <div class="d-flex flex-column gap-16px fs-14px text-center">
+                        <h3 class="bs-h3">
+                          Остались вопросы?
+                        </h3>
+                        <p class="m-0px">
+                          Если у&nbsp;вас остались вопросы мы&nbsp;вас&nbsp;проконсультируем абсолютно&nbsp;бесплатно!
+                        </p>
                       </div>
+
+                      @include('partials/widget/callback.html')
                     </div>
                   </div>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
@@ -228,7 +227,7 @@
               data-transfer-origin="swiper-articles-controlls"
               data-transfer-breakpoint="991.98">
               <a href="#" class="bs-btn bs-btn-base bs-btn-outline-secondary">
-                <span>
+                <span class="text">
                   Все статьи
                 </span>
               </a>
@@ -421,30 +420,19 @@
             </div>
             <div class="bs-col-md-4">
               <form class="widget h-100 d-flex flex-column gap-16px rounded-8px pt-32px pt-lg-48px px-16px px-lg-32px pb-20px pb-lg-32px position-relative">
-                <div class="d-flex flex-column gap-24px">
-                  <div class="d-flex flex-column gap-16px fs-14px text-center px-lg-12px">
-                    <h3 class="bs-h3 text-reset">
-                      Индивидуальный расчет ценовых категорий
-                    </h3>
-                    <p class="m-0px">
-                      Детализированный расчет затрат по каждой ценовой категории в формате Excel с подготовкой выводов и рекомендаций для вашего предприятия!
-                    </p>
-                  </div>
-                  <div class="bs-row g-0px justify-content-center">
-                    <div class="bs-col-10 bs-col-xxl-9">
-                      <div class="d-flex flex-column gap-16px">
-                        <div class="d-flex flex-column gap-12px">
-                          <input type="text" class="bs-form-control" name="name" placeholder="Ваше имя*" aria-label="Ваше имя*" required>
-                          <input type="email" class="bs-form-control" name="email" placeholder="Ваш email*" aria-label="Ваш email*" required>
-                          <textarea class="bs-form-control" name="textarea" placeholder="Комментарий" bs-rows="1"></textarea>
-                        </div>
-
-                        <button type="submit" class="bs-btn bs-btn-base bs-btn-success">
-                          <span>
-                            Отправить
-                          </span>
-                        </button>
+                <div class="bs-row g-0px justify-content-center">
+                  <div class="bs-col-10 bs-col-xl-9 bs-col-xxl-8">
+                    <div class="d-flex flex-column gap-24px">
+                      <div class="d-flex flex-column gap-16px fs-14px text-center">
+                        <h3 class="bs-h3 text-reset">
+                          Индивидуальный расчет ценовых категорий
+                        </h3>
+                        <p class="m-0px">
+                          Детализированный расчет затрат по каждой ценовой категории в формате Excel с подготовкой выводов и рекомендаций для вашего предприятия!
+                        </p>
                       </div>
+
+                      @include('partials/widget/callback.html')
                     </div>
                   </div>
                 </div>
@@ -465,7 +453,7 @@
               data-transfer-origin="swiper-news-controlls"
               data-transfer-breakpoint="991.98">
               <a href="#" class="bs-btn bs-btn-base bs-btn-outline-secondary">
-                <span>
+                <span class="text">
                   Все новости
                 </span>
               </a>
@@ -575,7 +563,7 @@
               data-transfer-origin="swiper-casess-controlls"
               data-transfer-breakpoint="991.98">
               <a href="#" class="bs-btn bs-btn-base bs-btn-outline-secondary">
-                <span>
+                <span class="text">
                   Все кейсы
                 </span>
               </a>

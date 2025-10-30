@@ -1,4 +1,57 @@
 <div class="modal bs-modal fade"
+  id="modal-callback-short"
+  tabindex="-1"
+  aria-labelledby="modal-callback-short-label"
+  aria-hidden="true">
+  <div class="modal-dialog bs-modal-dialog bs-modal-dialog-centered">
+    <form class="bs-modal-content">
+      <div class="bs-modal-header">
+        <h3 class="bs-h3 bs-modal-title" id="modal-callback-short-label">
+          Заказ обратного звонка
+        </h3>
+        <button type="button" class="bs-btn bs-btn-close bs-btn-has-icon" data-bs-dismiss="modal" aria-label="Close">
+          <span class="icon">
+            <svg>
+              <use xlink:href="img/icons/close.svg#svg-close"></use>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div class="modal-body bs-modal-body">
+        <div class="d-flex flex-column gap-24px">
+          <div class="d-flex flex-column gap-20px">
+            <div class="position-relative">
+              <label class="bs-form-label">Введите ваше имя:</label>
+              <input type="text" class="bs-form-control" name="name" placeholder="Ваше имя*" aria-label="Ваше имя" required>
+              <div class="invalid-feedback">
+                Ошибка
+              </div>
+            </div>
+            <div class="position-relative">
+              <label class="bs-form-label">Введите ваш телефон:</label>
+              <input type="tel" class="bs-form-control" name="phone" placeholder="+7 (999) 999-99-99" aria-label="Ваше телефон" required>
+              <div class="invalid-feedback">
+                Ошибка
+              </div>
+            </div>
+          </div>
+
+          <div class="bs-form-check">
+            <input type="checkbox" class="bs-form-check-input" id="modal-callback-short-agree" name="modal-callback-short-agree" checked>
+            <label class="bs-form-check-label" for="modal-callback-short-agree">Даю <a href="#" class="bs-btn bs-btn-inline bs-btn-link"><span class="text">согласие</span></a> на обработку персональных данных в соответствии с <a href="#" class="bs-btn bs-btn-inline bs-btn-link"><span class="text">политикой</span></a></label>
+          </div>
+        </div>
+      </div>
+      <div class="bs-modal-footer">
+        <button type="button" class="bs-btn bs-btn-base bs-btn-success">
+          <span class="text">Отправить</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal bs-modal fade"
   id="modal-callback"
   tabindex="-1"
   aria-labelledby="modal-callback-label"
@@ -100,15 +153,115 @@
 
           <div class="bs-form-check">
             <input type="checkbox" class="bs-form-check-input" id="modal-callback-agree" name="modal-callback-agree" checked>
-            <label class="bs-form-check-label" for="modal-callback-agree">Даю <a href="#" class="bs-btn bs-btn-inline bs-btn-link">согласие</a> на обработку персональных данных в соответствии с <a href="#" class="bs-btn bs-btn-inline bs-btn-link">политикой</a></label>
+            <label class="bs-form-check-label" for="modal-callback-agree">Даю <a href="#" class="bs-btn bs-btn-inline bs-btn-link"><span class="text">согласие</span></a> на обработку персональных данных в соответствии с <a href="#" class="bs-btn bs-btn-inline bs-btn-link"><span class="text">политикой</span></a></label>
           </div>
         </div>
       </div>
       <div class="bs-modal-footer">
-        <button type="button" class="bs-btn bs-btn-base bs-btn-success">
-          <span>Отправить</span>
+        <button type="submit" class="bs-btn bs-btn-base bs-btn-success">
+          <span class="text">Отправить</span>
         </button>
       </div>
+
+      <script>
+        const form = document.currentScript.closest("form");
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Здесь демо: имитация успешной или неудачной отправки
+          const isSuccess = Math.random() > 0.5;
+
+          // Находим родительское модальное окно, внутри которого находится форма
+          const modalEl = form.closest(".modal");
+          if (!modalEl) return;
+
+          const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+          modal.hide();
+
+          // После закрытия показываем нужное модальное окно
+          setTimeout(() => {
+            const targetId = isSuccess ? "modal-feedback-success" : "modal-feedback-error";
+            const target = document.getElementById(targetId);
+            if (target) {
+              const targetModal = bootstrap.Modal.getOrCreateInstance(target);
+              targetModal.show();
+            }
+          }, 500);
+        });
+      </script>
     </form>
+  </div>
+</div>
+
+<div class="modal bs-modal fade"
+  id="modal-feedback-success"
+  tabindex="-1"
+  aria-labelledby="modal-feedback-success-label"
+  aria-hidden="true">
+  <div class="modal-dialog bs-modal-dialog bs-modal-dialog-centered">
+    <div class="bs-modal-content">
+      <div class="bs-modal-header">
+        <h3 class="bs-h3 bs-modal-title" id="modal-feedback-success-label">
+          Спасибо за заявку!
+        </h3>
+        <button type="button" class="bs-btn bs-btn-close bs-btn-has-icon" data-bs-dismiss="modal" aria-label="Close">
+          <span class="icon">
+            <svg>
+              <use xlink:href="img/icons/close.svg#svg-close"></use>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div class="modal-body bs-modal-body">
+        <div class="f-14px text-center">
+          <p>
+            С вами скоро свяжутся
+          </p>
+        </div>
+      </div>
+      <div class="bs-modal-footer">
+        <button type="button" class="bs-btn bs-btn-base bs-btn-success"
+          data-bs-dismiss="modal">
+          <span class="text">Закрыть</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal bs-modal fade"
+  id="modal-feedback-error"
+  tabindex="-1"
+  aria-labelledby="modal-feedback-error-label"
+  aria-hidden="true">
+  <div class="modal-dialog bs-modal-dialog bs-modal-dialog-centered">
+    <div class="bs-modal-content">
+      <div class="bs-modal-header">
+        <h3 class="bs-h3 bs-modal-title" id="modal-feedback-error-label">
+          Упс!
+        </h3>
+        <button type="button" class="bs-btn bs-btn-close bs-btn-has-icon" data-bs-dismiss="modal" aria-label="Close">
+          <span class="icon">
+            <svg>
+              <use xlink:href="img/icons/close.svg#svg-close"></use>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div class="modal-body bs-modal-body">
+        <div class="f-14px text-center">
+          <p>
+            Произошла какая-то ошибка. Попробуй позже
+          </p>
+        </div>
+      </div>
+      <div class="bs-modal-footer">
+        <button type="button" class="bs-btn bs-btn-base bs-btn-success"
+          data-bs-dismiss="modal">
+          <span class="text">Закрыть</span>
+        </button>
+      </div>
+    </div>
   </div>
 </div>

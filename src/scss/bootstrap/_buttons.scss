@@ -510,6 +510,12 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+
+  .text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .bs-btn-base {
