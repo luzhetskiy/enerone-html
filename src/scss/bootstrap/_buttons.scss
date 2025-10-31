@@ -329,7 +329,7 @@
         --#{$prefix}icon-color: var(--#{$prefix}btn-hover-icon-color);
       }
 
-      .icon-container {
+      .icon-container--hover {
 
         > .icon {
 
@@ -351,7 +351,7 @@
       --#{$prefix}icon-color: var(--#{$prefix}btn-hover-icon-color);
     }
 
-    .icon-container {
+    .icon-container--hover {
 
       > .icon {
 
@@ -396,20 +396,6 @@
   fieldset:disabled & {
     .icon {
       --#{$prefix}icon-color: var(--#{$prefix}btn-disabled-icon-color);
-    }
-
-    .icon-container {
-
-      > .icon {
-
-        &:first-child {
-          opacity: 0;
-        }
-
-        &:last-child {
-          opacity: 1;
-        }
-      }
     }
   }
 }
@@ -478,6 +464,17 @@
 }
 
 
+
+.bs-btn-password {
+  --#{$prefix}btn-padding-x: .75rem;
+  --#{$prefix}btn-icon-size: 1.5rem;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
 
 .bs-btn-social {
 

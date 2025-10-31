@@ -3144,6 +3144,9 @@ progress {
 .bs-form-control:hover:not(:disabled):not([readonly])::file-selector-button {
   background-color: var(--bs-secondary-bg);
 }
+.bs-form-control--password {
+  padding-right: 3rem;
+}
 
 .bs-form-control-prefix {
   color: rgba(var(--bs-black-rgb), 0.2);
@@ -4174,20 +4177,20 @@ textarea.bs-form-control-lg {
   .bs-btn-has-icon:hover .icon, .bs-btn-check + .bs-btn-has-icon:hover .icon {
     --bs-icon-color: var(--bs-btn-hover-icon-color);
   }
-  .bs-btn-has-icon:hover .icon-container > .icon:first-child, .bs-btn-check + .bs-btn-has-icon:hover .icon-container > .icon:first-child {
+  .bs-btn-has-icon:hover .icon-container--hover > .icon:first-child, .bs-btn-check + .bs-btn-has-icon:hover .icon-container--hover > .icon:first-child {
     opacity: 0;
   }
-  .bs-btn-has-icon:hover .icon-container > .icon:last-child, .bs-btn-check + .bs-btn-has-icon:hover .icon-container > .icon:last-child {
+  .bs-btn-has-icon:hover .icon-container--hover > .icon:last-child, .bs-btn-check + .bs-btn-has-icon:hover .icon-container--hover > .icon:last-child {
     opacity: 1;
   }
 }
 .bs-btn-has-icon:focus-visible .icon, .bs-btn-check:focus-visible + .bs-btn-has-icon .icon {
   --bs-icon-color: var(--bs-btn-hover-icon-color);
 }
-.bs-btn-has-icon:focus-visible .icon-container > .icon:first-child, .bs-btn-check:focus-visible + .bs-btn-has-icon .icon-container > .icon:first-child {
+.bs-btn-has-icon:focus-visible .icon-container--hover > .icon:first-child, .bs-btn-check:focus-visible + .bs-btn-has-icon .icon-container--hover > .icon:first-child {
   opacity: 0;
 }
-.bs-btn-has-icon:focus-visible .icon-container > .icon:last-child, .bs-btn-check:focus-visible + .bs-btn-has-icon .icon-container > .icon:last-child {
+.bs-btn-has-icon:focus-visible .icon-container--hover > .icon:last-child, .bs-btn-check:focus-visible + .bs-btn-has-icon .icon-container--hover > .icon:last-child {
   opacity: 1;
 }
 .bs-btn-check:checked + .bs-btn-has-icon .icon, .bs-btn-check:checked:focus-visible + .bs-btn-has-icon .icon, :not(.bs-btn-check) + .bs-btn-has-icon:active .icon, .bs-btn-has-icon:first-child:active .icon, .bs-btn-has-icon.active .icon, .bs-btn-has-icon.show .icon {
@@ -4201,12 +4204,6 @@ textarea.bs-form-control-lg {
 }
 .bs-btn-has-icon:disabled .icon, .bs-btn-has-icon.disabled .icon, fieldset:disabled .bs-btn-has-icon .icon {
   --bs-icon-color: var(--bs-btn-disabled-icon-color);
-}
-.bs-btn-has-icon:disabled .icon-container > .icon:first-child, .bs-btn-has-icon.disabled .icon-container > .icon:first-child, fieldset:disabled .bs-btn-has-icon .icon-container > .icon:first-child {
-  opacity: 0;
-}
-.bs-btn-has-icon:disabled .icon-container > .icon:last-child, .bs-btn-has-icon.disabled .icon-container > .icon:last-child, fieldset:disabled .bs-btn-has-icon .icon-container > .icon:last-child {
-  opacity: 1;
 }
 
 .bs-btn-link {
@@ -4255,6 +4252,16 @@ textarea.bs-form-control-lg {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+
+.bs-btn-password {
+  --bs-btn-padding-x: .75rem;
+  --bs-btn-icon-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
 }
 
 @media (min-width: 992px) {

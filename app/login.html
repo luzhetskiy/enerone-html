@@ -336,16 +336,20 @@
       <div class="modal-body bs-modal-body">
         <div class="d-flex flex-column gap-24px">
           <div class="d-flex flex-column gap-20px">
-            <div class="position-relative">
+            <div class="d-flex flex-column">
               <label class="bs-form-label">Введите ваше имя:</label>
-              <input type="text" class="bs-form-control" name="name" placeholder="Ваше имя*" aria-label="Ваше имя" required>
+              <div class="position-relative">
+                <input type="text" class="bs-form-control" name="name" placeholder="Ваше имя*" aria-label="Ваше имя" required>
+              </div>
               <div class="invalid-feedback">
                 Ошибка
               </div>
             </div>
-            <div class="position-relative">
+            <div class="d-flex flex-column">
               <label class="bs-form-label">Введите ваш телефон:</label>
-              <input type="tel" class="bs-form-control" name="phone" placeholder="+7 (999) 999-99-99" aria-label="Ваше телефон" required>
+              <div class="position-relative">
+                <input type="tel" class="bs-form-control" name="phone" placeholder="+7 (999) 999-99-99" aria-label="Ваше телефон" required>
+              </div>
               <div class="invalid-feedback">
                 Ошибка
               </div>
@@ -389,37 +393,45 @@
       <div class="modal-body bs-modal-body">
         <div class="d-flex flex-column gap-24px">
           <div class="d-flex flex-column gap-20px">
-            <div class="position-relative">
+            <div class="d-flex flex-column">
               <label class="bs-form-label">Введите ваше имя:</label>
-              <input type="text" class="bs-form-control" name="name" placeholder="Ваше имя*" aria-label="Ваше имя" required>
+              <div class="position-relative">
+                <input type="text" class="bs-form-control" name="name" placeholder="Ваше имя*" aria-label="Ваше имя" required>
+              </div>
               <div class="invalid-feedback">
                 Ошибка
               </div>
             </div>
-            <div class="position-relative">
+            <div class="d-flex flex-column">
               <label class="bs-form-label">Введите ваш телефон:</label>
-              <input type="tel" class="bs-form-control" name="phone" placeholder="+7 (999) 999-99-99" aria-label="Ваше телефон" required>
+              <div class="position-relative">
+                <input type="tel" class="bs-form-control" name="phone" placeholder="+7 (999) 999-99-99" aria-label="Ваше телефон" required>
+              </div>
               <div class="invalid-feedback">
                 Ошибка
               </div>
             </div>
-            <div class="position-relative">
+            <div class="d-flex flex-column">
               <label class="bs-form-label">Выберите ваш регион:</label>
-              <select name="region"
-                data-choices="once"
-                data-placeholder="Выберите регион">
-                <option value="0">Кировская область</option>
-                <option value="1">Регион</option>
-                <option value="2">Регион</option>
-                <option value="3">Регион</option>
-              </select>
+              <div class="position-relative">
+                <select name="region"
+                  data-choices="once"
+                  data-placeholder="Выберите регион">
+                  <option value="0">Кировская область</option>
+                  <option value="1">Регион</option>
+                  <option value="2">Регион</option>
+                  <option value="3">Регион</option>
+                </select>
+              </div>
               <div class="invalid-feedback">
                 Ошибка
               </div>
             </div>
-            <div class="position-relative">
+            <div class="d-flex flex-column">
               <label class="bs-form-label text-gray-500">Если Вашего региона нет среди вариантов выше:</label>
-              <input type="text" class="bs-form-control" name="other-region" placeholder="Другой регион" aria-label="Другой регион">
+              <div class="position-relative">
+                <input type="text" class="bs-form-control" name="other-region" placeholder="Другой регион" aria-label="Другой регион">
+              </div>
               <div class="invalid-feedback">
                 Ошибка
               </div>
@@ -458,9 +470,11 @@
           </div>
 
           <div class="d-flex flex-column gap-20px">
-            <div class="position-relative">
+            <div class="d-flex flex-column">
               <label class="bs-form-label">Введите ИНН:</label>
-              <input type="text" class="bs-form-control" name="inn" placeholder="ИНН*" aria-label="ИНН" required>
+              <div class="position-relative">
+                <input type="text" class="bs-form-control" name="inn" placeholder="ИНН*" aria-label="ИНН" required>
+              </div>
               <div class="invalid-feedback">
                 Ошибка
               </div>
@@ -592,7 +606,7 @@
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvas-menu"
           aria-controls="offcanvas-menu">
-          <span class="icon-container">
+          <span class="icon-container icon-container--hover">
             <span class="icon icon-gradient" style="--bs-icon-gradient: url('../img/icons/menu.svg#svg-menu')">
               <svg>
                 <use xlink:href="img/icons/menu.svg#svg-menu"></use>
@@ -620,7 +634,7 @@
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvas-user"
           aria-controls="offcanvas-user">
-          <span class="icon-container">
+          <span class="icon-container icon-container--hover">
             <span class="icon icon-gradient" style="--bs-icon-gradient: url('../img/icons/user.svg#svg-user')">
               <svg>
                 <use xlink:href="img/icons/user.svg#svg-user"></use>
@@ -974,13 +988,35 @@
                     <div class="bs-col-10 bs-col-xxl-9">
                       <div class="d-flex flex-column gap-16px">
                         <div class="d-flex flex-column gap-12px">
-                          <input type="text" class="bs-form-control" name="name" placeholder="Ваше имя*" aria-label="Ваше имя*" required="">
-                          <input type="tel" class="bs-form-control" name="phone" placeholder="Ваш телефон*" aria-label="Ваш телефон*" required="">
+                          <div class="d-flex flex-column">
+                            <div class="position-relative">
+                              <input type="email" class="bs-form-control" name="email" placeholder="Ваш email*" aria-label="Ваш email*" required="">
+                            </div>
+                          </div>
+                          <div class="d-flex flex-column">
+                            <div class="position-relative" data-type-password="container">
+                              <input type="password" class="bs-form-control bs-form-control--password" name="password" placeholder="Ваш пароль*" aria-label="Ваш пароль*" data-type-password="input" required="">
+                              <button type="button" class="bs-btn bs-btn-icon bs-btn-has-icon bs-btn-password" data-type-password="toggle">
+                                <span class="icon-container">
+                                  <span class="icon">
+                                    <svg>
+                                      <use xlink:href="img/icons/eye-close.svg#svg-eye-close"></use>
+                                    </svg>
+                                  </span>
+                                  <span class="icon">
+                                    <svg>
+                                      <use xlink:href="img/icons/eye.svg#svg-eye"></use>
+                                    </svg>
+                                  </span>
+                                </span>
+                              </button>
+                            </div>
+                          </div>
                         </div>
 
                         <button type="submit" class="bs-btn bs-btn-base bs-btn-success">
                           <span>
-                            Отправить
+                            Войти
                           </span>
                         </button>
 

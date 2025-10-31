@@ -20210,7 +20210,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_transfer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/transfer.js */ "./src/js/components/transfer.js");
 /* harmony import */ var _components_swiper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/swiper.js */ "./src/js/components/swiper.js");
 /* harmony import */ var _components_mask_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/mask.js */ "./src/js/components/mask.js");
-/* harmony import */ var _components_choices_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/choices.js */ "./src/js/components/choices.js");
+/* harmony import */ var _components_password_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/password.js */ "./src/js/components/password.js");
+/* harmony import */ var _components_choices_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/choices.js */ "./src/js/components/choices.js");
+
 
 
 
@@ -20282,6 +20284,25 @@ telInputs?.forEach(input => {
   (0,imask__WEBPACK_IMPORTED_MODULE_0__["default"])(input, {
     mask: '+{7} (000) 000-00-00'
   });
+});
+
+/***/ }),
+
+/***/ "./src/js/components/password.js":
+/*!***************************************!*\
+  !*** ./src/js/components/password.js ***!
+  \***************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+document.addEventListener('click', e => {
+  const btn = e.target.closest('[data-type-password="toggle"]');
+  if (!btn) return;
+  const container = btn.closest('[data-type-password="container"]');
+  const input = container.querySelector('[data-type-password="input"]');
+  const isVisible = input.type === 'text';
+  input.type = isVisible ? 'password' : 'text';
+  btn.classList.toggle('active', !isVisible);
 });
 
 /***/ }),

@@ -110,6 +110,10 @@
   &:hover:not(:disabled):not([readonly])::file-selector-button {
     background-color: $form-file-button-hover-bg;
   }
+
+  &--password {
+    padding-right: 3rem;
+  }
 }
 
 .bs-form-control-prefix {

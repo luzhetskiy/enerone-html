@@ -1,0 +1,22 @@
+<div class="news-item d-flex flex-column rounded-8px">
+  <a href="#" class="stretched-link position-absolute inset-0 z-2"></a>
+
+  <div class="flex-fill d-flex flex-column gap-16px p-32px p-lg-40px">
+    <h3 class="bs-h3 text-reset">
+      @title
+    </h3>
+
+    @if (time) {
+      <time datetime="" class="d-block fs-14px">
+        @time
+      </time>
+    }
+  </div>
+
+  <div class="ratio ratio-16x9 position-relative z-1">
+    <picture>
+      <source srcset="./img/news/@img.webp" type="image/webp">
+      <img loading="lazy" src="./img/news/@img.jpg" class="d-block w-100 h-100 object-fit-cover" width="410" height="212" alt="Картинка">
+    </picture>
+  </div>
+</div>
