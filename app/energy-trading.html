@@ -1,0 +1,2100 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="date=no">
+  <meta name="format-detection" content="address=no">
+  <meta name="format-detection" content="email=no">
+  <title>Энерготрейдинг</title>
+  <link rel="preload" href="fonts/Roboto-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Roboto-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Oswald-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/vendor.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/new.css">
+  <script defer src="js/bootstrap.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+
+
+<body class="page-body">
+  <div class="offcanvas bs-offcanvas bs-offcanvas-start bs-offcanvas--menu" tabindex="-1"
+  id="offcanvas-menu"
+  data-bs-backdrop="false"
+  aria-labelledby="offcanvas-menu-label">
+  <div class="bs-offcanvas-body">
+    <div data-swiper="menu">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="widget py-20px px-32px">
+              <nav class="bs-navbar-nav">
+                <button type="button" class="bs-btn bs-btn-has-icon bs-btn-link bs-btn-link--regular bs-nav-link swiper-slide-button"
+                  data-slide-target="services">
+                  <span class="text">
+                    Наши услуги
+                  </span>
+                  <span class="icon">
+                    <svg>
+                      <use xlink:href="img/icons/next.svg#svg-next"></use>
+                    </svg>
+                  </span>
+                </button>
+                <button type="button" class="bs-btn bs-btn-has-icon bs-btn-link bs-btn-link--regular bs-nav-link swiper-slide-button"
+                  data-slide-target="useful">
+                  <span class="text">
+                    Полезное
+                  </span>
+                  <span class="icon">
+                    <svg>
+                      <use xlink:href="img/icons/next.svg#svg-next"></use>
+                    </svg>
+                  </span>
+                </button>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Инструменты
+                  </span>
+                </a>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    О компании
+                  </span>
+                </a>
+                <button type="button" class="bs-btn bs-btn-has-icon bs-btn-link bs-btn-link--regular bs-nav-link swiper-slide-button"
+                  data-slide-target="consultations">
+                  <span class="text">
+                    Консультации
+                  </span>
+                  <span class="icon">
+                    <svg>
+                      <use xlink:href="img/icons/next.svg#svg-next"></use>
+                    </svg>
+                  </span>
+                </button>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Новости
+                  </span>
+                </a>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Вопрос-ответ
+                  </span>
+                </a>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Кейсы
+                  </span>
+                </a>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Контакты
+                  </span>
+                </a>
+              </nav>
+            </div>
+          </div>
+          <div class="swiper-slide"
+            data-slide-submenu="services">
+            <div class="widget py-20px px-32px">
+              <nav class="bs-navbar-nav">
+                <button type="button" class="bs-btn bs-btn-has-icon bs-btn-link bs-btn-link--regular bs-nav-link swiper-slide-back"
+                  data-slide-target="back">
+                  <span class="icon">
+                    <svg>
+                      <use xlink:href="img/icons/prev.svg#svg-prev"></use>
+                    </svg>
+                  </span>
+                  <span class="text">
+                    Наши услуги
+                  </span>
+                </button>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Энергоснабжение под ключ
+                  </span>
+                </a>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Индивидуальная фиксированная цена
+                  </span>
+                </a>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Энергоснабжение с оптового рынка
+                  </span>
+                </a>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Зеленая электроэнергия
+                  </span>
+                </a>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Умное потребление
+                  </span>
+                </a>
+              </nav>
+            </div>
+          </div>
+          <div class="swiper-slide"
+            data-slide-submenu="useful">
+            <div class="widget py-20px px-32px">
+              <nav class="bs-navbar-nav">
+                <button type="button" class="bs-btn bs-btn-has-icon bs-btn-link bs-btn-link--regular bs-nav-link swiper-slide-back"
+                  data-slide-target="back">
+                  <span class="icon">
+                    <svg>
+                      <use xlink:href="img/icons/prev.svg#svg-prev"></use>
+                    </svg>
+                  </span>
+                  <span class="text">
+                    Полезное
+                  </span>
+                </button>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Работа на розничном рынке
+                  </span>
+                </a>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Работа на оптовом рынке
+                  </span>
+                </a>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Энергоснабжение с оптового рынка
+                  </span>
+                </a>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Технологическое присоединение
+                  </span>
+                </a>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Снижение затрат на электроэнергию
+                  </span>
+                </a>
+              </nav>
+            </div>
+          </div>
+          <div class="swiper-slide"
+            data-slide-submenu="consultations">
+            <div class="widget py-20px px-32px">
+              <nav class="bs-navbar-nav">
+                <button type="button" class="bs-btn bs-btn-has-icon bs-btn-link bs-btn-link--regular bs-nav-link swiper-slide-back"
+                  data-slide-target="back">
+                  <span class="icon">
+                    <svg>
+                      <use xlink:href="img/icons/prev.svg#svg-prev"></use>
+                    </svg>
+                  </span>
+                  <span class="text">
+                    Консультации
+                  </span>
+                </button>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Получение технологического присоединения
+                  </span>
+                </a>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Увеличение мощности
+                  </span>
+                </a>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Заключение договора энергоснабжения
+                  </span>
+                </a>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Работа на оптовом рынке
+                  </span>
+                </a>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Решение проблем в энергоснабжении
+                  </span>
+                </a>
+                <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                  <span class="text">
+                    Ценообразование и тарифы
+                  </span>
+                </a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column gap-20px mt-auto pt-32px">
+      <div class="d-flex flex-column align-items-center gap-16px">
+        <a href="tel:+78002221200" class="bs-btn bs-btn-link bs-btn-link--regular">
+          <span class="text">
+            +7 (800) 222-12-00
+          </span>
+        </a>
+        <button type="button" class="bs-btn bs-btn-link">
+          <span class="text">
+            Заказать звонок
+          </span>
+        </button>
+      </div>
+
+      <a href="mailto:zayavka@enerone.ru" class="bs-btn bs-btn-base bs-btn-border-gradient bs-btn-outline-primary">
+        <span class="text">
+          zayavka@enerone.ru
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="offcanvas bs-offcanvas bs-offcanvas-start bs-offcanvas--menu" tabindex="-1"
+  id="offcanvas-user"
+  data-bs-backdrop="false"
+  aria-labelledby="offcanvas-user-label">
+  <div class="bs-offcanvas-body">
+    <div class="d-flex flex-column gap-48px">
+      <div class="d-flex gap-20px">
+        <div class="w-64px h-64px flex-shrink-0 bs-bg-white rounded-8px">
+          <picture>
+            <source srcset="./img/users/default.webp" type="image/webp">
+            <img loading="lazy" src="./img/users/default.png" class="w-100 h-100 d-block object-fit-cover" width="60" height="60" alt="Картинка">
+          </picture>
+        </div>
+        <div class="d-flex flex-column justify-content-between gap-12px">
+          <h3 class="bs-h3">
+            Лужецкий Д.А.
+          </h3>
+          <div class="d-flex flex-wrap gap-12px">
+            <a href="./index.html" class="bs-btn bs-btn-link">
+              <span class="text">
+                Выйти
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-column gap-16px">
+        <a href="#" class="bs-btn bs-btn bs-btn-base bs-btn-border-gradient bs-btn-outline-primary">
+          <span class="text">
+            Договоры
+          </span>
+        </a>
+        <a href="#" class="bs-btn bs-btn bs-btn-base bs-btn-border-gradient bs-btn-outline-primary">
+          <span class="text">
+            Счета
+          </span>
+        </a>
+        <a href="#" class="bs-btn bs-btn bs-btn-base bs-btn-border-gradient bs-btn-outline-primary">
+          <span class="text">
+            Взаиморасчеты
+          </span>
+        </a>
+        <a href="#" class="bs-btn bs-btn bs-btn-base bs-btn-border-gradient bs-btn-outline-primary">
+          <span class="text">
+            Сообщения
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="modal bs-modal fade"
+  id="modal-callback-short"
+  tabindex="-1"
+  aria-labelledby="modal-callback-short-label"
+  aria-hidden="true">
+  <div class="modal-dialog bs-modal-dialog bs-modal-dialog-centered">
+    <form class="bs-modal-content">
+      <div class="bs-modal-header">
+        <h3 class="bs-h3 bs-modal-title" id="modal-callback-short-label">
+          Заказ обратного звонка
+        </h3>
+        <button type="button" class="bs-btn bs-btn-close bs-btn-has-icon" data-bs-dismiss="modal" aria-label="Close">
+          <span class="icon">
+            <svg>
+              <use xlink:href="img/icons/close.svg#svg-close"></use>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div class="modal-body bs-modal-body">
+        <div class="d-flex flex-column gap-24px">
+          <div class="d-flex flex-column gap-20px">
+            <div class="d-flex flex-column position-relative">
+              <label class="bs-form-label">Введите ваше имя:</label>
+              <div class="position-relative">
+                <input type="text" class="bs-form-control" name="name" placeholder="Ваше имя*" aria-label="Ваше имя" required>
+              </div>
+              <div class="invalid-feedback">
+                Ошибка
+              </div>
+            </div>
+            <div class="d-flex flex-column position-relative">
+              <label class="bs-form-label">Введите ваш телефон:</label>
+              <div class="position-relative">
+                <input type="tel" class="bs-form-control" name="phone" placeholder="+7 (999) 999-99-99" aria-label="Ваше телефон" required>
+              </div>
+              <div class="invalid-feedback">
+                Ошибка
+              </div>
+            </div>
+          </div>
+
+          <div class="bs-form-check">
+            <input type="checkbox" class="bs-form-check-input" id="modal-callback-short-agree" name="modal-callback-short-agree" checked>
+            <label class="bs-form-check-label" for="modal-callback-short-agree">Даю <a href="#" class="bs-btn bs-btn-inline bs-btn-link"><span class="text">согласие</span></a> на обработку персональных данных в соответствии с <a href="#" class="bs-btn bs-btn-inline bs-btn-link"><span class="text">политикой</span></a></label>
+          </div>
+        </div>
+      </div>
+      <div class="bs-modal-footer">
+        <button type="button" class="bs-btn bs-btn-base bs-btn-success">
+          <span class="text">Отправить</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal bs-modal fade"
+  id="modal-callback"
+  tabindex="-1"
+  aria-labelledby="modal-callback-label"
+  aria-hidden="true">
+  <div class="modal-dialog bs-modal-dialog bs-modal-dialog-centered">
+    <form class="bs-modal-content">
+      <div class="bs-modal-header">
+        <h3 class="bs-h3 bs-modal-title" id="modal-callback-label">
+          Заявка на подключение
+        </h3>
+        <button type="button" class="bs-btn bs-btn-close bs-btn-has-icon" data-bs-dismiss="modal" aria-label="Close">
+          <span class="icon">
+            <svg>
+              <use xlink:href="img/icons/close.svg#svg-close"></use>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div class="modal-body bs-modal-body">
+        <div class="d-flex flex-column gap-24px">
+          <div class="d-flex flex-column gap-20px">
+            <div class="d-flex flex-column position-relative">
+              <label class="bs-form-label">Введите ваше имя:</label>
+              <div class="position-relative">
+                <input type="text" class="bs-form-control" name="name" placeholder="Ваше имя*" aria-label="Ваше имя" required>
+              </div>
+              <div class="invalid-feedback">
+                Ошибка
+              </div>
+            </div>
+            <div class="d-flex flex-column position-relative">
+              <label class="bs-form-label">Введите ваш телефон:</label>
+              <div class="position-relative">
+                <input type="tel" class="bs-form-control" name="phone" placeholder="+7 (999) 999-99-99" aria-label="Ваше телефон" required>
+              </div>
+              <div class="invalid-feedback">
+                Ошибка
+              </div>
+            </div>
+            <div class="d-flex flex-column position-relative">
+              <label class="bs-form-label">Выберите ваш регион:</label>
+              <div class="position-relative">
+                <select name="region"
+                  data-choices="once"
+                  data-placeholder="Выберите регион">
+                  <option value="0">Кировская область</option>
+                  <option value="1">Регион</option>
+                  <option value="2">Регион</option>
+                  <option value="3">Регион</option>
+                </select>
+              </div>
+              <div class="invalid-feedback">
+                Ошибка
+              </div>
+            </div>
+            <div class="d-flex flex-column position-relative">
+              <label class="bs-form-label text-gray-500">Если Вашего региона нет среди вариантов выше:</label>
+              <div class="position-relative">
+                <input type="text" class="bs-form-control" name="other-region" placeholder="Другой регион" aria-label="Другой регион">
+              </div>
+              <div class="invalid-feedback">
+                Ошибка
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex flex-column gap-20px">
+            <div class="position-relative">
+              <label class="bs-form-label">Я являюсь</label>
+              <div class="bs-row g-12px">
+                <div class="bs-col-6">
+                  <div class="bs-form-check">
+                    <input type="radio" class="bs-form-check-input" id="modal-callback-radio-0" name="modal-callback-radio" checked>
+                    <label class="bs-form-check-label" for="modal-callback-radio-0">ИП/юр.лицо</label>
+                  </div>
+                </div>
+                <div class="bs-col-6">
+                  <div class="bs-form-check">
+                    <input type="radio" class="bs-form-check-input" id="modal-callback-radio-1" name="modal-callback-radio"
+                      data-bs-toggle="collapse-checked"
+                      data-bs-target="#modal-callback-collapse-1">
+                    <label class="bs-form-check-label" for="modal-callback-radio-1">физ.лицо</label>
+                  </div>
+                </div>
+              </div>
+              <div class="invalid-feedback">
+                Ошибка
+              </div>
+            </div>
+
+            <div class="collapse" id="modal-callback-collapse-1">
+              <p class="fs-12px fw-medium lh-normal text-success m-0px">
+                К сожалению, мы не можем принять вашу заявку, так как работаем только с юридическими лицами и индивидуальными предпринимателями. Если ваш вопрос касается энергоснабжения как физического лица, рекомендуем обратиться к вашему поставщику.
+              </p>
+            </div>
+          </div>
+
+          <div class="d-flex flex-column gap-20px">
+            <div class="d-flex flex-column position-relative">
+              <label class="bs-form-label">Введите ИНН:</label>
+              <div class="position-relative">
+                <input type="text" class="bs-form-control" name="inn" placeholder="ИНН*" aria-label="ИНН" required>
+              </div>
+              <div class="invalid-feedback">
+                Ошибка
+              </div>
+            </div>
+          </div>
+
+          <div class="bs-form-check">
+            <input type="checkbox" class="bs-form-check-input" id="modal-callback-agree" name="modal-callback-agree" checked>
+            <label class="bs-form-check-label" for="modal-callback-agree">Даю <a href="#" class="bs-btn bs-btn-inline bs-btn-link"><span class="text">согласие</span></a> на обработку персональных данных в соответствии с <a href="#" class="bs-btn bs-btn-inline bs-btn-link"><span class="text">политикой</span></a></label>
+          </div>
+        </div>
+      </div>
+      <div class="bs-modal-footer">
+        <button type="submit" class="bs-btn bs-btn-base bs-btn-success">
+          <span class="text">Отправить</span>
+        </button>
+      </div>
+
+      <script>
+        const form = document.currentScript.closest("form");
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Здесь демо: имитация успешной или неудачной отправки
+          const isSuccess = Math.random() > 0.5;
+
+          // Находим родительское модальное окно, внутри которого находится форма
+          const modalEl = form.closest(".modal");
+          if (!modalEl) return;
+
+          const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+          modal.hide();
+
+          // После закрытия показываем нужное модальное окно
+          setTimeout(() => {
+            const targetId = isSuccess ? "modal-feedback-success" : "modal-feedback-error";
+            const target = document.getElementById(targetId);
+            if (target) {
+              const targetModal = bootstrap.Modal.getOrCreateInstance(target);
+              targetModal.show();
+            }
+          }, 500);
+        });
+      </script>
+    </form>
+  </div>
+</div>
+
+<div class="modal bs-modal fade"
+  id="modal-feedback-success"
+  tabindex="-1"
+  aria-labelledby="modal-feedback-success-label"
+  aria-hidden="true">
+  <div class="modal-dialog bs-modal-dialog bs-modal-dialog-centered">
+    <div class="bs-modal-content">
+      <div class="bs-modal-header">
+        <h3 class="bs-h3 bs-modal-title" id="modal-feedback-success-label">
+          Спасибо за заявку!
+        </h3>
+        <button type="button" class="bs-btn bs-btn-close bs-btn-has-icon" data-bs-dismiss="modal" aria-label="Close">
+          <span class="icon">
+            <svg>
+              <use xlink:href="img/icons/close.svg#svg-close"></use>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div class="modal-body bs-modal-body">
+        <div class="f-14px text-center">
+          <p>
+            С вами скоро свяжутся
+          </p>
+        </div>
+      </div>
+      <div class="bs-modal-footer">
+        <button type="button" class="bs-btn bs-btn-base bs-btn-success"
+          data-bs-dismiss="modal">
+          <span class="text">Закрыть</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal bs-modal fade"
+  id="modal-feedback-error"
+  tabindex="-1"
+  aria-labelledby="modal-feedback-error-label"
+  aria-hidden="true">
+  <div class="modal-dialog bs-modal-dialog bs-modal-dialog-centered">
+    <div class="bs-modal-content">
+      <div class="bs-modal-header">
+        <h3 class="bs-h3 bs-modal-title" id="modal-feedback-error-label">
+          Упс!
+        </h3>
+        <button type="button" class="bs-btn bs-btn-close bs-btn-has-icon" data-bs-dismiss="modal" aria-label="Close">
+          <span class="icon">
+            <svg>
+              <use xlink:href="img/icons/close.svg#svg-close"></use>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div class="modal-body bs-modal-body">
+        <div class="f-14px text-center">
+          <p>
+            Произошла какая-то ошибка. Попробуй позже
+          </p>
+        </div>
+      </div>
+      <div class="bs-modal-footer">
+        <button type="button" class="bs-btn bs-btn-base bs-btn-success"
+          data-bs-dismiss="modal">
+          <span class="text">Закрыть</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal bs-modal fade"
+  id="modal-tariff"
+  tabindex="-1"
+  aria-labelledby="modal-tariff-label"
+  aria-hidden="true">
+  <div class="modal-dialog bs-modal-dialog bs-modal-dialog-centered">
+    <div class="bs-modal-content">
+      <div class="bs-modal-header">
+        <h3 class="bs-h3 bs-modal-title" id="modal-tariff-label">
+          Ваш тариф на электроэнергию
+        </h3>
+        <button type="button" class="bs-btn bs-btn-close bs-btn-has-icon" data-bs-dismiss="modal" aria-label="Close">
+          <span class="icon">
+            <svg>
+              <use xlink:href="img/icons/close.svg#svg-close"></use>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div class="modal-body bs-modal-body">
+        <div class="d-flex flex-column gap-32px">
+          <div class="fs-14px fw-medium">
+            <ul class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext">
+              <li class="list-group-item bs-list-group-item">
+                Регион: <span class="text-success">Курганская область</span>
+              </li>
+              <li class="list-group-item bs-list-group-item">
+                Уровень тарифного напряжения: <span class="text-success">Высокое напряжение (ВН)</span>
+              </li>
+            </ul>
+          </div>
+          <div class="d-flex justify-content-center text-center">
+            <div class="bs-h3">
+              Стоимость: <span>9,19 руб./кВт*ч с НДС</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bs-modal-footer">
+        <button type="button" class="bs-btn bs-btn-base bs-btn-success"
+          data-bs-toggle="modal"
+          data-bs-target="#modal-callback">
+          <span class="text">Подать заявку</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="site-container">
+    <header class="bs-header" data-header>
+  <div class="bs-container">
+    <div class="bs-header-top py-16px py-lg-24px">
+      <div class="d-flex d-lg-none">
+        <button type="button" class="bs-btn bs-btn-has-icon bs-btn-icon"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvas-menu"
+          aria-controls="offcanvas-menu">
+          <span class="icon-container icon-container--hover">
+            <span class="icon icon-gradient" style="--bs-icon-gradient: url('../img/icons/menu.svg#svg-menu')">
+              <svg>
+                <use xlink:href="img/icons/menu.svg#svg-menu"></use>
+              </svg>
+            </span>
+            <span class="icon">
+              <svg>
+                <use xlink:href="img/icons/menu.svg#svg-menu"></use>
+              </svg>
+            </span>
+          </span>
+        </button>
+      </div>
+
+      <div class="bs-header-start">
+        <div class="bs-navbar-brand">
+          <a class="bs-navbar-brand-link" href="/">
+            <img loading="lazy" src="./img/logo.svg" class="image" width="210" height="68" alt="Новая энергия">
+          </a>
+        </div>
+      </div>
+
+      <div class="d-flex d-lg-none">
+        <button type="button" class="bs-btn bs-btn-has-icon bs-btn-icon"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvas-user"
+          aria-controls="offcanvas-user">
+          <span class="icon-container icon-container--hover">
+            <span class="icon icon-gradient" style="--bs-icon-gradient: url('../img/icons/user.svg#svg-user')">
+              <svg>
+                <use xlink:href="img/icons/user.svg#svg-user"></use>
+              </svg>
+            </span>
+            <span class="icon">
+              <svg>
+                <use xlink:href="img/icons/user.svg#svg-user"></use>
+              </svg>
+            </span>
+          </span>
+        </button>
+      </div>
+
+      <div class="d-none d-lg-flex align-items-lg-center justify-content-lg-between">
+        <div class="d-none d-lg-flex gap-lg-24px gap-xl-32px gap-xxl-40px">
+          <a href="#" class="bs-btn bs-btn-base bs-btn-border-gradient bs-btn-primary">
+            <span class="text">ИП и малый бизнес</span>
+          </a>
+          <a href="#" class="bs-btn bs-btn-base bs-btn-border-gradient bs-btn-success">
+            <span class="text">Средний и крупный бизнес</span>
+          </a>
+        </div>
+
+        <div class="d-none d-lg-flex flex-lg-column align-items-lg-end gap-lg-8px">
+          <a href="tel:+78002221200" class="bs-btn bs-btn-link bs-btn-link--regular">
+            <span class="text">+7 (800) 222-12-00</span>
+          </a>
+          <button type="button" class="bs-btn bs-btn-link"
+            data-bs-toggle="modal"
+            data-bs-target="#modal-callback">
+            <span class="text">Заказать звонок</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bs-header-bottom">
+      <div class="bs-header-start">
+        
+
+        
+          <a href="./login.html" class="bs-btn bs-btn-base bs-btn-has-icon bs-btn-border-gradient bs-btn-outline-primary w-100">
+            <span class="icon">
+              <svg>
+                <use xlink:href="img/icons/user.svg#svg-user"></use>
+              </svg>
+            </span>
+            <span class="text">
+              Личный кабинет
+            </span>
+          </a>
+        
+      </div>
+
+      <nav class="bs-navbar-nav">
+        <div class="bs-dropdown dropdown">
+          <button type="button" class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link bs-bs-dropdown-toggle"
+            data-bs-toggle="dropdown-hover"
+            data-bs-offset="-40,16"
+            aria-expanded="false">
+            <span class="text">
+              Наши услуги
+            </span>
+          </button>
+          <div class="bs-dropdown-menu dropdown-menu">
+            <div class="bs-dropdown-menu-inner">
+              <div class="bs-dropdown-header">
+                Наши услуги
+              </div>
+              <ul class="bs-dropdown-list list-group list-group--plaintext bs-list-group bs-list-group--plaintext">
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Энергоснабжение под ключ
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Индивидуальная фиксированная цена
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Энергоснабжение с оптового рынка
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Зеленая электроэнергия
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Умное потребление
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="bs-dropdown dropdown">
+          <button type="button" class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link bs-dropdown-toggle"
+            data-bs-toggle="dropdown-hover"
+            data-bs-offset="-40,16"
+            aria-expanded="false">
+            <span class="text">
+              Полезное
+            </span>
+          </button>
+          <div class="bs-dropdown-menu dropdown-menu">
+            <div class="bs-dropdown-menu-inner">
+              <div class="bs-dropdown-header">
+                Полезное
+              </div>
+              <ul class="bs-dropdown-list list-group list-group--plaintext bs-list-group bs-list-group--plaintext">
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Работа на розничном рынке
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Работа на оптовом рынке
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Энергоснабжение с оптового рынка
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Технологическое присоединение
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Снижение затрат на электроэнергию
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="bs-dropdown dropdown">
+          <button type="button" class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link bs-dropdown-toggle"
+            data-bs-toggle="dropdown-hover"
+            data-bs-offset="-40,16"
+            aria-expanded="false">
+            <span class="text">
+              Инструменты
+            </span>
+          </button>
+          <div class="bs-dropdown-menu dropdown-menu">
+            <div class="bs-dropdown-menu-inner">
+              <div class="bs-dropdown-header">
+                Инструменты
+              </div>
+              <ul class="bs-dropdown-list list-group list-group--plaintext bs-list-group bs-list-group--plaintext">
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Аналитика по сбытовым надбавкам и котловым тарифам
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Калькулятор расчета ценовых категорий
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Калькулятор экономии от выхода на оптовый рынок электроэнергии
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Шаблоны документов
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Заявка на заключение договора энергоснабжения
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="bs-dropdown dropdown">
+          <button type="button" class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link bs-dropdown-toggle"
+            data-bs-toggle="dropdown-hover"
+            data-bs-offset="-40,16"
+            aria-expanded="false">
+            <span class="text">
+              О компании
+            </span>
+          </button>
+          <div class="bs-dropdown-menu dropdown-menu">
+            <div class="bs-dropdown-menu-inner">
+              <div class="bs-dropdown-header">
+                О компании
+              </div>
+              <ul class="bs-dropdown-list list-group list-group--plaintext bs-list-group bs-list-group--plaintext">
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    История
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Команда
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Контакты, реквизиты
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Раскрытие информации
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="bs-dropdown dropdown">
+          <button type="button" class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link bs-dropdown-toggle"
+            data-bs-toggle="dropdown-hover"
+            data-bs-offset="-40,16"
+            aria-expanded="false">
+            <span class="text">
+              Консультации
+            </span>
+          </button>
+          <div class="bs-dropdown-menu dropdown-menu">
+            <div class="bs-dropdown-menu-inner">
+              <div class="bs-dropdown-header">
+                Консультации
+              </div>
+              <ul class="bs-dropdown-list list-group list-group--plaintext bs-list-group bs-list-group--plaintext">
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Получение технологического присоединения
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Увеличение мощности
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Заключение договора энергоснабжения
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Работа на оптовом рынке
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Решение проблем в энергоснабжении
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Ценообразование и тарифы
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="bs-dropdown dropdown">
+          <button type="button" class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link bs-dropdown-toggle"
+            data-bs-toggle="dropdown-hover"
+            data-bs-offset="-40,16"
+            aria-expanded="false">
+            <span class="text">
+              Новости
+            </span>
+          </button>
+          <div class="bs-dropdown-menu dropdown-menu">
+            <div class="bs-dropdown-menu-inner">
+              <div class="bs-dropdown-header">
+                Новости
+              </div>
+              <ul class="bs-dropdown-list list-group list-group--plaintext bs-list-group bs-list-group--plaintext">
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Жизнь компании
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Законодательные изменения
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Тенденции рынка
+                  </a>
+                </li>
+                <li class="list-group-item bs-list-group-item">
+                  <a class="bs-dropdown-item" href="#">
+                    Для клиентов
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+          <span class="text">
+            Вопрос-ответ
+          </span>
+        </a>
+        <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+          <span class="text">
+            Кейсы
+          </span>
+        </a>
+        <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+          <span class="text">
+            Контакты
+          </span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+    <main class="main">
+      <section class="section hero">
+        <div class="bs-container">
+          <div class="bs-row gy-12px gx-0px g-lg-20px">
+            <div class="bs-col-lg-8">
+              <div class="h-100 hero-main">
+                <span class="d-none d-md-block bg-position-center bg-size-cover bg-repeat-norepeat position-absolute inset-0" style="background-image: url(./img/hero/image-2.webp);"></span>
+                <span class="d-block d-md-none bg-position-center bg-size-cover bg-repeat-norepeat position-absolute inset-0" style="background-image: url(./img/hero/image-2.webp);"></span>
+                <div class="d-flex flex-column gap-24px gap-lg-32px pt-32px pt-lg-48px px-16px px-lg-40px pb-160px pb-lg-80px position-relative z-1">
+                  <h1 class="bs-h1 text-reset">
+                    Покупка электроэнергии с&nbsp;оптового&nbsp;рынка
+                  </h1>
+                  <div class="fs-14px">
+                    <p class="m-0px">
+                      Подключайтесь к сервису!
+                    </p>
+                  </div>
+                  <div>
+                    <button type="button" class="bs-btn bs-btn-base bs-btn-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modal-callback">
+                      <span class="text">
+                        Получите индивидуальный расчет
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bs-col-lg-4">
+              <div class="h-100 d-flex flex-column gap-12px gap-lg-20px">
+                <div class="flex-fill d-flex flex-column justify-content-center fs-14px fw-medium text-white bs-bg-primary rounded-sm-8px py-20px py-lg-24px px-16px px-lg-32px position-relative z-1">
+                  <p class="m-0px">
+                    Все знают, что покупать электроэнергию на оптовом рынке (ОРЭМ) дешевле. Но доступ к торгам могут получить только крупные компании
+                  </p>
+                </div>
+                <div class="flex-fill d-flex flex-column justify-content-center fs-14px fw-medium text-white bs-bg-success rounded-sm-8px py-20px py-lg-24px px-16px px-lg-32px position-relative z-1">
+                  <p class="m-0px">
+                    Мы открываем возможность покупать электроэнергию с оптового рынка предприятиям со среднемесячным потреблением от 70 000 кВтч
+                  </p>
+                </div>
+                <div class="flex-fill d-flex flex-column justify-content-center fs-14px fw-medium text-white bs-bg-info rounded-sm-8px py-20px py-lg-24px px-16px px-lg-32px position-relative z-1">
+                  <p class="m-0px">
+                    Вы получаете гарантированную скидку от цены гарантирующего поставщика, а организация процесса энергоснабжения остается прежней
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="bs-col-12">
+              <div class="bs-container px-sm-0">
+                <div class="bs-row gy-12px gx-0px g-lg-20px">
+                  <div class="bs-col-lg-8">
+                    <div class="bs-row gy-12px gx-0px g-lg-20px">
+                      <div class="bs-col-lg-5">
+                        <div class="widget h-100 py-12px py-lg-24px px-20px px-lg-24px px-xl-40px">
+                          <div class="d-flex align-items-center gap-20px">
+                            <div class="w-64px h-64px flex-shrink-0">
+                              <picture>
+                                <source srcset="./img/hero-features/image-1.webp" type="image/webp">
+                                <img loading="lazy" src="./img/hero-features/image-1.png" class="img-fluid d-block" width="70" height="70" alt="Картинка">
+                              </picture>
+                            </div>
+                            <div class="fs-14px lh-sm">
+                              <p class="m-0px">
+                                Вы&nbsp;покупаете электроэнергию по&nbsp;оптовым ценам
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="bs-col-lg-7">
+                        <div class="widget h-100 py-12px py-lg-24px px-20px px-lg-24px px-xl-40px">
+                          <div class="d-flex align-items-center gap-20px">
+                            <div class="w-64px h-64px flex-shrink-0">
+                              <picture>
+                                <source srcset="./img/hero-features/image-2.webp" type="image/webp">
+                                <img loading="lazy" src="./img/hero-features/image-2.png" class="img-fluid d-block" width="70" height="70" alt="Картинка">
+                              </picture>
+                            </div>
+                            <div class="fs-14px lh-sm">
+                              <p class="m-0px">
+                                Вы&nbsp;получаете экономический эффект сразу после вывода предприятия на&nbsp;ОРЭМ. Строим и&nbsp;обслуживаем систему АИИС КУЭ за&nbsp;свой счет
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-lg-4">
+                    <div class="widget h-100 py-12px py-lg-24px px-20px px-lg-24px px-xl-40px">
+                      <div class="d-flex align-items-center gap-20px">
+                        <div class="w-64px h-64px flex-shrink-0">
+                          <picture>
+                            <source srcset="./img/hero-features/image-3.webp" type="image/webp">
+                            <img loading="lazy" src="./img/hero-features/image-3.png" class="img-fluid d-block" width="70" height="70" alt="Картинка">
+                          </picture>
+                        </div>
+                        <div class="fs-14px lh-sm">
+                          <p class="m-0px">
+                            Осуществляем планирование потребления и&nbsp;все риски берем на&nbsp;себя
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="bs-container">
+          <div class="section-header">
+            <h2 class="bs-h2">
+              Узнайте экономию от работы на оптовом рынке
+            </h2>
+          </div>
+
+          <div class="bs-row gy-12px gx-0px g-lg-20px">
+            <div class="bs-col-lg-8">
+              <form class="widget h-100 py-32px py-lg-48px px-20px px-lg-40px position-relative z-1"
+                data-form="calc-savings">
+                <span class="d-none d-lg-block bg-repeat-norepeat bg-size-cover pe-none position-absolute inset-0 z-n1" style="background-image: url(./img/decor/image-2.svg)"></span>
+
+
+                <div class="bs-row gy-24px gy-lg-32px gx-24px">
+                  <div class="bs-col-12">
+                    <h3 class="bs-h3">
+                      Калькулятор возможной экономии в&nbsp;год
+                    </h3>
+                  </div>
+                  <div class="bs-col-md-5 bs-col-lg-12 bs-col-xl-5">
+                    <div class="d-flex flex-column position-relative">
+                      <label class="bs-form-label">Выберите ваш регион:</label>
+                      <div class="position-relative">
+                        <select name="region"
+                          data-choices="once"
+                          data-placeholder="Выбрать">
+                        </select>
+                      </div>
+                      <div class="invalid-feedback">
+                        Ошибка
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-7 bs-col-lg-12 bs-col-xl-7 d-none d-md-block">
+
+                  </div>
+                  <div class="bs-col-md-5 bs-col-lg-12 bs-col-xl-5">
+                    <div class="d-flex flex-column position-relative">
+                      <label class="bs-form-label">Выберите свого поставщика:</label>
+                      <div class="position-relative">
+                        <select name="supplier"
+                          data-choices="once"
+                          data-placeholder="Выбрать">
+                        </select>
+                      </div>
+                      <div class="invalid-feedback">
+                        Ошибка
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-7 bs-col-lg-12 bs-col-xl-7 d-none d-md-block">
+
+                  </div>
+                  <div class="bs-col-md-5 bs-col-lg-12 bs-col-xl-5">
+                    <div class="d-flex flex-column position-relative">
+                      <label class="bs-form-label">Выберите категорию макс. мощности:</label>
+                      <div class="position-relative">
+                        <select name="max-power"
+                          data-choices="once"
+                          data-placeholder="Выбрать">
+                        </select>
+                      </div>
+                      <div class="invalid-feedback">
+                        Ошибка
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-7 bs-col-lg-12 bs-col-xl-7">
+                    <div class="h-100 d-flex align-items-end">
+                      <div class="min-h-48px d-flex align-items-center">
+                        <div class="fs-12px text-gray-500">
+                          Мы работаем в&nbsp;Челябинской, Волгоградской, Воронежской, Псковской&nbsp;областях, Республике&nbsp;Башкортостан
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-5 bs-col-lg-12 bs-col-xl-5">
+                    <div class="d-flex flex-column position-relative">
+                      <label class="bs-form-label">Ваш среднемесячный объем потребления:</label>
+                      <div class="position-relative">
+                        <input type="text" class="bs-form-control" name="consumption-volume" placeholder="Ввести" aria-label="Ваш среднемесячный объем потребления" required>
+                      </div>
+                      <div class="invalid-feedback">
+                        К сожалению, при таком объеме потребления экономии от работы на оптовом рынке не будет.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-7 bs-col-lg-12 bs-col-xl-7">
+                    <div class="h-100 d-flex align-items-end">
+                      <div class="min-h-48px d-flex align-items-center">
+                        <div class="bs-h3 fw-normal">
+                          Возможная экономия в&nbsp;год:&nbsp;<span class="fw-medium text-success" data-result="calc-savings"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="bs-col-lg-4">
+              <div class="h-100 d-flex flex-column gap-16px bs-bg-gray-200 rounded-8px pt-32px pt-lg-48px px-16px px-lg-32px pb-20px pb-lg-32px position-relative">
+                <div class="bs-row g-0px justify-content-center">
+                  <div class="bs-col-10 bs-col-xl-9 bs-col-xxl-8">
+                    <div class="d-flex flex-column gap-24px">
+                      <div class="d-flex flex-column gap-16px fs-14px text-center">
+                        <h3 class="bs-h3 text-reset">
+                          Энергоснабжение с&nbsp;оптового рынка
+                        </h3>
+                      </div>
+
+                      <div class="d-flex flex-column gap-20px">
+  <button type="button" class="bs-btn bs-btn-base bs-btn-success"
+    data-bs-toggle="modal"
+    data-bs-target="#modal-callback-short">
+    <span class="text">
+      Оставить завку
+    </span>
+  </button>
+
+  <div class="d-flex flex-column align-items-center gap-8px text-center">
+    <p class="fs-12px m-0px">
+      или по телефону
+    </p>
+
+    <div class="d-flex flex-column font-monospace fs-20px fw-medium lh-sm">
+      <a href="tel:+78002221200" class="bs-btn bs-btn-link fs-reset fw-reset">
+        <span class="text">+7 (800) 222-12-00</span>
+      </a>
+      <p class="text-gray-500 m-0px">
+        (доб. 7777)
+      </p>
+    </div>
+  </div>
+</div>
+
+                    </div>
+                  </div>
+
+                  <div class="bs-col-12">
+                    <div class="d-flex justify-content-center">
+                      <picture>
+                        <source srcset="./img/services/image-3.webp" type="image/webp">
+                        <img loading="lazy" src="./img/services/image-3.png" class="img-fluid" width="330" height="256" alt="Картинка">
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="bs-container">
+          <div class="d-flex flex-column gap-24px gap-lg-0px position-relative pt-lg-64px">
+            <div class="mw-lg-420px d-flex flex-lg-column align-items-center align-items-lg-stretch gap-16px gap-lg-0px position-lg-absolute top-lg-0 start-lg-10">
+              <picture class="w-64px h-64px w-lg-100px h-lg-100 flex-shrink-0 mb-lg-n40px ms-lg-n56px position-relative z-1">
+                <source srcset="./img/placement/image-1.webp" type="image/webp">
+                <img loading="lazy" src="./img/placement/image-1.png" class="img-fluid" width="100" height="100" alt="Картинка">
+              </picture>
+              <div class="fs-14px bg-white border border-2 border-info rounded-16px p-24px">
+                <p class="mb-0px">
+                  Уже сейчас сервис доступен для регионов:
+                </p>
+                <p class="mb-0px">
+                  Краснодарский край, Кемеровская область, Воронежская область, Красноярский край, Волгоградская область, Липецкая область, Калужская область, Костромская область, Новгородская область, Томская область, Новосибирская область
+                </p>
+              </div>
+            </div>
+            <div class="mw-lg-420px d-flex flex-lg-column align-items-center align-items-lg-stretch gap-16px gap-lg-0px ms-lg-56px position-lg-absolute bottom-lg-10">
+              <picture class="w-64px h-64px w-lg-100px h-lg-100 flex-shrink-0 mb-lg-n32px ms-lg-n56px position-relative z-1">
+                <source srcset="./img/placement/image-2.webp" type="image/webp">
+                <img loading="lazy" src="./img/placement/image-2.png" class="img-fluid" width="100" height="100" alt="Картинка">
+              </picture>
+              <div class="fs-14px lh-sm bg-white border border-2 border-success rounded-16px p-24px">
+                <p class="mb-0px">
+                  Вы получаете гарантированную скидку от цены гарантирующего поставщика, а организация процесса энергоснабжения остается прежней (как на розничном рынке) или вы сможете даже улучшить свои условия
+                </p>
+              </div>
+            </div>
+            <div class="mw-lg-320px d-flex flex-lg-column align-items-center align-items-lg-stretch gap-16px gap-lg-0px position-lg-absolute bottom-lg-0 end-lg-10">
+              <picture class="w-64px h-64px w-lg-100px h-lg-100 flex-shrink-0 align-self-lg-end order-lg-last mt-lg-n40px me-lg-n56px position-relative z-1">
+                <source srcset="./img/placement/image-3.webp" type="image/webp">
+                <img loading="lazy" src="./img/placement/image-3.png" class="img-fluid" width="100" height="100" alt="Картинка">
+              </picture>
+              <div class="fs-14px lh-sm bg-white border border-2 border-primary rounded-16px p-24px">
+                <p class="mb-0px">
+                  Объединяем несколько предприятий в единую группу поставки и организуем работу на оптовом рынке
+                </p>
+              </div>
+            </div>
+
+            <div class="d-none d-lg-flex justify-content-lg-center">
+              <picture>
+                <source srcset="./img/placement/default.webp" type="image/webp">
+                <img loading="lazy" src="./img/placement/default.png" class="img-fluid" width="838" height="570" alt="Картинка">
+              </picture>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="bs-container">
+          <div class="section-header">
+            <h2 class="bs-h2">
+              Акция!
+            </h2>
+          </div>
+
+          <div class="bs-row gy-12px gx-0px g-lg-20px">
+            <div class="bs-col-lg-8">
+              <div class="h-100 bs-bg-gray-200 rounded-8px py-32px py-lg-48px px-20px px-lg-40px position-relative z-1">
+                <span class="d-none d-lg-block bg-repeat-norepeat bg-size-cover pe-none position-absolute inset-0 z-n1" style="background-image: url(./img/decor/image-3.svg)"></span>
+
+                <div class="d-flex flex-column gap-24px fs-14px lh-sm">
+                  <h3 class="bs-h3">
+                    Бесплатный анализ условий энергоснабжения вашего предприятия
+                  </h3>
+
+                  <div>
+                    <p class="mb-0px">
+                      Не переплачивайте за электроэнергию! Мы предлагаем <span class="fw-medium text-success">бесплатную проверку</span> ваших текущих условий энергоснабжения и подскажем, как можно <span class="fw-medium text-success">сэкономить до 20%</span> на электроэнергии — без вложений и смены оборудования.
+                    </p>
+                  </div>
+
+                  <div class="d-flex flex-column gap-12px">
+                    <p class="mb-0px">
+                      Что требуется от вас:
+                    </p>
+                    <ul class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc">
+                      <li class="list-group-item bs-list-group-item">
+                        Счет-фактура за электроэнергию
+                      </li>
+                      <li class="list-group-item bs-list-group-item">
+                        Акт технологического присоединения
+                      </li>
+                      <li class="list-group-item bs-list-group-item">
+                        Почасовой график потребления (можно в Excel)
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="d-flex flex-column gap-12px">
+                    <p class="mb-0px">
+                      Что требуется от вас:
+                    </p>
+                    <ul class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc bs-list-group--disc-success">
+                      <li class="list-group-item bs-list-group-item">
+                        Отчет с выводами и рекомендациями
+                      </li>
+                      <li class="list-group-item bs-list-group-item">
+                        Расчет потенциальной экономии
+                      </li>
+                      <li class="list-group-item bs-list-group-item">
+                        Консультацию от эксперта по энергоснабжению
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bs-col-lg-4">
+              <div class="widget h-100 d-flex flex-column gap-16px rounded-8px pt-32px pt-lg-48px px-16px px-lg-32px pb-20px pb-lg-32px position-relative">
+                <div class="bs-row g-0px justify-content-center">
+                  <div class="bs-col-10 bs-col-xl-9 bs-col-xxl-8">
+                    <div class="d-flex flex-column gap-24px">
+                      <div class="d-flex flex-column gap-16px fs-14px text-center">
+                        <h3 class="bs-h3 text-reset">
+                          Акция действует до&nbsp;01.08.2025
+                        </h3>
+                        <p class="m-0px">
+                          Оставьте заявку прямо сейчас — и&nbsp;узнайте, сколько вы&nbsp;можете сэкономить.
+                        </p>
+                      </div>
+
+                      <div class="d-flex flex-column gap-20px">
+  <button type="button" class="bs-btn bs-btn-base bs-btn-success"
+    data-bs-toggle="modal"
+    data-bs-target="#modal-callback-short">
+    <span class="text">
+      Хочу бесплатный анализ
+    </span>
+  </button>
+
+  <div class="d-flex flex-column align-items-center gap-8px text-center">
+    <p class="fs-12px m-0px">
+      или по телефону
+    </p>
+
+    <div class="d-flex flex-column font-monospace fs-20px fw-medium lh-sm">
+      <a href="tel:+78002221200" class="bs-btn bs-btn-link fs-reset fw-reset">
+        <span class="text">+7 (800) 222-12-00</span>
+      </a>
+      <p class="text-gray-500 m-0px">
+        (доб. 7777)
+      </p>
+    </div>
+  </div>
+</div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" data-swiper="cards">
+        <div class="bs-container">
+          <div class="section-header">
+            <h2 class="bs-h2">
+              Кейсы
+            </h2>
+
+            <div class="swiper-controlls"
+              data-transfer-origin="swiper-casess-controlls"
+              data-transfer-breakpoint="991.98">
+              <a href="#" class="bs-btn bs-btn-base bs-btn-outline-secondary">
+                <span class="text">
+                  Все кейсы
+                </span>
+              </a>
+
+              <div class="swiper-navigation">
+                <button type="button" class="bs-btn bs-btn-has-icon bs-btn-base bs-btn-border-gradient swiper-button-prev">
+                  <span class="icon">
+                    <svg>
+                      <use xlink:href="img/icons/angle-left.svg#svg-angle-left"></use>
+                    </svg>
+                  </span>
+                </button>
+                <button type="button" class="bs-btn bs-btn-has-icon bs-btn-base bs-btn-border-gradient swiper-button-next">
+                  <span class="icon">
+                    <svg>
+                      <use xlink:href="img/icons/angle-right.svg#svg-angle-right"></use>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper cases-swiper bs-container-padding">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="cases-item d-flex flex-column rounded-8px">
+  <a href="#" class="stretched-link position-absolute inset-0 z-2"></a>
+
+  <div class="ratio ratio-16x9 position-relative z-1">
+    <picture>
+      <source srcset="./img/news/image-4.webp" type="image/webp">
+      <img loading="lazy" src="./img/news/image-4.jpg" class="d-block w-100 h-100 object-fit-cover" width="410" height="212" alt="Картинка">
+    </picture>
+  </div>
+
+  <div class="py-32px px-20px px-lg-32px pb-lg-48px">
+    <dl class="bs-row g-16px fs-14px lh-sm">
+      <dt class="bs-col-6 fs-reset fw-reset text-gray-500 mb-0px">
+        Отрасль:
+      </dt>
+      <dd class="bs-col-6 fs-reset fw-reset mb-0px">
+        пищевая промышленность
+      </dd>
+      <dt class="bs-col-6 fs-reset fw-reset text-gray-500 mb-0px">
+        Регион:
+      </dt>
+      <dd class="bs-col-6 fs-reset fw-reset mb-0px">
+        г. Псков
+      </dd>
+      <dt class="bs-col-6 fs-reset fw-reset text-gray-500 mb-0px">
+        Объем потребления:
+      </dt>
+      <dd class="bs-col-6 fs-reset fw-reset mb-0px">
+        7 000 000 кВт·ч/год
+      </dd>
+      <dt class="bs-col-6 fs-reset fw-reset text-gray-500 mb-0px">
+        Экономия за период:
+      </dt>
+      <dd class="bs-col-6 fs-reset fw-reset mb-0px">
+        2 159 000 руб. без НДС
+      </dd>
+    </dl>
+  </div>
+</div>
+
+            </div>
+            <div class="swiper-slide">
+              <div class="cases-item d-flex flex-column rounded-8px">
+  <a href="#" class="stretched-link position-absolute inset-0 z-2"></a>
+
+  <div class="ratio ratio-16x9 position-relative z-1">
+    <picture>
+      <source srcset="./img/news/image-5.webp" type="image/webp">
+      <img loading="lazy" src="./img/news/image-5.jpg" class="d-block w-100 h-100 object-fit-cover" width="410" height="212" alt="Картинка">
+    </picture>
+  </div>
+
+  <div class="py-32px px-20px px-lg-32px pb-lg-48px">
+    <dl class="bs-row g-16px fs-14px lh-sm">
+      <dt class="bs-col-6 fs-reset fw-reset text-gray-500 mb-0px">
+        Отрасль:
+      </dt>
+      <dd class="bs-col-6 fs-reset fw-reset mb-0px">
+        пищевая промышленность
+      </dd>
+      <dt class="bs-col-6 fs-reset fw-reset text-gray-500 mb-0px">
+        Регион:
+      </dt>
+      <dd class="bs-col-6 fs-reset fw-reset mb-0px">
+        г. Псков
+      </dd>
+      <dt class="bs-col-6 fs-reset fw-reset text-gray-500 mb-0px">
+        Объем потребления:
+      </dt>
+      <dd class="bs-col-6 fs-reset fw-reset mb-0px">
+        7 000 000 кВт·ч/год
+      </dd>
+      <dt class="bs-col-6 fs-reset fw-reset text-gray-500 mb-0px">
+        Экономия за период:
+      </dt>
+      <dd class="bs-col-6 fs-reset fw-reset mb-0px">
+        2 159 000 руб. без НДС
+      </dd>
+    </dl>
+  </div>
+</div>
+
+            </div>
+            <div class="swiper-slide">
+              <div class="cases-item d-flex flex-column rounded-8px">
+  <a href="#" class="stretched-link position-absolute inset-0 z-2"></a>
+
+  <div class="ratio ratio-16x9 position-relative z-1">
+    <picture>
+      <source srcset="./img/news/image-6.webp" type="image/webp">
+      <img loading="lazy" src="./img/news/image-6.jpg" class="d-block w-100 h-100 object-fit-cover" width="410" height="212" alt="Картинка">
+    </picture>
+  </div>
+
+  <div class="py-32px px-20px px-lg-32px pb-lg-48px">
+    <dl class="bs-row g-16px fs-14px lh-sm">
+      <dt class="bs-col-6 fs-reset fw-reset text-gray-500 mb-0px">
+        Отрасль:
+      </dt>
+      <dd class="bs-col-6 fs-reset fw-reset mb-0px">
+        пищевая промышленность
+      </dd>
+      <dt class="bs-col-6 fs-reset fw-reset text-gray-500 mb-0px">
+        Регион:
+      </dt>
+      <dd class="bs-col-6 fs-reset fw-reset mb-0px">
+        г. Псков
+      </dd>
+      <dt class="bs-col-6 fs-reset fw-reset text-gray-500 mb-0px">
+        Объем потребления:
+      </dt>
+      <dd class="bs-col-6 fs-reset fw-reset mb-0px">
+        7 000 000 кВт·ч/год
+      </dd>
+      <dt class="bs-col-6 fs-reset fw-reset text-gray-500 mb-0px">
+        Экономия за период:
+      </dt>
+      <dd class="bs-col-6 fs-reset fw-reset mb-0px">
+        2 159 000 руб. без НДС
+      </dd>
+    </dl>
+  </div>
+</div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="d-block d-lg-none mt-24px">
+          <div class="bs-container"
+            data-transfer-target="swiper-casess-controlls"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="bs-container">
+          <div class="section-header">
+            <h2 class="bs-h2">
+              Ограничения и преимущества работы на оптовом рынке
+            </h2>
+          </div>
+
+          <div class="bs-row gy-12px gx-0px g-lg-20px">
+            <div class="bs-col-lg-8">
+              <div class="h-100 bs-bg-success bg-opacity-15 border border-2 border-success rounded-8px py-24px px-20px p-lg-32px">
+                <div class="d-flex flex-column gap-6px fs-14px">
+                  <p class="mb-0px">
+                    Работа на оптовом рынке включает ряд ограничений:
+                  </p>
+
+                  <ul class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc bs-list-group--disc-success">
+                    <li class="list-group-item bs-list-group-item">
+                      Не все предприятия имеют возможность получить доступ к системе торгов на оптовом рынке.
+                    </li>
+                    <li class="list-group-item bs-list-group-item">
+                      Нужно создать дорогостоящую систему коммерческого учета электроэнергии (АИИС КУЭ).
+                    </li>
+                    <li class="list-group-item bs-list-group-item">
+                      Необходимо платить членские взносы в НП Совет Рынка.
+                    </li>
+                    <li class="list-group-item bs-list-group-item">
+                      Необходимо планировать свое потребление на сутки вперед.
+                    </li>
+                    <li class="list-group-item bs-list-group-item">
+                      Необходимо гарантировать платежную дисциплину.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="bs-col-lg-4">
+              <div class="h-100 bs-bg-primary bg-opacity-15 border border-2 border-primary rounded-8px py-24px px-20px p-lg-32px">
+                <div class="d-flex flex-column gap-6px fs-14px">
+                  <p class="mb-0px">
+                    Сервис совместной закупки электроэнергии с оптового рынка позволяет забыть про все эти требования. Мы организуем всю необходимую работу и берем на себя все организационные расходы:
+                  </p>
+
+                  <ul class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc">
+                    <li class="list-group-item bs-list-group-item">
+                      Вы покупаете электроэнергию дешевле.
+                    </li>
+                    <li class="list-group-item bs-list-group-item">
+                      Получаете поддержку и помощь в вопросах организации энергоснабжения.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="bs-container">
+          <div class="section-header">
+            <h2 class="bs-h2">
+              Получите бесплатную консультацию!
+            </h2>
+          </div>
+
+          <div class="bs-row gy-12px gx-0px g-lg-20px">
+            <div class="bs-col-lg-8">
+              <div class="h-100 bs-bg-gray-200 rounded-8px py-32px py-lg-48px px-20px px-lg-40px position-relative z-1">
+                <div class="d-flex flex-column gap-24px fs-14px lh-sm">
+                  <h3 class="bs-h3">
+                    Дополнительные возможности
+                  </h3>
+
+                  <ol class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--numbered bs-list-group--numbered-gradient">
+                    <li class="list-group-item bs-list-group-item">
+                      <div>
+                        <p class="mb-0px">
+                          Улучшить свои условия оплаты, например, зафиксировать тариф на&nbsp;определенный период и&nbsp;платить по&nbsp;факту потребления.
+                        </p>
+                      </div>
+                    </li>
+                    <li class="list-group-item bs-list-group-item">
+                      <div>
+                        <p class="mb-0px">
+                          Получить помощь при&nbsp;осуществлении нового технологического присоединения или&nbsp;увеличения мощности.
+                        </p>
+                      </div>
+                    </li>
+                    <li class="list-group-item bs-list-group-item">
+                      <div>
+                        <p class="mb-0px">
+                          Получить помощь при&nbsp;восстановлении утраченных документов (акт технологического присоединения, акты допуска приборов учета).
+                        </p>
+                      </div>
+                    </li>
+                  </ol>
+
+                  <p class="mb-0px">
+                    Вы можете рекомендовать наш сервис другим предприятиям и если мы заключим с этим предприятием договор энергоснабжения, то вы получите дополнительную скидку к вашему договору.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="bs-col-lg-4">
+              <div class="widget h-100 d-flex flex-column gap-16px rounded-8px pt-32px pt-lg-48px px-16px px-lg-32px pb-20px pb-lg-32px position-relative">
+                <div class="bs-row g-0px justify-content-center">
+                  <div class="bs-col-10 bs-col-xl-9 bs-col-xxl-8">
+                    <div class="d-flex flex-column gap-24px">
+                      <div class="d-flex flex-column gap-16px fs-14px text-center">
+                        <h3 class="bs-h3 text-reset">
+                          Остались вопросы?
+                        </h3>
+                        <p class="m-0px">
+                          Если у&nbsp;вас остались вопросы мы&nbsp;вас&nbsp;проконсультируем абсолютно бесплатно!
+                        </p>
+                      </div>
+
+                      <div class="d-flex flex-column gap-20px">
+  <button type="button" class="bs-btn bs-btn-base bs-btn-success"
+    data-bs-toggle="modal"
+    data-bs-target="#modal-callback-short">
+    <span class="text">
+      Получить консультацию
+    </span>
+  </button>
+
+  <div class="d-flex flex-column align-items-center gap-8px text-center">
+    <p class="fs-12px m-0px">
+      или по телефону
+    </p>
+
+    <div class="d-flex flex-column font-monospace fs-20px fw-medium lh-sm">
+      <a href="tel:+78002221200" class="bs-btn bs-btn-link fs-reset fw-reset">
+        <span class="text">+7 (800) 222-12-00</span>
+      </a>
+      <p class="text-gray-500 m-0px">
+        (доб. 7777)
+      </p>
+    </div>
+  </div>
+</div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bs-footer">
+  <div class="bs-container">
+    <div class="bs-footer-inner pt-32px pt-lg-64px px-lg-40px pb-80px">
+      <div class="d-flex flex-column gap-48px">
+        <div class="bs-row gy-48px">
+          <div class="bs-col-lg-3 bs-col-xl-4">
+            <div class="d-flex flex-column gap-64px">
+              <div class="bs-navbar-brand">
+                <a class="bs-navbar-brand-link" href="#">
+                  <img loading="lazy" src="./img/logo.svg" class="image" width="284" height="93" alt="Новая энергия">
+                </a>
+              </div>
+
+              <div class="d-flex flex-column gap-48px gap-lg-56px"
+                data-transfer-origin="footer-socials"
+                data-transfer-breakpoint="991.98">
+                <div class="d-flex flex-column gap-20px">
+                  <h3 class="bs-h3 text-success">
+                    Позвоните нам!
+                  </h3>
+
+                  <div class="d-flex flex-column gap-8px fs-14px">
+                    <a href="tel:+78002221200" class="bs-btn bs-btn-link bs-btn-link--regular">
+                      <span class="text">+7 (800) 222-12-00</span>
+                    </a>
+
+                    <p class="text-gray-500 m-0px">
+                      пн-пт 9:00–17:00
+                    </p>
+                  </div>
+                </div>
+                <div class="d-flex flex-column gap-20px">
+                  <h3 class="bs-h3">
+                    Напишите нам
+                  </h3>
+
+                  <div class="d-flex flex-column gap-8px fs-14px">
+                    <a href="mailto:zayavka@enerone.ru" class="bs-btn bs-btn-link bs-btn-link--regular">
+                      <span class="text">zayavka@enerone.ru</span>
+                    </a>
+
+                    <p class="text-gray-500 m-0px">
+                      пн-пт 9:00–17:00
+                    </p>
+                  </div>
+                </div>
+                <div class="d-flex flex-column gap-20px">
+                  <h3 class="bs-h3">
+                    Наши соцсети
+                  </h3>
+
+                  <div class="d-flex flex-wrap gap-12px gap-lg-20px">
+                    <a href="#" class="bs-btn bs-btn-has-icon bs-btn-icon bs-btn-social">
+                      <span class="icon">
+                        <svg>
+                          <use xlink:href="img/icons/telegram.svg#svg-telegram"></use>
+                        </svg>
+                      </span>
+                    </a>
+                    <a href="#" class="bs-btn bs-btn-has-icon bs-btn-icon bs-btn-social">
+                      <span class="icon">
+                        <svg>
+                          <use xlink:href="img/icons/whatsapp.svg#svg-whatsapp"></use>
+                        </svg>
+                      </span>
+                    </a>
+                    <a href="#" class="bs-btn bs-btn-has-icon bs-btn-icon bs-btn-social">
+                      <span class="icon">
+                        <svg>
+                          <use xlink:href="img/icons/vk.svg#svg-vk"></use>
+                        </svg>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bs-col-lg-9 bs-col-xl-8">
+            <div class="bs-row gy-48px gx-32px">
+              <div class="bs-col-6 bs-col-lg-4">
+                <div class="d-flex flex-column gap-64px">
+                  <div class="d-flex flex-column gap-14px">
+                    <h3 class="bs-h3">
+                      Клиентам
+                    </h3>
+                    <nav class="bs-navbar-nav bs-navbar-nav--footer">
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Клиентам
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Личный кабинет
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          ИП и малый бизнес
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Средний и крупный бизнес
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Работа на розничном рынке
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Работа на оптовом рынке
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Технологическое присоединение
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Снижение затрат на электроэнергию
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Раскрытие информации
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Новости и статьи
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Кейсы
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Вопрос-ответ
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Команда
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Реквизиты
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Контакты
+                        </span>
+                      </a>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+              <div class="bs-col-6 bs-col-lg-4">
+                <div class="d-flex flex-column gap-64px">
+                  <div class="d-flex flex-column gap-14px">
+                    <h3 class="bs-h3">
+                      Инструменты
+                    </h3>
+                    <nav class="bs-navbar-nav bs-navbar-nav--footer">
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Аналитика по сбытовым надбавкам и котловым тарифам
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Калькулятор расчета ценовых категорий
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Калькулятор экономии от выхода на оптовый рынок электроэнергии
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Шаблоны документов
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Заявка на заключение договора энергоснабжения
+                        </span>
+                      </a>
+                    </nav>
+                  </div>
+
+                  <div class="d-flex flex-column gap-14px">
+                    <h3 class="bs-h3">
+                      Наши услуги
+                    </h3>
+                    <nav class="bs-navbar-nav bs-navbar-nav--footer">
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Энергоснабжение под ключ
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Индивидуальная фиксированная цена
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Энергоснабжение
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Энергоснабжение с оптового рынка
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Зеленая электроэнергия
+                        </span>
+                      </a>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+              <div class="bs-col-6 bs-col-lg-4">
+                <div class="d-flex flex-column gap-64px">
+                  <div class="d-flex flex-column gap-14px">
+                    <h3 class="bs-h3">
+                      Консультации
+                    </h3>
+                    <nav class="bs-navbar-nav bs-navbar-nav--footer">
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Получение технологического присоединения
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Увеличение мощности
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Заключение договора энергоснабжения
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Работа на оптовом рынке
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Снижение затрат на электроэнергию
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Решение проблем в энергоснабжении
+                        </span>
+                      </a>
+                      <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="#">
+                        <span class="text">
+                          Ценообразование и тарифы
+                        </span>
+                      </a>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+              <div class="bs-col-6 bs-col-lg-4 d-lg-none">
+                <div class="d-flex flex-column gap-64px"
+                  data-transfer-target="footer-socials"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-column-reverse flex-lg-row align-items-lg-center justify-content-lg-between gap-48px">
+          <div class="d-flex flex-column gap-8px fs-14px">
+            <p class="text-gray-500 m-0px">
+              ⓒ 2025. Новая Энергия. Все права защищены
+            </p>
+
+            <button type="button" class="bs-btn bs-btn-link">
+              <span class="text">
+                Политика обработки персональных данных
+              </span>
+            </button>
+          </div>
+
+          <div class="d-flex align-items-center justify-content-between gap-20px gap-lg-40px">
+            <picture>
+              <source srcset="./img/payments/image-1.webp" type="image/webp">
+              <img loading="lazy" src="./img/payments/image-1.png" class="img-fluid" width="90" height="81" alt="Картинка">
+            </picture>
+            <picture>
+              <source srcset="./img/payments/image-2.webp" type="image/webp">
+              <img loading="lazy" src="./img/payments/image-2.png" class="img-fluid" width="90" height="82" alt="Картинка">
+            </picture>
+            <picture>
+              <source srcset="./img/payments/image-3.webp" type="image/webp">
+              <img loading="lazy" src="./img/payments/image-3.png" class="img-fluid" width="76" height="82" alt="Картинка">
+            </picture>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </div>
+</body>
+
+</html>

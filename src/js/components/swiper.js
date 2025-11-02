@@ -71,7 +71,7 @@ document.querySelectorAll('[data-swiper]')?.forEach(container => {
             slidesPerView: 2,
             spaceBetween: 20
           },
-          768: {
+          992: {
             slidesPerView: 3,
             spaceBetween: 20
           }

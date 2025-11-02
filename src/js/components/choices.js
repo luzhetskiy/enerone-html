@@ -1,5 +1,7 @@
 import Choices from "choices.js"
 
+window.choicesInstances = []
+
 document.querySelectorAll('[data-choices]')?.forEach((element) => {
 
   const choice = new Choices(element, {
@@ -10,6 +12,11 @@ document.querySelectorAll('[data-choices]')?.forEach((element) => {
     loadingText: "Загрузка...",
     noResultsText: "Результаты не найдены",
     noChoicesText: "Нет вариантов для выбора",
+  })
+
+  window.choicesInstances.push({
+    element,
+    instance: choice
   })
 
   const inner = choice.containerInner.element;

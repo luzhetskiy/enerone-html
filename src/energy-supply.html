@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html', {title: 'Энергоснабжение под ключ'})
+
+<body class="page-body">
+  @include('partials/offcanvases.html')
+  @include('partials/modals.html')
+
+  <div class="site-container">
+    @include('partials/header.html', {
+    auth: false
+    })
+
+    <main class="main">
+      <section class="section hero">
+        <div class="bs-container">
+          <div class="bs-row gy-12px gx-0px g-lg-20px">
+            <div class="bs-col-lg-12">
+              <div class="min-h-lg-480px h-100 hero-main">
+                <span
+                  class="d-none d-md-block bg-position-center bg-size-cover bg-repeat-norepeat position-absolute inset-0"
+                  style="background-image: url(./img/hero/image-3.webp);"></span>
+                <span
+                  class="d-block d-md-none bg-position-center bg-size-cover bg-repeat-norepeat position-absolute inset-0"
+                  style="background-image: url(./img/hero/image-3.webp);"></span>
+                <div
+                  class="d-flex flex-column gap-24px gap-lg-32px pt-32px pt-lg-48px px-16px px-lg-40px pb-160px pb-lg-80px position-relative z-1">
+                  <h1 class="bs-h1 text-reset">
+                    Электроэнергия для&nbsp;ИП и&nbsp;ООО
+                  </h1>
+                  <div class="fs-14px">
+                    <div class="d-flex flex-column gap-12px">
+                      <p class="mb-0px">
+                        Цена от&nbsp;7,12 руб./кВт*ч без&nbsp;НДС зависит от&nbsp;региона и&nbsp;уровня тарифного
+                        напряжения:
+                      </p>
+                      <ul
+                        class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc bs-list-group--disc-success">
+                        <li class="list-group-item bs-list-group-item">
+                          фиксированный тариф на год*
+                        </li>
+                        <li class="list-group-item bs-list-group-item">
+                          оплата по факту потребления один раз в месяц
+                        </li>
+                        <li class="list-group-item bs-list-group-item">
+                          минимум документов, оформление онлайн
+                        </li>
+                        <li class="list-group-item bs-list-group-item">
+                          работаем по всей России
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-16px gap-lg-24px">
+                    <button type="button" class="bs-btn bs-btn-base bs-btn-primary" data-bs-toggle="modal"
+                      data-bs-target="#modal-callback">
+                      <span class="text">
+                        Подключить
+                      </span>
+                    </button>
+
+                    <div class="mw-320px min-h-48px d-flex align-items-center">
+                      <div class="fs-12px">
+                        * через год тариф измениться на&nbsp;уровень инфляции и&nbsp;будет зафиксирован
+                        на&nbsp;следующий год
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bs-col-12">
+              <div class="bs-container px-sm-0">
+                <div class="bs-row gy-12px gx-0px g-md-12px g-lg-20px">
+                  <div class="bs-col-md-6 bs-col-xl-3">
+                    <div class="widget h-100 py-12px px-20px p-lg-24px">
+                      <div class="d-flex align-items-center gap-20px">
+                        <div class="w-64px h-64px flex-shrink-0">
+                          <picture>
+                            <source srcset="./img/hero-features/image-4.webp" type="image/webp">
+                            <img loading="lazy" src="./img/hero-features/image-4.png" class="img-fluid d-block"
+                              width="70" height="70" alt="Картинка">
+                          </picture>
+                        </div>
+                        <div class="fs-14px lh-sm">
+                          <p class="m-0px">
+                            Единый тариф на&nbsp;электроэнергию, фиксируемый в&nbsp;договоре на&nbsp;год
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-6 bs-col-xl-3">
+                    <div class="widget h-100 py-12px px-20px p-lg-24px">
+                      <div class="d-flex align-items-center gap-20px">
+                        <div class="w-64px h-64px flex-shrink-0">
+                          <picture>
+                            <source srcset="./img/hero-features/image-5.webp" type="image/webp">
+                            <img loading="lazy" src="./img/hero-features/image-5.png" class="img-fluid d-block"
+                              width="70" height="70" alt="Картинка">
+                          </picture>
+                        </div>
+                        <div class="fs-14px lh-sm">
+                          <p class="m-0px">
+                            Оплата по&nbsp;факту потребления один раз в&nbsp;месяц
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-6 bs-col-xl-3">
+                    <div class="widget h-100 py-12px px-20px p-lg-24px">
+                      <div class="d-flex align-items-center gap-20px">
+                        <div class="w-64px h-64px flex-shrink-0">
+                          <picture>
+                            <source srcset="./img/hero-features/image-6.webp" type="image/webp">
+                            <img loading="lazy" src="./img/hero-features/image-6.png" class="img-fluid d-block"
+                              width="70" height="70" alt="Картинка">
+                          </picture>
+                        </div>
+                        <div class="fs-14px lh-sm">
+                          <p class="m-0px">
+                            Быстрое и&nbsp;простое заключение договора вне&nbsp;офиса и&nbsp;без&nbsp;очередей
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-6 bs-col-xl-3">
+                    <div class="widget h-100 py-12px px-20px p-lg-24px">
+                      <div class="d-flex align-items-center gap-20px">
+                        <div class="w-64px h-64px flex-shrink-0">
+                          <picture>
+                            <source srcset="./img/hero-features/image-7.webp" type="image/webp">
+                            <img loading="lazy" src="./img/hero-features/image-7.png" class="img-fluid d-block"
+                              width="70" height="70" alt="Картинка">
+                          </picture>
+                        </div>
+                        <div class="fs-14px lh-sm">
+                          <p class="m-0px">
+                            Удобный личный кабинет
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-6 bs-col-xl-3">
+                    <div class="widget h-100 py-12px px-20px p-lg-24px">
+                      <div class="d-flex align-items-center gap-20px">
+                        <div class="w-64px h-64px flex-shrink-0">
+                          <picture>
+                            <source srcset="./img/hero-features/image-2.webp" type="image/webp">
+                            <img loading="lazy" src="./img/hero-features/image-2.png" class="img-fluid d-block"
+                              width="70" height="70" alt="Картинка">
+                          </picture>
+                        </div>
+                        <div class="fs-14px lh-sm">
+                          <p class="m-0px">
+                            Дистанционный сбор показаний за электроэнергию
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-6 bs-col-xl-3">
+                    <div class="widget h-100 py-12px px-20px p-lg-24px">
+                      <div class="d-flex align-items-center gap-20px">
+                        <div class="w-64px h-64px flex-shrink-0">
+                          <picture>
+                            <source srcset="./img/hero-features/image-8.webp" type="image/webp">
+                            <img loading="lazy" src="./img/hero-features/image-8.png" class="img-fluid d-block"
+                              width="70" height="70" alt="Картинка">
+                          </picture>
+                        </div>
+                        <div class="fs-14px lh-sm">
+                          <p class="m-0px">
+                            Установим современный прибор учета согласно графику в&nbsp;договоре
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-6 bs-col-xl-3">
+                    <div class="widget h-100 py-12px px-20px p-lg-24px">
+                      <div class="d-flex align-items-center gap-20px">
+                        <div class="w-64px h-64px flex-shrink-0">
+                          <picture>
+                            <source srcset="./img/hero-features/image-9.webp" type="image/webp">
+                            <img loading="lazy" src="./img/hero-features/image-9.png" class="img-fluid d-block"
+                              width="70" height="70" alt="Картинка">
+                          </picture>
+                        </div>
+                        <div class="fs-14px lh-sm">
+                          <p class="m-0px">
+                            Помощь в&nbsp;решении проблем в&nbsp;вопросах энергоснабжения
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-6 bs-col-xl-3">
+                    <div class="widget h-100 py-12px px-20px p-lg-24px">
+                      <div class="d-flex align-items-center gap-20px">
+                        <div class="w-64px h-64px flex-shrink-0">
+                          <picture>
+                            <source srcset="./img/hero-features/image-10.webp" type="image/webp">
+                            <img loading="lazy" src="./img/hero-features/image-10.png" class="img-fluid d-block"
+                              width="70" height="70" alt="Картинка">
+                          </picture>
+                        </div>
+                        <div class="fs-14px lh-sm">
+                          <p class="m-0px">
+                            Упрощенный документооборот
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="bs-container">
+          <div class="section-header">
+            <h2 class="bs-h2">
+              Узнайте свой тариф на электроэнергию
+            </h2>
+          </div>
+
+          <div class="bs-row gy-12px gx-0px g-lg-20px">
+            <div class="bs-col-lg-8">
+              <form class="widget h-100 py-32px py-lg-48px px-20px px-lg-40px position-relative z-1">
+                <span class="d-none d-lg-block bg-repeat-norepeat bg-size-cover pe-none position-absolute inset-0 z-n1"
+                  style="background-image: url(./img/decor/image-4.svg)"></span>
+
+                <div class="bs-row gy-24px gy-lg-32px gx-24px">
+                  <div class="bs-col-12">
+                    <h3 class="bs-h3">
+                      Ваш тариф на&nbsp;электроэнергию
+                    </h3>
+                  </div>
+                  <div class="bs-col-md-5 bs-col-lg-12 bs-col-xl-5">
+                    <div class="d-flex flex-column position-relative">
+                      <label class="bs-form-label">Выберите ваш регион:</label>
+                      <div class="position-relative">
+                        <select name="region" data-choices="once" data-placeholder="Выбрать">
+                          <option value="0">Кировская область</option>
+                          <option value="1">Регион</option>
+                          <option value="2">Регион</option>
+                          <option value="3">Регион</option>
+                        </select>
+                      </div>
+                      <div class="invalid-feedback">
+                        Ошибка
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-7 bs-col-lg-12 bs-col-xl-7">
+                    <div class="h-100 d-flex align-items-end">
+                      <div class="min-h-48px d-flex align-items-center">
+                        <div class="fs-12px text-gray-500">
+                          Мы работаем в&nbsp;Челябинской, Волгоградской, Воронежской, Псковской&nbsp;областях,
+                          Республике&nbsp;Башкортостан
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-5 bs-col-lg-12 bs-col-xl-5">
+                    <div class="d-flex flex-column position-relative">
+                      <label class="bs-form-label">Выберите ваш уровень тарифного напряжения:</label>
+                      <div class="bs-row g-12px">
+                        <div class="bs-col-12">
+                          <div class="bs-form-check">
+                            <input type="radio" class="bs-form-check-input" id="calc-tariff-radio-0"
+                              name="calc-tariff-radio" value="#modal-tariff" checked="">
+                            <label class="bs-form-check-label" for="calc-tariff-radio-0">Высокое напряжение (ВН)</label>
+                          </div>
+                        </div>
+                        <div class="bs-col-12">
+                          <div class="bs-form-check">
+                            <input type="radio" class="bs-form-check-input" id="calc-tariff-radio-1"
+                              name="calc-tariff-radio" value="#modal-tariff">
+                            <label class="bs-form-check-label" for="calc-tariff-radio-1">Среднее первое напряжение
+                              (СН1)</label>
+                          </div>
+                        </div>
+                        <div class="bs-col-12">
+                          <div class="bs-form-check">
+                            <input type="radio" class="bs-form-check-input" id="calc-tariff-radio-2"
+                              name="calc-tariff-radio" value="#modal-tariff">
+                            <label class="bs-form-check-label" for="calc-tariff-radio-2">Среднее второе напряжение
+                              (СН2)</label>
+                          </div>
+                        </div>
+                        <div class="bs-col-12">
+                          <div class="bs-form-check">
+                            <input type="radio" class="bs-form-check-input" id="calc-tariff-radio-3"
+                              name="calc-tariff-radio" value="#modal-tariff">
+                            <label class="bs-form-check-label" for="calc-tariff-radio-3">Низкое напряжение (НН)</label>
+                          </div>
+                        </div>
+                        <div class="bs-col-12">
+                          <div class="bs-form-check">
+                            <input type="radio" class="bs-form-check-input" id="calc-tariff-radio-4"
+                              name="calc-tariff-radio" value="#modal-callback">
+                            <label class="bs-form-check-label" for="calc-tariff-radio-4">Не знаю</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="invalid-feedback">
+                        Ошибка
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-7 bs-col-lg-12 bs-col-xl-7 d-none d-md-block"></div>
+                  <div class="bs-col-12">
+                    <div class="d-flex flex-column flex-md-row align-items-md-center gap-16px gap-lg-24px">
+                      <button type="button" class="bs-btn bs-btn-base bs-btn-success min-w-md-200px"
+                        data-bs-toggle="modal" data-bs-target="#modal-tariff">
+                        <span class="text">
+                          Узнать тариф
+                        </span>
+                      </button>
+
+                      <div class="mw-320px min-h-48px d-flex align-items-center">
+                        <div class="fs-12px text-gray-500">
+                          Если вы&nbsp;затрудняетесь в&nbsp;определении вашего уровня, выберите пункт «Не&nbsp;знаю»
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Demo Script -->
+                <script>
+                  const currentForm = document.currentScript.closest("form")
+                  const radios = currentForm.querySelectorAll('input[name="calc-tariff-radio"]')
+                  const button = currentForm.querySelector('[data-bs-toggle="modal"]')
+
+                  const checkedRadio = currentForm.querySelector('input[name="calc-tariff-radio"]:checked')
+                  if (checkedRadio) {
+                    button.setAttribute('data-bs-target', checkedRadio.value)
+                  }
+                  radios.forEach(radio => {
+                    radio.addEventListener('change', () => {
+                      if (radio.checked) {
+                        button.setAttribute('data-bs-target', radio.value)
+                      }
+                    })
+                  })
+                </script>
+              </form>
+            </div>
+            <div class="bs-col-lg-4">
+              <div
+                class="h-100 d-flex flex-column gap-16px bs-bg-gray-200 rounded-8px pt-32px pt-lg-48px px-16px px-lg-32px pb-20px pb-lg-32px position-relative">
+                <div class="bs-row gy-40px gx-0px justify-content-center">
+                  <div class="bs-col-10 bs-col-xl-9 bs-col-xxl-8">
+                    <div class="d-flex flex-column gap-24px">
+                      <div class="d-flex flex-column gap-16px fs-14px text-center">
+                        <h3 class="bs-h3 text-reset">
+                          Энергоснабжение под&nbsp;ключ
+                        </h3>
+                        <p class="m-0px">
+                          Оставьте заявку на&nbsp;бесплатную консультацию, и&nbsp;наш специалист свяжется с&nbsp;вами
+                        </p>
+                      </div>
+
+                      <div class="d-flex flex-column gap-20px">
+                        <button type="button" class="bs-btn bs-btn-base bs-btn-success" data-bs-toggle="modal"
+                          data-bs-target="#modal-callback-short">
+                          <span class="text">
+                            Получить консультацию
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bs-col-12">
+                    <div class="d-flex justify-content-center">
+                      <picture>
+                        <source srcset="./img/services/image-1.webp" type="image/webp">
+                        <img loading="lazy" src="./img/services/image-1.png" class="img-fluid" width="330" height="256"
+                          alt="Картинка">
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="bs-container">
+          <div class="section-header d-xl-none">
+            <h2 class="bs-h2">
+              Преимущества сервиса «Энергосбережение под ключ»
+            </h2>
+          </div>
+
+          <div class="bs-row g-8px g-lg-20px">
+            <div class="bs-col-xl-4 d-none d-xl-block">
+              <div class="section-header mb-0px">
+                <h2 class="bs-h2">
+                  Преимущества сервиса «Энергосбережение под ключ»
+                </h2>
+              </div>
+            </div>
+            <div class="bs-col-6 bs-col-xl-4">
+              <div class="d-flex flex-column gap-24px">
+                <picture class="flex-shrink-0 align-self-center">
+                  <source srcset="./img/advantages/like.webp" type="image/webp">
+                  <img loading="lazy" src="./img/advantages/like.png" class="img-fluid" width="110" height="110"
+                    alt="Картинка">
+                </picture>
+
+                <div
+                  class="min-h-64px min-h-lg-100px d-flex align-items-center justify-content-center text-white text-center bs-bg-success rounded-8px p-16px">
+                  <h3 class="bs-h3 text-reset">
+                    «Энергосбережение под ключ»
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="bs-col-6 bs-col-xl-4">
+              <div class="d-flex flex-column gap-24px">
+                <picture class="flex-shrink-0 align-self-center">
+                  <source srcset="./img/advantages/dislike.webp" type="image/webp">
+                  <img loading="lazy" src="./img/advantages/dislike.png" class="img-fluid" width="110" height="110"
+                    alt="Картинка">
+                </picture>
+
+                <div
+                  class="min-h-64px min-h-lg-100px d-flex align-items-center justify-content-center text-white text-center bs-bg-primary rounded-8px p-16px">
+                  <h3 class="bs-h3 text-reset">
+                    Остальные сервисы
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="bs-col-12 bs-col-xl-4">
+              <div class="d-flex flex-column gap-24px">
+                <div
+                  class="min-h-64px min-h-lg-100px d-flex align-items-center justify-content-center text-center bs-bg-white border border-2 border-gray-400 rounded-8px p-16px">
+                  <h3 class="bs-h3 text-reset">
+                    Заключение договора
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="bs-col-6 bs-col-xl-4">
+              <div
+                class="h-100 fs-14px lh-sm bs-bg-success bg-opacity-15 border border-2 border-success rounded-8px py-16px px-12px py-lg-32px px-lg-24px">
+                <ul
+                  class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc bs-list-group--disc-success">
+                  <li class="list-group-item bs-list-group-item">
+                    Заполните простую заявку на сайте.
+                  </li>
+                  <li class="list-group-item bs-list-group-item">
+                    Если у вас нет документов, отметьте это в форме, мы свяжемся с вами, чтобы помочь решить эту
+                    проблему.
+                  </li>
+                  <li class="list-group-item bs-list-group-item">
+                    Договор доставим курьером или почтой.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="bs-col-6 bs-col-xl-4">
+              <div
+                class="h-100 fs-14px lh-sm bs-bg-primary bg-opacity-15 border border-2 border-primary rounded-8px py-16px px-12px py-lg-32px px-lg-24px">
+                <ul class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc">
+                  <li class="list-group-item bs-list-group-item">
+                    Нужно ехать в офис энергосбытовой компании.
+                  </li>
+                  <li class="list-group-item bs-list-group-item">
+                    Стоять в пробках, искать место парковки.
+                  </li>
+                  <li class="list-group-item bs-list-group-item">
+                    Стоять в очередях.
+                  </li>
+                  <li class="list-group-item bs-list-group-item">
+                    Собирать документы.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="bs-col-12 bs-col-xl-4">
+              <div class="d-flex flex-column gap-24px">
+                <div
+                  class="min-h-64px min-h-lg-100px d-flex align-items-center justify-content-center text-center bs-bg-white border border-2 border-gray-400 rounded-8px p-16px">
+                  <h3 class="bs-h3 text-reset">
+                    Снятие и подача показаний
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="bs-col-6 bs-col-xl-4">
+              <div
+                class="h-100 fs-14px lh-sm bs-bg-success bg-opacity-15 border border-2 border-success rounded-8px py-16px px-12px py-lg-32px px-lg-24px">
+                <ul
+                  class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc bs-list-group--disc-success">
+                  <li class="list-group-item bs-list-group-item">
+                    Установим современный прибор учета по согласованному в договоре графику.
+                  </li>
+                  <li class="list-group-item bs-list-group-item">
+                    Система дистанционного сбора показаний снимет и передаст показания в энергосбытовую компанию без
+                    вашего участия.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="bs-col-6 bs-col-xl-4">
+              <div
+                class="h-100 fs-14px lh-sm bs-bg-primary bg-opacity-15 border border-2 border-primary rounded-8px py-16px px-12px py-lg-32px px-lg-24px">
+                <ul class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc">
+                  <li class="list-group-item bs-list-group-item">
+                    Сложности, если прибор учета расположен в труднодоступном месте.
+                  </li>
+                  <li class="list-group-item bs-list-group-item">
+                    Ошибки при самостоятельном съеме показаний. Вероятность забыть это сделать.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="bs-col-12 bs-col-xl-4">
+              <div class="d-flex flex-column gap-24px">
+                <div
+                  class="min-h-64px min-h-lg-100px d-flex align-items-center justify-content-center text-center bs-bg-white border border-2 border-gray-400 rounded-8px p-16px">
+                  <h3 class="bs-h3 text-reset">
+                    Оплата электроэнергии
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="bs-col-6 bs-col-xl-4">
+              <div
+                class="h-100 fs-14px lh-sm bs-bg-success bg-opacity-15 border border-2 border-success rounded-8px py-16px px-12px py-lg-32px px-lg-24px">
+                <ul
+                  class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc bs-list-group--disc-success">
+                  <li class="list-group-item bs-list-group-item">
+                    Одна оплата в месяц по факту потребления. Больший срок для оплаты.
+                  </li>
+                  <li class="list-group-item bs-list-group-item">
+                    Упрощенный документооборот.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="bs-col-6 bs-col-xl-4">
+              <div
+                class="h-100 fs-14px lh-sm bs-bg-primary bg-opacity-15 border border-2 border-primary rounded-8px py-16px px-12px py-lg-32px px-lg-24px">
+                <ul class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc">
+                  <li class="list-group-item bs-list-group-item">
+                    Необходимость оплачивать авансы. Необходимость «выдергивать» деньги из оборота.
+                  </li>
+                  <li class="list-group-item bs-list-group-item">
+                    Три оплаты в месяц (авансы плюс факт). Вероятность забыть оплатить, в случае чего — отключение
+                    электроэнергии.
+                  </li>
+                  <li class="list-group-item bs-list-group-item">
+                    Усложненный документооборот, нагрузка на бухгалтерию.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="bs-col-12 bs-col-xl-4">
+              <div class="d-flex flex-column gap-24px">
+                <div
+                  class="min-h-64px min-h-lg-100px d-flex align-items-center justify-content-center text-center bs-bg-white border border-2 border-gray-400 rounded-8px p-16px">
+                  <h3 class="bs-h3 text-reset">
+                    Аварийные ситуации
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="bs-col-6 bs-col-xl-4">
+              <div
+                class="h-100 fs-14px lh-sm bs-bg-success bg-opacity-15 border border-2 border-success rounded-8px py-16px px-12px py-lg-32px px-lg-24px">
+                <ul
+                  class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc bs-list-group--disc-success">
+                  <li class="list-group-item bs-list-group-item">
+                    Помощь в решении различных проблем, нужно только подать соответствующую заявку.
+                  </li>
+                  <li class="list-group-item bs-list-group-item">
+                    Оповещения о плановых отключениях.
+                  </li>
+                  <li class="list-group-item bs-list-group-item">
+                    Помощь во взаимодействии с сетевыми организациями и другими участниками рынка электроэнергетики.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="bs-col-6 bs-col-xl-4">
+              <div
+                class="h-100 fs-14px lh-sm bs-bg-primary bg-opacity-15 border border-2 border-primary rounded-8px py-16px px-12px py-lg-32px px-lg-24px">
+                <ul class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc">
+                  <li class="list-group-item bs-list-group-item">
+                    Решать нужно самостоятельно.
+                  </li>
+                  <li class="list-group-item bs-list-group-item">
+                    Нет понимания где, что и как решать.
+                  </li>
+                  <li class="list-group-item bs-list-group-item">
+                    Нет понимания куда обращаться, если случилась аварийная ситуация.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="bs-col-12 bs-col-xl-4">
+              <div class="d-flex flex-column gap-24px">
+                <div
+                  class="min-h-64px min-h-lg-100px d-flex align-items-center justify-content-center text-center bs-bg-white border border-2 border-gray-400 rounded-8px p-16px">
+                  <h3 class="bs-h3 text-reset">
+                    Цена на электроэнергию
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="bs-col-6 bs-col-xl-4">
+              <div
+                class="h-100 fs-14px lh-sm bs-bg-success bg-opacity-15 border border-2 border-success rounded-8px py-16px px-12px py-lg-32px px-lg-24px">
+                <ul
+                  class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc bs-list-group--disc-success">
+                  <li class="list-group-item bs-list-group-item">
+                    Цена фиксируется на год.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="bs-col-6 bs-col-xl-4">
+              <div
+                class="h-100 fs-14px lh-sm bs-bg-primary bg-opacity-15 border border-2 border-primary rounded-8px py-16px px-12px py-lg-32px px-lg-24px">
+                <ul class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc">
+                  <li class="list-group-item bs-list-group-item">
+                    Меняется каждый месяц постфактум.
+                  </li>
+                  <li class="list-group-item bs-list-group-item">
+                    Сложности с планированием затрат.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="bs-container">
+          <div class="section-header">
+            <h2 class="bs-h2">
+              Получите проект договора уже сегодня!
+            </h2>
+          </div>
+
+          <div class="bs-row gy-12px gx-0px g-lg-20px">
+            <div class="bs-col-lg-4">
+              <div
+                class="h-100 d-flex flex-column gap-16px bs-bg-gray-200 rounded-8px py-32px py-lg-48px px-20px px-lg-40px position-relative">
+                <div class="d-flex flex-column gap-24px fs-14px lh-sm">
+                  <h3 class="bs-h3">
+                    Предварительная заявка на подключение
+                  </h3>
+
+                  <ol
+                    class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--numbered bs-list-group--numbered-gradient">
+                    <li class="list-group-item bs-list-group-item">
+                      <div>
+                        <p class="mb-0px">
+                          Заполните заявку онлайн
+                          <br>
+                          —&nbsp;посещать офис не&nbsp;нужно
+                        </p>
+                      </div>
+                    </li>
+                    <li class="list-group-item bs-list-group-item">
+                      <div>
+                        <p class="mb-0px">
+                          Прикрепите скан копии документов
+                          <br>
+                          —&nbsp;оригиналы привозить не&nbsp;нужно
+                        </p>
+                      </div>
+                    </li>
+                    <li class="list-group-item bs-list-group-item">
+                      <div>
+                        <p class="mb-0px">
+                          Проект договора вы&nbsp;получите на&nbsp;электронную почту
+                        </p>
+                      </div>
+                    </li>
+                  </ol>
+
+                  <div class="d-flex flex-column flex-md-row">
+                    <button type="button" class="bs-btn bs-btn-base bs-btn-success min-w-lg-200px"
+                      data-bs-toggle="modal" data-bs-target="#modal-callback-short">
+                      <span class="text">
+                        Получить договор
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bs-col-lg-8">
+              <form class="widget h-100 rounded-8px px-20px px-lg-40px position-relative z-1">
+                <span class="d-none d-lg-block bg-repeat-norepeat bg-size-cover pe-none position-absolute inset-0 z-n1"
+                  style="background-image: url(./img/decor/image-5.svg)"></span>
+
+                <div class="bs-row g-0px">
+                  <div class="bs-col-md-6 bs-col-xxl-5">
+                    <div class="d-flex flex-column gap-32px fs-14px py-32px py-lg-48px">
+                      <h3 class="bs-h3">
+                        Остались вопросы?
+                        <br>
+                        Мы проконсультируем!
+                      </h3>
+
+                      <div class="d-flex flex-column gap-24px">
+                        <div class="d-flex flex-column gap-20px">
+                          <div class="d-flex flex-column position-relative">
+                            <label class="bs-form-label">Введите ваше имя:</label>
+                            <div class="position-relative">
+                              <input type="text" class="bs-form-control" name="name" placeholder="Ваше имя*"
+                                aria-label="Ваше имя" required>
+                            </div>
+                            <div class="invalid-feedback">
+                              Ошибка
+                            </div>
+                          </div>
+                          <div class="d-flex flex-column position-relative">
+                            <label class="bs-form-label">Введите ваш телефон:</label>
+                            <div class="position-relative">
+                              <input type="tel" class="bs-form-control" name="phone" placeholder="+7 (999) 999-99-99"
+                                aria-label="Ваше телефон" required>
+                            </div>
+                            <div class="invalid-feedback">
+                              Ошибка
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="bs-form-check">
+                          <input type="checkbox" class="bs-form-check-input" id="callback-agree" name="callback-agree"
+                            checked>
+                          <label class="bs-form-check-label" for="callback-agree">Даю <a href="#"
+                              class="bs-btn bs-btn-inline bs-btn-link"><span class="text">согласие</span></a> на
+                            обработку персональных данных в соответствии с <a href="#"
+                              class="bs-btn bs-btn-inline bs-btn-link"><span class="text">политикой</span></a></label>
+                        </div>
+
+                        <div class="d-flex flex-column flex-md-row">
+                          <button type="submit" class="bs-btn bs-btn-base bs-btn-success">
+                            <span class="text">Получить консультацию</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-6 bs-col-xxl-7 d-none d-md-block">
+                    <div class="h-100 d-flex justify-content-center align-items-end">
+                      <picture>
+                        <source srcset="./img/callback/image-1.webp" type="image/webp">
+                        <img loading="lazy" src="./img/callback/image-1.png" class="img-fluid" width="370" height="402"
+                          alt="Картинка">
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    @include('partials/footer.html')
+  </div>
+</body>
+
+</html>

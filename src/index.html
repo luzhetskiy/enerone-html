@@ -206,7 +206,9 @@
                         </p>
                       </div>
 
-                      @include('partials/widget/callback.html')
+                      @include('partials/widget/callback.html', {
+                        button: 'Получить консультацию'
+                      })
                     </div>
                   </div>
                 </div>
@@ -353,7 +355,7 @@
               </div>
             </div>
             <div class="bs-col-md-4">
-              <form class="widget h-100 d-flex flex-column gap-16px rounded-8px pt-32px pt-lg-48px px-16px px-lg-32px pb-20px pb-lg-32px position-relative">
+              <div class="widget h-100 d-flex flex-column gap-16px rounded-8px pt-32px pt-lg-48px px-16px px-lg-32px pb-20px pb-lg-32px position-relative">
                 <div class="bs-row g-0px justify-content-center">
                   <div class="bs-col-10 bs-col-xl-9 bs-col-xxl-8">
                     <div class="d-flex flex-column gap-24px">
@@ -366,11 +368,13 @@
                         </p>
                       </div>
 
-                      @include('partials/widget/callback.html')
+                      @include('partials/widget/callback.html', {
+                        button: 'Получить консультацию'
+                      })
                     </div>
                   </div>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>

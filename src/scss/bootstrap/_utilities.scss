@@ -103,6 +103,7 @@ $utilities: map-merge(
     // scss-docs-start utils-position
     "position": (
       property: position,
+      responsive: true,
       values: static relative absolute fixed sticky
     ),
     "inset": (
@@ -806,6 +807,7 @@ $utilities: map-merge(
       values: (
         5: .05,
         10: .1,
+        15: .15,
         25: .25,
         50: .5,
         75: .75,

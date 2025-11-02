@@ -336,7 +336,7 @@
       <div class="modal-body bs-modal-body">
         <div class="d-flex flex-column gap-24px">
           <div class="d-flex flex-column gap-20px">
-            <div class="d-flex flex-column">
+            <div class="d-flex flex-column position-relative">
               <label class="bs-form-label">Введите ваше имя:</label>
               <div class="position-relative">
                 <input type="text" class="bs-form-control" name="name" placeholder="Ваше имя*" aria-label="Ваше имя" required>
@@ -345,7 +345,7 @@
                 Ошибка
               </div>
             </div>
-            <div class="d-flex flex-column">
+            <div class="d-flex flex-column position-relative">
               <label class="bs-form-label">Введите ваш телефон:</label>
               <div class="position-relative">
                 <input type="tel" class="bs-form-control" name="phone" placeholder="+7 (999) 999-99-99" aria-label="Ваше телефон" required>
@@ -393,7 +393,7 @@
       <div class="modal-body bs-modal-body">
         <div class="d-flex flex-column gap-24px">
           <div class="d-flex flex-column gap-20px">
-            <div class="d-flex flex-column">
+            <div class="d-flex flex-column position-relative">
               <label class="bs-form-label">Введите ваше имя:</label>
               <div class="position-relative">
                 <input type="text" class="bs-form-control" name="name" placeholder="Ваше имя*" aria-label="Ваше имя" required>
@@ -402,7 +402,7 @@
                 Ошибка
               </div>
             </div>
-            <div class="d-flex flex-column">
+            <div class="d-flex flex-column position-relative">
               <label class="bs-form-label">Введите ваш телефон:</label>
               <div class="position-relative">
                 <input type="tel" class="bs-form-control" name="phone" placeholder="+7 (999) 999-99-99" aria-label="Ваше телефон" required>
@@ -411,7 +411,7 @@
                 Ошибка
               </div>
             </div>
-            <div class="d-flex flex-column">
+            <div class="d-flex flex-column position-relative">
               <label class="bs-form-label">Выберите ваш регион:</label>
               <div class="position-relative">
                 <select name="region"
@@ -427,7 +427,7 @@
                 Ошибка
               </div>
             </div>
-            <div class="d-flex flex-column">
+            <div class="d-flex flex-column position-relative">
               <label class="bs-form-label text-gray-500">Если Вашего региона нет среди вариантов выше:</label>
               <div class="position-relative">
                 <input type="text" class="bs-form-control" name="other-region" placeholder="Другой регион" aria-label="Другой регион">
@@ -470,7 +470,7 @@
           </div>
 
           <div class="d-flex flex-column gap-20px">
-            <div class="d-flex flex-column">
+            <div class="d-flex flex-column position-relative">
               <label class="bs-form-label">Введите ИНН:</label>
               <div class="position-relative">
                 <input type="text" class="bs-form-control" name="inn" placeholder="ИНН*" aria-label="ИНН" required>
@@ -590,6 +590,55 @@
         <button type="button" class="bs-btn bs-btn-base bs-btn-success"
           data-bs-dismiss="modal">
           <span class="text">Закрыть</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal bs-modal fade"
+  id="modal-tariff"
+  tabindex="-1"
+  aria-labelledby="modal-tariff-label"
+  aria-hidden="true">
+  <div class="modal-dialog bs-modal-dialog bs-modal-dialog-centered">
+    <div class="bs-modal-content">
+      <div class="bs-modal-header">
+        <h3 class="bs-h3 bs-modal-title" id="modal-tariff-label">
+          Ваш тариф на электроэнергию
+        </h3>
+        <button type="button" class="bs-btn bs-btn-close bs-btn-has-icon" data-bs-dismiss="modal" aria-label="Close">
+          <span class="icon">
+            <svg>
+              <use xlink:href="img/icons/close.svg#svg-close"></use>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div class="modal-body bs-modal-body">
+        <div class="d-flex flex-column gap-32px">
+          <div class="fs-14px fw-medium">
+            <ul class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext">
+              <li class="list-group-item bs-list-group-item">
+                Регион: <span class="text-success">Курганская область</span>
+              </li>
+              <li class="list-group-item bs-list-group-item">
+                Уровень тарифного напряжения: <span class="text-success">Высокое напряжение (ВН)</span>
+              </li>
+            </ul>
+          </div>
+          <div class="d-flex justify-content-center text-center">
+            <div class="bs-h3">
+              Стоимость: <span>9,19 руб./кВт*ч с НДС</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bs-modal-footer">
+        <button type="button" class="bs-btn bs-btn-base bs-btn-success"
+          data-bs-toggle="modal"
+          data-bs-target="#modal-callback">
+          <span class="text">Подать заявку</span>
         </button>
       </div>
     </div>
@@ -1420,7 +1469,7 @@
               </div>
             </div>
             <div class="bs-col-md-4">
-              <form class="widget h-100 d-flex flex-column gap-16px rounded-8px pt-32px pt-lg-48px px-16px px-lg-32px pb-20px pb-lg-32px position-relative">
+              <div class="widget h-100 d-flex flex-column gap-16px rounded-8px pt-32px pt-lg-48px px-16px px-lg-32px pb-20px pb-lg-32px position-relative">
                 <div class="bs-row g-0px justify-content-center">
                   <div class="bs-col-10 bs-col-xl-9 bs-col-xxl-8">
                     <div class="d-flex flex-column gap-24px">
@@ -1461,7 +1510,7 @@
                     </div>
                   </div>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>

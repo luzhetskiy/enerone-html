@@ -10,7 +10,7 @@ $white:    #fff !default;
 $gray-100: #f1f8f6 !default;
 $gray-200: #eee !default;
 $gray-300: #dee2e6 !default;
-$gray-400: #d5d9df !default;
+$gray-400: #c5c5c5 !default;
 $gray-500: #8E8E8E !default;
 $gray-600: #6c757d !default;
 $gray-700: #455A64 !default;
@@ -317,6 +317,8 @@ $theme-colors: (
   "danger":     $danger,
   "light":      $light,
   "dark":       $dark,
+  "gray-200":   $gray-200,
+  "gray-400":   $gray-400,
   "gray-500":   $gray-500,
   "title":      #333,
 ) !default;
@@ -423,6 +425,11 @@ $sizes: (
   '48px': 3rem,
   '56px': 3.5rem,
   '64px': 4rem,
+  '100px': 6.25rem,
+  '200px': 12.5rem,
+  '320px': 20rem,
+  '420px': 26.25rem,
+  '480px': 30rem,
 );
 
 
@@ -470,6 +477,7 @@ $spacers: (
 $position-values: (
   auto: auto,
   0: 0,
+  10: 10%,
   25: 25%,
   50: 50%,
   75: 75%,
@@ -993,7 +1001,7 @@ $input-disabled-bg:                     var(--#{$prefix}secondary-bg) !default;
 $input-disabled-border-color:           null !default;
 
 $input-color:                           var(--#{$prefix}black) !default;
-$input-border-color:                    #c5c5c5 !default;
+$input-border-color:                    var(--#{$prefix}gray-400) !default;
 $input-border-width:                    var(--#{$prefix}border-width) !default;
 $input-box-shadow:                      var(--#{$prefix}box-shadow-inset) !default;
 
@@ -1331,7 +1339,7 @@ $dropdown-padding-y:                2rem !default;
 $dropdown-spacer:                   .5rem !default;
 $dropdown-font-size:                .875rem !default;
 $dropdown-color:                    var(--#{$prefix}body-color) !default;
-$dropdown-bg:                       #eee !default;
+$dropdown-bg:                       $gray-200 !default;
 $dropdown-border-color:             null !default;
 $dropdown-border-radius:            .5rem !default;
 $dropdown-border-width:             0 !default;
@@ -1819,7 +1827,7 @@ $offcanvas-transition-duration:     300ms !default;
 $offcanvas-border-color:            $modal-content-border-color !default;
 $offcanvas-border-width:            $modal-content-border-width !default;
 $offcanvas-title-line-height:       $modal-title-line-height !default;
-$offcanvas-bg-color:                #eee !default;
+$offcanvas-bg-color:                $gray-200 !default;
 $offcanvas-color:                   var(--#{$prefix}body-color) !default;
 $offcanvas-box-shadow:              $modal-content-box-shadow-xs !default;
 $offcanvas-backdrop-bg:             $modal-backdrop-bg !default;

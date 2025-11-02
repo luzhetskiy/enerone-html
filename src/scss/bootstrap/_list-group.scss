@@ -209,3 +209,68 @@
   --#{$prefix}list-group-item-padding-x: 0;
   --#{$prefix}list-group-item-padding-y: 0;
 }
+
+.bs-list-group--disc {
+  gap: .5rem;
+
+  .bs-list-group-item {
+    padding-left: 1rem;
+
+    &::before {
+      content: '';
+      width: .5rem;
+      height: .5rem;
+      display: inline-block;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background-color: var(--#{$prefix}primary);
+      position: absolute;
+      top: .25rem;
+      left: 0;
+    }
+  }
+
+  &-success {
+
+    .bs-list-group-item {
+
+      &::before {
+        background-color: var(--#{$prefix}success);
+      }
+    }
+  }
+}
+
+.bs-list-group--numbered {
+  gap: 1rem;
+  counter-reset: section;
+
+  .bs-list-group-item {
+    counter-increment: section;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    &::before {
+      content: counter(section);
+      min-width: 1.5rem;
+      display: inline-block;
+      flex-shrink: 0;
+      font-size: 2.5rem;
+      font-weight: 500;
+      line-height: 1;
+    }
+  }
+
+  &-gradient {
+
+    .bs-list-group-item {
+
+      &::before {
+        color: transparent;
+        background-image: #{$gradient-success-to-primary};
+        background-clip: text;
+      }
+    }
+  }
+}

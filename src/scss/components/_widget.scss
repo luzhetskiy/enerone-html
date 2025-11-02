@@ -7,7 +7,7 @@
     content: '';
     display: block;
     border-radius: inherit;
-    padding: var(--#{$prefix}border-width);
+    padding: .125rem;
     background-image: var(--#{$prefix}gradient-success-to-primary);
     mask:
       linear-gradient(#fff 0 0) content-box,

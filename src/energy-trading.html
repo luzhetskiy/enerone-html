@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html', {title: 'Энерготрейдинг'})
+
+<body class="page-body">
+  @include('partials/offcanvases.html')
+  @include('partials/modals.html')
+
+  <div class="site-container">
+    @include('partials/header.html', {
+      auth: false
+    })
+
+    <main class="main">
+      <section class="section hero">
+        <div class="bs-container">
+          <div class="bs-row gy-12px gx-0px g-lg-20px">
+            <div class="bs-col-lg-8">
+              <div class="h-100 hero-main">
+                <span class="d-none d-md-block bg-position-center bg-size-cover bg-repeat-norepeat position-absolute inset-0" style="background-image: url(./img/hero/image-2.webp);"></span>
+                <span class="d-block d-md-none bg-position-center bg-size-cover bg-repeat-norepeat position-absolute inset-0" style="background-image: url(./img/hero/image-2.webp);"></span>
+                <div class="d-flex flex-column gap-24px gap-lg-32px pt-32px pt-lg-48px px-16px px-lg-40px pb-160px pb-lg-80px position-relative z-1">
+                  <h1 class="bs-h1 text-reset">
+                    Покупка электроэнергии с&nbsp;оптового&nbsp;рынка
+                  </h1>
+                  <div class="fs-14px">
+                    <p class="m-0px">
+                      Подключайтесь к сервису!
+                    </p>
+                  </div>
+                  <div>
+                    <button type="button" class="bs-btn bs-btn-base bs-btn-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modal-callback">
+                      <span class="text">
+                        Получите индивидуальный расчет
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bs-col-lg-4">
+              <div class="h-100 d-flex flex-column gap-12px gap-lg-20px">
+                <div class="flex-fill d-flex flex-column justify-content-center fs-14px fw-medium text-white bs-bg-primary rounded-sm-8px py-20px py-lg-24px px-16px px-lg-32px position-relative z-1">
+                  <p class="m-0px">
+                    Все знают, что покупать электроэнергию на оптовом рынке (ОРЭМ) дешевле. Но доступ к торгам могут получить только крупные компании
+                  </p>
+                </div>
+                <div class="flex-fill d-flex flex-column justify-content-center fs-14px fw-medium text-white bs-bg-success rounded-sm-8px py-20px py-lg-24px px-16px px-lg-32px position-relative z-1">
+                  <p class="m-0px">
+                    Мы открываем возможность покупать электроэнергию с оптового рынка предприятиям со среднемесячным потреблением от 70 000 кВтч
+                  </p>
+                </div>
+                <div class="flex-fill d-flex flex-column justify-content-center fs-14px fw-medium text-white bs-bg-info rounded-sm-8px py-20px py-lg-24px px-16px px-lg-32px position-relative z-1">
+                  <p class="m-0px">
+                    Вы получаете гарантированную скидку от цены гарантирующего поставщика, а организация процесса энергоснабжения остается прежней
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="bs-col-12">
+              <div class="bs-container px-sm-0">
+                <div class="bs-row gy-12px gx-0px g-lg-20px">
+                  <div class="bs-col-lg-8">
+                    <div class="bs-row gy-12px gx-0px g-lg-20px">
+                      <div class="bs-col-lg-5">
+                        <div class="widget h-100 py-12px py-lg-24px px-20px px-lg-24px px-xl-40px">
+                          <div class="d-flex align-items-center gap-20px">
+                            <div class="w-64px h-64px flex-shrink-0">
+                              <picture>
+                                <source srcset="./img/hero-features/image-1.webp" type="image/webp">
+                                <img loading="lazy" src="./img/hero-features/image-1.png" class="img-fluid d-block" width="70" height="70" alt="Картинка">
+                              </picture>
+                            </div>
+                            <div class="fs-14px lh-sm">
+                              <p class="m-0px">
+                                Вы&nbsp;покупаете электроэнергию по&nbsp;оптовым ценам
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="bs-col-lg-7">
+                        <div class="widget h-100 py-12px py-lg-24px px-20px px-lg-24px px-xl-40px">
+                          <div class="d-flex align-items-center gap-20px">
+                            <div class="w-64px h-64px flex-shrink-0">
+                              <picture>
+                                <source srcset="./img/hero-features/image-2.webp" type="image/webp">
+                                <img loading="lazy" src="./img/hero-features/image-2.png" class="img-fluid d-block" width="70" height="70" alt="Картинка">
+                              </picture>
+                            </div>
+                            <div class="fs-14px lh-sm">
+                              <p class="m-0px">
+                                Вы&nbsp;получаете экономический эффект сразу после вывода предприятия на&nbsp;ОРЭМ. Строим и&nbsp;обслуживаем систему АИИС КУЭ за&nbsp;свой счет
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-lg-4">
+                    <div class="widget h-100 py-12px py-lg-24px px-20px px-lg-24px px-xl-40px">
+                      <div class="d-flex align-items-center gap-20px">
+                        <div class="w-64px h-64px flex-shrink-0">
+                          <picture>
+                            <source srcset="./img/hero-features/image-3.webp" type="image/webp">
+                            <img loading="lazy" src="./img/hero-features/image-3.png" class="img-fluid d-block" width="70" height="70" alt="Картинка">
+                          </picture>
+                        </div>
+                        <div class="fs-14px lh-sm">
+                          <p class="m-0px">
+                            Осуществляем планирование потребления и&nbsp;все риски берем на&nbsp;себя
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="bs-container">
+          <div class="section-header">
+            <h2 class="bs-h2">
+              Узнайте экономию от работы на оптовом рынке
+            </h2>
+          </div>
+
+          <div class="bs-row gy-12px gx-0px g-lg-20px">
+            <div class="bs-col-lg-8">
+              <form class="widget h-100 py-32px py-lg-48px px-20px px-lg-40px position-relative z-1"
+                data-form="calc-savings">
+                <span class="d-none d-lg-block bg-repeat-norepeat bg-size-cover pe-none position-absolute inset-0 z-n1" style="background-image: url(./img/decor/image-2.svg)"></span>
+
+
+                <div class="bs-row gy-24px gy-lg-32px gx-24px">
+                  <div class="bs-col-12">
+                    <h3 class="bs-h3">
+                      Калькулятор возможной экономии в&nbsp;год
+                    </h3>
+                  </div>
+                  <div class="bs-col-md-5 bs-col-lg-12 bs-col-xl-5">
+                    <div class="d-flex flex-column position-relative">
+                      <label class="bs-form-label">Выберите ваш регион:</label>
+                      <div class="position-relative">
+                        <select name="region"
+                          data-choices="once"
+                          data-placeholder="Выбрать">
+                        </select>
+                      </div>
+                      <div class="invalid-feedback">
+                        Ошибка
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-7 bs-col-lg-12 bs-col-xl-7 d-none d-md-block">
+
+                  </div>
+                  <div class="bs-col-md-5 bs-col-lg-12 bs-col-xl-5">
+                    <div class="d-flex flex-column position-relative">
+                      <label class="bs-form-label">Выберите свого поставщика:</label>
+                      <div class="position-relative">
+                        <select name="supplier"
+                          data-choices="once"
+                          data-placeholder="Выбрать">
+                        </select>
+                      </div>
+                      <div class="invalid-feedback">
+                        Ошибка
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-7 bs-col-lg-12 bs-col-xl-7 d-none d-md-block">
+
+                  </div>
+                  <div class="bs-col-md-5 bs-col-lg-12 bs-col-xl-5">
+                    <div class="d-flex flex-column position-relative">
+                      <label class="bs-form-label">Выберите категорию макс. мощности:</label>
+                      <div class="position-relative">
+                        <select name="max-power"
+                          data-choices="once"
+                          data-placeholder="Выбрать">
+                        </select>
+                      </div>
+                      <div class="invalid-feedback">
+                        Ошибка
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-7 bs-col-lg-12 bs-col-xl-7">
+                    <div class="h-100 d-flex align-items-end">
+                      <div class="min-h-48px d-flex align-items-center">
+                        <div class="fs-12px text-gray-500">
+                          Мы работаем в&nbsp;Челябинской, Волгоградской, Воронежской, Псковской&nbsp;областях, Республике&nbsp;Башкортостан
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-5 bs-col-lg-12 bs-col-xl-5">
+                    <div class="d-flex flex-column position-relative">
+                      <label class="bs-form-label">Ваш среднемесячный объем потребления:</label>
+                      <div class="position-relative">
+                        <input type="text" class="bs-form-control" name="consumption-volume" placeholder="Ввести" aria-label="Ваш среднемесячный объем потребления" required>
+                      </div>
+                      <div class="invalid-feedback">
+                        К сожалению, при таком объеме потребления экономии от работы на оптовом рынке не будет.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-col-md-7 bs-col-lg-12 bs-col-xl-7">
+                    <div class="h-100 d-flex align-items-end">
+                      <div class="min-h-48px d-flex align-items-center">
+                        <div class="bs-h3 fw-normal">
+                          Возможная экономия в&nbsp;год:&nbsp;<span class="fw-medium text-success" data-result="calc-savings"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="bs-col-lg-4">
+              <div class="h-100 d-flex flex-column gap-16px bs-bg-gray-200 rounded-8px pt-32px pt-lg-48px px-16px px-lg-32px pb-20px pb-lg-32px position-relative">
+                <div class="bs-row g-0px justify-content-center">
+                  <div class="bs-col-10 bs-col-xl-9 bs-col-xxl-8">
+                    <div class="d-flex flex-column gap-24px">
+                      <div class="d-flex flex-column gap-16px fs-14px text-center">
+                        <h3 class="bs-h3 text-reset">
+                          Энергоснабжение с&nbsp;оптового рынка
+                        </h3>
+                      </div>
+
+                      @include('partials/widget/callback.html', {
+                        button: 'Оставить завку'
+                      })
+                    </div>
+                  </div>
+
+                  <div class="bs-col-12">
+                    <div class="d-flex justify-content-center">
+                      <picture>
+                        <source srcset="./img/services/image-3.webp" type="image/webp">
+                        <img loading="lazy" src="./img/services/image-3.png" class="img-fluid" width="330" height="256" alt="Картинка">
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="bs-container">
+          <div class="d-flex flex-column gap-24px gap-lg-0px position-relative pt-lg-64px">
+            <div class="mw-lg-420px d-flex flex-lg-column align-items-center align-items-lg-stretch gap-16px gap-lg-0px position-lg-absolute top-lg-0 start-lg-10">
+              <picture class="w-64px h-64px w-lg-100px h-lg-100 flex-shrink-0 mb-lg-n40px ms-lg-n56px position-relative z-1">
+                <source srcset="./img/placement/image-1.webp" type="image/webp">
+                <img loading="lazy" src="./img/placement/image-1.png" class="img-fluid" width="100" height="100" alt="Картинка">
+              </picture>
+              <div class="fs-14px bg-white border border-2 border-info rounded-16px p-24px">
+                <p class="mb-0px">
+                  Уже сейчас сервис доступен для регионов:
+                </p>
+                <p class="mb-0px">
+                  Краснодарский край, Кемеровская область, Воронежская область, Красноярский край, Волгоградская область, Липецкая область, Калужская область, Костромская область, Новгородская область, Томская область, Новосибирская область
+                </p>
+              </div>
+            </div>
+            <div class="mw-lg-420px d-flex flex-lg-column align-items-center align-items-lg-stretch gap-16px gap-lg-0px ms-lg-56px position-lg-absolute bottom-lg-10">
+              <picture class="w-64px h-64px w-lg-100px h-lg-100 flex-shrink-0 mb-lg-n32px ms-lg-n56px position-relative z-1">
+                <source srcset="./img/placement/image-2.webp" type="image/webp">
+                <img loading="lazy" src="./img/placement/image-2.png" class="img-fluid" width="100" height="100" alt="Картинка">
+              </picture>
+              <div class="fs-14px lh-sm bg-white border border-2 border-success rounded-16px p-24px">
+                <p class="mb-0px">
+                  Вы получаете гарантированную скидку от цены гарантирующего поставщика, а организация процесса энергоснабжения остается прежней (как на розничном рынке) или вы сможете даже улучшить свои условия
+                </p>
+              </div>
+            </div>
+            <div class="mw-lg-320px d-flex flex-lg-column align-items-center align-items-lg-stretch gap-16px gap-lg-0px position-lg-absolute bottom-lg-0 end-lg-10">
+              <picture class="w-64px h-64px w-lg-100px h-lg-100 flex-shrink-0 align-self-lg-end order-lg-last mt-lg-n40px me-lg-n56px position-relative z-1">
+                <source srcset="./img/placement/image-3.webp" type="image/webp">
+                <img loading="lazy" src="./img/placement/image-3.png" class="img-fluid" width="100" height="100" alt="Картинка">
+              </picture>
+              <div class="fs-14px lh-sm bg-white border border-2 border-primary rounded-16px p-24px">
+                <p class="mb-0px">
+                  Объединяем несколько предприятий в единую группу поставки и организуем работу на оптовом рынке
+                </p>
+              </div>
+            </div>
+
+            <div class="d-none d-lg-flex justify-content-lg-center">
+              <picture>
+                <source srcset="./img/placement/default.webp" type="image/webp">
+                <img loading="lazy" src="./img/placement/default.png" class="img-fluid" width="838" height="570" alt="Картинка">
+              </picture>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="bs-container">
+          <div class="section-header">
+            <h2 class="bs-h2">
+              Акция!
+            </h2>
+          </div>
+
+          <div class="bs-row gy-12px gx-0px g-lg-20px">
+            <div class="bs-col-lg-8">
+              <div class="h-100 bs-bg-gray-200 rounded-8px py-32px py-lg-48px px-20px px-lg-40px position-relative z-1">
+                <span class="d-none d-lg-block bg-repeat-norepeat bg-size-cover pe-none position-absolute inset-0 z-n1" style="background-image: url(./img/decor/image-3.svg)"></span>
+
+                <div class="d-flex flex-column gap-24px fs-14px lh-sm">
+                  <h3 class="bs-h3">
+                    Бесплатный анализ условий энергоснабжения вашего предприятия
+                  </h3>
+
+                  <div>
+                    <p class="mb-0px">
+                      Не переплачивайте за электроэнергию! Мы предлагаем <span class="fw-medium text-success">бесплатную проверку</span> ваших текущих условий энергоснабжения и подскажем, как можно <span class="fw-medium text-success">сэкономить до 20%</span> на электроэнергии — без вложений и смены оборудования.
+                    </p>
+                  </div>
+
+                  <div class="d-flex flex-column gap-12px">
+                    <p class="mb-0px">
+                      Что требуется от вас:
+                    </p>
+                    <ul class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc">
+                      <li class="list-group-item bs-list-group-item">
+                        Счет-фактура за электроэнергию
+                      </li>
+                      <li class="list-group-item bs-list-group-item">
+                        Акт технологического присоединения
+                      </li>
+                      <li class="list-group-item bs-list-group-item">
+                        Почасовой график потребления (можно в Excel)
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="d-flex flex-column gap-12px">
+                    <p class="mb-0px">
+                      Что требуется от вас:
+                    </p>
+                    <ul class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc bs-list-group--disc-success">
+                      <li class="list-group-item bs-list-group-item">
+                        Отчет с выводами и рекомендациями
+                      </li>
+                      <li class="list-group-item bs-list-group-item">
+                        Расчет потенциальной экономии
+                      </li>
+                      <li class="list-group-item bs-list-group-item">
+                        Консультацию от эксперта по энергоснабжению
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bs-col-lg-4">
+              <div class="widget h-100 d-flex flex-column gap-16px rounded-8px pt-32px pt-lg-48px px-16px px-lg-32px pb-20px pb-lg-32px position-relative">
+                <div class="bs-row g-0px justify-content-center">
+                  <div class="bs-col-10 bs-col-xl-9 bs-col-xxl-8">
+                    <div class="d-flex flex-column gap-24px">
+                      <div class="d-flex flex-column gap-16px fs-14px text-center">
+                        <h3 class="bs-h3 text-reset">
+                          Акция действует до&nbsp;01.08.2025
+                        </h3>
+                        <p class="m-0px">
+                          Оставьте заявку прямо сейчас — и&nbsp;узнайте, сколько вы&nbsp;можете сэкономить.
+                        </p>
+                      </div>
+
+                      @include('partials/widget/callback.html', {
+                        button: 'Хочу бесплатный анализ'
+                      })
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" data-swiper="cards">
+        <div class="bs-container">
+          <div class="section-header">
+            <h2 class="bs-h2">
+              Кейсы
+            </h2>
+
+            <div class="swiper-controlls"
+              data-transfer-origin="swiper-casess-controlls"
+              data-transfer-breakpoint="991.98">
+              <a href="#" class="bs-btn bs-btn-base bs-btn-outline-secondary">
+                <span class="text">
+                  Все кейсы
+                </span>
+              </a>
+
+              <div class="swiper-navigation">
+                <button type="button" class="bs-btn bs-btn-has-icon bs-btn-base bs-btn-border-gradient swiper-button-prev">
+                  <span class="icon">
+                    <svg>
+                      <use xlink:href="img/icons/angle-left.svg#svg-angle-left"></use>
+                    </svg>
+                  </span>
+                </button>
+                <button type="button" class="bs-btn bs-btn-has-icon bs-btn-base bs-btn-border-gradient swiper-button-next">
+                  <span class="icon">
+                    <svg>
+                      <use xlink:href="img/icons/angle-right.svg#svg-angle-right"></use>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper cases-swiper bs-container-padding">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              @include('partials/card/cases.html', {
+                img: "image-4",
+              })
+            </div>
+            <div class="swiper-slide">
+              @include('partials/card/cases.html', {
+                img: "image-5",
+              })
+            </div>
+            <div class="swiper-slide">
+              @include('partials/card/cases.html', {
+                img: "image-6",
+              })
+            </div>
+          </div>
+        </div>
+
+        <div class="d-block d-lg-none mt-24px">
+          <div class="bs-container"
+            data-transfer-target="swiper-casess-controlls"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="bs-container">
+          <div class="section-header">
+            <h2 class="bs-h2">
+              Ограничения и преимущества работы на оптовом рынке
+            </h2>
+          </div>
+
+          <div class="bs-row gy-12px gx-0px g-lg-20px">
+            <div class="bs-col-lg-8">
+              <div class="h-100 bs-bg-success bg-opacity-15 border border-2 border-success rounded-8px py-24px px-20px p-lg-32px">
+                <div class="d-flex flex-column gap-6px fs-14px">
+                  <p class="mb-0px">
+                    Работа на оптовом рынке включает ряд ограничений:
+                  </p>
+
+                  <ul class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc bs-list-group--disc-success">
+                    <li class="list-group-item bs-list-group-item">
+                      Не все предприятия имеют возможность получить доступ к системе торгов на оптовом рынке.
+                    </li>
+                    <li class="list-group-item bs-list-group-item">
+                      Нужно создать дорогостоящую систему коммерческого учета электроэнергии (АИИС КУЭ).
+                    </li>
+                    <li class="list-group-item bs-list-group-item">
+                      Необходимо платить членские взносы в НП Совет Рынка.
+                    </li>
+                    <li class="list-group-item bs-list-group-item">
+                      Необходимо планировать свое потребление на сутки вперед.
+                    </li>
+                    <li class="list-group-item bs-list-group-item">
+                      Необходимо гарантировать платежную дисциплину.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="bs-col-lg-4">
+              <div class="h-100 bs-bg-primary bg-opacity-15 border border-2 border-primary rounded-8px py-24px px-20px p-lg-32px">
+                <div class="d-flex flex-column gap-6px fs-14px">
+                  <p class="mb-0px">
+                    Сервис совместной закупки электроэнергии с оптового рынка позволяет забыть про все эти требования. Мы организуем всю необходимую работу и берем на себя все организационные расходы:
+                  </p>
+
+                  <ul class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc">
+                    <li class="list-group-item bs-list-group-item">
+                      Вы покупаете электроэнергию дешевле.
+                    </li>
+                    <li class="list-group-item bs-list-group-item">
+                      Получаете поддержку и помощь в вопросах организации энергоснабжения.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="bs-container">
+          <div class="section-header">
+            <h2 class="bs-h2">
+              Получите бесплатную консультацию!
+            </h2>
+          </div>
+
+          <div class="bs-row gy-12px gx-0px g-lg-20px">
+            <div class="bs-col-lg-8">
+              <div class="h-100 bs-bg-gray-200 rounded-8px py-32px py-lg-48px px-20px px-lg-40px position-relative z-1">
+                <div class="d-flex flex-column gap-24px fs-14px lh-sm">
+                  <h3 class="bs-h3">
+                    Дополнительные возможности
+                  </h3>
+
+                  <ol class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--numbered bs-list-group--numbered-gradient">
+                    <li class="list-group-item bs-list-group-item">
+                      <div>
+                        <p class="mb-0px">
+                          Улучшить свои условия оплаты, например, зафиксировать тариф на&nbsp;определенный период и&nbsp;платить по&nbsp;факту потребления.
+                        </p>
+                      </div>
+                    </li>
+                    <li class="list-group-item bs-list-group-item">
+                      <div>
+                        <p class="mb-0px">
+                          Получить помощь при&nbsp;осуществлении нового технологического присоединения или&nbsp;увеличения мощности.
+                        </p>
+                      </div>
+                    </li>
+                    <li class="list-group-item bs-list-group-item">
+                      <div>
+                        <p class="mb-0px">
+                          Получить помощь при&nbsp;восстановлении утраченных документов (акт технологического присоединения, акты допуска приборов учета).
+                        </p>
+                      </div>
+                    </li>
+                  </ol>
+
+                  <p class="mb-0px">
+                    Вы можете рекомендовать наш сервис другим предприятиям и если мы заключим с этим предприятием договор энергоснабжения, то вы получите дополнительную скидку к вашему договору.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="bs-col-lg-4">
+              <div class="widget h-100 d-flex flex-column gap-16px rounded-8px pt-32px pt-lg-48px px-16px px-lg-32px pb-20px pb-lg-32px position-relative">
+                <div class="bs-row g-0px justify-content-center">
+                  <div class="bs-col-10 bs-col-xl-9 bs-col-xxl-8">
+                    <div class="d-flex flex-column gap-24px">
+                      <div class="d-flex flex-column gap-16px fs-14px text-center">
+                        <h3 class="bs-h3 text-reset">
+                          Остались вопросы?
+                        </h3>
+                        <p class="m-0px">
+                          Если у&nbsp;вас остались вопросы мы&nbsp;вас&nbsp;проконсультируем абсолютно бесплатно!
+                        </p>
+                      </div>
+
+                      @include('partials/widget/callback.html', {
+                        button: 'Получить консультацию'
+                      })
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    @include('partials/footer.html')
+  </div>
+</body>
+
+</html>

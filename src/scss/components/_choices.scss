@@ -85,9 +85,11 @@ $choices-z-index: #{$zindex-dropdown};
 }
 
 .#{$choices-selector}__list--single {
+  max-width: 100%;
   width: 100%;
   display: inline-block;
   white-space: nowrap;
+  overflow: hidden;
 
   &,
   [dir="rtl"] & {
