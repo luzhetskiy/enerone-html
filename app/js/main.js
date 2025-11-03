@@ -20213,6 +20213,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_password_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/password.js */ "./src/js/components/password.js");
 /* harmony import */ var _components_choices_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/choices.js */ "./src/js/components/choices.js");
 /* harmony import */ var _components_calc_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/calc.js */ "./src/js/components/calc.js");
+/* harmony import */ var _components_ios_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/ios.js */ "./src/js/components/ios.js");
+
 
 
 
@@ -20335,7 +20337,7 @@ const initCalcForm = (form, data) => {
     if (value && valueChoiceMaxPower && isValid) {
       const percentage = getPercentage(value);
       const result = value * valueChoiceMaxPower * percentage * 12;
-      resultDisplay.textContent = `${Math.trunc(result).toLocaleString('ru-RU')}&nbsp;₽`;
+      resultDisplay.textContent = `${Math.trunc(result).toLocaleString('ru-RU')}\u00A0₽`;
       inputConsumptionVolume.classList.remove('is-invalid');
       inputConsumptionVolume.parentElement.classList.remove('is-invalid');
     } else {
@@ -20409,6 +20411,30 @@ __webpack_require__.r(__webpack_exports__);
 
 (0,_functions_header_height_js__WEBPACK_IMPORTED_MODULE_0__.getHeaderHeight)();
 window.addEventListener('resize', (0,_functions_throttle_js__WEBPACK_IMPORTED_MODULE_1__.throttle)(_functions_header_height_js__WEBPACK_IMPORTED_MODULE_0__.getHeaderHeight));
+
+/***/ }),
+
+/***/ "./src/js/components/ios.js":
+/*!**********************************!*\
+  !*** ./src/js/components/ios.js ***!
+  \**********************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+function iOS() {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+}
+if (iOS()) {
+  const viewportMetaTag = document.head.querySelector("meta[name=\"viewport\"]");
+  if (viewportMetaTag) {
+    viewportMetaTag.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0";
+  } else {
+    const newMetaTag = document.createElement("meta");
+    newMetaTag.name = "viewport";
+    newMetaTag.content = "width=device-width, initial-scale=1";
+    document.head.appendChild(newMetaTag);
+  }
+}
 
 /***/ }),
 

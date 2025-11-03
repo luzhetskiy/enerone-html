@@ -139,7 +139,7 @@ const initCalcForm = (form, data) => {
     if (value && valueChoiceMaxPower && isValid) {
       const percentage = getPercentage(value)
       const result = value * valueChoiceMaxPower * percentage * 12
-      resultDisplay.textContent = `${Math.trunc(result).toLocaleString('ru-RU')}&nbsp;₽`
+      resultDisplay.textContent = `${Math.trunc(result).toLocaleString('ru-RU')}\u00A0₽`
 
       inputConsumptionVolume.classList.remove('is-invalid')
       inputConsumptionVolume.parentElement.classList.remove('is-invalid')

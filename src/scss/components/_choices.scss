@@ -77,7 +77,6 @@ $choices-z-index: #{$zindex-dropdown};
 .#{$choices-selector}__list {
   display: flex;
   flex-direction: column;
-  gap: .25rem;
 
   &[aria-expanded] {
     @extend %choices-dropdown;
@@ -124,6 +123,7 @@ $choices-z-index: #{$zindex-dropdown};
   }
 
   .#{$choices-selector}__item--selectable {
+    padding-block: .375rem;
 
     &.is-selected {
       font-weight: 500;
