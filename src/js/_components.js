@@ -4,5 +4,4 @@ import './components/swiper.js';
 import './components/mask.js';
 import './components/password.js';
 import './components/choices.js';
-import './components/calc.js';
 import './components/ios.js';

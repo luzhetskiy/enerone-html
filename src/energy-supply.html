@@ -236,7 +236,9 @@
 
           <div class="bs-row gy-12px gx-0px g-lg-20px">
             <div class="bs-col-lg-8">
-              <form class="widget h-100 py-32px py-lg-48px px-20px px-lg-40px position-relative z-1">
+              <form class="widget h-100 py-32px py-lg-48px px-20px px-lg-40px position-relative z-1"
+                data-form="calc-tariff"
+                data-action="https://enerone.ru/fixed-prices/get-tariff-value/">
                 <span class="d-none d-lg-block bg-repeat-norepeat bg-size-cover pe-none position-absolute inset-0 z-n1"
                   style="background-image: url(./img/decor/image-4.svg)"></span>
 
@@ -251,14 +253,15 @@
                       <label class="bs-form-label">Выберите ваш регион:</label>
                       <div class="position-relative">
                         <select name="region" data-choices="once" data-placeholder="Выбрать">
-                          <option value="0">Кировская область</option>
-                          <option value="1">Регион</option>
-                          <option value="2">Регион</option>
-                          <option value="3">Регион</option>
+                          <option value="1">Челябинская область</option>
+                          <option value="10">Курганская область</option>
+                          <option value="11">Воронежская область</option>
+                          <option value="12">Омская область</option>
+                          <option value="13">Волгоградская область</option>
                         </select>
                       </div>
                       <div class="invalid-feedback">
-                        Ошибка
+                        Не выбран регион.
                       </div>
                     </div>
                   </div>
@@ -275,56 +278,39 @@
                   <div class="bs-col-md-5 bs-col-lg-12 bs-col-xl-5">
                     <div class="d-flex flex-column position-relative">
                       <label class="bs-form-label">Выберите ваш уровень тарифного напряжения:</label>
-                      <div class="bs-row g-12px">
-                        <div class="bs-col-12">
-                          <div class="bs-form-check">
-                            <input type="radio" class="bs-form-check-input" id="calc-tariff-radio-0"
-                              name="calc-tariff-radio" value="#modal-tariff" checked="">
-                            <label class="bs-form-check-label" for="calc-tariff-radio-0">Высокое напряжение (ВН)</label>
-                          </div>
+                      <div class="d-flex flex-column gap-12px">
+                        <div class="bs-form-check">
+                          <input type="radio" class="bs-form-check-input" id="calc-tariff-radio-0" name="voltage-level" value="1">
+                          <label class="bs-form-check-label" for="calc-tariff-radio-0">Высокое напряжение (ВН)</label>
                         </div>
-                        <div class="bs-col-12">
-                          <div class="bs-form-check">
-                            <input type="radio" class="bs-form-check-input" id="calc-tariff-radio-1"
-                              name="calc-tariff-radio" value="#modal-tariff">
-                            <label class="bs-form-check-label" for="calc-tariff-radio-1">Среднее первое напряжение
-                              (СН1)</label>
-                          </div>
+                        <div class="bs-form-check">
+                          <input type="radio" class="bs-form-check-input" id="calc-tariff-radio-1" name="voltage-level" value="2">
+                          <label class="bs-form-check-label" for="calc-tariff-radio-1">Среднее первое напряжение
+                            (СН1)</label>
                         </div>
-                        <div class="bs-col-12">
-                          <div class="bs-form-check">
-                            <input type="radio" class="bs-form-check-input" id="calc-tariff-radio-2"
-                              name="calc-tariff-radio" value="#modal-tariff">
-                            <label class="bs-form-check-label" for="calc-tariff-radio-2">Среднее второе напряжение
-                              (СН2)</label>
-                          </div>
+                        <div class="bs-form-check">
+                          <input type="radio" class="bs-form-check-input" id="calc-tariff-radio-2" name="voltage-level" value="3">
+                          <label class="bs-form-check-label" for="calc-tariff-radio-2">Среднее второе напряжение
+                            (СН2)</label>
                         </div>
-                        <div class="bs-col-12">
-                          <div class="bs-form-check">
-                            <input type="radio" class="bs-form-check-input" id="calc-tariff-radio-3"
-                              name="calc-tariff-radio" value="#modal-tariff">
-                            <label class="bs-form-check-label" for="calc-tariff-radio-3">Низкое напряжение (НН)</label>
-                          </div>
+                        <div class="bs-form-check">
+                          <input type="radio" class="bs-form-check-input" id="calc-tariff-radio-3" name="voltage-level" value="4">
+                          <label class="bs-form-check-label" for="calc-tariff-radio-3">Низкое напряжение (НН)</label>
                         </div>
-                        <div class="bs-col-12">
-                          <div class="bs-form-check">
-                            <input type="radio" class="bs-form-check-input" id="calc-tariff-radio-4"
-                              name="calc-tariff-radio" value="#modal-callback">
-                            <label class="bs-form-check-label" for="calc-tariff-radio-4">Не знаю</label>
-                          </div>
+                        <div class="bs-form-check">
+                          <input type="radio" class="bs-form-check-input" id="calc-tariff-radio-4" name="voltage-level" value="5">
+                          <label class="bs-form-check-label" for="calc-tariff-radio-4">Не знаю</label>
                         </div>
-                      </div>
-                      <div class="invalid-feedback">
-                        Ошибка
+                        <div class="invalid-feedback">
+                          Не выбран уровень тарифного напряжения.
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div class="bs-col-md-7 bs-col-lg-12 bs-col-xl-7 d-none d-md-block"></div>
                   <div class="bs-col-12">
                     <div class="d-flex flex-column flex-md-row align-items-md-center gap-16px gap-lg-24px">
-                      <button type="button" class="bs-btn bs-btn-base bs-btn-success min-w-md-200px"
-                        data-bs-toggle="modal"
-                        data-bs-target="#modal-tariff">
+                      <button type="submit" class="bs-btn bs-btn-base bs-btn-success min-w-md-200px">
                         <span class="text">
                           Узнать тариф
                         </span>
@@ -338,25 +324,6 @@
                     </div>
                   </div>
                 </div>
-
-                <!-- Demo Script -->
-                <script>
-                  const currentForm = document.currentScript.closest("form")
-                  const radios = currentForm.querySelectorAll('input[name="calc-tariff-radio"]')
-                  const button = currentForm.querySelector('[data-bs-toggle="modal"]')
-
-                  const checkedRadio = currentForm.querySelector('input[name="calc-tariff-radio"]:checked')
-                  if (checkedRadio) {
-                    button.setAttribute('data-bs-target', checkedRadio.value)
-                  }
-                  radios.forEach(radio => {
-                    radio.addEventListener('change', () => {
-                      if (radio.checked) {
-                        button.setAttribute('data-bs-target', radio.value)
-                      }
-                    })
-                  })
-                </script>
               </form>
             </div>
             <div class="bs-col-lg-4">

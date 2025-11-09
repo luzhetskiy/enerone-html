@@ -1,3 +1,5 @@
+import { getChoices, enableChoices, clearChoices, disableChoices } from './functions/choices.js'
+
 // --- Форматирование и парсинг чисел ---
 const consumptionThresholds = [
   { max: 70000, percent: 0 },
@@ -23,17 +25,6 @@ function getPercentage(consumptionVolume) {
 }
 
 
-
-const getChoices = (element) => window.choicesInstances.find(obj => obj.element === element)?.instance || null
-
-const enableChoices = (element) => getChoices(element)?.enable()
-
-const clearChoices = (element) => getChoices(element)?.clearChoices(true, true)
-
-const disableChoices = (element) => {
-  getChoices(element)?.disable()
-  clearChoices(element)
-}
 
 const renderChoice = (choices, data, getValuesFn) => {
   const items = [...new Set(getValuesFn(data))]

@@ -1025,6 +1025,11 @@
 .is-flipped.is-open .choices__inner {
   border-radius: 0.5rem;
 }
+.is-invalid .choices__inner {
+  border-color: var(--bs-form-invalid-border-color);
+  -webkit-box-shadow: 0 0 0 0.25rem rgba(var(--bs-danger-rgb), 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(var(--bs-danger-rgb), 0.25);
+}
 
 .choices__list {
   display: -webkit-box;

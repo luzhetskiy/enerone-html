@@ -72,6 +72,11 @@ $choices-z-index: #{$zindex-dropdown};
   .is-flipped.is-open & {
     border-radius: $choices-border-radius;
   }
+
+  .is-invalid & {
+    border-color: #{map-get(map-get($form-validation-states, "invalid"), "border-color")};
+    box-shadow: #{map-get(map-get($form-validation-states, "invalid"), "focus-box-shadow")};
+  }
 }
 
 .#{$choices-selector}__list {

@@ -20,6 +20,8 @@
   <link rel="stylesheet" href="css/new.css">
   <script defer src="js/bootstrap.js"></script>
   <script defer src="js/main.js"></script>
+  <script defer src="js/calc.js"></script>
+  <script defer src="js/tariff.js"></script>
 </head>
 
 
@@ -500,51 +502,6 @@
           <span class="text">Отправить</span>
         </button>
       </div>
-
-      <script>
-        const form = document.currentScript.closest("form");
-        const radios = form.querySelectorAll('input[name="modal-callback-radio"]')
-        const submitBtn = form.querySelector('button[type="submit"]')
-
-        const updateSubmitState = () => {
-          const checked = form.querySelector('input[name="modal-callback-radio"]:checked')
-          if (checked?.id === 'modal-callback-radio-1') {
-            submitBtn.disabled = true
-          } else {
-            submitBtn.disabled = false
-          }
-        }
-
-        radios.forEach(radio => {
-          radio.addEventListener('change', updateSubmitState)
-        })
-
-        updateSubmitState()
-
-        form.addEventListener("submit", function (event) {
-          event.preventDefault();
-
-          // Здесь демо: имитация успешной или неудачной отправки
-          const isSuccess = Math.random() > 0.5;
-
-          // Находим родительское модальное окно, внутри которого находится форма
-          const modalEl = form.closest(".modal");
-          if (!modalEl) return;
-
-          const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
-          modal.hide();
-
-          // После закрытия показываем нужное модальное окно
-          setTimeout(() => {
-            const targetId = isSuccess ? "modal-feedback-success" : "modal-feedback-error";
-            const target = document.getElementById(targetId);
-            if (target) {
-              const targetModal = bootstrap.Modal.getOrCreateInstance(target);
-              targetModal.show();
-            }
-          }, 500);
-        });
-      </script>
     </form>
   </div>
 </div>
@@ -634,16 +591,16 @@
           <div class="fs-14px fw-medium">
             <ul class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext">
               <li class="list-group-item bs-list-group-item">
-                Регион: <span class="text-success">Курганская область</span>
+                Регион: <span class="text-success" data-result="region"></span>
               </li>
               <li class="list-group-item bs-list-group-item">
-                Уровень тарифного напряжения: <span class="text-success">Высокое напряжение (ВН)</span>
+                Уровень тарифного напряжения: <span class="text-success" data-result="voltage_level"></span>
               </li>
             </ul>
           </div>
           <div class="d-flex justify-content-center text-center">
             <div class="bs-h3">
-              Стоимость: <span>9,19 руб./кВт*ч с НДС</span>
+              Стоимость: <span data-result="price"></span>
             </div>
           </div>
         </div>
