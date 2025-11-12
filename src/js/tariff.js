@@ -58,8 +58,9 @@ document.querySelectorAll('[data-form="calc-tariff"]')?.forEach((form) => {
 
       const data = await response.json()
 
-      const modalCallbackEl = document.querySelector('#modal-callback')
+      const modalCallbackEl = document.querySelector('#bid-request-popup-form-modal')
       const modalTariffEl = document.querySelector('#modal-tariff')
+      const modalCallbackRegion = getChoices(modalCallbackEl.querySelector('select[name="region"]'))
 
       if (Object.keys(data).length > 1) {
         modalTariffEl.querySelectorAll('[data-result]').forEach(el => {
@@ -76,6 +77,7 @@ document.querySelectorAll('[data-form="calc-tariff"]')?.forEach((form) => {
         modalCallback.show()
       }
 
+      modalCallbackRegion.setChoiceByValue(regionValue)
     } catch (error) {
       console.error('Ошибка при запросе:', error)
     } finally {
