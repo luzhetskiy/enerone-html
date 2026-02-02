@@ -110,11 +110,11 @@ const consumptionThresholds = [{
   percent: 0.9
 }];
 function formatNumber(value) {
-  const cleanedValue = value.replace(/\D/g, '');
-  return cleanedValue.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  const cleanedValue = value.replace(/\D/g, "");
+  return cleanedValue.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 function parseFormattedNumber(value) {
-  return parseFloat(value.replace(/\s/g, '')) || 0;
+  return parseFloat(value.replace(/\s/g, "")) || 0;
 }
 
 // --- Процент в зависимости от объема ---
@@ -126,20 +126,20 @@ const renderChoice = (choices, data, getValuesFn) => {
   const items = [...new Set(getValuesFn(data))].filter(Boolean).sort((a, b) => {
     const aStr = a.name ?? a.value ?? a;
     const bStr = b.name ?? b.value ?? b;
-    return aStr.localeCompare(bStr, 'ru');
+    return aStr.localeCompare(bStr, "ru");
   });
   (0,_functions_choices_js__WEBPACK_IMPORTED_MODULE_0__.getChoices)(choices).setChoices(items.map(item => ({
     value: item.value ?? item,
     label: item.name ?? item
-  })), 'value', 'label', true);
+  })), "value", "label", true);
 };
 const enableInput = element => element.disabled = false;
-const clearInput = element => element.value = '';
+const clearInput = element => element.value = "";
 const disableInput = element => {
   element.disabled = true;
   clearInput(element);
 };
-const resetResult = element => element.textContent = '0 ₽';
+const resetResult = element => element.textContent = "0 ₽";
 const initCalcForm = (form, data) => {
   const choiceRegion = form.querySelector('select[name="region"]');
   const choiceSupplier = form.querySelector('select[name="supplier"]');
@@ -150,13 +150,13 @@ const initCalcForm = (form, data) => {
   (0,_functions_choices_js__WEBPACK_IMPORTED_MODULE_0__.disableChoices)(choiceSupplier);
   (0,_functions_choices_js__WEBPACK_IMPORTED_MODULE_0__.disableChoices)(choiceMaxPower);
   disableInput(inputConsumptionVolume);
-  renderChoice(choiceRegion, data, items => items.map(i => i['region']));
+  renderChoice(choiceRegion, data, items => items.map(i => i["region"]));
 
   // --- При изменении региона ---
-  choiceRegion.addEventListener('change', () => {
+  choiceRegion.addEventListener("change", () => {
     const selectedRegion = (0,_functions_choices_js__WEBPACK_IMPORTED_MODULE_0__.getChoices)(choiceRegion).getValue(true);
     (0,_functions_choices_js__WEBPACK_IMPORTED_MODULE_0__.clearChoices)(choiceSupplier);
-    renderChoice(choiceSupplier, data, items => items.filter(i => i['region'] === selectedRegion).map(i => i['company']));
+    renderChoice(choiceSupplier, data, items => items.filter(i => i["region"] === selectedRegion).map(i => i["company"]));
     (0,_functions_choices_js__WEBPACK_IMPORTED_MODULE_0__.enableChoices)(choiceSupplier);
     (0,_functions_choices_js__WEBPACK_IMPORTED_MODULE_0__.disableChoices)(choiceMaxPower);
     disableInput(inputConsumptionVolume);
@@ -164,53 +164,54 @@ const initCalcForm = (form, data) => {
   });
 
   // --- При изменении поставщика ---
-  choiceSupplier.addEventListener('change', () => {
+  choiceSupplier.addEventListener("change", () => {
     const selectedRegion = (0,_functions_choices_js__WEBPACK_IMPORTED_MODULE_0__.getChoices)(choiceRegion).getValue(true);
     const selectedSupplier = (0,_functions_choices_js__WEBPACK_IMPORTED_MODULE_0__.getChoices)(choiceSupplier).getValue(true);
     (0,_functions_choices_js__WEBPACK_IMPORTED_MODULE_0__.clearChoices)(choiceMaxPower);
-    renderChoice(choiceMaxPower, data, items => items.filter(i => i['region'] === selectedRegion && i['company'] === selectedSupplier).flatMap(i => i.rates));
+    renderChoice(choiceMaxPower, data, items => items.filter(i => i["region"] === selectedRegion && i["company"] === selectedSupplier).flatMap(i => i.rates));
     (0,_functions_choices_js__WEBPACK_IMPORTED_MODULE_0__.enableChoices)(choiceMaxPower);
     disableInput(inputConsumptionVolume);
     resetResult(resultDisplay);
   });
 
   // --- При изменении макс. мощности ---
-  choiceMaxPower.addEventListener('change', () => {
+  choiceMaxPower.addEventListener("change", () => {
     enableInput(inputConsumptionVolume);
     clearInput(inputConsumptionVolume);
     resetResult(resultDisplay);
   });
 
   // --- При изменении потребления ---
-  inputConsumptionVolume.addEventListener('input', () => {
-    inputConsumptionVolume.value = formatNumber(inputConsumptionVolume.value.replace(/\D/g, ''));
+  inputConsumptionVolume.addEventListener("input", () => {
+    inputConsumptionVolume.value = formatNumber(inputConsumptionVolume.value.replace(/\D/g, ""));
     const value = parseFormattedNumber(inputConsumptionVolume.value);
-    const valueChoiceMaxPower = parseFloat((0,_functions_choices_js__WEBPACK_IMPORTED_MODULE_0__.getChoices)(choiceMaxPower).getValue(true).replace(',', '.')) || 0;
+    const valueChoiceMaxPower = parseFloat((0,_functions_choices_js__WEBPACK_IMPORTED_MODULE_0__.getChoices)(choiceMaxPower).getValue(true).replace(",", ".")) || 0;
     const isValid = value >= consumptionThresholds[0].max;
     if (value && valueChoiceMaxPower && isValid) {
       const percentage = getPercentage(value);
       const result = value * valueChoiceMaxPower * percentage * 12;
-      resultDisplay.textContent = `${Math.trunc(result).toLocaleString('ru-RU')}\u00A0₽`;
-      inputConsumptionVolume.classList.remove('is-invalid');
-      inputConsumptionVolume.parentElement.classList.remove('is-invalid');
+      resultDisplay.textContent = `${Math.trunc(result).toLocaleString("ru-RU")}\u00A0₽`;
+      inputConsumptionVolume.classList.remove("is-invalid");
+      inputConsumptionVolume.parentElement.classList.remove("is-invalid");
     } else {
       resetResult(resultDisplay);
       if (!isValid && value) {
-        inputConsumptionVolume.classList.add('is-invalid');
-        inputConsumptionVolume.parentElement.classList.add('is-invalid');
+        inputConsumptionVolume.classList.add("is-invalid");
+        inputConsumptionVolume.parentElement.classList.add("is-invalid");
       } else {
-        inputConsumptionVolume.classList.remove('is-invalid');
-        inputConsumptionVolume.parentElement.classList.remove('is-invalid');
+        inputConsumptionVolume.classList.remove("is-invalid");
+        inputConsumptionVolume.parentElement.classList.remove("is-invalid");
       }
     }
   });
 };
-fetch('./calc.json').then(res => res.ok ? res.json() : Promise.reject(`Ошибка загрузки JSON: ${res.status}`)).then(data => {
+fetch("../calc.json").then(res => res.ok ? res.json() : Promise.reject(`Ошибка загрузки JSON: ${res.status}`)).then(data => {
   document.querySelectorAll('[data-form="calc-savings"]').forEach(form => {
     initCalcForm(form, data);
   });
-}).catch(err => console.error('Ошибка при запросе JSON:', err));
+}).catch(err => console.error("Ошибка при запросе JSON:", err));
 })();
 
 /******/ })()
 ;
+//# sourceMappingURL=calc.js.map
