@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html', {title: 'Главная страница'})
+
+<body class="page-body">
+  @include('partials/offcanvases.html')
+  @include('partials/modals.html')
+
+  <div class="site-container">
+    @include('partials/header.html', {
+      auth: false
+    })
+
+    <main class="main">
+      <section class="section">
+        <div class="bs-container">
+          <div class="section-header">
+            <h1 class="bs-h2">
+              Расчет стоимости электроэнергии № ______ от __.__.____ г.
+            </h1>
+          </div>
+
+          <div class="bs-row g-12px g-lg-20px">
+            <div class="bs-col-12">
+              <div class="d-flex flex-column gap-48px">
+                <div class="table-responsive">
+                  <table class="bs-table bs-table-hover" style="min-width: 600px;">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="w-50 p-0"></th>
+                        <th scope="col" class="w-50 p-0"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          Организация
+                        </th>
+                        <td>
+                          Наименование клиента
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          Гарантирующий поставщик
+                        </th>
+                        <td>
+                          Наименование гарантирующего поставщика
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          Расчетный период
+                        </th>
+                        <td>
+                          01.01.2022
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          Наименование объекта
+                        </th>
+                        <td>
+                          Магазин 7682
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          Условия расчета
+                        </th>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">
+                          Группа по максимальной мощности
+                        </td>
+                        <td>
+                          до 670 кВт
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">
+                          Сбытовая надбавка, руб./кВт.ч
+                        </td>
+                        <td>
+                          0,91024
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">
+                          Уровень тарифного напряжения
+                        </td>
+                        <td>
+                          СН 2
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="table-responsive">
+                  <table class="bs-table bs-table-hover" style="min-width: 600px;">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="w-25 p-0"></th>
+                        <th scope="col" class="w-25 p-0"></th>
+                        <th scope="col" class="w-25 p-0"></th>
+                        <th scope="col" class="w-25 p-0"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" colspan="4">
+                          Характеристики потребления
+                        </th>
+                      </tr>
+                      <tr>
+                        <td scope="row">
+                          Объем потребления, кВт.ч
+                        </td>
+                        <th>
+                          16 757
+                        </th>
+                        <td>
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">
+                          Электрическая мощность, кВт
+                        </td>
+                        <th>
+                          24
+                        </th>
+                        <td>
+                          ЧЧИМ электрической мощности, ч
+                        </td>
+                        <td>
+                          8 379
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">
+                          Сетевая мощность, кВт
+                        </td>
+                        <th>
+                          26
+                        </th>
+                        <td>
+                          ЧЧИМ сетевой мощности
+                        </td>
+                        <td>
+                          7 734
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="table-responsive">
+                  <table class="bs-table bs-table-hover" style="min-width: 600px;">
+                    <caption class="bs-caption-top fs-24px fw-bold text-center text-black">
+                      Расчет по ценовым категориям
+                    </caption>
+                    <thead>
+                      <tr>
+                        <th scope="col" class="w-40 p-0"></th>
+                        <th scope="col" class="w-auto p-0"></th>
+                        <th scope="col" class="w-40 p-0"></th>
+                        <th scope="col" class="w-auto p-0"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" colspan="4" class="fs-20px">
+                          Электрическая энергия
+                        </th>
+                      </tr>
+                      <tr>
+                        <th scope="row" colspan="4">
+                          1 ЦК
+                        </th>
+                      </tr>
+                      <tr>
+                        <td scope="row" colspan="2">
+                          Цена электрической энергии по 1ЦК, руб./кВт.ч
+                        </td>
+                        <td colspan="2">
+                          3,46633
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row" colspan="2">
+                          В том числе сбытовая надбавка по 1ЦК, руб./кВт.ч
+                        </td>
+                        <td colspan="2">
+                          0,91024
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row" colspan="2">
+                          Стоимость электрической энергии по 1 ЦК, руб.
+                        </td>
+                        <td colspan="2">
+                          58 085.9
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <th scope="row" colspan="2">
+                          3 и 4 ЦК
+                        </th>
+                      </tr>
+                      <tr>
+                        <th scope="row" colspan="2">
+                          5 и 6 ЦК
+                        </th>
+                      </tr>
+                      <tr>
+                        <td scope="row">
+                          Стоимость электрической энергии по 1 ЦК, руб.
+                        </td>
+                        <td>
+                          2,28913
+                        </td>
+                        <td scope="row">
+                          Цена электрической энергии, руб./кВт.ч
+                        </td>
+                        <td>
+                          0,91024
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">
+                          В том числе сбытовая надбавка, руб./кВт.ч
+                        </td>
+                        <td>
+                          2,28913
+                        </td>
+                        <td scope="row">
+                          В том числе сбытовая надбавка, руб./кВт.ч
+                        </td>
+                        <td>
+                          0,91024
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">
+                          Цена электрической мощности, руб./кВт
+                        </td>
+                        <td>
+                          839,672
+                        </td>
+                        <td scope="row">
+                          Цена электрической мощности, руб./кВт
+                        </td>
+                        <td>
+                          839,672
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">
+                          Стоимость электрической энергии по 3 и 4 ЦК, руб.
+                        </td>
+                        <td>
+                          58 511,08
+                        </td>
+                        <td scope="row">
+                          Стоимость электрической энергии по 3 и 4 ЦК, руб.
+                        </td>
+                        <td>
+                          58 511,08
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          Среднеприведенная цена на электрическую энергию, руб./кВт.ч
+                        </th>
+                        <td>
+                          3,46959
+                        </td>
+                        <th scope="row">
+                          Среднеприведенная цена на электрическую энергию, руб./кВт.ч
+                        </th>
+                        <td>
+                          3,46959
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <th scope="row" colspan="4" class="fs-20px">
+                          Услуги по передаче
+                        </th>
+                      </tr>
+                      <tr>
+                        <th scope="row" colspan="2">
+                          Одноставочная
+                        </th>
+                        <th scope="row" colspan="2">
+                          Двухставочная
+                        </th>
+                      </tr>
+                      <tr>
+                        <td scope="row">
+                          Одноставочный тариф на услуги по передаче, руб./кВт.ч
+                        </td>
+                        <td>
+                          3,11324
+                        </td>
+                        <td>
+                          Ставка за содержание сетей, руб./кВт
+                        </td>
+                        <td>
+                          1680,41032
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">
+                          Стоимость услуг по передаче, руб./кВт.ч
+                        </td>
+                        <td>
+                          52 168,56
+                        </td>
+                        <td>
+                          Ставка за технологические потери, руб./кВт.ч
+                        </td>
+                        <td>
+                          0,47337
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                          Стоимость, ставки за содержание потерь, руб.
+                        </td>
+                        <td>
+                          43 690,67
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                          Стоимость, ставки за оплату технологических потерь, руб.
+                        </td>
+                        <td>
+                          7 932,67
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                          Стоимость услуги по передаче, руб.
+                        </td>
+                        <td>
+                          51 622,93
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                          Среднеприведенная цена на услугу по передаче, руб./кВт.ч
+                        </td>
+                        <td>
+                          3,08068
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="table-responsive">
+                  <table class="bs-table bs-table-hover" style="min-width: 600px;">
+                    <thead>
+                      <tr>
+                        <th scope="col">
+
+                        </th>
+                        <th scope="col">
+                          Стоимость электрической энергии с услугой по передачи, руб.
+                        </th>
+                        <th scope="col">
+                          Цена электрической энергии и услуги по передачи, руб./кВт∙ч
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          по 1 ЦК
+                        </th>
+                        <td>
+                          110 253,85
+                        </td>
+                        <td>
+                          6,57957
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          по 1 ЦК+2-ставка
+                        </th>
+                        <td>
+                          110 253,85
+                        </td>
+                        <td>
+                          6,57957
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          по 3 ЦК
+                        </th>
+                        <td>
+                          110 253,85
+                        </td>
+                        <td>
+                          6,57957
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          по 4 ЦК
+                        </th>
+                        <td>
+                          110 253,85
+                        </td>
+                        <td>
+                          6,57957
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          по 5 ЦК
+                        </th>
+                        <td>
+                          110 253,85
+                        </td>
+                        <td>
+                          6,57957
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          по 6 ЦК
+                        </th>
+                        <td>
+                          110 253,85
+                        </td>
+                        <td>
+                          6,57957
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    @include('partials/footer.html')
+  </div>
+</body>
+
+</html>
