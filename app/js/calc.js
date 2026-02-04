@@ -214,4 +214,3 @@ fetch("../calc.json").then(res => res.ok ? res.json() : Promise.reject(`Ошиб
 
 /******/ })()
 ;
-//# sourceMappingURL=calc.js.map

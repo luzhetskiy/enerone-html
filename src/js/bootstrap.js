@@ -79,3 +79,11 @@ document.querySelectorAll('[data-bs-toggle="dropdown-hover"]').forEach(trigger =
   })
 })
 
+document.addEventListener('shown.bs.modal', event => {
+  const modal = event.target
+
+  const input = modal.querySelector('input, textarea, select')
+  if (input) {
+    input.focus()
+  }
+})

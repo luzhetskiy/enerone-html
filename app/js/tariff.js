@@ -188,4 +188,3 @@ document.querySelectorAll('[data-form="calc-tariff"]')?.forEach(form => {
 
 /******/ })()
 ;
-//# sourceMappingURL=tariff.js.map
