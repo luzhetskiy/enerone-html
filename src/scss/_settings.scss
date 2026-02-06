@@ -30,5 +30,9 @@
 }
 
 .main {
-  padding-top: var(--header-height);
+  padding-top: var(--header-height, 5rem);
+
+  @media (min-width: 991.98px) {
+    padding-top: var(--header-height, 8.75rem);
+  }
 }
