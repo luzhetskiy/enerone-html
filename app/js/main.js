@@ -20213,6 +20213,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_password_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/password.js */ "./src/js/components/password.js");
 /* harmony import */ var _components_choices_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/choices.js */ "./src/js/components/choices.js");
 /* harmony import */ var _components_ios_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/ios.js */ "./src/js/components/ios.js");
+/* harmony import */ var _components_scroll_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/scroll.js */ "./src/js/components/scroll.js");
+
 
 
 
@@ -20334,6 +20336,31 @@ document.addEventListener('click', e => {
   const isVisible = input.type === 'text';
   input.type = isVisible ? 'password' : 'text';
   btn.classList.toggle('active', !isVisible);
+});
+
+/***/ }),
+
+/***/ "./src/js/components/scroll.js":
+/*!*************************************!*\
+  !*** ./src/js/components/scroll.js ***!
+  \*************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+const header = document.querySelector(".header");
+document.querySelectorAll("[data-scroll-to]").forEach(trigger => {
+  trigger.addEventListener("click", e => {
+    e.preventDefault();
+    const selector = trigger.dataset.scrollTo;
+    const target = document.querySelector(selector);
+    if (!target) return;
+    const offset = header ? header.offsetHeight + 24 : 24;
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({
+      top,
+      behavior: "smooth"
+    });
+  });
 });
 
 /***/ }),

@@ -1,0 +1,1259 @@
+<!doctype html>
+<html lang="ru" class="page">
+  @include('partials/head.html', {title: 'Энерготрейдинг'})
+
+  <body class="page-body">
+    @include('partials/offcanvases.html') @include('partials/modals.html')
+
+    <div class="site-container">
+      @include('partials/header.html', { auth: false })
+
+      <main class="main">
+        <section class="section hero">
+          <div class="bs-container">
+            <div class="h-100 hero-main">
+              <span
+                class="d-none d-md-block bg-position-center bg-size-cover bg-repeat-norepeat position-absolute inset-0"
+                style="background-image: url(./img/hero/image-4.webp)"
+              ></span>
+              <span
+                class="d-block d-md-none bg-position-center bg-size-cover bg-repeat-norepeat position-absolute inset-0"
+                style="background-image: url(./img/hero/image-4.webp)"
+              ></span>
+              <div class="bs-bg-black bg-opacity-25 position-relative z-1">
+                <div class="bs-row">
+                  <div class="bs-col-lg-9">
+                    <div
+                      class="d-flex flex-column gap-24px gap-lg-32px pt-32px pt-lg-48px px-16px px-lg-40px pb-80px"
+                    >
+                      <div class="d-flex flex-column gap-12px gap-lg-16px">
+                        <div class="d-inline-flex">
+                          <div
+                            class="bs-bg-primary py-4px px-12px rounded-12px"
+                          >
+                            <p class="m-0px">
+                              Круглый стол для промышленных предприятий
+                            </p>
+                          </div>
+                        </div>
+                        <h1 class="bs-h1 text-reset">
+                          Как предприятиям управлять энергозатратами
+                          в&nbsp;условиях роста&nbsp;тарифов
+                        </h1>
+                        <div class="fs-16px fs-lg-18px fw-medium">
+                          <p class="m-0px">
+                            Практические решения для&nbsp;промышленности:
+                            от&nbsp;оптимизации потребления до&nbsp;собственной
+                            генерации
+                          </p>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-8px">
+                          <div class="bs-bg-info rounded-8px py-4px px-8px">
+                            📅 15 апреля 2026 | 9:30
+                          </div>
+                          <div class="bs-bg-info rounded-8px py-4px px-8px">
+                            📍 Красноярск, Novotel
+                          </div>
+                        </div>
+                        <div class="fs-16px fw-medium">
+                          <p class="m-0px">
+                            Электроэнергия становится всё более значимой статьёй
+                            затрат для&nbsp;предприятий. На&nbsp;круглом столе
+                            обсудим, как снизить стоимость электроэнергии,
+                            уменьшить риски и&nbsp;сделать энергозатраты
+                            управляемыми.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="bs-row g-20px justify-content-lg-between">
+                        <div class="bs-col-lg-5">
+                          <div class="d-flex flex-column gap-12px">
+                            <div class="fs-14px fw-medium">
+                              <p class="m-0px">Поддержка мероприятия</p>
+                            </div>
+                            <div
+                              class="d-flex align-items-center gap-8px text-black bs-bg-secondary rounded-8px p-8px"
+                            >
+                              <img
+                                loading="lazy"
+                                src="./img/tpprf.svg"
+                                class="image"
+                                width="36"
+                                height="51"
+                                alt="Лого"
+                              />
+                              <div class="fs-14px fw-medium">
+                                <p class="m-0px">
+                                  Центрально-Сибирская торгово-промышленная
+                                  палата
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="bs-col-auto">
+                          <div
+                            class="h-100 d-flex flex-column justify-content-between align-items-lg-end gap-12px"
+                          >
+                            <div class="fs-14px fw-medium">
+                              <p class="m-0px">
+                                Участие бесплатное | Количество мест ограничено
+                              </p>
+                            </div>
+
+                            <button
+                              type="button"
+                              class="bs-btn bs-btn-base bs-btn-success"
+                              data-scroll-to="#section-signup"
+                            >
+                              <span class="text"> Зарегистрироваться </span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section hero">
+          <div class="bs-container">
+            <div class="h-100 hero-main text-black">
+              <span
+                class="d-none d-md-block bg-position-center bg-size-cover bg-repeat-norepeat position-absolute inset-0"
+                style="background-image: url(./img/hero/image-5.webp)"
+              ></span>
+              <span
+                class="d-block d-md-none bg-position-center bg-size-cover bg-repeat-norepeat position-absolute inset-0"
+                style="background-image: url(./img/hero/image-5.webp)"
+              ></span>
+              <div class="bs-row">
+                <div class="bs-col-lg-9">
+                  <div
+                    class="d-flex flex-column gap-24px gap-lg-32px pt-32px pt-lg-48px px-16px px-lg-40px pb-80px position-relative z-1"
+                  >
+                    <div class="d-flex flex-column gap-12px gap-lg-16px">
+                      <div class="d-inline-flex">
+                        <div
+                          class="text-white bs-bg-primary py-4px px-12px rounded-12px"
+                        >
+                          <p class="m-0px">
+                            Круглый стол для промышленных предприятий
+                          </p>
+                        </div>
+                      </div>
+                      <h1 class="bs-h1 text-reset">
+                        Как предприятиям управлять энергозатратами
+                        в&nbsp;условиях роста&nbsp;тарифов
+                      </h1>
+                      <div class="fs-16px fs-lg-18px fw-medium">
+                        <p class="m-0px">
+                          Практические решения для&nbsp;промышленности:
+                          от&nbsp;оптимизации потребления до&nbsp;собственной
+                          генерации
+                        </p>
+                      </div>
+
+                      <div class="d-flex flex-wrap gap-8px">
+                        <div
+                          class="text-white bs-bg-info rounded-8px py-4px px-8px"
+                        >
+                          📅 15 апреля 2026 | 9:30
+                        </div>
+                        <div
+                          class="text-white bs-bg-info rounded-8px py-4px px-8px"
+                        >
+                          📍 Красноярск, Novotel
+                        </div>
+                      </div>
+                      <div class="fs-16px fw-medium">
+                        <p class="m-0px">
+                          Электроэнергия становится всё более значимой статьёй
+                          затрат для&nbsp;предприятий. На&nbsp;круглом столе
+                          обсудим, как снизить стоимость электроэнергии,
+                          уменьшить риски и&nbsp;сделать энергозатраты
+                          управляемыми.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="bs-row g-20px justify-content-lg-between">
+                      <div class="bs-col-lg-5">
+                        <div class="d-flex flex-column gap-12px">
+                          <div class="fs-14px fw-medium">
+                            <p class="m-0px">Поддержка мероприятия</p>
+                          </div>
+                          <div class="d-flex align-items-center gap-8px">
+                            <img
+                              loading="lazy"
+                              src="./img/tpprf.svg"
+                              class="image"
+                              width="36"
+                              height="51"
+                              alt="Лого"
+                            />
+                            <div class="fs-14px fw-medium">
+                              <p class="m-0px">
+                                Центрально-Сибирская торгово-промышленная палата
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="bs-col-auto">
+                        <div
+                          class="h-100 d-flex flex-column justify-content-between align-items-lg-end gap-12px"
+                        >
+                          <div class="fs-14px fw-medium">
+                            <p class="m-0px">
+                              Участие бесплатное | Количество мест ограничено
+                            </p>
+                          </div>
+
+                          <button
+                            type="button"
+                            class="bs-btn bs-btn-base bs-btn-success"
+                            data-scroll-to="#section-signup"
+                          >
+                            <span class="text"> Зарегистрироваться </span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="bs-container">
+            <div class="section-header">
+              <h2 class="bs-h2">Почему важно обсудить это сейчас</h2>
+            </div>
+
+            <div class="bs-row gy-12px gx-0px g-lg-20px">
+              <div class="bs-col-lg-3 bs-col-sm-6">
+                <div
+                  class="widget h-100 py-20px py-lg-28px px-16px px-lg-20px position-relative z-1"
+                >
+                  <div class="d-flex flex-column gap-24px">
+                    <picture class="flex-shrink-0 align-self-center">
+                      <source
+                        srcset="./img/placement/image-1.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        loading="lazy"
+                        src="./img/placement/image-1.png"
+                        class="img-fluid"
+                        width="100"
+                        height="100"
+                        alt="Картинка"
+                      />
+                    </picture>
+
+                    <div class="d-flex flex-column gap-16px">
+                      <h3 class="bs-h3">Рост тарифов ускоряется</h3>
+                      <div class="fs-14px lh-sm">
+                        <p class="mb-0px">
+                          Энергозатраты становятся всё более значимой частью
+                          себестоимости продукции. С 1 октября в Красноярском
+                          крае тарифы вырастут на …..
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bs-col-lg-3 bs-col-sm-6">
+                <div
+                  class="widget h-100 py-20px py-lg-28px px-16px px-lg-20px position-relative z-1"
+                >
+                  <div class="d-flex flex-column gap-24px">
+                    <picture class="flex-shrink-0 align-self-center">
+                      <source
+                        srcset="./img/placement/image-1.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        loading="lazy"
+                        src="./img/placement/image-1.png"
+                        class="img-fluid"
+                        width="100"
+                        height="100"
+                        alt="Картинка"
+                      />
+                    </picture>
+                    <div class="d-flex flex-column gap-16px">
+                      <h3 class="bs-h3">
+                        Появляются новые технологии управления энергией
+                      </h3>
+                      <div class="fs-14px lh-sm">
+                        <p class="mb-0px">
+                          Накопители энергии, цифровое управление нагрузкой и
+                          гибридные модели энергоснабжения становятся
+                          экономически оправданными.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bs-col-lg-3 bs-col-sm-6">
+                <div
+                  class="widget h-100 py-20px py-lg-28px px-16px px-lg-20px position-relative z-1"
+                >
+                  <div class="d-flex flex-column gap-24px">
+                    <picture class="flex-shrink-0 align-self-center">
+                      <source
+                        srcset="./img/placement/image-1.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        loading="lazy"
+                        src="./img/placement/image-1.png"
+                        class="img-fluid"
+                        width="100"
+                        height="100"
+                        alt="Картинка"
+                      />
+                    </picture>
+                    <div class="d-flex flex-column gap-16px">
+                      <h3 class="bs-h3">
+                        Энергетика становится элементом финансовой стратегии
+                      </h3>
+                      <div class="fs-14px lh-sm">
+                        <p class="mb-0px">
+                          Предприятия начинают управлять энергозатратами так же
+                          системно, как управляют финансами и производством.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bs-col-lg-3 bs-col-sm-6">
+                <div
+                  class="widget h-100 py-20px py-lg-28px px-16px px-lg-20px position-relative z-1"
+                >
+                  <div class="d-flex flex-column gap-24px">
+                    <picture class="flex-shrink-0 align-self-center">
+                      <source
+                        srcset="./img/placement/image-1.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        loading="lazy"
+                        src="./img/placement/image-1.png"
+                        class="img-fluid"
+                        width="100"
+                        height="100"
+                        alt="Картинка"
+                      />
+                    </picture>
+                    <div class="d-flex flex-column gap-16px">
+                      <h3 class="bs-h3">
+                        Ранние решения дают конкурентное преимущество
+                      </h3>
+                      <div class="fs-14px lh-sm">
+                        <p class="mb-0px">
+                          Компании, которые начинают управлять
+                          энергопотреблением сегодня, получают более устойчивую
+                          экономику бизнеса.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section py-32px py-lg-64px text-white bs-bg-success">
+          <div class="bs-container">
+            <div class="section-header">
+              <h2 class="bs-h2 text-reset">Для кого это мероприятие</h2>
+            </div>
+
+            <div class="bs-row gy-12px gx-0px g-lg-20px">
+              <div class="bs-col-sm-6">
+                <div
+                  class="h-100 bs-bg-dark bg-opacity-10 rounded-24px py-20px py-lg-28px px-16px px-lg-20px position-relative z-1"
+                >
+                  <div class="d-flex flex-column gap-24px">
+                    <div class="d-flex flex-column gap-16px">
+                      <h3 class="bs-h3 text-reset">
+                        Собственники и руководители предприятий
+                      </h3>
+                      <div class="lh-sm">
+                        <p class="mb-0px">
+                          которые хотят снизить себестоимость продукции и
+                          повысить устойчивость бизнеса.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end bs-h3 text-reset">
+                      <p class="mb-0px">01</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bs-col-sm-6">
+                <div
+                  class="h-100 bs-bg-dark bg-opacity-10 rounded-24px py-20px py-lg-28px px-16px px-lg-20px position-relative z-1"
+                >
+                  <div class="d-flex flex-column gap-24px">
+                    <div class="d-flex flex-column gap-16px">
+                      <h3 class="bs-h3 text-reset">Финансовые директора</h3>
+                      <div class="lh-sm">
+                        <p class="mb-0px">
+                          которые ищут инструменты управления энергозатратами и
+                          снижения операционных расходов.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end bs-h3 text-reset">
+                      <p class="mb-0px">02</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bs-col-sm-6">
+                <div
+                  class="h-100 bs-bg-dark bg-opacity-10 rounded-24px py-20px py-lg-28px px-16px px-lg-20px position-relative z-1"
+                >
+                  <div class="d-flex flex-column gap-24px">
+                    <div class="d-flex flex-column gap-16px">
+                      <h3 class="bs-h3 text-reset">
+                        Главные энергетики и технические директора
+                      </h3>
+                      <div class="lh-sm">
+                        <p class="mb-0px">
+                          которые отвечают за эффективность энергопотребления
+                          предприятия.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end bs-h3 text-reset">
+                      <p class="mb-0px">03</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bs-col-sm-6">
+                <div
+                  class="h-100 bs-bg-dark bg-opacity-10 rounded-24px py-20px py-lg-28px px-16px px-lg-20px position-relative z-1"
+                >
+                  <div class="d-flex flex-column gap-24px">
+                    <div class="d-flex flex-column gap-16px">
+                      <h3 class="bs-h3 text-reset">
+                        Руководители производственных подразделений
+                      </h3>
+                      <div class="lh-sm">
+                        <p class="mb-0px">
+                          которым важно снижать затраты без сокращения
+                          производства.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end bs-h3 text-reset">
+                      <p class="mb-0px">04</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="bs-container">
+            <div class="section-header justify-content-center text-center">
+              <h2 class="bs-h2">Это мероприятие для вас, если</h2>
+            </div>
+
+            <div
+              class="h-100 bs-bg-info bg-opacity-15 border border-2 border-info rounded-8px py-24px px-20px p-lg-32px"
+            >
+              <div class="d-flex flex-column gap-6px fs-16px">
+                <ul
+                  class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext gap-12px"
+                >
+                  <li class="list-group-item bs-list-group-item">
+                    <div class="d-flex align-items-center gap-12px">
+                      <picture class="flex-shrink-0 align-self-center">
+                        <source
+                          srcset="./img/placement/image-1.webp"
+                          type="image/webp"
+                        />
+                        <img
+                          loading="lazy"
+                          src="./img/placement/image-1.png"
+                          class="img-fluid"
+                          width="48"
+                          height="48"
+                          alt="Картинка"
+                        />
+                      </picture>
+
+                      <div class="d-flex flex-column gap-8px">
+                        <h3 class="bs-h3">
+                          Рост тарифов начинает влиять на прибыль предприятия
+                        </h3>
+
+                        <div>
+                          <p class="m-0px">
+                            Разберём, как меняется экономика энергозатрат и
+                            какие решения позволяют удерживать себестоимость
+                            продукции.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-group-item bs-list-group-item">
+                    <div class="d-flex align-items-center gap-12px">
+                      <picture class="flex-shrink-0 align-self-center">
+                        <source
+                          srcset="./img/placement/image-1.webp"
+                          type="image/webp"
+                        />
+                        <img
+                          loading="lazy"
+                          src="./img/placement/image-1.png"
+                          class="img-fluid"
+                          width="48"
+                          height="48"
+                          alt="Картинка"
+                        />
+                      </picture>
+
+                      <div class="d-flex flex-column gap-8px">
+                        <h3 class="bs-h3">
+                          Вы ищете реальные способы снизить стоимость
+                          электроэнергии
+                        </h3>
+
+                        <div>
+                          <p class="m-0px">
+                            Покажем инструменты, которые позволяют предприятиям
+                            снижать энергозатраты
+                            <span class="fw-medium">на 15–20%</span>.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-group-item bs-list-group-item">
+                    <div class="d-flex align-items-center gap-12px">
+                      <picture class="flex-shrink-0 align-self-center">
+                        <source
+                          srcset="./img/placement/image-1.webp"
+                          type="image/webp"
+                        />
+                        <img
+                          loading="lazy"
+                          src="./img/placement/image-1.png"
+                          class="img-fluid"
+                          width="48"
+                          height="48"
+                          alt="Картинка"
+                        />
+                      </picture>
+
+                      <div class="d-flex flex-column gap-8px">
+                        <h3 class="bs-h3">
+                          Вы рассматриваете накопители энергии или собственную
+                          генерацию
+                        </h3>
+
+                        <div>
+                          <p class="m-0px">
+                            Обсудим экономику проектов, сроки окупаемости и
+                            модели финансирования.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-group-item bs-list-group-item">
+                    <div class="d-flex align-items-center gap-12px">
+                      <picture class="flex-shrink-0 align-self-center">
+                        <source
+                          srcset="./img/placement/image-1.webp"
+                          type="image/webp"
+                        />
+                        <img
+                          loading="lazy"
+                          src="./img/placement/image-1.png"
+                          class="img-fluid"
+                          width="48"
+                          height="48"
+                          alt="Картинка"
+                        />
+                      </picture>
+
+                      <div class="d-flex flex-column gap-8px">
+                        <h3 class="bs-h3">
+                          Вам важно управлять энергозатратами как финансовым
+                          показателем
+                        </h3>
+
+                        <div>
+                          <p class="m-0px">
+                            Поговорим о том, как выстроить комплексную
+                            энергостратегию предприятия.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="bs-container">
+            <div class="section-header justify-content-center text-center">
+              <h2 class="bs-h2">Что вы получите на круглом столе</h2>
+            </div>
+
+            <div class="bs-row justify-content-center">
+              <div class="bs-col-lg-8 bs-col-xl-7">
+                <div class="d-flex justify-content-lg-center">
+                  <div class="d-flex flex-column gap-6px fs-16px">
+                    <ul
+                      class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext gap-12px"
+                    >
+                      <li class="list-group-item bs-list-group-item">
+                        <div class="d-flex align-items-center gap-12px">
+                          <div class="d-flex flex-column gap-8px">
+                            <div>
+                              <p class="m-0px">
+                                ✔ понимание, как изменится стоимость
+                                электроэнергии для промышленности
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item bs-list-group-item">
+                        <div class="d-flex align-items-center gap-12px">
+                          <div class="d-flex flex-column gap-8px">
+                            <div>
+                              <p class="m-0px">
+                                ✔ практические инструменты снижения энергозатрат
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item bs-list-group-item">
+                        <div class="d-flex align-items-center gap-12px">
+                          <div class="d-flex flex-column gap-8px">
+                            <div>
+                              <p class="m-0px">
+                                ✔ экономику проектов накопителей энергии и
+                                собственной генерации
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item bs-list-group-item">
+                        <div class="d-flex align-items-center gap-12px">
+                          <div class="d-flex flex-column gap-8px">
+                            <div>
+                              <p class="m-0px">
+                                ✔ подход к построению энергостратегии
+                                предприятия
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item bs-list-group-item">
+                        <div class="d-flex align-items-center gap-12px">
+                          <div class="d-flex flex-column gap-8px">
+                            <div>
+                              <p class="m-0px">
+                                ✔ возможность задать вопросы экспертам и
+                                обсудить кейсы предприятий
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="bs-container">
+            <div class="section-header justify-content-center text-center">
+              <h2 class="bs-h2">Программа круглого стола</h2>
+            </div>
+
+            <div class="bs-row justify-content-center">
+              <div class="bs-col-lg-8 bs-col-xl-6">
+                <div class="d-flex flex-column gap-24px gap-lg-32px">
+                  <h3 class="bs-h3">
+                    От фиксированных расходов к управляемой экономике: новые
+                    подходы к энергозатратам
+                  </h3>
+
+                  <ul
+                    class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--timeline"
+                  >
+                    <li
+                      class="bs-list-group--timeline-item list-group-item bs-list-group-item"
+                    >
+                      <div class="bs-bg-info bg-opacity-25 rounded-16px">
+                        <div
+                          class="bs-list-group--timeline-header text-white bs-bg-info rounded-16px p-16px"
+                        >
+                          <h4 class="bs-h3 text-reset">
+                            Рост тарифов и влияние на экономику предприятий
+                          </h4>
+                        </div>
+
+                        <div
+                          class="bs-list-group--timeline-body p-16px fs-14px lh-sm"
+                        >
+                          <ul
+                            class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc bs-list-group--disc-info"
+                          >
+                            <li class="list-group-item bs-list-group-item">
+                              прогноз стоимости электроэнергии
+                            </li>
+                            <li class="list-group-item bs-list-group-item">
+                              изменение структуры затрат в себестоимости
+                            </li>
+                            <li class="list-group-item bs-list-group-item">
+                              влияние на маржинальность бизнеса
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class="bs-list-group--timeline-item list-group-item bs-list-group-item"
+                    >
+                      <div class="bs-bg-info bg-opacity-25 rounded-16px">
+                        <div
+                          class="bs-list-group--timeline-header text-white bs-bg-info rounded-16px p-16px"
+                        >
+                          <h4 class="bs-h3 text-reset">
+                            Снижение энергозатрат без сокращения производства
+                          </h4>
+                        </div>
+
+                        <div
+                          class="bs-list-group--timeline-body p-16px fs-14px lh-sm"
+                        >
+                          <ul
+                            class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc bs-list-group--disc-info"
+                          >
+                            <li class="list-group-item bs-list-group-item">
+                              снижение стоимости электроэнергии до
+                              <span class="fw-medium">15–20%</span>
+                            </li>
+                            <li class="list-group-item bs-list-group-item">
+                              управление профилем потребления
+                            </li>
+                            <li class="list-group-item bs-list-group-item">
+                              реальные кейсы предприятий
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class="bs-list-group--timeline-item list-group-item bs-list-group-item"
+                    >
+                      <div class="bs-bg-info bg-opacity-25 rounded-16px">
+                        <div
+                          class="bs-list-group--timeline-header text-white bs-bg-info rounded-16px p-16px"
+                        >
+                          <h4 class="bs-h3 text-reset">
+                            Накопители энергии как инвестиционный проект
+                          </h4>
+                        </div>
+
+                        <div
+                          class="bs-list-group--timeline-body p-16px fs-14px lh-sm"
+                        >
+                          <ul
+                            class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc bs-list-group--disc-info"
+                          >
+                            <li class="list-group-item bs-list-group-item">
+                              экономическая эффективность технологии
+                            </li>
+                            <li class="list-group-item bs-list-group-item">
+                              резервирование и снижение операционных рисков
+                            </li>
+                            <li class="list-group-item bs-list-group-item">
+                              модели финансирования и окупаемость
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class="bs-list-group--timeline-item list-group-item bs-list-group-item"
+                    >
+                      <div class="bs-bg-info bg-opacity-25 rounded-16px">
+                        <div
+                          class="bs-list-group--timeline-header text-white bs-bg-info rounded-16px p-16px"
+                        >
+                          <h4 class="bs-h3 text-reset">
+                            Собственная генерация и гибридные модели
+                            энергоснабжения
+                          </h4>
+                        </div>
+
+                        <div
+                          class="bs-list-group--timeline-body p-16px fs-14px lh-sm"
+                        >
+                          <ul
+                            class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc bs-list-group--disc-info"
+                          >
+                            <li class="list-group-item bs-list-group-item">
+                              когда собственная генерация выгоднее рынка
+                            </li>
+                            <li class="list-group-item bs-list-group-item">
+                              защита от тарифной волатильности
+                            </li>
+                            <li class="list-group-item bs-list-group-item">
+                              влияние на себестоимость продукции
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class="bs-list-group--timeline-item list-group-item bs-list-group-item"
+                    >
+                      <div class="bs-bg-info bg-opacity-25 rounded-16px">
+                        <div
+                          class="bs-list-group--timeline-header text-white bs-bg-info rounded-16px p-16px"
+                        >
+                          <h4 class="bs-h3 text-reset">
+                            Комплексная энергостратегия предприятия
+                          </h4>
+                        </div>
+
+                        <div
+                          class="bs-list-group--timeline-body p-16px fs-14px lh-sm"
+                        >
+                          <ul
+                            class="list-group list-group--plaintext bs-list-group bs-list-group--plaintext bs-list-group--disc bs-list-group--disc-info"
+                          >
+                            <li class="list-group-item bs-list-group-item">
+                              переход от точечных решений к системному
+                              управлению
+                            </li>
+                            <li class="list-group-item bs-list-group-item">
+                              энергетика как элемент финансовой стратегии
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="bs-container">
+            <div class="section-header justify-content-center text-center">
+              <h2 class="bs-h2">Эксперты круглого стола</h2>
+            </div>
+
+            <div class="bs-row gy-20px">
+              <div class="bs-col-6 bs-col-lg-3">
+                <div class="h-100 d-flex flex-column gap-16px">
+                  <div
+                    class="widget d-inline-flex align-self-center rounded-pill ratio-1x1 overflow-hidden"
+                  >
+                    <div class="flex-fill rounded-pill m-4px overflow-hidden">
+                      <picture>
+                        <source
+                          srcset="./img/users/default-fill.webp"
+                          type="image/webp"
+                        />
+                        <img
+                          loading="lazy"
+                          src="./img/users/default-fill.png"
+                          class="img-fluid"
+                          width="100"
+                          height="100"
+                          alt="Картинка"
+                        />
+                      </picture>
+                    </div>
+                  </div>
+
+                  <div
+                    class="d-flex flex-column gap-8px text-center fs-14px lh-sm"
+                  >
+                    <h3 class="bs-h3">Имя Фамилия</h3>
+
+                    <div>
+                      <p class="m-0px">Должность</p>
+                      <p class="m-0px">Описание</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bs-col-6 bs-col-lg-3">
+                <div class="h-100 d-flex flex-column gap-16px">
+                  <div
+                    class="widget d-inline-flex align-self-center rounded-pill ratio-1x1 overflow-hidden"
+                  >
+                    <div class="flex-fill rounded-pill m-4px overflow-hidden">
+                      <picture>
+                        <source
+                          srcset="./img/users/default-fill.webp"
+                          type="image/webp"
+                        />
+                        <img
+                          loading="lazy"
+                          src="./img/users/default-fill.png"
+                          class="img-fluid"
+                          width="100"
+                          height="100"
+                          alt="Картинка"
+                        />
+                      </picture>
+                    </div>
+                  </div>
+
+                  <div
+                    class="d-flex flex-column gap-8px text-center fs-14px lh-sm"
+                  >
+                    <h3 class="bs-h3">Имя Фамилия</h3>
+
+                    <div>
+                      <p class="m-0px">Должность</p>
+                      <p class="m-0px">Описание</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bs-col-6 bs-col-lg-3">
+                <div class="h-100 d-flex flex-column gap-16px">
+                  <div
+                    class="widget d-inline-flex align-self-center rounded-pill ratio-1x1 overflow-hidden"
+                  >
+                    <div class="flex-fill rounded-pill m-4px overflow-hidden">
+                      <picture>
+                        <source
+                          srcset="./img/users/default-fill.webp"
+                          type="image/webp"
+                        />
+                        <img
+                          loading="lazy"
+                          src="./img/users/default-fill.png"
+                          class="img-fluid"
+                          width="100"
+                          height="100"
+                          alt="Картинка"
+                        />
+                      </picture>
+                    </div>
+                  </div>
+
+                  <div
+                    class="d-flex flex-column gap-8px text-center fs-14px lh-sm"
+                  >
+                    <h3 class="bs-h3">Имя Фамилия</h3>
+
+                    <div>
+                      <p class="m-0px">Должность</p>
+                      <p class="m-0px">Описание</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bs-col-6 bs-col-lg-3">
+                <div class="h-100 d-flex flex-column gap-16px">
+                  <div
+                    class="widget d-inline-flex align-self-center rounded-pill ratio-1x1 overflow-hidden"
+                  >
+                    <div class="flex-fill rounded-pill m-4px overflow-hidden">
+                      <picture>
+                        <source
+                          srcset="./img/users/default-fill.webp"
+                          type="image/webp"
+                        />
+                        <img
+                          loading="lazy"
+                          src="./img/users/default-fill.png"
+                          class="img-fluid"
+                          width="100"
+                          height="100"
+                          alt="Картинка"
+                        />
+                      </picture>
+                    </div>
+                  </div>
+
+                  <div
+                    class="d-flex flex-column gap-8px text-center fs-14px lh-sm"
+                  >
+                    <h3 class="bs-h3">Имя Фамилия</h3>
+
+                    <div>
+                      <p class="m-0px">Должность</p>
+                      <p class="m-0px">Описание</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="bs-container">
+            <div class="section-header">
+              <h2 class="bs-h2">
+                Какие вопросы вы сможете обсудить с экспертами
+              </h2>
+            </div>
+
+            <div class="bs-row gy-12px gx-0px g-lg-20px">
+              <div class="bs-col-md-6">
+                <div
+                  class="widget h-100 py-20px py-lg-28px px-16px px-lg-20px position-relative z-1"
+                >
+                  <div class="d-flex flex-column gap-12px">
+                    <h3 class="bs-h3">
+                      Как снизить стоимость электроэнергии для предприятия уже в
+                      ближайший год?
+                    </h3>
+
+                    <div>
+                      <p class="m-0px">
+                        Разберём инструменты управления энергопотреблением и
+                        модели энергоснабжения, которые позволяют снизить
+                        затраты без изменения производственных процессов.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bs-col-md-6">
+                <div
+                  class="widget h-100 py-20px py-lg-28px px-16px px-lg-20px position-relative z-1"
+                >
+                  <div class="d-flex flex-column gap-12px">
+                    <h3 class="bs-h3">
+                      Есть ли смысл выходить на оптовый рынок электроэнергии?
+                    </h3>
+
+                    <div>
+                      <p class="m-0px">
+                        Обсудим, для каких предприятий это действительно даёт
+                        экономию и какие условия должны быть выполнены.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bs-col-md-6">
+                <div
+                  class="widget h-100 py-20px py-lg-28px px-16px px-lg-20px position-relative z-1"
+                >
+                  <div class="d-flex flex-column gap-12px">
+                    <h3 class="bs-h3">
+                      Когда накопители энергии становятся выгодным
+                      инвестиционным проектом?
+                    </h3>
+
+                    <div>
+                      <p class="m-0px">
+                        Поговорим о сроках окупаемости, финансовых моделях и
+                        возможностях применения на промышленных предприятиях.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bs-col-md-6">
+                <div
+                  class="widget h-100 py-20px py-lg-28px px-16px px-lg-20px position-relative z-1"
+                >
+                  <div class="d-flex flex-column gap-12px">
+                    <h3 class="bs-h3">
+                      Стоит ли предприятию инвестировать в собственную
+                      генерацию?
+                    </h3>
+
+                    <div>
+                      <p class="m-0px">
+                        Разберём, в каких случаях собственная генерация или
+                        гибридные модели энергоснабжения могут снизить
+                        себестоимость продукции.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bs-col-md-6">
+                <div
+                  class="widget h-100 py-20px py-lg-28px px-16px px-lg-20px position-relative z-1"
+                >
+                  <div class="d-flex flex-column gap-12px">
+                    <h3 class="bs-h3">
+                      Как превратить энергозатраты в управляемый финансовый
+                      показатель?
+                    </h3>
+
+                    <div>
+                      <p class="m-0px">
+                        Обсудим подходы к построению энергостратегии предприятия
+                        и интеграции энергетики в финансовое планирование.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="section-signup" class="section">
+          <div class="bs-container">
+            <div class="section-header justify-content-center text-center">
+              <h2 class="bs-h2">Хотите принять участие?</h2>
+            </div>
+
+            <div class="bs-row justify-content-center">
+              <div class="bs-col-lg-6">
+                <div
+                  class="widget h-100 d-flex flex-column gap-16px rounded-8px pt-32px pt-lg-48px px-16px px-lg-32px pb-20px pb-lg-32px position-relative"
+                >
+                  <div class="bs-row g-0px justify-content-center">
+                    <div class="bs-col-lg-10 bs-col-xl-9 bs-col-xxl-8">
+                      <div class="d-flex flex-column gap-24px">
+                        <div
+                          class="d-flex flex-column gap-16px fs-14px text-center"
+                        >
+                          <h3 class="bs-h3 text-reset">
+                            Участие в&nbsp;круглом столе бесплатное, требуется
+                            предварительная регистрация.
+                          </h3>
+                        </div>
+
+                        <form class="d-flex flex-column gap-24px">
+                          <div class="d-flex flex-column gap-20px">
+                            <div class="d-flex flex-column position-relative">
+                              <label class="bs-form-label"
+                                >Введите ваше ФИО:</label
+                              >
+                              <div class="position-relative">
+                                <input
+                                  type="text"
+                                  class="bs-form-control"
+                                  name="name"
+                                  placeholder="ФИО*"
+                                  aria-label="ФИО"
+                                  required
+                                />
+                              </div>
+                              <div class="invalid-feedback">Ошибка</div>
+                            </div>
+                            <div class="d-flex flex-column position-relative">
+                              <label class="bs-form-label"
+                                >Введите название вашей компании:</label
+                              >
+                              <div class="position-relative">
+                                <input
+                                  type="text"
+                                  class="bs-form-control"
+                                  name="company"
+                                  placeholder="Компания*"
+                                  aria-label="Компания"
+                                  required
+                                />
+                              </div>
+                              <div class="invalid-feedback">Ошибка</div>
+                            </div>
+                            <div class="d-flex flex-column position-relative">
+                              <label class="bs-form-label"
+                                >Введите ваш телефон:</label
+                              >
+                              <div class="position-relative">
+                                <input
+                                  type="tel"
+                                  class="bs-form-control"
+                                  name="phone"
+                                  placeholder="+7 (999) 999-99-99"
+                                  aria-label="Ваше телефон"
+                                  required
+                                />
+                              </div>
+                              <div class="invalid-feedback">Ошибка</div>
+                            </div>
+                            <div class="d-flex flex-column position-relative">
+                              <label class="bs-form-label"
+                                >Введите ваш E-mail:</label
+                              >
+                              <div class="position-relative">
+                                <input
+                                  type="email"
+                                  class="bs-form-control"
+                                  name="email"
+                                  placeholder="E-mail*"
+                                  aria-label="E-mail"
+                                  required
+                                />
+                              </div>
+                              <div class="invalid-feedback">Ошибка</div>
+                            </div>
+                          </div>
+
+                          <button
+                            type="submit"
+                            class="bs-btn bs-btn-base bs-btn-success"
+                          >
+                            <span class="text">Зарегистрироваться</span>
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      @include('partials/footer.html')
+    </div>
+  </body>
+</html>

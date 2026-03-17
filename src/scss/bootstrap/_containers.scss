@@ -11,7 +11,11 @@
   }
 
   .bs-container-padding {
-    padding-inline: calc($container-padding-x * .5);
+    --#{$prefix}gutter-x: #{$container-padding-x};
+    --#{$prefix}gutter-y: 0rem;
+
+    width: 100%;
+    padding-inline: calc(var(--#{$prefix}gutter-x) * .5);
   }
 
   // Responsive containers that are 100% wide until a breakpoint
@@ -35,7 +39,7 @@
           }
 
           .bs-container-padding#{breakpoint-infix($name, $grid-breakpoints)} {
-            padding-inline: calc((100% - $container-max-width + $container-padding-x) * .5);
+            padding-inline: calc((100% - $container-max-width + var(--#{$prefix}gutter-x)) * .5);
           }
 
           // Once the current breakpoint is reached, stop extending

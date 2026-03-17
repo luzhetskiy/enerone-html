@@ -718,7 +718,10 @@ progress {
 }
 
 .bs-container-padding {
-  padding-inline: 1rem;
+  --bs-gutter-x: 2rem;
+  --bs-gutter-y: 0rem;
+  width: 100%;
+  padding-inline: calc(var(--bs-gutter-x) * 0.5);
 }
 
 @media (min-width: 576px) {
@@ -726,10 +729,10 @@ progress {
     max-width: 540px;
   }
   .bs-container-padding {
-    padding-inline: calc((100% - 540px + 2rem) * 0.5);
+    padding-inline: calc((100% - 540px + var(--bs-gutter-x)) * 0.5);
   }
   .bs-container-padding-sm {
-    padding-inline: calc((100% - 540px + 2rem) * 0.5);
+    padding-inline: calc((100% - 540px + var(--bs-gutter-x)) * 0.5);
   }
 }
 @media (min-width: 768px) {
@@ -737,13 +740,13 @@ progress {
     max-width: 720px;
   }
   .bs-container-padding {
-    padding-inline: calc((100% - 720px + 2rem) * 0.5);
+    padding-inline: calc((100% - 720px + var(--bs-gutter-x)) * 0.5);
   }
   .bs-container-padding-sm {
-    padding-inline: calc((100% - 720px + 2rem) * 0.5);
+    padding-inline: calc((100% - 720px + var(--bs-gutter-x)) * 0.5);
   }
   .bs-container-padding-md {
-    padding-inline: calc((100% - 720px + 2rem) * 0.5);
+    padding-inline: calc((100% - 720px + var(--bs-gutter-x)) * 0.5);
   }
 }
 @media (min-width: 992px) {
@@ -751,16 +754,16 @@ progress {
     max-width: 960px;
   }
   .bs-container-padding {
-    padding-inline: calc((100% - 960px + 2rem) * 0.5);
+    padding-inline: calc((100% - 960px + var(--bs-gutter-x)) * 0.5);
   }
   .bs-container-padding-sm {
-    padding-inline: calc((100% - 960px + 2rem) * 0.5);
+    padding-inline: calc((100% - 960px + var(--bs-gutter-x)) * 0.5);
   }
   .bs-container-padding-md {
-    padding-inline: calc((100% - 960px + 2rem) * 0.5);
+    padding-inline: calc((100% - 960px + var(--bs-gutter-x)) * 0.5);
   }
   .bs-container-padding-lg {
-    padding-inline: calc((100% - 960px + 2rem) * 0.5);
+    padding-inline: calc((100% - 960px + var(--bs-gutter-x)) * 0.5);
   }
 }
 @media (min-width: 1200px) {
@@ -768,19 +771,19 @@ progress {
     max-width: 1140px;
   }
   .bs-container-padding {
-    padding-inline: calc((100% - 1140px + 2rem) * 0.5);
+    padding-inline: calc((100% - 1140px + var(--bs-gutter-x)) * 0.5);
   }
   .bs-container-padding-sm {
-    padding-inline: calc((100% - 1140px + 2rem) * 0.5);
+    padding-inline: calc((100% - 1140px + var(--bs-gutter-x)) * 0.5);
   }
   .bs-container-padding-md {
-    padding-inline: calc((100% - 1140px + 2rem) * 0.5);
+    padding-inline: calc((100% - 1140px + var(--bs-gutter-x)) * 0.5);
   }
   .bs-container-padding-lg {
-    padding-inline: calc((100% - 1140px + 2rem) * 0.5);
+    padding-inline: calc((100% - 1140px + var(--bs-gutter-x)) * 0.5);
   }
   .bs-container-padding-xl {
-    padding-inline: calc((100% - 1140px + 2rem) * 0.5);
+    padding-inline: calc((100% - 1140px + var(--bs-gutter-x)) * 0.5);
   }
 }
 @media (min-width: 1400px) {
@@ -788,22 +791,22 @@ progress {
     max-width: 1302px;
   }
   .bs-container-padding {
-    padding-inline: calc((100% - 1302px + 2rem) * 0.5);
+    padding-inline: calc((100% - 1302px + var(--bs-gutter-x)) * 0.5);
   }
   .bs-container-padding-sm {
-    padding-inline: calc((100% - 1302px + 2rem) * 0.5);
+    padding-inline: calc((100% - 1302px + var(--bs-gutter-x)) * 0.5);
   }
   .bs-container-padding-md {
-    padding-inline: calc((100% - 1302px + 2rem) * 0.5);
+    padding-inline: calc((100% - 1302px + var(--bs-gutter-x)) * 0.5);
   }
   .bs-container-padding-lg {
-    padding-inline: calc((100% - 1302px + 2rem) * 0.5);
+    padding-inline: calc((100% - 1302px + var(--bs-gutter-x)) * 0.5);
   }
   .bs-container-padding-xl {
-    padding-inline: calc((100% - 1302px + 2rem) * 0.5);
+    padding-inline: calc((100% - 1302px + var(--bs-gutter-x)) * 0.5);
   }
   .bs-container-padding-xxl {
-    padding-inline: calc((100% - 1302px + 2rem) * 0.5);
+    padding-inline: calc((100% - 1302px + var(--bs-gutter-x)) * 0.5);
   }
 }
 :root {
@@ -6339,6 +6342,9 @@ textarea.bs-form-control-lg {
 .bs-list-group--disc-success .bs-list-group-item::before {
   background-color: var(--bs-success);
 }
+.bs-list-group--disc-info .bs-list-group-item::before {
+  background-color: var(--bs-info);
+}
 
 .bs-list-group--numbered {
   gap: 1rem;
@@ -6370,6 +6376,59 @@ textarea.bs-form-control-lg {
   background-image: linear-gradient(90deg, #62b67c, #f7b114);
   -webkit-background-clip: text;
   background-clip: text;
+}
+
+.bs-list-group--timeline-item.list-group-item, .bs-list-group--timeline-item.bs-list-group-item {
+  padding-left: 1.5rem;
+  padding-bottom: 1rem;
+}
+.bs-list-group--timeline-item:before,
+.bs-list-group--timeline-item .bs-list-group--timeline-header:before,
+.bs-list-group--timeline-item .bs-list-group--timeline-body:before {
+  content: "";
+  width: 0.25rem;
+  background-color: var(--bs-info);
+  position: absolute;
+}
+.bs-list-group--timeline-item:before {
+  height: 1rem;
+  bottom: 0;
+  left: 0.25rem;
+}
+.bs-list-group--timeline-item:first-child .bs-list-group--timeline-header:before, .bs-list-group--timeline-item:last-child .bs-list-group--timeline-header:before {
+  height: 50%;
+}
+.bs-list-group--timeline-item:last-child.list-group-item, .bs-list-group--timeline-item:last-child.bs-list-group-item {
+  padding-bottom: 0;
+}
+.bs-list-group--timeline-item:last-child::before,
+.bs-list-group--timeline-item:last-child .bs-list-group--timeline-body:before {
+  display: none;
+}
+.bs-list-group--timeline-item:last-child .bs-list-group--timeline-header:before {
+  bottom: 50%;
+}
+.bs-list-group--timeline-header, .bs-list-group--timeline-body {
+  position: relative;
+}
+.bs-list-group--timeline-header::before, .bs-list-group--timeline-body::before {
+  height: 100%;
+  bottom: 0;
+  left: -1.25rem;
+}
+.bs-list-group--timeline-header::after {
+  content: "";
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: var(--bs-info);
+  border-radius: var(--bs-border-radius-pill);
+  position: absolute;
+  top: 50%;
+  left: -1.5rem;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 1;
 }
 
 .bs-offcanvas, .bs-offcanvas-xxl, .bs-offcanvas-xl, .bs-offcanvas-lg, .bs-offcanvas-md, .bs-offcanvas-sm {
