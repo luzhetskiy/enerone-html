@@ -1,0 +1,117 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "./bootstrap/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+.hero-main {
+
+  &::after {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+      display: block;
+    }
+  }
+}
+
+.krasnoyarsk-item {
+  background-color: rgba(var(--#{$prefix}dark-rgb), .15);
+
+  @media (hover: hover) {
+    transition: background-color 300ms ease-in-out;
+
+    &:is(:hover, :focus-visible) {
+      background-color: var(--#{$prefix}primary);
+    }
+  }
+}
+
+.bs-list-group--timeline {
+
+  &-item {
+
+    &.list-group-item,
+    &.bs-list-group-item {
+      padding-left: 1.5rem;
+      padding-bottom: 1rem;
+    }
+
+    &:before,
+    .bs-list-group--timeline-header:before,
+    .bs-list-group--timeline-body:before {
+      content: '';
+      width: .25rem;
+      background-color: var(--#{$prefix}success);
+      position: absolute;
+    }
+
+    &:before {
+      height: 1rem;
+      bottom: 0;
+      left: .25rem;
+    }
+
+    &:first-child,
+    &:last-child {
+
+      .bs-list-group--timeline-header:before {
+        height: 50%;
+      }
+    }
+
+    &:last-child {
+
+      &.list-group-item,
+      &.bs-list-group-item {
+        padding-bottom: 0;
+      }
+
+      &::before,
+      .bs-list-group--timeline-body:before {
+        display: none;
+      }
+
+      .bs-list-group--timeline-header:before {
+        bottom: 50%;
+      }
+    }
+  }
+
+  &-header,
+  &-body {
+    position: relative;
+
+    &::before {
+      height: 100%;
+      bottom: 0;
+      left: -1.25rem;
+    }
+  }
+
+  &-header {
+
+    &::after {
+      content: '';
+      width: .75rem;
+      height: .75rem;
+      background-color: var(--#{$prefix}success);
+      border-radius: var(--#{$prefix}border-radius-pill);
+      position: absolute;
+      top: 50%;
+      left: -1.5rem;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+  }
+}
+
+.section.section--signup {
+  background-image: linear-gradient(180deg, rgba(var(--#{$prefix}secondary-rgb), 1) 90%, rgba(0, 0, 0, 0) 100%);
+  margin-bottom: 0;
+  padding-top: 2rem;
+  padding-bottom: 3.75rem;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 4rem;
+    padding-bottom: 7.5rem;
+  }
+}
