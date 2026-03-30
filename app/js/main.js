@@ -20418,6 +20418,21 @@ document.querySelectorAll('[data-swiper]')?.forEach(container => {
         });
         break;
       }
+    case "hero":
+      {
+        const nav = container.querySelector('.swiper-navigation');
+        const heroesSwiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](container.querySelector('.swiper'), {
+          modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation],
+          autoHeight: true,
+          slidesPerView: 1,
+          spaceBetween: 24,
+          navigation: {
+            nextEl: next,
+            prevEl: prev
+          }
+        });
+        break;
+      }
     case "cards":
       {
         const nav = container.querySelector('.swiper-navigation');

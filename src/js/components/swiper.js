@@ -50,6 +50,23 @@ document.querySelectorAll('[data-swiper]')?.forEach(container => {
       break;
     }
 
+    case "hero": {
+      const nav = container.querySelector('.swiper-navigation')
+
+      const heroesSwiper = new Swiper(container.querySelector('.swiper'), {
+        modules: [ Navigation ],
+        autoHeight: true,
+        slidesPerView: 1,
+        spaceBetween: 24,
+        navigation: {
+          nextEl: next,
+          prevEl: prev,
+        },
+      });
+
+      break;
+    }
+
     case "cards": {
       const nav = container.querySelector('.swiper-navigation')
 

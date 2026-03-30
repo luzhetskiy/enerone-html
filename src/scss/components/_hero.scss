@@ -3,9 +3,13 @@
     margin-top: 0;
   }
 
-  > .bs-container {
-    @include media-breakpoint-down(sm) {
-      --#{$prefix}gutter-x: 0;
+  &,
+  &-swiper .swiper-slide {
+
+    > .bs-container {
+      @include media-breakpoint-down(sm) {
+        --#{$prefix}gutter-x: 0;
+      }
     }
   }
 
