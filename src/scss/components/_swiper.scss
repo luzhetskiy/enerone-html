@@ -70,3 +70,8 @@
   --#{$prefix}btn-border-color: var(--#{$prefix}gradient-success-to-primary);
   --#{$prefix}btn-active-border-color: var(--#{$prefix}gradient-success-to-primary);
 }
+
+.swiper-pagination {
+  --swiper-pagination-bullet-size: .625rem;
+  --swiper-theme-color: var(--#{$prefix}info);
+}

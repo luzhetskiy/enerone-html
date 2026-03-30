@@ -401,6 +401,11 @@
   --bs-btn-active-border-color: var(--bs-gradient-success-to-primary);
 }
 
+.swiper-pagination {
+  --swiper-pagination-bullet-size: .625rem;
+  --swiper-theme-color: var(--bs-info);
+}
+
 @media (max-width: 575.98px) {
   .hero {
     margin-top: 0;

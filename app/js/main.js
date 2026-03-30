@@ -20420,12 +20420,18 @@ document.querySelectorAll('[data-swiper]')?.forEach(container => {
       }
     case "hero":
       {
-        const nav = container.querySelector('.swiper-navigation');
+        const pagination = container.querySelector('.swiper-pagination');
         const heroesSwiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](container.querySelector('.swiper'), {
-          modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation],
-          autoHeight: true,
+          modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Autoplay],
           slidesPerView: 1,
-          spaceBetween: 24,
+          spaceBetween: 0,
+          autoplay: {
+            delay: 3000
+          },
+          pagination: {
+            el: pagination,
+            clickable: true
+          },
           navigation: {
             nextEl: next,
             prevEl: prev

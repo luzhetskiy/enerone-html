@@ -1,5 +1,5 @@
 import Swiper from "swiper";
-import { EffectCreative, Navigation } from 'swiper/modules';
+import { Autoplay, EffectCreative, Navigation, Pagination } from 'swiper/modules';
 
 document.querySelectorAll('[data-swiper]')?.forEach(container => {
   const type = container.dataset.swiper
@@ -51,13 +51,19 @@ document.querySelectorAll('[data-swiper]')?.forEach(container => {
     }
 
     case "hero": {
-      const nav = container.querySelector('.swiper-navigation')
+      const pagination = container.querySelector('.swiper-pagination')
 
       const heroesSwiper = new Swiper(container.querySelector('.swiper'), {
-        modules: [ Navigation ],
-        autoHeight: true,
+        modules: [ Navigation, Pagination, Autoplay ],
         slidesPerView: 1,
-        spaceBetween: 24,
+        spaceBetween: 0,
+        autoplay: {
+          delay: 3000,
+        },
+        pagination: {
+          el: pagination,
+          clickable: true,
+        },
         navigation: {
           nextEl: next,
           prevEl: prev,
