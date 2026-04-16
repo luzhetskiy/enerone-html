@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html', {title: 'Главная страница'})
+
+<body class="page-body">
+  @include('partials/offcanvases.html')
+  @include('partials/modals.html')
+
+  <div class="site-container">
+    @include('partials/header.html', {
+      auth: false
+    })
+
+    <main class="main">
+      <section class="section">
+        <div class="bs-container">
+          <div class="section-header">
+            <h1 class="bs-h2">
+              ООО Любятово г. Псков
+            </h1>
+          </div>
+
+          <div class="bs-row gy-12px gx-0px g-lg-20px">
+            <div class="bs-col-lg-7">
+              <picture>
+                <source srcset="./img/news/image-4.webp" type="image/webp">
+                <img loading="lazy" src="./img/news/image-4.jpg" class="img-fluid w-100 h-100 d-block rounded-8px" width="732" height="378" alt="Image">
+              </picture>
+            </div>
+            <div class="bs-col-lg-5">
+              <div class="widget h-100 d-flex flex-column gap-16px rounded-8px p-16px p-lg-32px position-relative">
+                <dl class="bs-row g-0px">
+                  <dt class="bs-col-12 fs-reset fw-reset text-gray-500 mb-0px">
+                    Регион:
+                  </dt>
+                  <dd class="bs-col-12 fs-reset fw-medium mb-0px pb-16px">
+                    Псковская область
+                  </dd>
+                  <dt class="bs-col-12 fs-reset fw-reset text-gray-500 mb-0px">
+                    Сфера деятельности:
+                  </dt>
+                  <dd class="bs-col-12 fs-reset fw-medium mb-0px pb-16px">
+                    производство продуктов питания - печенье, сухие завтраки, чипсы
+                  </dd>
+                  <dt class="bs-col-12 fs-reset fw-reset text-gray-500 mb-0px">
+                    Объем потребления:
+                  </dt>
+                  <dd class="bs-col-12 fs-reset fw-medium mb-0px pb-16px">
+                    7 000 000 кВт*ч/год
+                  </dd>
+                  <dt class="bs-col-12 fs-reset fw-reset text-gray-500 mb-0px">
+                    Экономия за период:
+                  </dt>
+                  <dd class="bs-col-12 fs-reset fw-medium mb-0px pb-16px">
+                    2 300 000 руб. без НДС за 2025 год
+                  </dd>
+                </dl>
+              </div>
+            </div>
+            <div class="bs-col-md-6">
+              <div class="h-100 fs-14px lh-sm bs-bg-success bg-opacity-15 border border-2 border-success rounded-8px py-16px px-12px py-lg-32px px-lg-24px">
+                <dl class="bs-row g-8px">
+                  <dt class="bs-col-12 fs-reset fw-reset text-gray-500 mb-0px">
+                    Цель обращения, что хотели изначально:
+                  </dt>
+                  <dd class="bs-col-12 fs-reset fw-medium mb-0px pb-16px">
+                    изначально запрос был на поставку “зеленой” энергии.
+                  </dd>
+                </dl>
+              </div>
+            </div>
+            <div class="bs-col-md-6">
+              <div class="h-100 fs-14px lh-sm bs-bg-primary bg-opacity-15 border border-2 border-primary rounded-8px py-16px px-12px py-lg-32px px-lg-24px">
+                <dl class="bs-row g-8px">
+                  <dt class="bs-col-12 fs-reset fw-reset text-gray-500 mb-0px">
+                    Что было сделано, итог:
+                  </dt>
+                  <dd class="bs-col-12 fs-reset fw-medium mb-0px pb-16px">
+                    была построена система АИИС КУЭ в рассрочку для клиента. клиент выведен на оптовый рынок. идет поставка электроэнергии с ОРЭМ. поставки “зеленой” электроэнергии нет.
+                  </dd>
+                  <dt class="bs-col-12 fs-reset fw-reset text-gray-500 mb-0px">
+                    Особенности работы в процессе:
+                  </dt>
+                  <dd class="bs-col-12 fs-reset fw-medium mb-0px pb-16px">
+                    в процессе вывода сотрудники ГП говорили о том, что мы клиента обманем и ничего не сделаем. После выхода на ОРЭМ ГП в течение нескольких лет пересчитывает за нами корректность цена на электроэнергию.
+                    <br>
+                    Экономия полученная предприятием за период: за 2024 г. экономия клиента от вывода на ОРЭМ составила 2 159 000 руб. без НДС
+                  </dd>
+                  <dt class="bs-col-12 fs-reset fw-reset text-gray-500 mb-0px">
+                    Другие профиты полученные предприятием от сотрудничества:
+                  </dt>
+                  <dd class="bs-col-12 fs-reset fw-medium mb-0px pb-16px">
+                    клиент получил доступ к почасовым данным о своем потреблении в ПК Энергосфера
+                  </dd>
+                  <dt class="bs-col-12 fs-reset fw-reset text-gray-500 mb-0px">
+                    Экономия полученная предприятием за период:
+                  </dt>
+                  <dd class="bs-col-12 fs-reset fw-medium mb-0px pb-16px">
+                    за 2025 г. экономия клиента от вывода на ОРЭМ составила 2 300 000 руб. без НДС
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    @include('partials/footer.html')
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html', {title: 'Главная страница'})
+
+<body class="page-body">
+  @include('partials/offcanvases.html')
+  @include('partials/modals.html')
+
+  <div class="site-container">
+    @include('partials/header.html', {
+      auth: false
+    })
+
+    <main class="main">
+      <section class="section">
+        <div class="bs-container">
+          <div class="section-header">
+            <h1 class="bs-h2">
+              Кейсы
+            </h1>
+          </div>
+
+          <div class="bs-row g-12px g-lg-20px">
+            <div class="col-sm-6 col-lg-4">
+              @include('partials/card/cases.html', {
+                img: "image-4",
+              })
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              @include('partials/card/cases.html', {
+                img: "image-5",
+              })
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              @include('partials/card/cases.html', {
+                img: "image-6",
+              })
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              @include('partials/card/cases.html', {
+                img: "image-4",
+              })
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              @include('partials/card/cases.html', {
+                img: "image-5",
+              })
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              @include('partials/card/cases.html', {
+                img: "image-6",
+              })
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              @include('partials/card/cases.html', {
+                img: "image-4",
+              })
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              @include('partials/card/cases.html', {
+                img: "image-5",
+              })
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              @include('partials/card/cases.html', {
+                img: "image-6",
+              })
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    @include('partials/footer.html')
+  </div>
+</body>
+
+</html>

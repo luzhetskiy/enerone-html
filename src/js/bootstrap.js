@@ -87,3 +87,27 @@ document.addEventListener('shown.bs.modal', event => {
     input.focus()
   }
 })
+
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search)
+
+  const modalId = params.get('modal')
+  const modalTitle = params.get('modalTitle')
+
+  if (!modalId) return
+
+  const modalEl = document.getElementById(modalId)
+
+  if (modalEl) {
+    // если передан title — меняем заголовок
+    if (modalTitle) {
+      const titleEl = modalEl.querySelector('.bs-modal-title')
+      if (titleEl) {
+        titleEl.textContent = modalTitle
+      }
+    }
+
+    const modal = new bootstrap.Modal(modalEl)
+    modal.show()
+  }
+})
