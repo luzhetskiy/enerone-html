@@ -1,0 +1,122 @@
+<!-- ================= ЛК: Онлайн-оплата — начало ================= -->
+<div class="lk">
+  <div class="lk-layout">
+
+{{SIDEBAR}}
+
+    <div class="lk-content">
+      <button type="button" class="lk-burger" data-lk-burger aria-label="Разделы кабинета">
+        <span></span><span></span><span></span>
+      </button>
+
+      <h1 class="lk-pg-title">Оплата задолженности</h1>
+      <div class="lk-pg-sub">Индивидуальный предприниматель Коваленко Наталья Ивановна · ИНН 745301234567</div>
+
+      <!-- Демо-переключатель второго способа оплаты (только прототип) -->
+      <div class="lk-demo">
+        <span class="lk-demo-lbl">Демо — оплата через СБП:</span>
+        <button type="button" class="lk-demo-btn lk-demo-btn--debt" data-sbp="off">Ещё не подключена</button>
+        <button type="button" class="lk-demo-btn lk-demo-btn--overpay" data-sbp="on">Подключена</button>
+      </div>
+
+      <div class="lk-demo">
+        <span class="lk-demo-lbl">Демо — ответ банка после оплаты:</span>
+        <button type="button" class="lk-demo-btn lk-demo-btn--overpay is-on" data-result="success">Успешно</button>
+        <button type="button" class="lk-demo-btn lk-demo-btn--debt" data-result="fail">Ошибка</button>
+      </div>
+
+      <div class="lk-pay">
+        <div class="lk-panel">
+          <form id="lk-pay-form" novalidate>
+
+            <!-- назначение платежа -->
+            <div class="lk-pay-purpose">
+              <div class="lk-pay-purpose-lbl">Назначение платежа</div>
+              <div class="lk-pay-purpose-val" data-purpose>—</div>
+            </div>
+
+            <!-- сумма -->
+            <label class="lk-form-lbl" for="lk-pay-amount">Сумма платежа</label>
+            <div class="lk-amount-row">
+              <div class="lk-amount-field">
+                <input class="lk-input lk-amount-input" id="lk-pay-amount" name="amount"
+                       type="text" inputmode="decimal" autocomplete="off">
+                <span class="lk-amount-cur" aria-hidden="true">₽</span>
+              </div>
+              <button type="button" class="lk-amount-full" data-pay-full hidden></button>
+            </div>
+            <div class="lk-form-err" data-err-amount hidden></div>
+            <div class="lk-amount-hint" data-amount-hint></div>
+
+            <!-- способ оплаты -->
+            <label class="lk-form-lbl">Способ оплаты</label>
+            <div class="lk-methods" id="lk-pay-methods" role="radiogroup" aria-label="Способ оплаты"></div>
+
+            <!-- итог -->
+            <div class="lk-total">
+              <div class="lk-total-row">
+                <span class="lk-total-k">Сумма платежа</span>
+                <span class="lk-total-v" data-sum-amount>—</span>
+              </div>
+              <div class="lk-total-row">
+                <span class="lk-total-k" data-sum-fee-label>Комиссия банка</span>
+                <span class="lk-total-v" data-sum-fee>—</span>
+              </div>
+              <div class="lk-total-row is-sum">
+                <span class="lk-total-k">Итого к оплате</span>
+                <span class="lk-total-v" data-sum-total>—</span>
+              </div>
+            </div>
+
+            <!-- справка про оплату без комиссии -->
+            <div class="lk-fee-note">
+              <svg viewBox="0 0 16 16" aria-hidden="true">
+                <circle cx="8" cy="8" r="6.4"/>
+                <path d="M8 7.3v4" stroke-linecap="round"/>
+                <circle cx="8" cy="4.8" r=".9" fill="currentColor" stroke="none"/>
+              </svg>
+              <p class="lk-fee-note-text">
+                Для оплаты без комиссии подключите
+                <a href="autopayments.html">автоплатёж</a> —
+                списание проходит напрямую и комиссия не удерживается.
+              </p>
+            </div>
+
+            <!-- согласие -->
+            <div class="lk-check" id="lk-pay-agree-wrap">
+              <input type="checkbox" id="lk-pay-agree" name="agree">
+              <label class="lk-check-box" for="lk-pay-agree">
+                <span class="lk-check-mark" aria-hidden="true">
+                  <svg viewBox="0 0 12 12"><path d="M2.5 6.2L4.8 8.5 9.5 3.8"/></svg>
+                </span>
+                <span>
+                  С <a href="#" data-lk-action="Открыть правила оплаты">правилами оплаты</a> согласен
+                </span>
+              </label>
+            </div>
+            <div class="lk-form-err" data-err-agree hidden>Подтвердите согласие с правилами оплаты</div>
+
+            <!-- кнопка -->
+            <button type="submit" class="lk-btn-pay-lg" data-pay-btn disabled>
+              <svg viewBox="0 0 16 16" aria-hidden="true">
+                <rect x="1.5" y="3.5" width="13" height="9" rx="1.5"/><path d="M1.5 6.5h13"/>
+              </svg>
+              <span data-pay-btn-text>Оплатить</span>
+            </button>
+
+            <div class="lk-pay-safe">
+              <svg viewBox="0 0 14 14" aria-hidden="true">
+                <path d="M7 1.5l4.5 2v4c0 2.5-1.9 4.4-4.5 5.5C4.4 11.9 2.5 10 2.5 7.5v-4z"/>
+                <path d="M5.2 7.2l1.4 1.4 2.6-3"/>
+              </svg>
+              Оплата проходит на защищённой странице банка
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ================= ЛК: Онлайн-оплата — конец ================= -->

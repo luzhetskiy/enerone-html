@@ -1,0 +1,164 @@
+/* ==========================================================================
+   ЛК «Новая энергия» — страница «Автоплатежи»
+   Дополняет lk.css. Всё внутри .lk, классы с префиксом lk-.
+   ========================================================================== */
+
+.lk-auto { max-width: 860px; }
+
+/* --------------------------------------------------------------------------
+   1. Подключённые автоплатежи
+   -------------------------------------------------------------------------- */
+.lk-ap td { vertical-align: middle; }
+
+.lk-ap-contract { font-size: 12px; font-weight: 600; color: var(--lk-ink-2); white-space: nowrap; }
+.lk-ap-limit {
+  font-size: 13px; font-weight: 700; color: var(--lk-ink);
+  white-space: nowrap; font-variant-numeric: tabular-nums;
+}
+.lk-ap-limit-note { display: block; font-size: 10px; font-weight: 400; color: var(--lk-muted-3); }
+
+/* карта в строке */
+.lk-card-line { display: inline-flex; align-items: center; gap: 9px; min-width: 0; }
+.lk-card-chip {
+  flex-shrink: 0;
+  width: 30px; height: 20px; border-radius: 4px;
+  background: linear-gradient(135deg, #dfe8f2, #eef3f8);
+  border: 1px solid #d5dfea;
+  display: flex; align-items: center; justify-content: center;
+}
+.lk-card-chip svg { width: 14px; height: 14px; fill: none; stroke: #8fa8c4; stroke-width: 1.3; }
+.lk-card-num {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px; color: var(--lk-ink-2); white-space: nowrap;
+}
+.lk-card-meta { display: block; font-size: 10px; color: var(--lk-muted-3); font-family: inherit; }
+
+/* действия отключения */
+.lk-ap-off { display: flex; justify-content: flex-end; }
+.lk-btn-off {
+  background: #fff; color: var(--lk-red-dk);
+  border: 1.5px solid #f5c9c9; border-radius: var(--lk-r-md);
+  padding: 7px 14px; font-size: 12px; font-weight: 600; cursor: pointer;
+  white-space: nowrap;
+}
+.lk-btn-off:hover { background: #fdf3f3; border-color: var(--lk-red); }
+
+.lk-ap-request {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 600; color: var(--lk-blue-dk);
+  white-space: nowrap;
+}
+.lk-ap-request:hover { text-decoration: underline; }
+.lk-ap-request svg { width: 13px; height: 13px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.4; }
+
+/* пусто */
+.lk-empty {
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  text-align: center;
+  padding: 28px 20px;
+}
+.lk-empty-text { font-size: 12px; color: var(--lk-muted); line-height: 1.5; max-width: 380px; }
+
+/* --------------------------------------------------------------------------
+   2. Добавление автоплатежа
+   -------------------------------------------------------------------------- */
+.lk-ap-form-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  margin-bottom: 4px;
+}
+.lk .lk-ap-form-grid .lk-input { max-width: none; }
+
+.lk-ap-hint {
+  display: flex; align-items: flex-start; gap: 9px;
+  background: var(--lk-blue-bg); border: 1px solid #dce8f8; border-radius: var(--lk-r-md);
+  padding: 10px 13px;
+  margin-top: 16px;
+}
+.lk-ap-hint svg {
+  width: 15px; height: 15px; flex-shrink: 0; margin-top: 1px;
+  fill: none; stroke: var(--lk-blue-dk); stroke-width: 1.4;
+}
+.lk-ap-hint-text { font-size: 11px; line-height: 1.45; color: #5f7794; }
+.lk-ap-hint-text a { color: var(--lk-green); font-weight: 700; }
+.lk-ap-hint-text a:hover { text-decoration: underline; }
+
+/* --------------------------------------------------------------------------
+   3. Привязанные карты
+   -------------------------------------------------------------------------- */
+.lk-cards { display: flex; flex-direction: column; gap: 10px; }
+
+.lk-card-row {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  background: var(--lk-surface);
+  border: 1px solid var(--lk-line);
+  border-radius: var(--lk-r-lg);
+  padding: 13px 16px;
+}
+.lk-card-row .lk-card-chip { width: 40px; height: 27px; }
+.lk-card-row .lk-card-chip svg { width: 17px; height: 17px; }
+.lk-card-row .lk-card-num { font-size: 14px; font-weight: 600; letter-spacing: .02em; }
+
+.lk-card-used {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--lk-green-dk); background: var(--lk-green-bg);
+  border: 1px solid var(--lk-green-br); border-radius: 20px; padding: 2px 9px;
+}
+
+.lk-card-del {
+  margin-left: auto; flex-shrink: 0;
+  display: inline-flex; align-items: center; gap: 6px;
+  background: none; border: none; padding: 6px 8px; border-radius: var(--lk-r-sm);
+  font-size: 12px; font-weight: 600; color: var(--lk-muted-2); cursor: pointer;
+}
+.lk-card-del svg { width: 13px; height: 13px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.4; }
+.lk-card-del:hover { background: #fdf3f3; color: var(--lk-red-dk); }
+.lk-card-del:disabled { opacity: .45; cursor: not-allowed; }
+.lk-card-del:disabled:hover { background: none; color: var(--lk-muted-2); }
+
+/* --------------------------------------------------------------------------
+   4. Привязка новой карты
+   -------------------------------------------------------------------------- */
+.lk-bind-note { font-size: 12px; line-height: 1.55; color: var(--lk-ink-3); margin-bottom: 8px; }
+.lk-bind-note:last-of-type { margin-bottom: 18px; }
+.lk-bind-note b { font-weight: 700; color: var(--lk-ink-2); }
+
+.lk-btn-bind {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: linear-gradient(90deg, var(--lk-green), var(--lk-green-lt));
+  color: #fff; border: none; border-radius: var(--lk-r-md);
+  padding: 12px 26px; font-size: 13px; font-weight: 700; cursor: pointer;
+}
+.lk-btn-bind:hover { opacity: .9; color: #fff; }
+.lk-btn-bind svg { width: 15px; height: 15px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.5; }
+
+/* --------------------------------------------------------------------------
+   Модалка подтверждения
+   -------------------------------------------------------------------------- */
+.lk-confirm-text { font-size: 12px; line-height: 1.55; color: var(--lk-ink-3); }
+.lk-confirm-text b { color: var(--lk-ink-2); }
+
+.lk-btn-danger {
+  background: var(--lk-red-dk); color: #fff;
+  border: none; border-radius: var(--lk-r-md);
+  padding: 9px 22px; font-size: 12px; font-weight: 700; cursor: pointer;
+}
+.lk-btn-danger:hover { background: #c02f2f; }
+
+/* --------------------------------------------------------------------------
+   Адаптив
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .lk-ap-off { justify-content: flex-end; }
+  .lk-ap td > .lk-card-line { margin-left: auto; }
+}
+
+@media (max-width: 767.98px) {
+  .lk-ap-form-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 575.98px) {
+  .lk-card-row { align-items: flex-start; }
+  .lk-card-del { margin-left: 0; width: 100%; justify-content: center; padding: 8px; }
+  .lk-btn-bind { width: 100%; }
+}

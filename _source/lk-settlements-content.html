@@ -1,0 +1,96 @@
+<!-- ================= ЛК: Акты сверки — начало ================= -->
+<div class="lk">
+  <div class="lk-layout">
+
+{{SIDEBAR}}
+
+    <div class="lk-content">
+      <button type="button" class="lk-burger" data-lk-burger aria-label="Разделы кабинета">
+        <span></span><span></span><span></span>
+      </button>
+
+      <h1 class="lk-pg-title">Акты сверки</h1>
+      <div class="lk-pg-sub">Взаиморасчёты по договорам · ИП Коваленко Наталья Ивановна, ИНН 745301234567</div>
+
+      <!-- печатная форма акта — не зависит от фильтров, поэтому стоит выше -->
+      <div class="lk-act">
+        <div class="lk-act-ico" aria-hidden="true">
+          <svg viewBox="0 0 18 18">
+            <path d="M4 2h7l3 3v11H4z" stroke-linejoin="round"/>
+            <path d="M11 2v3h3"/>
+            <path d="M6.5 9h5M6.5 11.5h3.5"/>
+          </svg>
+        </div>
+
+        <div class="lk-act-body">
+          <div class="lk-act-title">Акт сверки взаиморасчётов</div>
+          <div class="lk-act-note">Печатная форма формируется за весь срок действия договора</div>
+        </div>
+
+        <div class="lk-act-actions">
+          <a class="lk-act-dl" href="#" data-act-download>
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M8 3v8M8 11l-3-3M8 11l3-3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2.5 12.5h11" stroke-linecap="round"/>
+            </svg>
+            Скачать акт сверки
+          </a>
+        </div>
+      </div>
+
+      <!-- фильтры -->
+      <div class="lk-filters lk-filters--set">
+        <div class="lk-filter-field" id="lk-filter-contract-wrap">
+          <label class="lk-form-lbl" for="lk-filter-contract">Договор</label>
+          <select class="lk-select" id="lk-filter-contract"></select>
+        </div>
+
+        <div class="lk-filter-field">
+          <span class="lk-form-lbl" id="lk-from-label">Период с</span>
+          <div class="lk-period" role="group" aria-labelledby="lk-from-label">
+            <select class="lk-select" id="lk-from-month" aria-label="Месяц начала периода"></select>
+            <select class="lk-select" id="lk-from-year" aria-label="Год начала периода"></select>
+          </div>
+        </div>
+
+        <div class="lk-filter-field">
+          <span class="lk-form-lbl" id="lk-to-label">по</span>
+          <div class="lk-period" role="group" aria-labelledby="lk-to-label">
+            <select class="lk-select" id="lk-to-month" aria-label="Месяц конца периода"></select>
+            <select class="lk-select" id="lk-to-year" aria-label="Год конца периода"></select>
+          </div>
+        </div>
+
+        <div class="lk-filter-field">
+          <button type="button" class="lk-filter-reset" id="lk-filter-reset" disabled>Сбросить</button>
+        </div>
+      </div>
+
+      <!-- таблица взаиморасчётов -->
+      <div class="lk-table-wrap">
+        <table class="lk-table lk-table--cards lk-set">
+          <colgroup>
+            <col class="is-year">
+            <col class="is-month">
+            <col><col><col><col><col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope="col">Год</th>
+              <th scope="col">Месяц</th>
+              <th scope="col">Сальдо начальное <span class="lk-th-unit">₽</span></th>
+              <th scope="col">Предъявлено в периоде <span class="lk-th-unit">₽</span></th>
+              <th scope="col">Перерасчёт / корректировка долга <span class="lk-th-unit">₽</span></th>
+              <th scope="col">Оплачено в периоде <span class="lk-th-unit">₽</span></th>
+              <th scope="col">Конечное сальдо <span class="lk-th-unit">₽</span></th>
+            </tr>
+          </thead>
+          <tbody id="lk-set"></tbody>
+          <tfoot id="lk-set-total"></tfoot>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ================= ЛК: Акты сверки — конец ================= -->

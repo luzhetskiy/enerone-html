@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
-    <title>Сообщения | ООО «ЭСК Новая энергия»</title>
+    <title>Платежи | ООО «ЭСК Новая энергия»</title>
 
     <link rel="shortcut icon" href="assets/site/favicon.ico" type="image/x-icon">
 
@@ -21,7 +21,7 @@
 
     <!-- Наши стили личного кабинета -->
     <link rel="stylesheet" href="assets/lk/css/lk.css">
-    <link rel="stylesheet" href="assets/lk/css/lk-feedback.css">
+    <link rel="stylesheet" href="assets/lk/css/lk-payments.css">
 </head>
 <body class="page-body">
 
@@ -199,7 +199,7 @@
         Главная · Договоры
       </a>
 
-      <a class="lk-nav-item is-active" data-nav="messages" aria-current="page" href="feedback.html">
+      <a class="lk-nav-item" data-nav="messages" href="feedback.html">
         <svg class="lk-nav-ico" viewBox="0 0 18 18" aria-hidden="true"><rect x="2" y="3" width="14" height="10" rx="1.5" stroke-width="1.4"/><path d="M2 5l7 5 7-5" stroke-width="1.4"/></svg>
         Сообщения
         <span class="lk-nav-badge">3</span>
@@ -212,7 +212,7 @@
         <svg class="lk-nav-ico" viewBox="0 0 18 18" aria-hidden="true"><path d="M4 11h2v5H4v-5zm4-5h2v10H8V6zm4 3h2v7h-2V9z" stroke-width="1.3"/></svg>
         Акты сверки
       </a>
-      <a class="lk-nav-item" data-nav="payments" href="payments.html">
+      <a class="lk-nav-item is-active" data-nav="payments" aria-current="page" href="payments.html">
         <svg class="lk-nav-ico" viewBox="0 0 18 18" aria-hidden="true"><rect x="2" y="5" width="14" height="9" rx="1.5" stroke-width="1.4"/><path d="M2 8h14" stroke-width="1.3"/></svg>
         Оплаты
       </a>
@@ -464,7 +464,7 @@
         <section class="section">
             <div class="bs-container">
 
-<!-- ================= ЛК: Сообщения — начало ================= -->
+<!-- ================= ЛК: Платежи — начало ================= -->
 <div class="lk">
   <div class="lk-layout">
 
@@ -477,7 +477,7 @@
         Главная · Договоры
       </a>
 
-      <a class="lk-nav-item is-active" data-nav="messages" aria-current="page" href="feedback.html">
+      <a class="lk-nav-item" data-nav="messages" href="feedback.html">
         <svg class="lk-nav-ico" viewBox="0 0 18 18" aria-hidden="true"><rect x="2" y="3" width="14" height="10" rx="1.5" stroke-width="1.4"/><path d="M2 5l7 5 7-5" stroke-width="1.4"/></svg>
         Сообщения
         <span class="lk-nav-badge">3</span>
@@ -490,7 +490,7 @@
         <svg class="lk-nav-ico" viewBox="0 0 18 18" aria-hidden="true"><path d="M4 11h2v5H4v-5zm4-5h2v10H8V6zm4 3h2v7h-2V9z" stroke-width="1.3"/></svg>
         Акты сверки
       </a>
-      <a class="lk-nav-item" data-nav="payments" href="payments.html">
+      <a class="lk-nav-item is-active" data-nav="payments" aria-current="page" href="payments.html">
         <svg class="lk-nav-ico" viewBox="0 0 18 18" aria-hidden="true"><rect x="2" y="5" width="14" height="9" rx="1.5" stroke-width="1.4"/><path d="M2 8h14" stroke-width="1.3"/></svg>
         Оплаты
       </a>
@@ -517,128 +517,66 @@
       </div>
     </nav>
 
-    <!-- ===== Контент ===== -->
     <div class="lk-content">
       <button type="button" class="lk-burger" data-lk-burger aria-label="Разделы кабинета">
         <span></span><span></span><span></span>
       </button>
 
-      <h1 class="lk-pg-title">Сообщения</h1>
-      <div class="lk-pg-sub">Индивидуальный предприниматель Коваленко Наталья Ивановна · ИНН 745301234567</div>
+      <h1 class="lk-pg-title">Платежи</h1>
+      <div class="lk-pg-sub">История платежей · ИП Коваленко Наталья Ивановна, ИНН 745301234567</div>
 
-      <!-- ===== 1. Форма обращения (по умолчанию свёрнута) ===== -->
-      <section class="lk-step">
-
-        <div class="lk-new-bar" id="lk-new-bar">
-          <button type="button" class="lk-btn-primary lk-btn-new"
-                  data-new-toggle aria-expanded="false" aria-controls="lk-new-panel">
-            <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 2v10M2 7h10"/></svg>
-            Новое обращение
-          </button>
-          <span class="lk-new-hint">
-            Задайте вопрос персональному менеджеру — ответ придёт сюда и на электронную почту
-          </span>
+      <!-- фильтры -->
+      <div class="lk-filters lk-filters--pay">
+        <div class="lk-filter-field" id="lk-filter-contract-wrap">
+          <label class="lk-form-lbl" for="lk-filter-contract">Договор</label>
+          <select class="lk-select" id="lk-filter-contract"></select>
         </div>
 
-        <!-- подтверждение отправки: живёт вне формы, чтобы остаться видимым после сворачивания -->
-        <div class="lk-form-ok" data-form-ok hidden role="status">
-          <svg viewBox="0 0 16 16" aria-hidden="true">
-            <circle cx="8" cy="8" r="6.4"/><path d="M5.3 8.2l2 2 3.4-4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <div class="lk-form-ok-text">
-            Обращение отправлено. Оно появилось в истории со статусом «принято» —
-            ответ придёт сюда же и на электронную почту.
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-filter-from">Дата — начало</label>
+          <input class="lk-input lk-date" id="lk-filter-from" type="date">
+        </div>
+
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-filter-to">Дата — конец</label>
+          <input class="lk-input lk-date" id="lk-filter-to" type="date">
+        </div>
+
+        <div class="lk-filter-field">
+          <span class="lk-form-lbl" id="lk-seg-label">Показывать</span>
+          <div class="lk-seg" role="group" aria-labelledby="lk-seg-label">
+            <button type="button" class="lk-seg-btn" data-only-ok="0" aria-pressed="false">Все</button>
+            <button type="button" class="lk-seg-btn is-on" data-only-ok="1" aria-pressed="true">Только успешные</button>
           </div>
         </div>
 
-        <div class="lk-panel" id="lk-new-panel" hidden>
-          <div class="lk-panel-hdr">
-            <h2 class="lk-sec-title lk-sec-title--major">Новое обращение</h2>
-            <button type="button" class="lk-panel-close" data-new-close aria-label="Свернуть форму">
-              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg>
-            </button>
-          </div>
-
-          <p class="lk-form-intro">
-            Здесь вы можете задать интересующий вопрос, выбрав тему из списка.
-            Персональный менеджер ответит на электронную почту или перезвонит,
-            а ответ появится в истории обращений ниже.
-          </p>
-
-          <form id="lk-feedback-form" novalidate>
-
-            <div class="lk-form-grid">
-              <div>
-                <label class="lk-form-lbl" for="lk-fb-contract">
-                  Номер договора <span class="lk-req" aria-hidden="true">*</span>
-                </label>
-                <select class="lk-select" id="lk-fb-contract" name="contract" required></select>
-                <div class="lk-form-err" data-err-for="contract" hidden>Выберите договор</div>
-              </div>
-
-              <div>
-                <label class="lk-form-lbl" for="lk-fb-topic">
-                  Тема обращения <span class="lk-req" aria-hidden="true">*</span>
-                </label>
-                <select class="lk-select" id="lk-fb-topic" name="topic" required></select>
-                <div class="lk-form-err" data-err-for="topic" hidden>Выберите тему обращения</div>
-              </div>
-            </div>
-
-            <div class="lk-form-row">
-              <label class="lk-form-lbl" for="lk-fb-text">
-                Текст сообщения <span class="lk-req" aria-hidden="true">*</span>
-              </label>
-              <textarea class="lk-textarea" id="lk-fb-text" name="message" rows="5"
-                        placeholder="Опишите вопрос как можно подробнее — это ускорит ответ"></textarea>
-              <div class="lk-form-err" data-err-for="message" hidden>Введите текст сообщения</div>
-            </div>
-
-            <div class="lk-form-row">
-              <label class="lk-form-lbl" for="lk-fb-files">
-                Приложенные файлы <span class="lk-opt">— если требуется</span>
-              </label>
-              <div class="lk-file">
-                <input type="file" id="lk-fb-files" name="files" multiple>
-                <label class="lk-file-drop" for="lk-fb-files">
-                  <svg viewBox="0 0 16 16" aria-hidden="true">
-                    <path d="M8 11V3M8 3L5 6M8 3l3 3" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2.5 10.5v1.5A1.5 1.5 0 004 13.5h8a1.5 1.5 0 001.5-1.5v-1.5" stroke-width="1.4" stroke-linecap="round"/>
-                  </svg>
-                  Выберите файлы или перетащите их сюда
-                </label>
-                <div class="lk-file-hint">PDF, JPG, PNG, XLSX, DOCX — до 10 МБ каждый</div>
-                <ul class="lk-file-list" data-file-list></ul>
-              </div>
-            </div>
-
-            <div class="lk-form-foot">
-              <button type="submit" class="lk-btn-primary">Отправить</button>
-              <button type="button" class="lk-btn-ghost" data-new-close>Отмена</button>
-              <span class="lk-form-intro" style="margin:0;">Ответ приходит в течение 3 рабочих дней</span>
-            </div>
-
-          </form>
+        <div class="lk-filter-field">
+          <button type="button" class="lk-filter-reset" id="lk-filter-reset" disabled>Сбросить</button>
         </div>
-      </section>
+      </div>
 
-      <!-- ===== 2. История обращений ===== -->
-      <section class="lk-step lk-step--sep">
-        <div class="lk-msg-hdr">
-          <h2 class="lk-sec-title lk-sec-title--major">Отправленные сообщения</h2>
-          <span class="lk-unread-count" id="lk-unread-count" hidden>
-            <span class="lk-unread-dot" aria-hidden="true"></span>
-            <span data-unread-text></span>
-          </span>
-        </div>
-
-        <div class="lk-msgs" id="lk-msgs"></div>
-      </section>
+      <!-- таблица платежей -->
+      <div class="lk-table-wrap">
+        <table class="lk-table lk-table--cards lk-pays">
+          <thead>
+            <tr>
+              <th scope="col">Дата</th>
+              <th scope="col">Договор</th>
+              <th scope="col">Сумма без комиссии</th>
+              <th scope="col">Комиссия</th>
+              <th scope="col">Сумма с комиссией</th>
+              <th scope="col">Тип платежа</th>
+              <th scope="col">Статус</th>
+            </tr>
+          </thead>
+          <tbody id="lk-pays"></tbody>
+        </table>
+      </div>
 
     </div>
   </div>
 </div>
-<!-- ================= ЛК: Сообщения — конец ================= -->
+<!-- ================= ЛК: Платежи — конец ================= -->
 
 
             </div>
@@ -921,7 +859,7 @@
 
 <!-- Наши скрипты личного кабинета -->
 <script src="assets/lk/js/lk.js"></script>
-<script src="assets/lk/js/lk-feedback.js"></script>
+<script src="assets/lk/js/lk-payments.js"></script>
 
 </body>
 </html>

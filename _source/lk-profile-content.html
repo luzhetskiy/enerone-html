@@ -1,0 +1,225 @@
+<!-- ================= ЛК: Профиль — начало ================= -->
+<div class="lk">
+  <div class="lk-layout">
+
+{{SIDEBAR}}
+
+    <div class="lk-content">
+      <button type="button" class="lk-burger" data-lk-burger aria-label="Разделы кабинета">
+        <span></span><span></span><span></span>
+      </button>
+
+      <h1 class="lk-pg-title">Профиль</h1>
+      <div class="lk-pg-sub">Индивидуальный предприниматель Коваленко Наталья Ивановна · ИНН 745301234567</div>
+
+      <div class="lk-profile">
+
+        <!-- ===== 1. Анкета ===== -->
+        <section class="lk-step">
+          <div class="lk-sec-hdr">
+            <h2 class="lk-sec-title lk-sec-title--major">Анкета пользователя</h2>
+          </div>
+
+          <div class="lk-panel">
+            <form id="lk-profile-form" novalidate>
+
+              <div class="lk-fields">
+
+                <div>
+                  <label class="lk-form-lbl" for="lk-pr-email">Email</label>
+                  <input class="lk-input lk-input--ro" id="lk-pr-email" name="email"
+                         type="email" value="n.kovalenko@yandex.ru" readonly>
+                  <div class="lk-field-hint">
+                    <svg viewBox="0 0 12 12" aria-hidden="true">
+                      <rect x="2.5" y="5.5" width="7" height="5" rx="1"/>
+                      <path d="M4 5.5V4a2 2 0 014 0v1.5"/>
+                    </svg>
+                    <span>Изменяется только через
+                      <a href="feedback.html?new=1&amp;topic=t-changes">обращение к менеджеру</a>
+                    </span>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="lk-form-lbl" for="lk-pr-phone">Телефон</label>
+                  <input class="lk-input lk-input--ro" id="lk-pr-phone" name="phone"
+                         type="tel" value="+7 (912) 345-67-89" readonly>
+                  <div class="lk-field-hint">
+                    <svg viewBox="0 0 12 12" aria-hidden="true">
+                      <rect x="2.5" y="5.5" width="7" height="5" rx="1"/>
+                      <path d="M4 5.5V4a2 2 0 014 0v1.5"/>
+                    </svg>
+                    <span>Изменяется только через
+                      <a href="feedback.html?new=1&amp;topic=t-changes">обращение к менеджеру</a>
+                    </span>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="lk-form-lbl" for="lk-pr-last">
+                    Фамилия <span class="lk-req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="lk-input" id="lk-pr-last" name="lastName" type="text"
+                         autocomplete="family-name" value="Коваленко">
+                  <div class="lk-form-err" data-err-for="lastName" hidden>Укажите фамилию</div>
+                </div>
+
+                <div>
+                  <label class="lk-form-lbl" for="lk-pr-first">
+                    Имя <span class="lk-req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="lk-input" id="lk-pr-first" name="firstName" type="text"
+                         autocomplete="given-name" value="Наталья">
+                  <div class="lk-form-err" data-err-for="firstName" hidden>Укажите имя</div>
+                </div>
+
+                <div>
+                  <label class="lk-form-lbl" for="lk-pr-middle">
+                    Отчество <span class="lk-opt">— если есть</span>
+                  </label>
+                  <input class="lk-input" id="lk-pr-middle" name="middleName" type="text"
+                         autocomplete="additional-name" value="Ивановна">
+                </div>
+
+                <div class="lk-field-wide">
+                  <label class="lk-form-lbl" for="lk-pr-org">
+                    Название организации <span class="lk-req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="lk-input" id="lk-pr-org" name="organization" type="text"
+                         autocomplete="organization"
+                         value="Индивидуальный предприниматель Коваленко Наталья Ивановна">
+                  <div class="lk-form-err" data-err-for="organization" hidden>Укажите название организации</div>
+                </div>
+
+              </div>
+
+              <div class="lk-form-actions">
+                <button type="submit" class="lk-btn-primary">Сохранить изменения</button>
+                <button type="button" class="lk-btn-ghost" data-profile-cancel>Отменить</button>
+              </div>
+
+              <div class="lk-saved" data-profile-saved hidden role="status">
+                <svg viewBox="0 0 16 16" aria-hidden="true">
+                  <circle cx="8" cy="8" r="6.4"/><path d="M5.3 8.2l2 2 3.4-4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="lk-saved-text">Данные анкеты сохранены.</div>
+              </div>
+
+            </form>
+          </div>
+        </section>
+
+        <!-- ===== 2. Смена пароля ===== -->
+        <section class="lk-step lk-step--sep">
+          <div class="lk-sec-hdr">
+            <h2 class="lk-sec-title lk-sec-title--major">Изменить пароль</h2>
+          </div>
+
+          <div class="lk-panel">
+            <form id="lk-password-form" novalidate>
+
+              <div class="lk-fields">
+
+                <div class="lk-field-wide lk-field-narrow">
+                  <label class="lk-form-lbl" for="lk-pr-cur">Текущий пароль</label>
+                  <div class="lk-pass">
+                    <input class="lk-input" id="lk-pr-cur" name="current" type="password"
+                           autocomplete="current-password">
+                    <button type="button" class="lk-pass-eye" data-pass-eye
+                            aria-pressed="false" aria-label="Показать пароль">
+                      <svg class="lk-eye-on" viewBox="0 0 18 18" aria-hidden="true">
+                        <path d="M1.5 9S4.5 3.8 9 3.8 16.5 9 16.5 9 13.5 14.2 9 14.2 1.5 9 1.5 9z"/>
+                        <circle cx="9" cy="9" r="2.4"/>
+                      </svg>
+                      <svg class="lk-eye-off" viewBox="0 0 18 18" aria-hidden="true">
+                        <path d="M3.2 4.4C2.1 5.6 1.5 9 1.5 9s3 5.2 7.5 5.2c1.3 0 2.4-.4 3.4-1"/>
+                        <path d="M7.2 4.2A7 7 0 019 4c4.5 0 7.5 5 7.5 5s-.8 1.4-2.2 2.7"/>
+                        <path d="M2.5 2.5l13 13" stroke-linecap="round"/>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="lk-form-err" data-err-for="current" hidden>Введите текущий пароль</div>
+                </div>
+
+                <div>
+                  <label class="lk-form-lbl" for="lk-pr-new">Новый пароль</label>
+                  <div class="lk-pass">
+                    <input class="lk-input" id="lk-pr-new" name="password" type="password"
+                           autocomplete="new-password">
+                    <button type="button" class="lk-pass-eye" data-pass-eye
+                            aria-pressed="false" aria-label="Показать пароль">
+                      <svg class="lk-eye-on" viewBox="0 0 18 18" aria-hidden="true">
+                        <path d="M1.5 9S4.5 3.8 9 3.8 16.5 9 16.5 9 13.5 14.2 9 14.2 1.5 9 1.5 9z"/>
+                        <circle cx="9" cy="9" r="2.4"/>
+                      </svg>
+                      <svg class="lk-eye-off" viewBox="0 0 18 18" aria-hidden="true">
+                        <path d="M3.2 4.4C2.1 5.6 1.5 9 1.5 9s3 5.2 7.5 5.2c1.3 0 2.4-.4 3.4-1"/>
+                        <path d="M7.2 4.2A7 7 0 019 4c4.5 0 7.5 5 7.5 5s-.8 1.4-2.2 2.7"/>
+                        <path d="M2.5 2.5l13 13" stroke-linecap="round"/>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="lk-form-err" data-err-for="password" hidden></div>
+                </div>
+
+                <div>
+                  <label class="lk-form-lbl" for="lk-pr-rep">Повторите пароль</label>
+                  <div class="lk-pass">
+                    <input class="lk-input" id="lk-pr-rep" name="repeat" type="password"
+                           autocomplete="new-password">
+                    <button type="button" class="lk-pass-eye" data-pass-eye
+                            aria-pressed="false" aria-label="Показать пароль">
+                      <svg class="lk-eye-on" viewBox="0 0 18 18" aria-hidden="true">
+                        <path d="M1.5 9S4.5 3.8 9 3.8 16.5 9 16.5 9 13.5 14.2 9 14.2 1.5 9 1.5 9z"/>
+                        <circle cx="9" cy="9" r="2.4"/>
+                      </svg>
+                      <svg class="lk-eye-off" viewBox="0 0 18 18" aria-hidden="true">
+                        <path d="M3.2 4.4C2.1 5.6 1.5 9 1.5 9s3 5.2 7.5 5.2c1.3 0 2.4-.4 3.4-1"/>
+                        <path d="M7.2 4.2A7 7 0 019 4c4.5 0 7.5 5 7.5 5s-.8 1.4-2.2 2.7"/>
+                        <path d="M2.5 2.5l13 13" stroke-linecap="round"/>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="lk-form-err" data-err-for="repeat" hidden>Пароли не совпадают</div>
+                </div>
+
+                <ul class="lk-pass-rules lk-field-wide" data-pass-rules>
+                  <li class="lk-pass-rule" data-rule="length">
+                    <span class="lk-pass-rule-mark" aria-hidden="true">
+                      <svg viewBox="0 0 12 12"><path d="M2.5 6.2L4.8 8.5 9.5 3.8"/></svg>
+                    </span>Не менее 8 символов
+                  </li>
+                  <li class="lk-pass-rule" data-rule="case">
+                    <span class="lk-pass-rule-mark" aria-hidden="true">
+                      <svg viewBox="0 0 12 12"><path d="M2.5 6.2L4.8 8.5 9.5 3.8"/></svg>
+                    </span>Строчные и заглавные буквы
+                  </li>
+                  <li class="lk-pass-rule" data-rule="digit">
+                    <span class="lk-pass-rule-mark" aria-hidden="true">
+                      <svg viewBox="0 0 12 12"><path d="M2.5 6.2L4.8 8.5 9.5 3.8"/></svg>
+                    </span>Хотя бы одна цифра
+                  </li>
+                </ul>
+
+              </div>
+
+              <div class="lk-form-actions">
+                <button type="submit" class="lk-btn-primary">Сохранить пароль</button>
+              </div>
+
+              <div class="lk-saved" data-password-saved hidden role="status">
+                <svg viewBox="0 0 16 16" aria-hidden="true">
+                  <circle cx="8" cy="8" r="6.4"/><path d="M5.3 8.2l2 2 3.4-4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="lk-saved-text">Пароль изменён. В следующий раз входите с новым паролем.</div>
+              </div>
+
+            </form>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ================= ЛК: Профиль — конец ================= -->

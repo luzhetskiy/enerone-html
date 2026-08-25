@@ -1,0 +1,114 @@
+<!-- ================= ЛК: Передача показаний — начало ================= -->
+<div class="lk">
+  <div class="lk-layout">
+
+{{SIDEBAR}}
+
+    <!-- ===== Контент ===== -->
+    <div class="lk-content">
+      <button type="button" class="lk-burger" data-lk-burger aria-label="Разделы кабинета">
+        <span></span><span></span><span></span>
+      </button>
+
+      <h1 class="lk-pg-title">Передача показаний</h1>
+      <div class="lk-pg-sub">Индивидуальный предприниматель Коваленко Наталья Ивановна · ИНН 745301234567</div>
+
+      <!-- Демо-переключатель окна передачи показаний (только прототип) -->
+      <div class="lk-demo">
+        <span class="lk-demo-lbl">Демо — окно передачи показаний:</span>
+        <button type="button" class="lk-demo-btn lk-demo-btn--overpay" data-window-state="open">Открыто</button>
+        <button type="button" class="lk-demo-btn lk-demo-btn--debt" data-window-state="closed">Закрыто</button>
+      </div>
+
+      <!-- ШАГ 1 — договор -->
+      <section class="lk-step">
+        <div class="lk-sec-hdr">
+          <h2 class="lk-sec-title"><span class="lk-step-n">1</span> Выберите договор</h2>
+        </div>
+        <div class="lk-picker" id="lk-contract-picker"></div>
+      </section>
+
+      <!-- ШАГ 2 — объект договора -->
+      <section class="lk-step" id="lk-step-object" hidden>
+        <div class="lk-sec-hdr">
+          <h2 class="lk-sec-title"><span class="lk-step-n">2</span> Выберите объект договора</h2>
+        </div>
+        <div class="lk-picker" id="lk-object-picker"></div>
+      </section>
+
+      <!-- ШАГ 3 — приборы учёта -->
+      <section class="lk-step" id="lk-step-meters" hidden>
+
+        <!-- выбранные договор и объект -->
+        <div class="lk-selected" id="lk-selected"></div>
+
+        <div class="lk-sec-hdr">
+          <h2 class="lk-sec-title"><span class="lk-step-n">3</span> Приборы учёта</h2>
+          <span class="lk-sec-note" id="lk-meters-count"></span>
+        </div>
+
+        <div id="lk-meters"></div>
+
+        <!-- 4 и 5 — загрузка одним файлом и шаблоны -->
+        <div class="lk-upload-grid" id="lk-upload-grid">
+          <div class="lk-panel" id="lk-bulk-upload">
+            <h3 class="lk-panel-title">Загрузка показаний по всем ПУ одним файлом</h3>
+            <p class="lk-panel-text">
+              Один файл со всеми приборами учёта выбранного объекта — быстрее, чем вводить показания вручную.
+            </p>
+            <button type="button" class="lk-btn-upload lk-btn-upload--wide"
+                    data-lk-action="Загрузить файл с показаниями по всем ПУ объекта">
+              <svg class="lk-btn-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 11V3M8 3L5 6M8 3l3 3" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.5 10.5v1.5A1.5 1.5 0 004 13.5h8a1.5 1.5 0 001.5-1.5v-1.5" stroke-width="1.4" stroke-linecap="round"/></svg>
+              Загрузить файл
+            </button>
+          </div>
+
+          <div class="lk-panel">
+            <h3 class="lk-panel-title">Шаблоны файлов для загрузки</h3>
+            <ul class="lk-templates">
+              <li class="lk-template">
+                <div class="lk-template-info">
+                  <span class="lk-template-name">Шаблон 1</span>
+                  <span class="lk-template-desc">Шаблон для загрузки данных ПУ v1</span>
+                </div>
+                <a class="lk-template-dl" href="#" data-lk-action="Скачать шаблон загрузки данных ПУ v1">
+                  <svg class="lk-btn-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v8M8 11l-3-3M8 11l3-3" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.5 12.5h11" stroke-width="1.4" stroke-linecap="round"/></svg>
+                  Скачать образец
+                </a>
+              </li>
+              <li class="lk-template">
+                <div class="lk-template-info">
+                  <span class="lk-template-name">Шаблон 2</span>
+                  <span class="lk-template-desc">Шаблон для загрузки данных ПУ v2</span>
+                </div>
+                <a class="lk-template-dl" href="#" data-lk-action="Скачать шаблон загрузки данных ПУ v2">
+                  <svg class="lk-btn-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v8M8 11l-3-3M8 11l3-3" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.5 12.5h11" stroke-width="1.4" stroke-linecap="round"/></svg>
+                  Скачать образец
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 6 — отправленные файлы -->
+        <div class="lk-panel">
+          <h3 class="lk-panel-title">Отправленные файлы с данными по ПУ для текущего объекта</h3>
+          <div class="lk-table-wrap">
+            <table class="lk-table">
+              <thead>
+                <tr>
+                  <th scope="col">Дата / время</th>
+                  <th scope="col">Файл</th>
+                </tr>
+              </thead>
+              <tbody id="lk-sent-files"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </div>
+</div>
+<!-- ================= ЛК: Передача показаний — конец ================= -->

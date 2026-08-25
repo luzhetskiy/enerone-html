@@ -1,0 +1,509 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;}
+  .r{font-family:'Golos Text',sans-serif;background:#f2f4f7;color:#333;min-height:100vh;}
+
+  /* ── HEADER (не трогаем) ─────────────────────────────────── */
+  .hdr{background:#fff;border-bottom:1px solid #e8ecf0;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo-icon{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,#62b67c,#f7b114);display:flex;align-items:center;justify-content:center;}
+  .logo-text{font-size:14px;font-weight:700;color:#333;line-height:1.2;}
+  .logo-sub{font-size:10px;color:#999;letter-spacing:0.06em;text-transform:uppercase;}
+  .hdr-phone{font-size:13px;color:#62b67c;font-weight:600;}
+  .avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#62b67c,#f7b114);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;}
+  .uname{font-size:13px;color:#444;font-weight:500;}
+  .uorg{font-size:11px;color:#999;}
+
+  /* ── LAYOUT ──────────────────────────────────────────────── */
+  .layout{display:grid;grid-template-columns:210px 1fr;min-height:calc(100vh - 57px);}
+
+  /* ── SIDEBAR (не трогаем) ────────────────────────────────── */
+  .sidebar{background:#fff;border-right:1px solid #e8ecf0;padding:16px 0;}
+  .nav-sec{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#b0bcc8;padding:14px 18px 5px;}
+  .nav-item{display:flex;align-items:center;gap:9px;padding:9px 18px;font-size:13px;color:#666;cursor:pointer;border-left:2.5px solid transparent;}
+  .nav-item:hover{background:#f5faf6;color:#62b67c;}
+  .nav-item.active{background:#f0f8f2;color:#62b67c;border-left-color:#62b67c;font-weight:600;}
+  .nav-ico{width:15px;height:15px;flex-shrink:0;opacity:.6;}
+  .nav-item.active .nav-ico,.nav-item:hover .nav-ico{opacity:1;}
+  .nav-badge{background:#f7b114;color:#fff;font-size:10px;font-weight:700;border-radius:8px;padding:1px 5px;margin-left:auto;}
+
+  /* ── MAIN CONTENT ────────────────────────────────────────── */
+  .main{padding:24px 28px;overflow-y:auto;}
+  .pg-title{font-size:20px;font-weight:700;color:#1a1a1a;margin-bottom:3px;}
+  .pg-sub{font-size:13px;color:#aaa;margin-bottom:22px;}
+
+  /* ── STAT CARDS ──────────────────────────────────────────── */
+  .statbar{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px;}
+  .stat-card{
+    background:#fff;
+    border-radius:14px;
+    padding:18px 18px 16px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 1px 2px rgba(0,0,0,0.05), 0 4px 14px rgba(0,0,0,0.06);
+    transition:box-shadow .2s, transform .2s;
+  }
+  .stat-card:hover{
+    box-shadow:0 2px 6px rgba(0,0,0,0.07), 0 8px 22px rgba(0,0,0,0.08);
+    transform:translateY(-1px);
+  }
+  /* цветная полоска снизу */
+  .stat-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;}
+  .stat-card.green::after{background:linear-gradient(90deg,#62b67c,#a2d9b1);}
+  .stat-card.red::after{background:linear-gradient(90deg,#e04040,#f08080);}
+  .stat-card.amber::after{background:linear-gradient(90deg,#f7b114,#ffd166);}
+  .stat-card.blue::after{background:linear-gradient(90deg,#77A8E4,#aac8f0);}
+
+  /* иконка в stat-карте */
+  .stat-ico{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;flex-shrink:0;}
+  .stat-ico.g{background:rgba(98,182,124,.13);}
+  .stat-ico.r{background:rgba(224,64,64,.09);}
+  .stat-ico.a{background:rgba(247,177,20,.13);}
+  .stat-ico.b{background:rgba(119,168,228,.12);}
+
+  .stat-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#bbb;margin-bottom:5px;}
+  .stat-val{font-size:22px;font-weight:700;color:#1a1a1a;line-height:1.1;}
+  .stat-val.danger{color:#e04040;}
+  .stat-val.ok{color:#62b67c;}
+  .stat-hint{font-size:11px;color:#c4c4c4;margin-top:4px;}
+
+  /* ── SECTION HEADERS ─────────────────────────────────────── */
+  .sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+  .sec-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#bbb;}
+  .sec-link{font-size:12px;color:#62b67c;cursor:pointer;text-decoration:none;}
+  .sec-link:hover{text-decoration:underline;}
+
+  /* ── CONTRACT CARDS ──────────────────────────────────────── */
+  .contracts-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:30px;}
+
+  .c-card{
+    background:#fff;
+    border-radius:14px;
+    overflow:hidden;
+    position:relative;
+    box-shadow:0 2px 8px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.04);
+    transition:box-shadow .2s;
+  }
+  .c-card:hover{box-shadow:0 4px 18px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.05);}
+
+  /* градиентная полоска сверху */
+  .c-card::before{
+    content:'';
+    position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,#62b67c,#f7b114);
+    z-index:2;
+  }
+
+  /* шапка договора с dot-паттерном из логотипа */
+  .c-card-top{
+    padding:16px 18px 14px;
+    border-bottom:1px solid #f0f4f8;
+    position:relative;
+    overflow:hidden;
+  }
+  /* dot-паттерн: правая половина шапки */
+  .c-card-top::after{
+    content:'';
+    position:absolute;
+    top:0;right:0;
+    width:55%;height:100%;
+    background-image:radial-gradient(circle, rgba(98,182,124,.18) 1.5px, transparent 1.5px);
+    background-size:9px 9px;
+    pointer-events:none;
+    -webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,.7) 55%, rgba(0,0,0,1) 100%);
+    mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,.7) 55%, rgba(0,0,0,1) 100%);
+    z-index:0;
+  }
+  .c-top-row{display:flex;justify-content:space-between;align-items:flex-start;position:relative;z-index:1;}
+  .c-num{font-size:13px;font-weight:700;color:#62b67c;}
+  .c-type{font-size:11px;color:#b0b8c2;margin-top:2px;}
+
+  /* блок задолженности: тонкий красный тинт */
+  .debt-box{
+    text-align:right;
+    background:rgba(224,64,64,.05);
+    border:1px solid rgba(224,64,64,.13);
+    border-radius:9px;
+    padding:8px 13px;
+    flex-shrink:0;
+  }
+  .debt-lbl{font-size:10px;color:#c09090;text-transform:uppercase;letter-spacing:.06em;}
+  .debt-amt{font-size:20px;font-weight:700;color:#e04040;line-height:1.1;}
+  .debt-amt.ok{color:#62b67c;}
+  .debt-rub{font-size:13px;font-weight:400;}
+
+  .c-card-body{padding:14px 18px;}
+  .obj-block{margin-bottom:12px;}
+  .obj-block:last-child{margin-bottom:0;}
+  .obj-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#c0ccd8;margin-bottom:4px;}
+  .obj-name{font-size:12px;font-weight:600;color:#3a3a3a;margin-bottom:5px;}
+  .obj-addr{font-size:11px;color:#bbb;margin-bottom:7px;}
+  .meters{display:flex;flex-direction:column;gap:4px;}
+
+  /* тёмный «технический» стиль счётчиков */
+  .meter{
+    display:flex;justify-content:space-between;align-items:center;
+    background:#1b2b22;
+    border-radius:6px;
+    padding:7px 12px;
+  }
+  .m-num{font-size:11px;color:rgba(255,255,255,.38);font-family:monospace;}
+  .m-val{font-size:12px;font-weight:700;color:#80d4a0;font-family:monospace;}
+  .m-unit{font-size:10px;color:rgba(255,255,255,.32);font-weight:400;}
+
+  /* кнопки */
+  .c-actions{display:flex;gap:8px;padding:0 18px 15px;}
+  .btn{border:none;border-radius:8px;padding:8px 0;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;flex:1;text-align:center;transition:opacity .15s, box-shadow .15s;}
+  .btn-pay{
+    background:linear-gradient(90deg,#52b070,#f5ac0e);
+    color:#fff;
+    box-shadow:0 2px 10px rgba(82,176,112,.32);
+  }
+  .btn-pay:hover{opacity:.91;box-shadow:0 3px 14px rgba(82,176,112,.44);}
+  .btn-out{background:#fff;border:1.5px solid #e0e8f0;color:#62b67c;}
+  .btn-out:hover{border-color:#62b67c;background:#f6fbf7;}
+
+  /* добавить договор */
+  .add-card{
+    background:#fff;
+    border:1.5px dashed #c0ddc8;
+    border-radius:14px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+    cursor:pointer;min-height:180px;padding:20px;
+    transition:border-color .2s, box-shadow .2s, background .2s;
+  }
+  .add-card:hover{border-color:#62b67c;background:#fafcfb;box-shadow:0 4px 18px rgba(98,182,124,.11);}
+  .add-circle{width:42px;height:42px;border-radius:50%;border:2px solid #c8e8d2;display:flex;align-items:center;justify-content:center;font-size:22px;color:#62b67c;font-weight:300;line-height:1;}
+  .add-text{font-size:12px;font-weight:600;color:#62b67c;}
+  .add-hint{font-size:11px;color:#c0c0c0;text-align:center;}
+
+  /* ── SECTION TILES ───────────────────────────────────────── */
+  .tiles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px;}
+  .tile{
+    background:#fff;
+    border-radius:14px;
+    padding:16px;
+    cursor:pointer;
+    display:flex;flex-direction:column;gap:7px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.05), 0 3px 10px rgba(0,0,0,0.05);
+    transition:box-shadow .2s, transform .2s;
+  }
+  .tile:hover{
+    background:#fff;
+    transform:translateY(-2px);
+    box-shadow:0 5px 20px rgba(98,182,124,.15), 0 2px 8px rgba(0,0,0,.06);
+  }
+  .tile-ico{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;}
+  .tile-ico.g{background:#edf8f0;}
+  .tile-ico.y{background:#fff8e6;}
+  .tile-ico.b{background:#eef4fc;}
+  .tile-ico.r{background:#fdf0f0;}
+  .tile-ico.p{background:#f4f0fd;}
+  .tile-ico.t{background:#edfaf6;}
+  .tile-name{font-size:13px;font-weight:700;color:#222;}
+  .tile-desc{font-size:11px;color:#b8b8b8;line-height:1.4;}
+  .tile-arr{font-size:15px;color:#d0d0d0;margin-top:auto;align-self:flex-end;transition:color .15s, transform .15s;}
+  .tile:hover .tile-arr{color:#62b67c;transform:translateX(2px);}
+  .tile-badge{background:#f7b114;color:#fff;font-size:10px;font-weight:700;border-radius:8px;padding:1px 6px;margin-left:6px;}
+</style>
+
+<div class="r">
+  <!-- HEADER (не трогаем) -->
+  <div class="hdr">
+    <div class="logo">
+      <div class="logo-icon">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3L4 6.5v7L10 17l6-3.5v-7L10 3z" stroke="#fff" stroke-width="1.4"/><path d="M10 7l-3 2v2l3 2 3-2V9L10 7z" fill="#fff" opacity=".5"/></svg>
+      </div>
+      <div>
+        <div class="logo-text">Новая Энергия</div>
+        <div class="logo-sub">Личный кабинет</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:20px;">
+      <div class="hdr-phone">8 800 222-12-00</div>
+      <div style="display:flex;align-items:center;gap:9px;">
+        <div class="avatar">АИ</div>
+        <div><div class="uname">Иванов А.С.</div><div class="uorg">ООО «Технопром»</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <!-- SIDEBAR (не трогаем) -->
+    <div class="sidebar">
+      <div class="nav-sec">Кабинет</div>
+      <div class="nav-item active">
+        <svg class="nav-ico" viewBox="0 0 16 16" fill="currentColor"><path d="M2 6.5L8 2l6 4.5V14H2V6.5z"/></svg>
+        Главная
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ico" viewBox="0 0 16 16" fill="currentColor"><path d="M3 2h10a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1zm1 2v8h8V4H4zm1 2h6v1H5zm0 2h4v1H5z"/></svg>
+        Договоры
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ico" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2h12v10l-6 2-6-2V2zm1 1v8.5l5 1.67 5-1.67V3H3zm2 2h6v1H5zm0 2h4v1H5z"/></svg>
+        Сообщения
+        <span class="nav-badge">3</span>
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ico" viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="2" width="12" height="12" rx="1"/></svg>
+        Счета
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ico" viewBox="0 0 16 16" fill="currentColor"><path d="M4 10h2v4H4zm3-4h2v8H7zm3 2h2v6h-2z"/></svg>
+        Акты сверки
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ico" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="4" width="14" height="9" rx="1.5"/></svg>
+        Оплаты
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ico" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="6"/></svg>
+        Автоплатежи
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ico" viewBox="0 0 16 16" fill="currentColor"><path d="M3 3h10v10H3V3z"/></svg>
+        Показания
+      </div>
+      <div class="nav-sec" style="margin-top:10px;">Профиль</div>
+      <div class="nav-item">
+        <svg class="nav-ico" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="5" r="3"/><path d="M2 14a6 6 0 0112 0H2z"/></svg>
+        Профиль
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+      <div class="pg-title">Добро пожаловать, Алексей Сергеевич</div>
+      <div class="pg-sub">Апрель 2026 · ООО «Технопром»</div>
+
+      <!-- STAT CARDS -->
+      <div class="statbar">
+
+        <div class="stat-card green">
+          <div class="stat-ico g">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M3 3h12v2H3V3zm0 4h12v2H3V7zm0 4h8v2H3v-2z" fill="#62b67c"/>
+            </svg>
+          </div>
+          <div class="stat-label">Договоров</div>
+          <div class="stat-val ok">2</div>
+          <div class="stat-hint">Активных</div>
+        </div>
+
+        <div class="stat-card red">
+          <div class="stat-ico r">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M9 2L1 16h16L9 2zm0 3l5.5 9H3.5L9 5zm-.75 3v3h1.5V8h-1.5zm0 4v1.5h1.5V12h-1.5z" fill="#e04040"/>
+            </svg>
+          </div>
+          <div class="stat-label">Задолженность</div>
+          <div class="stat-val danger">187 432 ₽</div>
+          <div class="stat-hint">По всем договорам</div>
+        </div>
+
+        <div class="stat-card amber">
+          <div class="stat-ico a">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="6.5" stroke="#f7b114" stroke-width="1.4"/>
+              <path d="M9 5v4l2.5 2" stroke="#f7b114" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="stat-label">Приборов учёта</div>
+          <div class="stat-val">6</div>
+          <div class="stat-hint">На 4 объектах</div>
+        </div>
+
+        <div class="stat-card blue">
+          <div class="stat-ico b">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <rect x="2" y="4" width="14" height="10" rx="1.5" stroke="#77A8E4" stroke-width="1.4"/>
+              <path d="M2 7h14" stroke="#77A8E4" stroke-width="1.3"/>
+              <circle cx="13" cy="11" r="1.5" fill="#77A8E4"/>
+            </svg>
+          </div>
+          <div class="stat-label">Последняя оплата</div>
+          <div class="stat-val" style="font-size:17px;color:#62b67c;">14 апр 2026</div>
+          <div class="stat-hint">75 000 ₽</div>
+        </div>
+
+      </div>
+
+      <!-- ДОГОВОРЫ -->
+      <div class="sec-hdr">
+        <div class="sec-title">Договоры</div>
+        <a class="sec-link">Все договоры →</a>
+      </div>
+
+      <div class="contracts-grid">
+
+        <!-- Договор 1 -->
+        <div class="c-card">
+          <div class="c-card-top">
+            <div class="c-top-row">
+              <div>
+                <div class="c-num">№ ДОГ-2021/0347</div>
+                <div class="c-type">Энергоснабжение под ключ · с 15.03.2021</div>
+              </div>
+              <div class="debt-box">
+                <div class="debt-lbl">Задолженность</div>
+                <div class="debt-amt">143 200 <span class="debt-rub">₽</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="c-card-body">
+            <div class="obj-block">
+              <div class="obj-lbl">Объект 1</div>
+              <div class="obj-name">Производственный цех</div>
+              <div class="obj-addr">г. Челябинск, ул. Промышленная, 12</div>
+              <div class="meters">
+                <div class="meter">
+                  <span class="m-num">ЦЭ2303-001845</span>
+                  <span class="m-val">82 407 <span class="m-unit">кВт·ч</span></span>
+                </div>
+                <div class="meter">
+                  <span class="m-num">ЦЭ2303-001846</span>
+                  <span class="m-val">31 190 <span class="m-unit">кВт·ч</span></span>
+                </div>
+              </div>
+            </div>
+            <div class="obj-block">
+              <div class="obj-lbl">Объект 2</div>
+              <div class="obj-name">Склад готовой продукции</div>
+              <div class="obj-addr">г. Челябинск, ул. Промышленная, 14</div>
+              <div class="meters">
+                <div class="meter">
+                  <span class="m-num">СЭ1904-007712</span>
+                  <span class="m-val">14 055 <span class="m-unit">кВт·ч</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="c-actions">
+            <button class="btn btn-pay">Оплатить</button>
+            <button class="btn btn-out">Показания</button>
+          </div>
+        </div>
+
+        <!-- Договор 2 -->
+        <div class="c-card">
+          <div class="c-card-top">
+            <div class="c-top-row">
+              <div>
+                <div class="c-num">№ ДОГ-2023/1182</div>
+                <div class="c-type">Оптовый рынок ОРЭМ · с 01.09.2023</div>
+              </div>
+              <div class="debt-box">
+                <div class="debt-lbl">Задолженность</div>
+                <div class="debt-amt">44 232 <span class="debt-rub">₽</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="c-card-body">
+            <div class="obj-block">
+              <div class="obj-lbl">Объект 1</div>
+              <div class="obj-name">Административное здание</div>
+              <div class="obj-addr">г. Магнитогорск, пр. Ленина, 55</div>
+              <div class="meters">
+                <div class="meter">
+                  <span class="m-num">МЭ2201-034421</span>
+                  <span class="m-val">29 817 <span class="m-unit">кВт·ч</span></span>
+                </div>
+                <div class="meter">
+                  <span class="m-num">МЭ2201-034422</span>
+                  <span class="m-val">9 340 <span class="m-unit">кВт·ч</span></span>
+                </div>
+              </div>
+            </div>
+            <div class="obj-block">
+              <div class="obj-lbl">Объект 2</div>
+              <div class="obj-name">Парковочный комплекс</div>
+              <div class="obj-addr">г. Магнитогорск, пр. Ленина, 55А</div>
+              <div class="meters">
+                <div class="meter">
+                  <span class="m-num">ПЭ2305-011007</span>
+                  <span class="m-val">6 903 <span class="m-unit">кВт·ч</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="c-actions">
+            <button class="btn btn-pay">Оплатить</button>
+            <button class="btn btn-out">Показания</button>
+          </div>
+        </div>
+
+        <!-- Добавить -->
+        <div class="add-card">
+          <div class="add-circle">+</div>
+          <div class="add-text">Добавить договор</div>
+          <div class="add-hint">Привязать существующий договор<br>или заключить новый</div>
+        </div>
+
+      </div>
+
+      <!-- РАЗДЕЛЫ -->
+      <div class="sec-hdr">
+        <div class="sec-title">Разделы</div>
+      </div>
+      <div class="tiles-grid">
+
+        <div class="tile">
+          <div class="tile-ico g">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="3" width="14" height="10" rx="1.5" stroke="#62b67c" stroke-width="1.4"/><path d="M2 5l7 5 7-5" stroke="#62b67c" stroke-width="1.4"/></svg>
+          </div>
+          <div class="tile-name">Сообщения <span class="tile-badge">3</span></div>
+          <div class="tile-desc">Переписка с поставщиком и уведомления</div>
+          <div class="tile-arr">→</div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-ico y">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="2" width="12" height="14" rx="1.5" stroke="#f7b114" stroke-width="1.4"/><path d="M6 6h6M6 9h6M6 12h4" stroke="#f7b114" stroke-width="1.3"/></svg>
+          </div>
+          <div class="tile-name">Счета</div>
+          <div class="tile-desc">История выставленных счетов</div>
+          <div class="tile-arr">→</div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-ico b">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 11h2v5H4v-5zm4-5h2v10H8V6zm4 3h2v7h-2V9z" stroke="#77A8E4" stroke-width="1.3" fill="none"/></svg>
+          </div>
+          <div class="tile-name">Акты сверки</div>
+          <div class="tile-desc">Взаиморасчёты за периоды</div>
+          <div class="tile-arr">→</div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-ico g">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="5" width="14" height="9" rx="1.5" stroke="#62b67c" stroke-width="1.4"/><path d="M2 8h14" stroke="#62b67c" stroke-width="1.3"/></svg>
+          </div>
+          <div class="tile-name">Оплаты</div>
+          <div class="tile-desc">История платежей и квитанции</div>
+          <div class="tile-arr">→</div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-ico y">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6" stroke="#f7b114" stroke-width="1.4"/><path d="M9 6v3l2 1.5" stroke="#f7b114" stroke-width="1.3"/></svg>
+          </div>
+          <div class="tile-name">Автоплатежи</div>
+          <div class="tile-desc">Настройка автоматических платежей</div>
+          <div class="tile-arr">→</div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-ico b">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="6" r="3" stroke="#77A8E4" stroke-width="1.4"/><path d="M3 16a6 6 0 0112 0" stroke="#77A8E4" stroke-width="1.4"/></svg>
+          </div>
+          <div class="tile-name">Профиль</div>
+          <div class="tile-desc">Реквизиты, контакты и уведомления</div>
+          <div class="tile-arr">→</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

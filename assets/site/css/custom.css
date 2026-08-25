@@ -1,0 +1,15 @@
+input#reg-password + .show-hide-pass {
+    background: url('/static/images/icons/eye_icon.svg') no-repeat scroll 0 0;
+    padding: 15px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.prepayment-user-cards ul {
+    list-style-type: none;
+    margin: 1rem 0;
+    padding: 0;
+}
+.vtb-popup a {
+  font-weight: 400;
+}

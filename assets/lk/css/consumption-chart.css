@@ -1,0 +1,167 @@
+/* ============================================================
+   Enerone LK — График потребления счётчика
+   Автономный стиль (namespace .ec-*), не конфликтует со старой вёрсткой.
+   Требует шрифт Golos Text (подключается в JS, если ещё не подключён).
+   ============================================================ */
+
+.ec-card {
+  --ec-green: #62b67c;
+  --ec-green-lt: #a2d9b1;
+  --ec-amber: #f7b114;
+  --ec-amber-lt: #ffd166;
+  --ec-ink: #1a1a1a;
+  --ec-muted: #b0bcc8;
+  --ec-line: #eef1f5;
+
+  font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px 22px 18px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 4px 16px rgba(0,0,0,.06);
+  color: var(--ec-ink);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.ec-card *, .ec-card *::before, .ec-card *::after { box-sizing: border-box; }
+
+/* градиентная полоска сверху — как на карточках дашборда */
+.ec-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--ec-green), var(--ec-amber));
+}
+
+/* ── Шапка ─────────────────────────────────────────────── */
+.ec-head {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 16px; margin-bottom: 18px; flex-wrap: wrap;
+}
+.ec-title { font-size: 15px; font-weight: 700; color: var(--ec-ink); line-height: 1.2; }
+.ec-sub { font-size: 12px; color: var(--ec-muted); margin-top: 3px; }
+
+/* мини-статистика справа в шапке */
+.ec-kpis { display: flex; gap: 22px; }
+.ec-kpi { text-align: right; }
+.ec-kpi-lbl { font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #c4cdd6; }
+.ec-kpi-val { font-size: 16px; font-weight: 700; color: var(--ec-ink); line-height: 1.2; margin-top: 2px; }
+.ec-kpi-val small { font-size: 10px; font-weight: 500; color: #b8c2cc; }
+.ec-kpi.is-max .ec-kpi-val { color: var(--ec-amber); }
+
+/* ── Область графика ───────────────────────────────────── */
+.ec-plot {
+  position: relative;
+  height: 240px;
+  margin: 4px 0 0 0;
+  padding-left: 44px;   /* место под подписи оси Y */
+}
+
+/* горизонтальные линии сетки + подписи оси Y */
+.ec-grid { position: absolute; inset: 0 0 26px 44px; pointer-events: none; }
+.ec-gridline {
+  position: absolute; left: 0; right: 0;
+  border-top: 1px dashed var(--ec-line);
+}
+.ec-gridline:first-child { border-top-style: solid; }
+.ec-gridlabel {
+  position: absolute; right: calc(100% + 8px);
+  transform: translateY(-50%);
+  font-size: 10px; color: #c4cdd6; white-space: nowrap;
+}
+
+/* пунктирная линия среднего значения — поверх столбцов */
+.ec-avg {
+  position: absolute; left: 0; right: 0;
+  border-top: 1.5px dashed rgba(247,177,20,.7);
+  pointer-events: none;
+  z-index: 4;
+}
+.ec-avg-tag {
+  position: absolute; right: 2px; top: -9px;
+  background: rgba(247,177,20,.14);
+  color: #c98a06;
+  font-size: 9px; font-weight: 700;
+  padding: 1px 6px; border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* ── Столбцы ───────────────────────────────────────────── */
+.ec-bars {
+  position: absolute; inset: 0 0 26px 44px;
+  display: flex; align-items: flex-end; gap: 3%;
+}
+.ec-col {
+  flex: 1 1 0; height: 100%;
+  display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
+  position: relative; cursor: pointer; min-width: 0;
+}
+.ec-bar {
+  width: 68%; max-width: 46px;
+  height: var(--h, 0%);
+  border-radius: 7px 7px 3px 3px;
+  background: linear-gradient(180deg, var(--ec-amber-lt) 0%, var(--ec-green) 100%);
+  box-shadow: 0 2px 8px rgba(98,182,124,.22);
+  transition: height .85s cubic-bezier(.22,1,.36,1), filter .15s, box-shadow .15s, transform .15s;
+  transform-origin: bottom;
+}
+/* столбец-рекорд подсвечиваем янтарём */
+.ec-col.is-max .ec-bar {
+  background: linear-gradient(180deg, var(--ec-amber) 0%, var(--ec-amber-lt) 100%);
+  box-shadow: 0 2px 10px rgba(247,177,20,.3);
+}
+.ec-col:hover .ec-bar { filter: brightness(1.06); transform: scaleY(1.012); box-shadow: 0 4px 16px rgba(98,182,124,.34); }
+.ec-col.is-max:hover .ec-bar { box-shadow: 0 4px 16px rgba(247,177,20,.42); }
+.ec-col.is-active .ec-bar { filter: brightness(1.08); }
+
+/* подпись месяца под столбцом */
+.ec-xlabel {
+  position: absolute; bottom: -22px; left: 0; right: 0;
+  text-align: center; font-size: 10.5px; color: #9aa6b2; line-height: 1.1;
+  transition: color .15s;
+}
+.ec-xlabel b { display: block; font-size: 9px; font-weight: 600; color: #c4cdd6; }
+.ec-col.is-active .ec-xlabel, .ec-col:hover .ec-xlabel { color: var(--ec-green); }
+
+/* значение над столбцом — видно в спокойном состоянии, прячется на ховере
+   (чтобы не торчало из-под подробного тултипа) */
+.ec-vlabel {
+  position: absolute; left: 50%; transform: translate(-50%, 0);
+  bottom: calc(var(--h, 0%) + 6px);
+  font-size: 10px; font-weight: 700; color: #8a97a3;
+  opacity: 1; transition: opacity .15s; white-space: nowrap; pointer-events: none;
+}
+.ec-col:hover .ec-vlabel, .ec-col.is-active .ec-vlabel { opacity: 0; }
+
+/* ── Тултип ────────────────────────────────────────────── */
+.ec-tip {
+  position: absolute; z-index: 5;
+  background: #1b2b22; color: #fff;
+  border-radius: 9px; padding: 9px 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.22);
+  pointer-events: none; opacity: 0;
+  transform: translate(-50%, -8px);
+  transition: opacity .14s, transform .14s;
+  white-space: nowrap;
+}
+.ec-tip.is-on { opacity: 1; transform: translate(-50%, -12px); }
+.ec-tip::after {
+  content: ''; position: absolute; top: 100%; left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent; border-top-color: #1b2b22;
+}
+.ec-tip-m { font-size: 10px; color: rgba(255,255,255,.55); text-transform: capitalize; margin-bottom: 3px; }
+.ec-tip-v { font-size: 15px; font-weight: 700; color: #80d4a0; font-family: monospace; }
+.ec-tip-v small { font-size: 10px; color: rgba(255,255,255,.4); font-weight: 400; }
+.ec-tip-d { font-size: 10px; margin-top: 4px; display: flex; align-items: center; gap: 4px; }
+.ec-tip-d.up { color: #ff9a9a; }
+.ec-tip-d.down { color: #80d4a0; }
+.ec-tip-d.flat { color: rgba(255,255,255,.45); }
+
+/* ── Адаптив ───────────────────────────────────────────── */
+@media (max-width: 560px) {
+  .ec-head { flex-direction: column; }
+  .ec-kpis { gap: 16px; }
+  .ec-kpi { text-align: left; }
+  .ec-xlabel { font-size: 9px; }
+  .ec-xlabel b { display: none; }
+}

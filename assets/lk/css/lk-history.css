@@ -1,0 +1,62 @@
+/* ==========================================================================
+   ЛК «Новая энергия» — страница «Счета» (история документов расчёта)
+   Дополняет lk.css. Всё внутри .lk, классы с префиксом lk-.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Таблица документов
+   -------------------------------------------------------------------------- */
+.lk-docs { width: 100%; }
+.lk-docs td { vertical-align: top; }
+
+.lk-doc-contract { font-size: 11px; color: var(--lk-ink-3); white-space: nowrap; }
+.lk-doc-num {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px; color: var(--lk-ink-2); overflow-wrap: anywhere;
+}
+.lk-doc-date { white-space: nowrap; color: var(--lk-ink-3); }
+.lk-doc-sum {
+  font-weight: 700; color: var(--lk-ink); white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* статус */
+.lk-doc-status { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; }
+.lk-doc-pay {
+  font-size: 11px; font-weight: 700; color: var(--lk-green); white-space: nowrap;
+}
+.lk-doc-pay:hover { color: var(--lk-green-dk); text-decoration: underline; }
+
+/* ссылки на печатные формы */
+.lk-doc-file {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 600; color: var(--lk-green); white-space: nowrap;
+}
+.lk-doc-file:hover { color: var(--lk-green-dk); text-decoration: underline; }
+.lk-doc-file svg { width: 12px; height: 12px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.4; }
+.lk-doc-file--off { color: var(--lk-muted-3); cursor: default; pointer-events: none; }
+
+/* пусто */
+.lk-docs-empty { text-align: center; padding: 34px 16px; font-size: 12px; color: var(--lk-muted-2); }
+
+/* --------------------------------------------------------------------------
+   Адаптив: на узких экранах строки таблицы становятся карточками
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .lk-doc-status { align-items: flex-end; }
+
+  /* печатные формы — одной строкой чипами внизу карточки */
+  .lk-docs td.is-file { display: none; }
+  .lk-docs td.is-files-mob {
+    display: flex; flex-direction: row; align-items: center; justify-content: flex-start;
+    gap: 14px; flex-wrap: wrap;
+    margin-top: 8px; padding-top: 10px;
+    border-top: 1px solid var(--lk-line-soft);
+  }
+  .lk-docs td.is-files-mob::before { content: none; }
+}
+
+@media (min-width: 900.02px) {
+  .lk-docs td.is-files-mob { display: none; }
+}
+

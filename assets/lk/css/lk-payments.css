@@ -1,0 +1,67 @@
+/* ==========================================================================
+   ЛК «Новая энергия» — страница «Платежи»
+   Фильтры, бейджи и карточный режим таблицы берутся из lk.css.
+   ========================================================================== */
+
+/* Фильтры этой страницы: договор, период, переключатель, сброс.
+   Модификатор идёт после общих media-правил в lk.css, поэтому адаптив
+   для него нужно повторить здесь — иначе он перебьёт их на всех ширинах. */
+.lk-filters--pay { grid-template-columns: minmax(200px, 1.2fr) repeat(2, minmax(140px, 1fr)) auto auto; }
+
+@media (max-width: 1399.98px) {
+  .lk-filters--pay { grid-template-columns: minmax(200px, 1fr) repeat(2, minmax(130px, 1fr)) auto; }
+  .lk-filters--pay .lk-filter-field:last-child { grid-column: 1 / -1; }
+  .lk-filters--pay .lk-filter-reset { width: auto; }
+}
+
+@media (max-width: 1199.98px) {
+  .lk-filters--pay { grid-template-columns: 1fr 1fr; }
+  .lk-filters--pay .lk-filter-field:first-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 575.98px) {
+  .lk-filters--pay { grid-template-columns: 1fr; }
+  .lk-filters--pay .lk-filter-reset { width: 100%; }
+}
+
+.lk-pays td { vertical-align: top; }
+
+.lk-pay-date { white-space: nowrap; color: var(--lk-ink-2); }
+.lk-pay-time { display: block; font-size: 10px; color: var(--lk-muted-3); }
+.lk-pay-contract { font-size: 11px; color: var(--lk-ink-3); white-space: nowrap; }
+
+.lk-pay-sum {
+  white-space: nowrap; font-variant-numeric: tabular-nums;
+  color: var(--lk-ink-2);
+}
+.lk-pay-sum--total { font-weight: 700; color: var(--lk-ink); }
+.lk-pay-sum--fee { color: var(--lk-ink-3); }
+.lk-pay-sum--zero { color: var(--lk-muted-3); }
+
+/* тип платежа */
+.lk-pay-type {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 600; white-space: nowrap;
+  border-radius: 20px; padding: 3px 10px;
+}
+.lk-pay-type svg { width: 12px; height: 12px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.4; }
+.lk-pay-type--online { color: var(--lk-blue-dk); background: var(--lk-blue-bg); border: 1px solid #dce8f8; }
+.lk-pay-type--bank   { color: var(--lk-ink-3); background: #f2f5f8; border: 1px solid #e3e9ef; }
+
+/* статус с подсказкой об ошибке */
+.lk-pay-status { display: inline-flex; align-items: center; gap: 6px; }
+.lk-pay-err {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 15px; height: 15px; flex-shrink: 0;
+  color: var(--lk-red-dk);
+}
+.lk-pay-err svg { width: 14px; height: 14px; fill: none; stroke: currentColor; }
+.lk-pay-err:hover { color: #c02f2f; }
+
+.lk-pays-empty { text-align: center; padding: 34px 16px; font-size: 12px; color: var(--lk-muted-2); }
+
+@media (max-width: 900px) {
+  .lk-pay-status { justify-content: flex-end; }
+  .lk-pays td > .lk-pay-type,
+  .lk-pays td > .lk-pay-status { margin-left: auto; }
+}

@@ -1,0 +1,157 @@
+<!-- ================= ЛК: Автоплатежи — начало ================= -->
+<div class="lk">
+  <div class="lk-layout">
+
+{{SIDEBAR}}
+
+    <div class="lk-content">
+      <button type="button" class="lk-burger" data-lk-burger aria-label="Разделы кабинета">
+        <span></span><span></span><span></span>
+      </button>
+
+      <h1 class="lk-pg-title">Автоплатежи</h1>
+      <div class="lk-pg-sub">Списание без комиссии по договорам · ИП Коваленко Наталья Ивановна</div>
+
+      <div class="lk-auto">
+
+        <!-- ===== 1. Подключённые автоплатежи ===== -->
+        <section class="lk-step">
+          <div class="lk-sec-hdr">
+            <h2 class="lk-sec-title lk-sec-title--major">Подключённые автоплатежи</h2>
+          </div>
+
+          <div id="lk-ap-list"></div>
+        </section>
+
+        <!-- ===== 2. Добавление автоплатежа ===== -->
+        <section class="lk-step lk-step--sep">
+          <div class="lk-new-bar" id="lk-ap-bar">
+            <button type="button" class="lk-btn-primary lk-btn-new"
+                    data-ap-toggle aria-expanded="false" aria-controls="lk-ap-panel">
+              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 2v10M2 7h10"/></svg>
+              Подключить автоплатёж
+            </button>
+            <span class="lk-new-hint">Списание проходит напрямую, комиссия банка не удерживается</span>
+          </div>
+
+          <div class="lk-saved" data-ap-saved hidden role="status">
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <circle cx="8" cy="8" r="6.4"/><path d="M5.3 8.2l2 2 3.4-4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="lk-saved-text" data-ap-saved-text></div>
+          </div>
+
+          <div class="lk-panel" id="lk-ap-panel" hidden>
+            <div class="lk-panel-hdr">
+              <h2 class="lk-sec-title lk-sec-title--major">Новый автоплатёж</h2>
+              <button type="button" class="lk-panel-close" data-ap-close aria-label="Свернуть форму">
+                <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg>
+              </button>
+            </div>
+
+            <form id="lk-ap-form" novalidate>
+              <div class="lk-ap-form-grid">
+                <div>
+                  <label class="lk-form-lbl" for="lk-ap-contract">
+                    Договор <span class="lk-req" aria-hidden="true">*</span>
+                  </label>
+                  <select class="lk-select" id="lk-ap-contract" name="contract" required></select>
+                  <div class="lk-form-err" data-err-for="contract" hidden>Выберите договор</div>
+                </div>
+
+                <div>
+                  <label class="lk-form-lbl" for="lk-ap-card">
+                    Карта <span class="lk-req" aria-hidden="true">*</span>
+                  </label>
+                  <select class="lk-select" id="lk-ap-card" name="card" required></select>
+                  <div class="lk-form-err" data-err-for="card" hidden>Выберите карту</div>
+                </div>
+
+                <div>
+                  <label class="lk-form-lbl" for="lk-ap-limit">
+                    Максимальная сумма <span class="lk-req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="lk-input lk-input--mono" id="lk-ap-limit" name="limit"
+                         type="text" inputmode="decimal" autocomplete="off">
+                  <div class="lk-form-err" data-err-for="limit" hidden></div>
+                </div>
+              </div>
+
+              <div class="lk-ap-hint">
+                <svg viewBox="0 0 16 16" aria-hidden="true">
+                  <circle cx="8" cy="8" r="6.4"/>
+                  <path d="M8 7.3v4" stroke-linecap="round"/>
+                  <circle cx="8" cy="4.8" r=".9" fill="currentColor" stroke="none"/>
+                </svg>
+                <p class="lk-ap-hint-text" data-ap-hint>
+                  Списание проходит в день выставления счёта. Если сумма счёта больше максимальной,
+                  автоплатёж не сработает — счёт нужно будет оплатить вручную.
+                </p>
+              </div>
+
+              <div class="lk-form-actions">
+                <button type="submit" class="lk-btn-primary">Подключить</button>
+                <button type="button" class="lk-btn-ghost" data-ap-close>Отмена</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- ===== 3. Привязанные карты ===== -->
+        <section class="lk-step lk-step--sep">
+          <div class="lk-sec-hdr">
+            <h2 class="lk-sec-title lk-sec-title--major">Привязанные карты</h2>
+          </div>
+
+          <div class="lk-cards" id="lk-cards"></div>
+        </section>
+
+        <!-- ===== 4. Привязка новой карты ===== -->
+        <section class="lk-step lk-step--sep">
+          <div class="lk-sec-hdr">
+            <h2 class="lk-sec-title lk-sec-title--major">Привязать карту</h2>
+          </div>
+
+          <div class="lk-panel">
+            <p class="lk-bind-note">
+              Для регистрации и привязки карты к аккаунту, для совершения автоплатежей в дальнейшем,
+              вы будете перенаправлены на страницу платёжной системы ГазПромБанк.
+            </p>
+            <p class="lk-bind-note">
+              В процессе регистрации карты с вашего счёта будет снята сумма в размере
+              <b>1 руб.</b> для подтверждения. Она вернётся на карту автоматически.
+            </p>
+
+            <button type="button" class="lk-btn-bind" data-lk-action="Привязать новую карту — переход в ГазПромБанк">
+              <svg viewBox="0 0 16 16" aria-hidden="true">
+                <rect x="1.5" y="3.5" width="13" height="9" rx="1.5"/><path d="M1.5 6.5h13"/>
+              </svg>
+              Привязать карту
+            </button>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Подтверждение действия ===== -->
+  <dialog class="lk-modal" id="lk-confirm" aria-labelledby="lk-confirm-title">
+    <div class="lk-modal-inner">
+      <div class="lk-modal-hdr">
+        <h2 class="lk-modal-title" id="lk-confirm-title" data-confirm-title>Подтвердите действие</h2>
+        <button type="button" class="lk-modal-close" data-lk-modal-close aria-label="Закрыть">
+          <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg>
+        </button>
+      </div>
+      <div class="lk-modal-body">
+        <p class="lk-confirm-text" data-confirm-text></p>
+      </div>
+      <div class="lk-modal-foot">
+        <button type="button" class="lk-btn-ghost" data-lk-modal-close>Отмена</button>
+        <button type="button" class="lk-btn-danger" data-confirm-ok>Подтвердить</button>
+      </div>
+    </div>
+  </dialog>
+</div>
+<!-- ================= ЛК: Автоплатежи — конец ================= -->

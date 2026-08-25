@@ -1,0 +1,59 @@
+<!-- ================= ЛК: Счета — начало ================= -->
+<div class="lk">
+  <div class="lk-layout">
+
+{{SIDEBAR}}
+
+    <div class="lk-content">
+      <button type="button" class="lk-burger" data-lk-burger aria-label="Разделы кабинета">
+        <span></span><span></span><span></span>
+      </button>
+
+      <h1 class="lk-pg-title">Счета</h1>
+      <div class="lk-pg-sub">История документов расчёта · ИП Коваленко Наталья Ивановна, ИНН 745301234567</div>
+
+      <!-- фильтры -->
+      <div class="lk-filters">
+        <div class="lk-filter-field" id="lk-filter-contract-wrap">
+          <label class="lk-form-lbl" for="lk-filter-contract">Договор</label>
+          <select class="lk-select" id="lk-filter-contract"></select>
+        </div>
+
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-filter-from">Дата — начало</label>
+          <input class="lk-input lk-date" id="lk-filter-from" type="date">
+        </div>
+
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-filter-to">Дата — конец</label>
+          <input class="lk-input lk-date" id="lk-filter-to" type="date">
+        </div>
+
+        <div class="lk-filter-field">
+          <button type="button" class="lk-filter-reset" id="lk-filter-reset" disabled>Сбросить</button>
+        </div>
+      </div>
+
+      <!-- таблица документов -->
+      <div class="lk-table-wrap">
+        <table class="lk-table lk-table--cards lk-docs">
+          <thead>
+            <tr>
+              <th scope="col">Договор</th>
+              <th scope="col">Номер документа</th>
+              <th scope="col">Дата документа</th>
+              <th scope="col">Сумма</th>
+              <th scope="col">Статус</th>
+              <th scope="col">Счёт</th>
+              <th scope="col">УПД</th>
+              <th scope="col">Акт по объектам</th>
+            </tr>
+          </thead>
+          <tbody id="lk-docs"></tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ================= ЛК: Счета — конец ================= -->

@@ -1,0 +1,200 @@
+/* ==========================================================================
+   ЛК «Новая энергия» — страница «Сообщения»
+   Дополняет lk.css. Всё внутри .lk, классы с префиксом lk-.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Свёрнутое состояние: кнопка вместо формы
+   -------------------------------------------------------------------------- */
+
+
+/* --------------------------------------------------------------------------
+   Форма обращения
+   -------------------------------------------------------------------------- */
+.lk-form-intro {
+  font-size: 12px; line-height: 1.55; color: var(--lk-ink-3);
+  margin-bottom: 18px;
+}
+
+.lk-form-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin-bottom: 16px;
+}
+.lk-form-row { margin-bottom: 16px; }
+.lk-form-row:last-of-type { margin-bottom: 0; }
+
+.lk-form-foot {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  margin-top: 20px; padding-top: 16px;
+  border-top: 1px solid var(--lk-line-soft);
+}
+
+/* успешная отправка */
+.lk-form-ok {
+  display: flex; align-items: flex-start; gap: 9px;
+  background: var(--lk-green-bg);
+  border: 1px solid var(--lk-green-br);
+  border-radius: var(--lk-r-md);
+  padding: 11px 13px;
+  margin-top: 16px;
+}
+.lk-new-bar + .lk-form-ok { margin-top: 16px; }
+.lk-form-ok + .lk-panel { margin-top: 16px; }
+.lk-new-bar + .lk-panel,
+.lk-new-bar + .lk-form-ok + .lk-panel { margin-top: 0; }
+.lk-form-ok[hidden] { display: none; }
+.lk-form-ok svg {
+  width: 15px; height: 15px; flex-shrink: 0; margin-top: 1px;
+  fill: none; stroke: var(--lk-green-dk); stroke-width: 1.6;
+}
+.lk-form-ok-text { font-size: 11px; line-height: 1.45; color: var(--lk-green-dk); }
+
+/* --------------------------------------------------------------------------
+   История обращений
+   -------------------------------------------------------------------------- */
+.lk-msg-hdr {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.lk-unread-count {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 700; color: #a97205;
+  background: var(--lk-amber-bg); border: 1px solid #f3d089;
+  border-radius: 20px; padding: 3px 11px;
+}
+.lk-unread-count[hidden] { display: none; }
+.lk-unread-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--lk-amber); flex-shrink: 0;
+}
+
+.lk-msgs { display: flex; flex-direction: column; gap: 10px; }
+
+/* карточка обращения */
+.lk-msg {
+  background: var(--lk-surface);
+  border: 1px solid var(--lk-line);
+  border-left: 3px solid transparent;
+  border-radius: var(--lk-r-lg);
+  overflow: hidden;
+  transition: border-color .12s, box-shadow .12s;
+}
+.lk-msg.is-answered { border-left-color: var(--lk-green); }
+.lk-msg.is-unread {
+  border-left-color: var(--lk-amber);
+  background: #fffdf7;
+  box-shadow: 0 1px 8px rgba(247, 177, 20, .1);
+}
+
+.lk-msg-top {
+  display: grid;
+  grid-template-columns: 150px 1fr 190px 150px;
+  gap: 14px;
+  align-items: start;
+  padding: 13px 16px;
+}
+.lk-msg.has-answer .lk-msg-top { cursor: pointer; }
+.lk-msg.has-answer .lk-msg-top:hover { background: #fafcfd; }
+.lk-msg.is-unread.has-answer .lk-msg-top:hover { background: #fffbf0; }
+
+.lk-msg-date { font-size: 11px; color: var(--lk-muted); white-space: nowrap; }
+.lk-msg-topic {
+  display: block;
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--lk-muted-2); margin-bottom: 3px;
+}
+.lk-msg-text { font-size: 12px; line-height: 1.45; color: var(--lk-ink-2); overflow-wrap: anywhere; }
+.lk-msg.is-unread .lk-msg-text { font-weight: 600; color: var(--lk-ink); }
+.lk-msg-contract { font-size: 11px; color: var(--lk-muted-3); margin-top: 3px; }
+
+.lk-msg-files { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.lk-msg-file {
+  display: inline-flex; align-items: flex-start; gap: 5px;
+  font-size: 11px; font-weight: 600; color: var(--lk-green);
+  overflow-wrap: anywhere;
+}
+.lk-msg-file:hover { color: var(--lk-green-dk); text-decoration: underline; }
+.lk-msg-file svg { width: 12px; height: 12px; flex-shrink: 0; margin-top: 1px; fill: none; stroke: currentColor; stroke-width: 1.3; }
+.lk-msg-nofile { font-size: 11px; color: var(--lk-muted-3); }
+
+/* статус */
+.lk-msg-status { display: flex; align-items: center; justify-content: flex-end; gap: 7px; }
+.lk-status {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 700; white-space: nowrap;
+  border-radius: 20px; padding: 3px 10px;
+}
+.lk-status--accepted  { color: #a97205; background: var(--lk-amber-bg); border: 1px solid #f3d089; }
+.lk-status--processed { color: var(--lk-green-dk); background: var(--lk-green-bg); border: 1px solid var(--lk-green-br); }
+
+.lk-msg-toggle {
+  flex-shrink: 0;
+  width: 24px; height: 24px; padding: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: none; border: 1px solid var(--lk-line); border-radius: 50%;
+  color: var(--lk-muted-2); cursor: pointer;
+  transition: color .12s, border-color .12s;
+}
+.lk-msg-toggle:hover { color: var(--lk-green); border-color: var(--lk-green-br); }
+.lk-msg-toggle svg {
+  width: 10px; height: 10px; fill: none; stroke: currentColor;
+  stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round;
+  transition: transform .18s;
+}
+.lk-msg-toggle[aria-expanded="false"] svg { transform: rotate(180deg); }
+
+/* метка нового ответа */
+.lk-new-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--lk-amber); color: #fff;
+  font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+  border-radius: 4px; padding: 2px 6px;
+  margin-left: 8px; vertical-align: 1px;
+}
+.lk-new-badge[hidden] { display: none; }
+
+/* ответ поставщика */
+.lk-msg-answer {
+  border-top: 1px solid var(--lk-line-soft);
+  background: #f7fbf8;
+  padding: 13px 16px 15px;
+}
+.lk-msg-answer[hidden] { display: none; }
+.lk-answer-hdr {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em;
+  color: var(--lk-green-dk);
+  margin-bottom: 6px;
+}
+.lk-answer-hdr svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.4; }
+.lk-answer-date { font-weight: 400; color: #8cb99b; letter-spacing: 0; text-transform: none; }
+.lk-answer-text { font-size: 12px; line-height: 1.5; color: var(--lk-ink-2); }
+.lk-answer-author { font-size: 11px; color: var(--lk-muted); margin-top: 8px; }
+
+/* пусто */
+.lk-msg-empty {
+  text-align: center; padding: 32px 16px;
+  font-size: 12px; color: var(--lk-muted-2);
+}
+
+/* --------------------------------------------------------------------------
+   Адаптив
+   -------------------------------------------------------------------------- */
+@media (max-width: 1199.98px) {
+  .lk-msg-top { grid-template-columns: 130px 1fr 150px; }
+  .lk-msg-status { grid-column: 1 / -1; justify-content: flex-start; }
+}
+
+@media (max-width: 767.98px) {
+  .lk-form-grid { grid-template-columns: 1fr; }
+  .lk-msg-top { grid-template-columns: 1fr; gap: 8px; }
+  .lk-msg-files { flex-direction: row; flex-wrap: wrap; gap: 10px; }
+  .lk-msg-status { justify-content: space-between; }
+}
+
+@media (max-width: 575.98px) {
+  .lk-form-foot { flex-direction: column; align-items: stretch; }
+  .lk-form-foot .lk-btn-primary,
+  .lk-form-foot .lk-btn-ghost { width: 100%; }
+  .lk-btn-new { width: 100%; justify-content: center; }
+}

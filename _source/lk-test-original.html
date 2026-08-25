@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="format-detection" content="date=no">
+        <meta name="format-detection" content="address=no">
+        <meta name="format-detection" content="email=no">
+        <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
+
+        <meta property="og:site_name" content="ООО «ЭСК Новая энергия»">
+        <meta property="og:image" content="https://enerone.ru/media/og-img.jpg">
+        <meta property="og:title" content="Тест ЛК | ООО «ЭСК Новая энергия»">
+        <meta property="og:url" content="https://enerone.ru/lk-test/">
+        
+        
+        <title>Тест ЛК | ООО «ЭСК Новая энергия»</title>
+        
+
+
+
+        
+        
+        <link rel="preload" href="/static/fonts/Roboto-Regular.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/static/fonts/Roboto-Medium.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/static/fonts/Oswald-Medium.woff2" as="font" type="font/woff2" crossorigin>
+        
+
+
+        
+
+        
+
+        
+        <link rel="stylesheet" href="/static/css/vendor.css?v9d1c804c">
+        <link rel="stylesheet" href="/static/css/bootstrap.css?v9d1c804c">
+        <link rel="stylesheet" href="/static/css/main.css?v9d1c804c">
+        
+
+
+        <link rel="stylesheet" href="/static/css/new.css?v9d1c804c">
+        <link rel="stylesheet" href="/static/styles/custom.css?9d1c804c">
+
+        
+        <link rel="stylesheet" href="/static/lk.css?v9d1c804c">
+        <link rel="stylesheet" href="/static/scripts/ui/OwlCarousel2/owl.carousel.min.css">
+        <link rel="stylesheet" href="/static/scripts/ui/OwlCarousel2/owl.theme.default.min.css">
+
+        <style>
+
+.transfer-window-text {
+font-size: 13px;
+padding: 10px;
+}
+
+.content_page__wrapper blockquote {
+border-radius: 7px;
+}
+
+.popup-block__container p{
+text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    padding-top: 50px;
+}
+
+.swiper-pagination {
+  --swiper-pagination-bullet-size: .625rem;
+  --swiper-theme-color: var(--bs-info);
+}
+
+
+/*  правки 05.09.2024 */
+.faq-title{
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+}
+.faq-title .lc-wrapper__title{
+   width: 59%;
+}
+.faq-title .search__box {
+    margin: 27px 0px;
+    width: 41%;
+}
+.faq-title .search__box .search{
+    padding: 11px 29px;
+    width: 100%;
+    height: 100%;
+    font-size: 16.6px!important;
+}
+/* конец  правки 05.09.2024 */
+.faq-content{
+    padding-bottom: 50px;
+}
+
+.faq-content .accordion-button{
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    padding: 11px 55px 15px 15px;
+    line-height: 27px; 
+    width: 100%; 
+    border-radius: 7px;
+    text-align: left;
+    border: 2px solid #61B87C; 
+    position: relative;
+}
+.faq-content .accordion-button:before{
+    content: "";
+    width: 19px;
+    height: 19px;
+    position: absolute;
+    top: 7px;
+    border-radius: 2px;
+    right: 21px;
+    bottom: 0;
+    margin: auto;
+    transform: rotate(-135deg);
+    border: solid 2px #000;
+    border-top: none;
+    border-left: none;
+    transition: 0.2s;
+}   
+.faq-content .accordion-button.collapsed:before{
+  top: -6px;
+  transform: rotate(45deg);
+}
+.faq-content .accordion-body{
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 40px 20px 25px 20px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 5px #e2e2e2;
+}
+.faq-content .accordion-body p {
+    color: #4a4a4a;
+
+}
+
+/* fixed-price may-24 */
+
+.may24ul {
+	color: #6d6e71;
+}
+
+
+@media (max-width: 992px) {
+
+.may24h1 {
+	padding-top: 50px;
+}
+
+.may24p {
+	width: 70%;
+}
+
+.may24ul {
+	color: #6d6e71;
+    padding-top: 20px;
+}
+
+}
+/*  правки 05.09.2024 */
+@media (max-width: 991px) {
+	.faq-title .lc-wrapper__title,
+	.faq-title .search__box{
+	   width: 100%;
+	}
+	.faq-title .lc-wrapper__title{
+		margin-bottom: 10px;
+	}
+	.faq-title .search__box {
+    		margin: 9px 0px;
+	}
+}
+@media (max-width: 576px) {
+	   .faq-content .lc-wrapper__title {
+	        font-size: 28px;
+	    }
+	.faq-content .accordion-button{
+		font-size: 20px;
+	}
+	.faq-content .lc-wrapper__title {
+	        margin-bottom: 25px;
+	    }
+	.faq-title .search__box .search {
+    		padding: 11px 15px !important;
+	}
+	
+}
+/* конец правки 05.09.2024 */
+
+
+
+/* селекты на странице передачи показаний в ЛК 
+#select2-1-container {
+max-width: 280px !important;
+}
+*/
+
+.fixed-prices-page {
+background-color: #fff !important;
+}
+
+body {
+background-color: #fff !important;
+}
+
+.accordion-button {
+background-color: #fff;
+}
+
+@media (min-width: 992px) {
+    .bs-footer {
+        margin-top: 7.5rem;
+    }
+}
+
+.content_page__wrapper {
+margin-top: 0px;
+}
+
+.content_page__container {
+padding: 45px 60px 50px;
+}
+
+    .bs-footer {
+margin-top: 3.75rem;
+}
+
+.cl--service-box {
+min-height: 250px;
+}
+.cl--service-box .cl--info h2{
+    font-size: 25px;
+    margin-bottom: 19px;
+}
+.cl--service-box .cl--info p{
+    font-size: 20px;
+  color: #606060;
+  font-family: "Oswald", sans-serif;
+}
+.cl--service-box.wide{
+    max-width: calc(100% - 25px);
+  padding-right: 244px;
+}
+.cl--service-box.wide::after{
+   display: none;
+}
+.cl--service-box.wide .cl-img{
+   max-width: 196px;
+   width: 100%;
+   position: absolute;
+   right: 23px;
+   bottom: 0px;
+}
+.cl--service-box.wide .cl-img img{
+   width: 100%;
+}
+@media (max-width: 1200px) {
+   .cl--service-box.wide{
+      max-width: 100%;
+    padding-right: 176px;
+    }
+   .cl--service-box.wide .cl-img {
+          max-width: 139px;
+    }
+}
+@media (max-width: 991px) {
+   .cl--service-box.wide{
+      display: flex;
+      align-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      padding-right: 284px;
+    }
+   .cl--service-box.wide .cl-img {
+        max-width: 190px;
+    }
+}
+@media (max-width: 767px) {
+.cl--service-box.wide {
+        padding-right: 39%;
+}
+.cl--service-box .cl--info h2{
+    font-size: 17px;
+}
+.cl--service-box .cl--info p{
+   font-size: 13px;
+}
+    .cl--service-box.wide .cl-img {
+        max-width: 34%;
+        right: 10px;
+        height: 100%;
+        display: flex;
+        align-items: self-end;
+        padding-top: 7px;
+    }
+.cl--service-box.wide .cl-img img {
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+} 
+
+.fp-region {
+padding-left: 25%;
+width: 70%;
+margin-bottom: 50px;
+}
+
+@media (max-width: 575px) {
+.cl--service-box {
+min-height: 140px;
+}
+.fp-region {
+padding-right: 7.5px;
+padding-left: 7.5px;
+padding-top: 20px;
+width: 100%;
+margin-bottom: -20px;
+}
+}
+
+.errors p{
+width: 50%;
+}
+
+.errors-left{
+text-align:right;
+}
+
+@media (max-width: 992px) {
+.sc-banner .city_anim-block {
+display:none;
+}
+.fp-pre-title {
+width: 90%;
+}
+
+.faq-page img {
+width: 100%;
+}
+
+.errors img {
+width: 50%;
+}
+.errors p{
+width: 100%;
+}
+
+.errors {
+text-align:center;
+}
+
+.soc {
+width: 30px;
+}
+
+}
+
+.soc {
+width: 30px;
+}
+
+.vtb-popup {
+height: 100%;
+display: block;
+text-align: center;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+#no-submit-message {
+font-size: 14px;
+}
+
+.form-check-label {
+padding-top: 6px;
+}
+
+.n-form__item {
+padding-top: 6px;
+}
+
+@media (max-width: 576px) {
+.vtb-popup a {
+font-size: 1rem;
+}
+
+.pamyatka img {
+  width: 100%;
+}
+}
+
+{
+
+
+</style>
+
+
+        
+
+    </head>
+
+
+    <body class="page-body">
+
+        
+<div class="offcanvas bs-offcanvas bs-offcanvas-start bs-offcanvas--menu"
+     tabindex="-1"
+     id="offcanvas-menu"
+     data-bs-backdrop="false"
+     aria-labelledby="offcanvas-menu-label">
+
+
+    <div class="bs-offcanvas-body">
+        
+<div data-swiper="menu">
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="widget py-20px px-32px">
+
+                    <nav class="bs-navbar-nav">
+                        
+                        
+                        <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="/fixed-prices/">
+                            Энергоснабжение под ключ
+                        </a>
+                        
+                        
+                        
+                        <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="/energy-trading/">
+                            Энерготрейдинг
+                        </a>
+                        
+                        
+                        
+                        <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="/sistema-nakopleniya-elektroenergii/">
+                            Накопители (СНЭЭ)
+                        </a>
+                        
+                        
+                        
+                        <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="/about-us/">
+                            О компании
+                        </a>
+                        
+                        
+                        
+                        <button type="button"
+                                class="bs-btn bs-btn-has-icon bs-btn-link bs-btn-link--regular bs-nav-link swiper-slide-button"
+                                data-slide-target="submenu-32">
+                            <span>Полезное</span>
+                            <span class="icon">
+                                <svg>
+                                    <use xlink:href="/static/img/icons/next.svg#svg-next"></use>
+                                </svg>
+                            </span>
+                        </button>
+                        
+                        
+                        
+                        <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="/contacts/">
+                            Контакты
+                        </a>
+                        
+                        
+                    </nav>
+                </div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="swiper-slide"
+                 data-slide-submenu="submenu-32">
+                <div class="widget py-20px px-32px">
+                    <nav class="bs-navbar-nav">
+                        <button type="button" class="bs-btn bs-btn-has-icon bs-btn-link bs-btn-link--regular bs-nav-link swiper-slide-back"
+                                              data-slide-target="back">
+                            <span class="icon">
+                                <svg>
+                                    <use xlink:href="/static/img/icons/prev.svg#svg-prev"></use>
+                                </svg>
+                            </span>
+                            <span>Полезное</span>
+                        </button>
+                        
+                        <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="/articles/">
+                            Статьи
+                        </a>
+                        
+                        <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="/faq/">
+                            Вопрос-ответ
+                        </a>
+                        
+                        <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="/docs-templates/">
+                            Шаблоны документов
+                        </a>
+                        
+                        <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="/company-details/">
+                            Реквизиты
+                        </a>
+                        
+                        <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="/revoce-power-of-attorney/">
+                            Информация по отмене доверенностей
+                        </a>
+                        
+                        <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="/information/">
+                            Раскрытие информации
+                        </a>
+                        
+                        <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="/assessment-working-conditions/">
+                            Специальная оценка условий труда
+                        </a>
+                        
+                    </nav>
+                </div>
+            </div>
+            
+            
+            
+            
+
+        </div>
+    </div>
+</div>
+
+
+        <div class="d-flex flex-column gap-20px mt-auto pt-32px">
+            <div class="d-flex flex-column align-items-center gap-16px">
+                
+                <a href="tel:+88002221200" class="bs-btn bs-btn-link bs-btn-link--regular">
+                    <span>8 800 222 12 00</span>
+                </a>
+
+                
+                
+                
+                
+                
+                
+
+            </div>
+
+            
+            <a href="mailto:zayavka@enerone.ru" class="bs-btn bs-btn-base bs-btn-border-gradient bs-btn-outline-primary">
+                <span>zayavka@enerone.ru</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="offcanvas bs-offcanvas bs-offcanvas-start bs-offcanvas--menu" tabindex="-1"
+                                                       id="offcanvas-user"
+                                                       data-bs-backdrop="false"
+                                                       aria-labelledby="offcanvas-user-label">
+    <div class="bs-offcanvas-body">
+        <div class="d-flex flex-column gap-48px">
+            <div class="d-flex gap-20px">
+                <div class="w-64px h-64px flex-shrink-0 bs-bg-white rounded-8px">
+                    <picture>
+                        <source srcset="/static/img/users/default.webp" type="image/webp">
+                            <img loading="lazy" src="/static/img/users/default.png" class="w-100 h-100 d-block object-fit-cover" width="60" height="60" alt="Картинка">
+                    </picture>
+                </div>
+                
+            </div>
+
+            <div class="d-flex flex-column gap-16px">
+                <a href="/users/lk/contracts/" class="bs-btn bs-btn-base bs-btn-border-gradient bs-btn-outline-primary">
+                    <span>Договоры</span>
+                </a>
+                <a href="/users/lk/history/" class="bs-btn bs-btn-base bs-btn-border-gradient bs-btn-outline-primary">
+                    <span>Счета</span>
+                </a>
+                <a href="/users/lk/settlements/" class="bs-btn bs-btn-base bs-btn-border-gradient bs-btn-outline-primary">
+                    <span>Взаиморасчеты</span>
+                </a>
+                <a href="/users/lk/feedback/" class="bs-btn bs-btn-base bs-btn-border-gradient bs-btn-outline-primary">
+                    <span>Сообщения</span>
+                </a>
+                <a href="/users/lk/profile/" class="bs-btn bs-btn-base bs-btn-border-gradient bs-btn-outline-primary">
+                    <span>Профиль</span>
+                </a>
+                <a href="/users/lk/transfer_meters_data/" class="bs-btn bs-btn-base bs-btn-border-gradient bs-btn-outline-primary">
+                    <span>Передача показаний</span>
+                </a>
+                <a href="/users/lk/payments/" class="bs-btn bs-btn-base bs-btn-border-gradient bs-btn-outline-primary">
+                    <span>Платежи</span>
+                </a>
+
+                
+                <a href="/users/lk/autopayments/" class="bs-btn bs-btn-base bs-btn-border-gradient bs-btn-outline-primary">
+                    <span>Автоплатежи</span>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+        <div class="site-container">
+            <header class="bs-header" data-header>
+                
+<div class="bs-container">
+    <div class="bs-header-top py-16px py-lg-24px">
+        <div class="d-flex d-lg-none">
+            <button type="button" class="bs-btn bs-btn-has-icon bs-btn-icon"
+                                  data-bs-toggle="offcanvas"
+                                  data-bs-target="#offcanvas-menu"
+                                  aria-controls="offcanvas-menu">
+                <span class="icon-container">
+                    <span class="icon icon-gradient" style="--bs-icon-gradient: url('/static/img/icons/menu.svg#svg-menu')">
+                        <svg>
+                            <use xlink:href="/static/img/icons/menu.svg#svg-menu"></use>
+                        </svg>
+                    </span>
+                    <span class="icon">
+                        <svg>
+                            <use xlink:href="/static/img/icons/menu.svg#svg-menu"></use>
+                        </svg>
+                    </span>
+                </span>
+            </button>
+        </div>
+
+        <div class="bs-header-start">
+            <div class="bs-navbar-brand">
+                <a class="bs-navbar-brand-link" href="/">
+                    <img loading="lazy" src="/static/img/logo.svg" class="image" width="210" height="68" alt="Новая энергия">
+                </a>
+            </div>
+        </div>
+
+        <div class="d-flex d-lg-none">
+            
+            <a type="button" class="bs-btn bs-btn-has-icon bs-btn-icon" href="/users/login/">
+                <span class="icon-container">
+                    <span class="icon icon-gradient" style="--bs-icon-gradient: url('/static/img/icons/user.svg#svg-user')">
+                        <svg>
+                            <use xlink:href="/static/img/icons/user.svg#svg-user"></use>
+                        </svg>
+                    </span>
+                    <span class="icon">
+                        <svg>
+                            <use xlink:href="/static/img/icons/user.svg#svg-user"></use>
+                        </svg>
+                    </span>
+                </span>
+            </a>
+            
+        </div>
+
+        <div class="d-none d-lg-flex align-items-lg-center justify-content-lg-between">
+            <div class="d-none d-lg-flex gap-lg-24px gap-xl-32px gap-xxl-40px">
+                <!--
+<a href="#" class="bs-btn bs-btn-base bs-btn-border-gradient bs-btn-primary">
+<span>ИП и малый бизнес</span>
+</a>
+<a href="#" class="bs-btn bs-btn-base bs-btn-border-gradient bs-btn-success">
+<span>Средний и крупный бизнес</span>
+</a>
+-->
+            </div>
+
+            <div class="d-none d-lg-flex flex-lg-column align-items-lg-end gap-lg-8px">
+                
+                <a href="tel:+88002221200" class="bs-btn bs-btn-link bs-btn-link--regular">
+                    <span>8 800 222 12 00</span>
+                </a>
+
+                
+                
+                
+                
+                
+                
+
+            </div>
+        </div>
+    </div>
+
+    <div class="bs-header-bottom">
+        <div class="bs-header-start">
+
+            
+            <a class="bs-btn bs-btn-base bs-btn-has-icon bs-btn-border-gradient bs-btn-outline-primary w-100"
+               href="/users/login/">
+                <span class="icon">
+                    <svg>
+                        <use xlink:href="/static/img/icons/user.svg#svg-user"></use>
+                    </svg>
+                </span>
+                <span>
+                    Личный кабинет
+                </span>
+            </a>
+            
+
+        </div>
+
+        <nav class="bs-navbar-nav">
+    
+    
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="/fixed-prices/">
+        Энергоснабжение под ключ
+    </a>
+    
+    
+    
+    
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="/energy-trading/">
+        Энерготрейдинг
+    </a>
+    
+    
+    
+    
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="/sistema-nakopleniya-elektroenergii/">
+        Накопители (СНЭЭ)
+    </a>
+    
+    
+    
+    
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="/about-us/">
+        О компании
+    </a>
+    
+    
+    
+    
+    
+    <div class="bs-dropdown dropdown">
+        <button type="button" class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link bs-bs-dropdown-toggle"
+                              data-bs-toggle="dropdown-hover"
+                              data-bs-offset="-40,16"
+                              aria-expanded="false">
+            Полезное
+        </button>
+        <div class="bs-dropdown-menu dropdown-menu">
+            <div class="bs-dropdown-menu-inner">
+                <div class="bs-dropdown-header">
+                    Полезное
+                </div>
+                <ul class="bs-dropdown-list list-group list-group--plaintext bs-list-group bs-list-group--plaintext">
+                    
+                    <li class="list-group-item bs-list-group-item">
+                        <a class="bs-dropdown-item" href="/articles/">
+                            Статьи
+                        </a>
+                    </li>
+                    
+                    <li class="list-group-item bs-list-group-item">
+                        <a class="bs-dropdown-item" href="/faq/">
+                            Вопрос-ответ
+                        </a>
+                    </li>
+                    
+                    <li class="list-group-item bs-list-group-item">
+                        <a class="bs-dropdown-item" href="/docs-templates/">
+                            Шаблоны документов
+                        </a>
+                    </li>
+                    
+                    <li class="list-group-item bs-list-group-item">
+                        <a class="bs-dropdown-item" href="/company-details/">
+                            Реквизиты
+                        </a>
+                    </li>
+                    
+                    <li class="list-group-item bs-list-group-item">
+                        <a class="bs-dropdown-item" href="/revoce-power-of-attorney/">
+                            Информация по отмене доверенностей
+                        </a>
+                    </li>
+                    
+                    <li class="list-group-item bs-list-group-item">
+                        <a class="bs-dropdown-item" href="/information/">
+                            Раскрытие информации
+                        </a>
+                    </li>
+                    
+                    <li class="list-group-item bs-list-group-item">
+                        <a class="bs-dropdown-item" href="/assessment-working-conditions/">
+                            Специальная оценка условий труда
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link" href="/contacts/">
+        Контакты
+    </a>
+    
+    
+    
+</nav>
+
+
+    </div>
+</div>
+
+            </header>
+
+
+            <main class="main">
+
+                
+
+
+
+
+
+
+
+
+                
+
+                
+                <section class="section">
+                    <div class="bs-container">
+                        
+
+
+<!-- контентная часть - начало -->
+
+<div class="r" style="margin-top: 70px;">
+
+  <div class="layout">
+    <div class="sidebar" id="sidebar">
+      <div class="nav-sec">Кабинет</div>
+      <div class="nav-item active">
+        <svg class="nav-ico" viewBox="0 0 16 16" fill="currentColor"><path d="M2 6.5L8 2l6 4.5V14H2V6.5z"/></svg>Главная
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ico" viewBox="0 0 16 16" fill="currentColor"><path d="M3 2h10a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1zm1 2v8h8V4H4zm1 2h6v1H5zm0 2h4v1H5z"/></svg>Договоры
+      </div>
+      <div class="nav-item" onclick="sendPrompt('Открыть раздел Сообщения')">
+        <svg class="nav-ico" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2h12v10l-6 2-6-2V2zm1 1v8.5l5 1.67 5-1.67V3H3zm2 2h6v1H5zm0 2h4v1H5z"/></svg>Сообщения
+        <span class="nav-badge">3</span>
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ico" viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="2" width="12" height="12" rx="1"/></svg>Счета
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ico" viewBox="0 0 16 16" fill="currentColor"><path d="M4 10h2v4H4zm3-4h2v8H7zm3 2h2v6h-2z"/></svg>Акты сверки
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ico" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="4" width="14" height="9" rx="1.5"/></svg>Оплаты
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ico" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="6"/></svg>Автоплатежи
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ico" viewBox="0 0 16 16" fill="currentColor"><path d="M3 3h10v10H3V3z"/></svg>Показания
+      </div>
+      <div class="nav-sec" style="margin-top:10px;">Профиль</div>
+      <div class="nav-item">
+        <svg class="nav-ico" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="5" r="3"/><path d="M2 14a6 6 0 0112 0H2z"/></svg>Профиль
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="pg-title">Добро пожаловать, Алексей Сергеевич</div>
+      <div class="pg-sub">Апрель 2026 · ООО «Технопром»</div>
+
+      <div class="statbar">
+        <div class="stat-card c-green">
+          <div class="stat-label">Договоров</div>
+          <div class="stat-val ok">2</div>
+          <div class="stat-hint">Активных</div>
+        </div>
+        <!-- пример: задолженность -->
+        <div class="stat-card c-red" id="debtCard">
+          <div class="stat-label" id="debtCardLabel">Задолженность</div>
+          <div class="stat-val danger" id="debtCardVal">187 432 ₽</div>
+          <div class="stat-hint" id="debtCardHint">По всем договорам</div>
+        </div>
+        <div class="stat-card c-amber">
+          <div class="stat-label">Приборов учёта</div>
+          <div class="stat-val">6</div>
+          <div class="stat-hint">На 4 объектах</div>
+        </div>
+        <div class="stat-card c-blue">
+          <div class="stat-label">Последняя оплата</div>
+          <div class="stat-val" style="font-size:17px;color:#62b67c;">14 апр 2026</div>
+          <div class="stat-hint">75 000 ₽</div>
+        </div>
+      </div>
+
+      <!-- переключатель для демонстрации состояний задолженности -->
+      <div style="margin-bottom:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <span style="font-size:11px;color:#aaa;">Демо — сменить состояние баланса:</span>
+        <button onclick="setDebt()" style="font-size:11px;padding:3px 10px;border-radius:5px;border:1px solid #f06060;background:#fff;color:#e04040;cursor:pointer;font-family:inherit;">Задолженность</button>
+        <button onclick="setOverpay()" style="font-size:11px;padding:3px 10px;border-radius:5px;border:1px solid #62b67c;background:#fff;color:#4a9e62;cursor:pointer;font-family:inherit;">Переплата</button>
+      </div>
+
+      <div class="sec-hdr">
+        <div class="sec-title">Договоры</div>
+        <a class="sec-link">Все договоры →</a>
+      </div>
+
+      <div class="contracts-grid">
+
+        <!-- договор 1 — задолженность -->
+        <div class="c-card">
+          <div class="c-card-top">
+            <div class="c-num-row">
+              <span class="c-num">№ ДОГ-2021/0347</span>
+              <a class="mgr-link" onclick="sendPrompt('Написать персональному менеджеру по договору ДОГ-2021/0347')">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="4" r="2.2" stroke="#77A8E4" stroke-width="1.1"/><path d="M1.5 11a4.5 4.5 0 019 0" stroke="#77A8E4" stroke-width="1.1"/></svg>
+                Написать менеджеру
+              </a>
+            </div>
+            <div class="c-type">Энергоснабжение под ключ · с 15.03.2021</div>
+            <div class="debt-row">
+              <div class="debt-left">
+                <div class="debt-lbl">Задолженность</div>
+                <div class="debt-amt">143 200 <span class="debt-rub">₽</span></div>
+              </div>
+              <button class="btn-pay-inline" onclick="sendPrompt('Оплатить задолженность по договору ДОГ-2021/0347')">Оплатить</button>
+            </div>
+          </div>
+          <div class="c-card-body">
+            <div class="obj-block">
+              <div class="obj-lbl">Объект 1</div>
+              <div class="obj-name">Производственный цех</div>
+              <div class="obj-addr">г. Челябинск, ул. Промышленная, 12</div>
+              <div class="meters">
+                <div class="meter">
+                  <span class="m-num">ЦЭ2303-001845</span>
+                  <span class="m-val">82 407 <span class="m-unit">кВт·ч</span></span>
+                </div>
+                <div class="meter">
+                  <span class="m-num">ЦЭ2303-001846</span>
+                  <span class="m-val">31 190 <span class="m-unit">кВт·ч</span></span>
+                </div>
+              </div>
+            </div>
+            <div class="obj-block">
+              <div class="obj-lbl">Объект 2</div>
+              <div class="obj-name">Склад готовой продукции</div>
+              <div class="obj-addr">г. Челябинск, ул. Промышленная, 14</div>
+              <div class="meters">
+                <div class="meter">
+                  <span class="m-num">СЭ1904-007712</span>
+                  <span class="m-val">14 055 <span class="m-unit">кВт·ч</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="c-foot">
+            <button class="btn-readings" onclick="sendPrompt('Передать показания по договору ДОГ-2021/0347')">Передать показания →</button>
+          </div>
+        </div>
+
+        <!-- договор 2 — переплата (альтернативное состояние) -->
+        <div class="c-card">
+          <div class="c-card-top">
+            <div class="c-num-row">
+              <span class="c-num">№ ДОГ-2023/1182</span>
+              <a class="mgr-link" onclick="sendPrompt('Написать персональному менеджеру по договору ДОГ-2023/1182')">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="4" r="2.2" stroke="#77A8E4" stroke-width="1.1"/><path d="M1.5 11a4.5 4.5 0 019 0" stroke="#77A8E4" stroke-width="1.1"/></svg>
+                Написать менеджеру
+              </a>
+            </div>
+            <div class="c-type">Оптовый рынок ОРЭМ · с 01.09.2023</div>
+            <div class="debt-row">
+              <div class="debt-left">
+                <div class="debt-lbl">Баланс</div>
+                <div class="debt-amt ok">+ 12 450 <span class="debt-rub">₽</span></div>
+                <div class="overpay-tag">Переплата</div>
+              </div>
+              <button class="btn-pay-inline" disabled style="background:#e8f5ec;color:#aaa;cursor:default;">Нет долга</button>
+            </div>
+          </div>
+          <div class="c-card-body">
+            <div class="obj-block">
+              <div class="obj-lbl">Объект 1</div>
+              <div class="obj-name">Административное здание</div>
+              <div class="obj-addr">г. Магнитогорск, пр. Ленина, 55</div>
+              <div class="meters">
+                <div class="meter">
+                  <span class="m-num">МЭ2201-034421</span>
+                  <span class="m-val">29 817 <span class="m-unit">кВт·ч</span></span>
+                </div>
+                <div class="meter">
+                  <span class="m-num">МЭ2201-034422</span>
+                  <span class="m-val">9 340 <span class="m-unit">кВт·ч</span></span>
+                </div>
+              </div>
+            </div>
+            <div class="obj-block">
+              <div class="obj-lbl">Объект 2</div>
+              <div class="obj-name">Парковочный комплекс</div>
+              <div class="obj-addr">г. Магнитогорск, пр. Ленина, 55А</div>
+              <div class="meters">
+                <div class="meter">
+                  <span class="m-num">ПЭ2305-011007</span>
+                  <span class="m-val">6 903 <span class="m-unit">кВт·ч</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="c-foot">
+            <button class="btn-readings" onclick="sendPrompt('Передать показания по договору ДОГ-2023/1182')">Передать показания →</button>
+          </div>
+        </div>
+
+        <!-- добавить договор -->
+        <div class="add-card" onclick="sendPrompt('Добавить новый договор в личный кабинет')">
+          <div class="add-circle">+</div>
+          <div class="add-text">Добавить договор</div>
+          <div class="add-hint">Привязать существующий договор<br>или заключить новый</div>
+        </div>
+      </div>
+
+      <div class="sec-hdr">
+        <div class="sec-title">Разделы</div>
+      </div>
+      <div class="tiles-grid">
+        <div class="tile" onclick="sendPrompt('Открыть раздел Сообщения')">
+          <div class="tile-ico g"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="3" width="14" height="10" rx="1.5" stroke="#62b67c" stroke-width="1.4"/><path d="M2 5l7 5 7-5" stroke="#62b67c" stroke-width="1.4"/></svg></div>
+          <div class="tile-name">Сообщения <span class="tile-badge">3</span></div>
+          <div class="tile-desc">Переписка с поставщиком и уведомления</div>
+          <div class="tile-arr">→</div>
+        </div>
+        <div class="tile">
+          <div class="tile-ico y"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="2" width="12" height="14" rx="1.5" stroke="#f7b114" stroke-width="1.4"/><path d="M6 6h6M6 9h6M6 12h4" stroke="#f7b114" stroke-width="1.3"/></svg></div>
+          <div class="tile-name">Счета</div>
+          <div class="tile-desc">История выставленных счетов</div>
+          <div class="tile-arr">→</div>
+        </div>
+        <div class="tile">
+          <div class="tile-ico b"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 11h2v5H4v-5zm4-5h2v10H8V6zm4 3h2v7h-2V9z" stroke="#77A8E4" stroke-width="1.3"/></svg></div>
+          <div class="tile-name">Акты сверки</div>
+          <div class="tile-desc">Взаиморасчёты за периоды</div>
+          <div class="tile-arr">→</div>
+        </div>
+        <div class="tile">
+          <div class="tile-ico g"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="5" width="14" height="9" rx="1.5" stroke="#62b67c" stroke-width="1.4"/><path d="M2 8h14" stroke="#62b67c" stroke-width="1.3"/></svg></div>
+          <div class="tile-name">Оплаты</div>
+          <div class="tile-desc">История платежей и квитанции</div>
+          <div class="tile-arr">→</div>
+        </div>
+        <div class="tile">
+          <div class="tile-ico y"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6" stroke="#f7b114" stroke-width="1.4"/><path d="M9 6v3l2 1.5" stroke="#f7b114" stroke-width="1.3"/></svg></div>
+          <div class="tile-name">Автоплатежи</div>
+          <div class="tile-desc">Настройка автоматических платежей</div>
+          <div class="tile-arr">→</div>
+        </div>
+        <div class="tile">
+          <div class="tile-ico b"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="6" r="3" stroke="#77A8E4" stroke-width="1.4"/><path d="M3 16a6 6 0 0112 0" stroke="#77A8E4" stroke-width="1.4"/></svg></div>
+          <div class="tile-name">Профиль</div>
+          <div class="tile-desc">Реквизиты, контакты и уведомления</div>
+          <div class="tile-arr">→</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+}
+document.addEventListener('click', function(e){
+  const sb = document.getElementById('sidebar');
+  const btn = document.getElementById('burgerBtn');
+  if(sb.classList.contains('open') && !sb.contains(e.target) && !btn.contains(e.target)){
+    sb.classList.remove('open');
+  }
+});
+
+function setDebt(){
+  const card = document.getElementById('debtCard');
+  card.className = 'stat-card c-red';
+  document.getElementById('debtCardLabel').textContent = 'Задолженность';
+  document.getElementById('debtCardVal').className = 'stat-val danger';
+  document.getElementById('debtCardVal').textContent = '187 432 ₽';
+  document.getElementById('debtCardHint').textContent = 'По всем договорам';
+}
+function setOverpay(){
+  const card = document.getElementById('debtCard');
+  card.className = 'stat-card c-overpay';
+  document.getElementById('debtCardLabel').textContent = 'Переплата';
+  document.getElementById('debtCardVal').className = 'stat-val overpay';
+  document.getElementById('debtCardVal').textContent = '+ 12 450 ₽';
+  document.getElementById('debtCardHint').textContent = 'Зачтётся в следующем периоде';
+}
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;}
+  .r{font-family:'Golos Text',sans-serif;background:#f5f6f8;color:#333;min-height:100vh;}
+
+  /* HEADER */
+  .hdr{background:#fff;border-bottom:1px solid #e8ecf0;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+  .logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  .logo-icon{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,#62b67c,#f7b114);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .logo-text{font-size:14px;font-weight:700;color:#333;line-height:1.2;}
+  .logo-sub{font-size:10px;color:#999;letter-spacing:0.06em;text-transform:uppercase;}
+  .hdr-phone{font-size:13px;color:#62b67c;font-weight:600;white-space:nowrap;}
+  .avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#62b67c,#f7b114);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;}
+  .uname{font-size:13px;color:#444;font-weight:500;}
+  .uorg{font-size:11px;color:#999;}
+  .hdr-right{display:flex;align-items:center;gap:16px;}
+
+  /* LAYOUT */
+  .layout{display:grid;grid-template-columns:210px 1fr;min-height:calc(100vh - 57px);}
+
+  /* SIDEBAR */
+  .sidebar{background:#fff;border-right:1px solid #e8ecf0;padding:16px 0;}
+  .nav-sec{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#b0bcc8;padding:14px 18px 5px;}
+  .nav-item{display:flex;align-items:center;gap:9px;padding:9px 18px;font-size:13px;color:#666;cursor:pointer;border-left:2.5px solid transparent;transition:background .1s,color .1s;}
+  .nav-item:hover{background:#f5faf6;color:#62b67c;}
+  .nav-item.active{background:#f0f8f2;color:#62b67c;border-left-color:#62b67c;font-weight:600;}
+  .nav-ico{width:15px;height:15px;flex-shrink:0;opacity:.6;}
+  .nav-item.active .nav-ico,.nav-item:hover .nav-ico{opacity:1;}
+  .nav-badge{background:#f7b114;color:#fff;font-size:10px;font-weight:700;border-radius:8px;padding:1px 5px;margin-left:auto;}
+
+  /* BURGER */
+  .burger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px;background:none;border:none;}
+  .burger span{display:block;width:20px;height:2px;background:#555;border-radius:2px;}
+
+  /* MAIN */
+  .main{padding:24px 28px;overflow-y:auto;}
+  .pg-title{font-size:20px;font-weight:700;color:#222;margin-bottom:3px;}
+  .pg-sub{font-size:13px;color:#999;margin-bottom:20px;}
+
+  /* СТАТУС-БАР */
+  .statbar{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;}
+  .stat-card{background:#fff;border:1px solid #e8ecf0;border-radius:10px;padding:14px 16px;position:relative;overflow:hidden;}
+  .stat-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;}
+  .stat-card.c-green::after{background:linear-gradient(90deg,#62b67c,#a2d9b1);}
+  .stat-card.c-red::after{background:#f06060;}
+  .stat-card.c-overpay::after{background:linear-gradient(90deg,#62b67c,#f7b114);}
+  .stat-card.c-amber::after{background:linear-gradient(90deg,#f7b114,#ffd166);}
+  .stat-card.c-blue::after{background:#77A8E4;}
+  .stat-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;margin-bottom:6px;}
+  .stat-val{font-size:22px;font-weight:700;color:#222;line-height:1.1;}
+  .stat-val.danger{color:#e04040;}
+  .stat-val.ok{color:#62b67c;}
+  .stat-val.overpay{color:#62b67c;}
+  .stat-hint{font-size:11px;color:#bbb;margin-top:4px;}
+  .overpay-badge{display:inline-block;background:#edf8f0;color:#4a9e62;border:1px solid #b8dfbf;font-size:10px;font-weight:700;border-radius:4px;padding:1px 6px;margin-top:4px;}
+
+  /* SECTION HDR */
+  .sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+  .sec-title{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#aaa;}
+  .sec-link{font-size:12px;color:#62b67c;cursor:pointer;text-decoration:none;}
+  .sec-link:hover{text-decoration:underline;}
+
+  /* ДОГОВОРЫ */
+  .contracts-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;}
+
+  .c-card{background:#fff;border:1px solid #e8ecf0;border-radius:12px;overflow:hidden;position:relative;}
+  .c-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#62b67c,#f7b114);}
+
+  .c-card-top{padding:14px 18px 12px;border-bottom:1px solid #f0f4f8;}
+
+  /* номер + менеджер */
+  .c-num-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:2px;}
+  .c-num{font-size:13px;font-weight:700;color:#62b67c;}
+  .mgr-link{font-size:11px;color:#77A8E4;cursor:pointer;text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:3px;}
+  .mgr-link:hover{text-decoration:underline;color:#5a8ed4;}
+  .c-type{font-size:11px;color:#aaa;margin-bottom:10px;}
+
+  /* задолженность + кнопка */
+  .debt-row{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .debt-left{}
+  .debt-lbl{font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;}
+  .debt-amt{font-size:20px;font-weight:700;color:#e04040;line-height:1.1;}
+  .debt-amt.ok{color:#62b67c;}
+  .debt-rub{font-size:13px;font-weight:400;}
+  .overpay-tag{display:inline-block;background:#edf8f0;color:#4a9e62;border:1px solid #b8dfbf;font-size:10px;font-weight:700;border-radius:4px;padding:1px 7px;margin-top:3px;}
+
+  .btn-pay-inline{background:linear-gradient(90deg,#62b67c,#82cf9a);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;flex-shrink:0;}
+  .btn-pay-inline:hover{opacity:.88;}
+  .btn-pay-inline:disabled{background:#d0e8d8;color:#fff;cursor:default;}
+
+  .c-card-body{padding:14px 18px;}
+  .obj-block{margin-bottom:12px;}
+  .obj-block:last-child{margin-bottom:0;}
+  .obj-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#b0bcc8;margin-bottom:3px;}
+  .obj-name{font-size:12px;font-weight:600;color:#444;margin-bottom:3px;}
+  .obj-addr{font-size:11px;color:#aaa;margin-bottom:6px;}
+  .meters{display:flex;flex-direction:column;gap:4px;}
+  .meter{display:flex;justify-content:space-between;align-items:center;background:#f7f9fc;border:1px solid #edf1f7;border-radius:6px;padding:6px 10px;}
+  .m-num{font-size:11px;color:#888;font-family:monospace;}
+  .m-val{font-size:12px;font-weight:700;color:#77A8E4;font-family:monospace;}
+  .m-unit{font-size:10px;color:#aaa;font-weight:400;}
+
+  .c-foot{padding:0 18px 14px;display:flex;justify-content:flex-end;}
+  .btn-readings{background:#fff;border:1.5px solid #e0e8f0;color:#62b67c;border-radius:7px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;}
+  .btn-readings:hover{border-color:#62b67c;background:#f5faf6;}
+
+  /* добавить договор */
+  .add-card{background:#fff;border:1.5px dashed #d0dce8;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;min-height:160px;padding:20px;transition:border-color .15s,background .15s;}
+  .add-card:hover{border-color:#62b67c;background:#f8fcf9;}
+  .add-circle{width:40px;height:40px;border-radius:50%;border:2px solid #cde8d5;display:flex;align-items:center;justify-content:center;font-size:22px;color:#62b67c;line-height:1;}
+  .add-text{font-size:12px;font-weight:600;color:#62b67c;}
+  .add-hint{font-size:11px;color:#bbb;text-align:center;}
+
+  /* ПЛАШКИ */
+  .tiles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px;}
+  .tile{background:#fff;border:1px solid #e8ecf0;border-radius:12px;padding:16px;cursor:pointer;display:flex;flex-direction:column;gap:7px;transition:border-color .12s,transform .12s;}
+  .tile:hover{border-color:#b8dfbf;background:#f8fcf9;transform:translateY(-1px);}
+  .tile-ico{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;}
+  .g{background:#edf8f0;} .y{background:#fff8e6;} .b{background:#eef4fc;}
+  .tile-name{font-size:13px;font-weight:700;color:#333;}
+  .tile-desc{font-size:11px;color:#aaa;line-height:1.4;}
+  .tile-arr{font-size:15px;color:#ccc;margin-top:auto;align-self:flex-end;}
+  .tile:hover .tile-arr{color:#62b67c;}
+  .tile-badge{background:#f7b114;color:#fff;font-size:10px;font-weight:700;border-radius:8px;padding:1px 6px;margin-left:5px;}
+
+  /* ===================== АДАПТИВ ===================== */
+  @media (max-width: 900px) {
+    .statbar{grid-template-columns:repeat(2,1fr);}
+    .contracts-grid{grid-template-columns:1fr;}
+    .tiles-grid{grid-template-columns:repeat(2,1fr);}
+    .layout{grid-template-columns:1fr;}
+    .sidebar{display:none;position:fixed;top:57px;left:0;bottom:0;width:220px;z-index:200;box-shadow:4px 0 24px rgba(0,0,0,.08);}
+    .sidebar.open{display:block;}
+    .burger{display:flex;}
+    .hdr-phone{display:none;}
+    .main{padding:16px;}
+  }
+  @media (max-width: 560px) {
+    .statbar{grid-template-columns:repeat(2,1fr);gap:8px;}
+    .stat-val{font-size:18px;}
+    .tiles-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
+    .pg-title{font-size:17px;}
+    .hdr{padding:10px 14px;}
+    .main{padding:12px;}
+    .debt-row{flex-wrap:wrap;}
+    .btn-pay-inline{width:100%;text-align:center;}
+    .c-num-row{flex-direction:column;align-items:flex-start;gap:4px;}
+    .uorg{display:none;}
+    .contracts-grid{gap:12px;}
+  }
+  @media (max-width: 400px) {
+    .statbar{grid-template-columns:1fr 1fr;}
+    .tiles-grid{grid-template-columns:1fr 1fr;}
+    .stat-val{font-size:16px;}
+    .tile-desc{display:none;}
+  }
+</style>
+
+
+<!-- контентная часть - конец -->
+
+
+
+
+
+
+<div class="modal bs-modal fade" id="bid-request-popup-form-modal" tabindex="-1" aria-labelledby="modal-callback-label"
+                                                                                 aria-hidden="true">
+    <div class="modal-dialog bs-modal-dialog bs-modal-dialog-centered">
+        <form id="staticpage-popup-form"
+              action="/fixed-prices/"
+              method="POST"
+              class="bs-modal-content novalidate disable-on-submit"
+              autocomplete="off">
+            <input type="hidden" name="csrfmiddlewaretoken" value="r9E3bog9hIoC9Unp5to0Vp3oEabmEYrAdoEUGQ1aeufTFsUJtJUcXf1wqJjK858Q">
+            
+            <input type="hidden" name="request_type_custom" id="id_request_type_custom">
+            
+            <input type="hidden" name="next">
+
+            <div class="bs-modal-header">
+                <h3 class="bs-h3 bs-modal-title" id="modal-callback-label">
+                    Заявка на подключение
+                </h3>
+                <button type="button" class="bs-btn bs-btn-close bs-btn-has-icon" data-bs-dismiss="modal" aria-label="Close">
+                    <span class="icon">
+                        <svg>
+                            <use xlink:href="/static/img/icons/close.svg#svg-close"></use>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body bs-modal-body">
+                <div class="d-flex flex-column gap-24px">
+                    <div class="d-flex flex-column gap-20px">
+
+                        
+                        
+                        <div class="d-flex flex-column position-relative">
+                            <label class="bs-form-label">ФИО:</label>
+                            <div class="position-relative">
+
+                                
+                                <input type="text" name="fio" maxlength="128" placeholder="ФИО" aria-label="ФИО" class="bs-form-control" required id="id_fio">
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="d-flex flex-column position-relative">
+                            <label class="bs-form-label">Телефон:</label>
+                            <div class="position-relative">
+
+                                
+                                <input type="text" name="phone" maxlength="32" placeholder="Телефон" aria-label="Телефон" class="bs-form-control" required id="id_phone">
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="d-flex flex-column position-relative">
+                            <label class="bs-form-label">Регион:</label>
+                            <div class="position-relative">
+
+                                
+                                <select name="region" placeholder="Регион" aria-label="Регион" data-choices="once" id="id_region">
+  <option value="" selected>---------</option>
+
+  <option value="1">Челябинская область</option>
+
+  <option value="10">Курганская область</option>
+
+  <option value="11">Воронежская область</option>
+
+  <option value="12">Омская область</option>
+
+  <option value="13">Волгоградская область</option>
+
+  <option value="14">г. Магнитогорск</option>
+
+  <option value="15">Республика Башкортостан</option>
+
+  <option value="16">г. Москва</option>
+
+  <option value="18">Московская область</option>
+
+  <option value="17">Калужская область</option>
+
+  <option value="19">Тюменская область</option>
+
+  <option value="20">Свердловская область</option>
+
+  <option value="21">Кемеровская область</option>
+
+  <option value="22">Краснодарский край</option>
+
+  <option value="23">Красноярский край</option>
+
+</select>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="d-flex flex-column position-relative">
+                            <label class="bs-form-label">Другой регион:</label>
+                            <div class="position-relative">
+
+                                
+                                <input type="text" name="custom_region" maxlength="128" placeholder="Другой регион" aria-label="Другой регион" class="bs-form-control" id="id_custom_region">
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        
+                        
+
+                    </div>
+
+                    <div class="d-flex flex-column gap-20px">
+                        <div class="position-relative">
+                            <label class="bs-form-label">Я являюсь</label>
+                            <div class="bs-row g-12px">
+                                <div class="bs-col-6">
+                                    <div class="bs-form-check">
+                                        <input type="radio" class="bs-form-check-input" id="modal-callback-radio-0"
+                                                                                        name="modal-callback-radio" value="" checked>
+                                        <label class="bs-form-check-label" for="modal-callback-radio-0">ИП/юр.лицо</label>
+                                    </div>
+                                </div>
+                                <div class="bs-col-6">
+                                    <div class="bs-form-check">
+                                        <input type="radio" class="bs-form-check-input" id="modal-callback-radio-1"
+                                                                                        name="modal-callback-radio" data-bs-toggle="collapse-checked"
+                                                                                                                    data-bs-target="#modal-callback-collapse-1" value="">
+                                        <label class="bs-form-check-label" for="modal-callback-radio-1">физ.лицо</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback">
+                                Ошибка
+                            </div>
+                        </div>
+
+                        <div class="collapse" id="modal-callback-collapse-1">
+                            <p class="fs-12px fw-medium lh-normal text-primary m-0px">
+                                К сожалению, мы не можем принять вашу заявку, так как работаем только с юридическими лицами и
+                                индивидуальными предпринимателями. Если ваш вопрос касается энергоснабжения как физического лица,
+                                рекомендуем обратиться к вашему поставщику.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column gap-20px">
+                        <div class="d-flex flex-column position-relative">
+                            <label class="bs-form-label">ИНН:</label>
+                            <div class="position-relative">
+                                <input type="text" name="inn" maxlength="16" aria-label="ИНН" placeholder="ИНН" class="bs-form-control" id="id_inn">
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    
+<div class="bs-form-check col-sm-8 offset-sm-2">
+    <input type="checkbox" class="bs-form-check-input" id="consent" name="modal-callback-agree" required>
+    <label class="bs-form-check-label" for="modal-callback-agree">
+        Даю <a href="/personal-data-agrement/">согласие</a> на обработку персональных данных в соответствии с <a href="/legal-notice-and-privacy-policy/">политикой</a>
+    </label>
+</div>
+
+                </div>
+            </div>
+            <div class="bs-modal-footer">
+                <button type="submit" class="bs-btn bs-btn-base bs-btn-success" onclick="if(typeof ym !== &#39;undefined&#39;) ym(51638033, &#39;reachGoal&#39;, &#39;fp-send-app&#39;);return true;">
+                    <span class="text">Отправить</span>
+                </button>
+            </div>
+
+            <script>
+                const form = document.currentScript.closest("form");
+                const radios = form.querySelectorAll('input[name="modal-callback-radio"]')
+                const submitBtn = form.querySelector('[type="submit"]')
+
+                const updateSubmitState = () => {
+                    const checked = form.querySelector('input[name="modal-callback-radio"]:checked')
+                    if (checked?.id === 'modal-callback-radio-1') {
+                        submitBtn.disabled = true
+                    } else {
+                        submitBtn.disabled = false
+                    }
+                }
+
+                radios.forEach(radio => {
+                    radio.addEventListener('change', updateSubmitState)
+                })
+
+                updateSubmitState()
+                form.addEventListener('submit', (el) => {
+                    submitBtn.disabled = true;
+                })
+
+            </script>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+                    </div>
+                </section>
+                
+
+                
+
+
+
+                
+            </main>
+
+            <footer class="bs-footer">
+                <div class="bs-container">
+                    
+<div class="bs-footer-inner pt-32px pt-lg-64px px-lg-40px pb-80px">
+    <div class="d-flex flex-column gap-48px">
+        <div class="bs-row gy-48px">
+            <div class="bs-col-lg-3 col-xl-4">
+                <div class="d-flex flex-column gap-64px">
+                    <div class="bs-navbar-brand">
+                        <a class="bs-navbar-brand-link" href="/">
+                            <img loading="lazy" src="/static/img/logo.svg" class="image" width="284" height="93" alt="Новая энергия">
+                        </a>
+                    </div>
+
+                    <div class="d-flex flex-column gap-48px gap-lg-56px" data-transfer-origin="footer-socials" data-transfer-breakpoint="991.98">
+                <div class="d-flex flex-column gap-20px">
+                  <h3 class="bs-h3 text-success">
+                    Позвоните нам!
+                  </h3>
+
+                  <div class="d-flex flex-column gap-8px fs-14px">
+                    <a href="tel:+78002221200" class="bs-btn bs-btn-link bs-btn-link--regular">
+                      <span>+7 (800) 222-12-00</span>
+                    </a>
+
+                    <p class="text-gray-500 m-0px">
+                      пн-пт 9:00–17:00
+                    </p>
+                  </div>
+                </div>
+                <div class="d-flex flex-column gap-20px">
+                  <h3 class="bs-h3">
+                    Напишите нам
+                  </h3>
+
+                  <div class="d-flex flex-column gap-8px fs-14px">
+                    <a href="mailto:zayavka@enerone.ru" class="bs-btn bs-btn-link bs-btn-link--regular">
+                      <span>zayavka@enerone.ru</span>
+                    </a>
+
+                    <p class="text-gray-500 m-0px">
+                      пн-пт 9:00–17:00
+                    </p>
+                  </div>
+                </div>
+                <div class="d-flex flex-column gap-20px">
+                  <h3 class="bs-h3">
+                    Наши соцсети
+                  </h3>
+
+                  <div class="d-flex flex-wrap gap-12px gap-lg-20px">
+                    <a target="_blank" href="https://t.me/ESKNewenergy" class="bs-btn bs-btn-has-icon bs-btn-icon bs-btn-social">
+                      <span class="icon">
+                        <svg>
+                          <use xlink:href="/static/img/icons/telegram.svg#svg-telegram"></use>
+                        </svg>
+                      </span>
+                    </a>
+<!--
+                    <a href="#" class="bs-btn bs-btn-has-icon bs-btn-icon bs-btn-social">
+                      <span class="icon">
+                        <svg>
+                          <use xlink:href="/static/img/icons/whatsapp.svg#svg-whatsapp"></use>
+                        </svg>
+                      </span>
+                    </a>
+                    <a href="#" class="bs-btn bs-btn-has-icon bs-btn-icon bs-btn-social">
+                      <span class="icon">
+                        <svg>
+                          <use xlink:href="/static/img/icons/vk.svg#svg-vk"></use>
+                        </svg>
+                      </span>
+                    </a>
+-->
+                  </div>
+                </div>
+              </div>
+
+                </div>
+            </div>
+            <div class="bs-col-lg-9 col-xl-8">
+                <div class="bs-row gy-48px gx-32px">
+                    <div class="bs-col-6 bs-col-lg-4">
+                        <div class="d-flex flex-column gap-64px">
+                            <div class="d-flex flex-column gap-14px">
+                                
+<h3 class="bs-h3">
+    Клиентам
+</h3>
+
+
+<nav class="bs-navbar-nav bs-navbar-nav--footer">
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link"
+       href="/users/lk/"
+       title="Личный кабинет">
+        Личный кабинет
+    </a>
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link"
+       href="/new-client-memo/"
+       title="Памятка новому клиенту">
+        Памятка новому клиенту
+    </a>
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link"
+       href="/feedback/"
+       title="Обратная связь">
+        Обратная связь
+    </a>
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link"
+       href="/for-clients/"
+       title="Клиентам">
+        Клиентам
+    </a>
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link"
+       href="/docs-templates/"
+       title="Шаблоны документов">
+        Шаблоны документов
+    </a>
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link"
+       href="/faq/"
+       title="Вопрос-ответ">
+        Вопрос-ответ
+    </a>
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link"
+       href="/articles/"
+       title="Статьи">
+        Статьи
+    </a>
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link"
+       href="/reglament/"
+       title="Регламент взаимодействия">
+        Регламент взаимодействия
+    </a>
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link"
+       href="/start/"
+       title="Заявка на подключение">
+        Заявка на подключение
+    </a>
+    
+</nav>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bs-col-6 bs-col-lg-4">
+                        <div class="d-flex flex-column gap-64px">
+                            <div class="d-flex flex-column gap-14px">
+                                
+<h3 class="bs-h3">
+    Продукты
+</h3>
+
+
+<nav class="bs-navbar-nav bs-navbar-nav--footer">
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link"
+       href="/fixed-prices/"
+       title="Энергоснабжение под ключ">
+        Энергоснабжение под ключ
+    </a>
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link"
+       href="/energy-trading/"
+       title="Энерготрейдинг">
+        Энерготрейдинг
+    </a>
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link"
+       href="/sistema-nakopleniya-elektroenergii/"
+       title="Накопители (СНЭЭ)">
+        Накопители (СНЭЭ)
+    </a>
+    
+</nav>
+
+                            </div>
+
+                            <div class="d-flex flex-column gap-14px">
+                                
+<h3 class="bs-h3">
+    -
+</h3>
+
+
+<nav class="bs-navbar-nav bs-navbar-nav--footer">
+    
+</nav>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bs-col-6 bs-col-lg-4">
+                        <div class="d-flex flex-column gap-64px">
+                            <div class="d-flex flex-column gap-14px">
+                                
+<h3 class="bs-h3">
+    О компании
+</h3>
+
+
+<nav class="bs-navbar-nav bs-navbar-nav--footer">
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link"
+       href="/about-us/"
+       title="О компании">
+        О компании
+    </a>
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link"
+       href="/company-details/"
+       title="Реквизиты">
+        Реквизиты
+    </a>
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link"
+       href="/information/"
+       title="Раскрытие информации">
+        Раскрытие информации
+    </a>
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link"
+       href="/revoce-power-of-attorney/"
+       title="Информация по отмене доверенностей">
+        Информация по отмене доверенностей
+    </a>
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link"
+       href="/assessment-working-conditions/"
+       title="Специальная оценка условий труда">
+        Специальная оценка условий труда
+    </a>
+    
+    <a class="bs-btn bs-btn-link bs-btn-link--regular bs-nav-link"
+       href="/legal-notice-and-privacy-policy/"
+       title="Политика обработки персональных данных">
+        Политика обработки персональных данных
+    </a>
+    
+</nav>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bs-col-6 bs-col-lg-4 d-lg-none">
+                        <div class="d-flex flex-column gap-64px"
+                             data-transfer-target="footer-socials"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <span>Новая Энергия. Все права защищены</span><a class="link-grey" href="/legal-notice-and-privacy-policy/">Политика обработки персональных данных</a>
+<!--a target="_blank" href="https://t.me/ESKNewenergy"><img class="soc" src="https://luzhetskiy.github.io/enerone-html/img/icons/telegram.svg" alt=""></a-->
+
+    </div>
+</div>
+
+                </div>
+            </footer>
+
+        </div>
+
+        <script src="/static/scripts/jquery.min.js"></script>
+        
+        
+        <script defer src="/static/js/bootstrap.js?v9d1c804c"></script>
+
+        <script type="text/javascript" src="/jsi18n/"></script>
+        <script src="/static/scripts/babel.min.js"></script>
+        <script src="/static/scripts/popper.min.js"></script>
+
+        
+        
+
+        <script src="/static/scripts/jquery.validate.js"></script>
+        <script src="/static/scripts/additional-methods.js"></script>
+        <script src="/static/scripts/messages_ru.js"></script>
+        <script src="/static/scripts/daterangepicker.js"></script>
+
+        <script src="/static/scripts/select2.js"></script>
+        <script src="/static/scripts/imask.min.js"></script>
+
+        <script src="/static/scripts/js.cookie.js"></script>
+        <script src="/static/scripts/csrf.js"></script>
+
+
+        <script src="/static/scripts/vendor/jquery-validation/jquery.validate.js"></script>
+        <script src="/static/scripts/vendor/jquery-validation/additional-methods.js"></script>
+        <script src="/static/scripts/vendor/jquery-validation/localization/messages_ru.min.js"></script>
+        <script src="/static/feedback/js/feedback.js?v9d1c804c"></script>
+
+        <script src="/static/libs/popper.min.js"></script>
+        <script src="/static/libs/tippy-bundle.umd.min.js"></script>
+        <script src="/static/lk/js/lk.js?v9d1c804c"></script>
+
+
+        <script defer src="/static/js/main.js?v9d1c804c"></script>
+
+        
+
+<script src="/static/staticpages/staticpages.js?v9d1c804c"></script>
+
+
+
+
+        <script src="/static/rusfdev/scripts/libs/scroll-lock.min.js?v9d1c804c"></script>
+        <script src="/static/rusfdev/scripts/global.js?v9d1c804c"></script>
+        <script src="/static/scripts/jquery.mask.min.js"></script>
+        <script src="/static/scripts/custom.js?v9d1c804c"></script>
+
+        
+
+
+        
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+            (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+            ym(51638033, "init", {
+                id:51638033,
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+            });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/51638033" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+        
+
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            
+        </svg>
+        <script defer src="https://enerone.ru/media/uploads/energy-trading-calc/calc.js"></script>
+<script defer src="https://syrone.github.io/enerone/app/js/tariff.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search)
+
+  const modalId = params.get('modal')
+  const modalTitle = params.get('modalTitle')
+
+  if (!modalId) return
+
+  const modalEl = document.getElementById(modalId)
+
+  if (modalEl) {
+    if (modalTitle) {
+      const titleEl = modalEl.querySelector('.bs-modal-title')
+      if (titleEl) {
+        titleEl.textContent = modalTitle
+      }
+    }
+
+    const modal = new bootstrap.Modal(modalEl)
+    modal.show()
+  }
+})
+</script>
+
+        
+        
+
+        
+        <div class="popup popup-vtb d-none" id="vtbpopup" data-scroll-lock-scrollable data-scroll-lock-fill-gap>
+    <div class="popup-block">
+        <div class="popup-block__container popup-form__container text-center">
+            <h4>Ваша организация является клиентом Банка ВТБ?</h4>
+            <a class="popup__close" href="javascript:void(0);" data-popup-close></a>
+            <div class="vtb-popup-options">
+                <a target="_blank"
+                   href="https://db.vtb.ru/login?returtTo=/credits/express/new/newenergy">Да</a>
+                <a target="_blank"
+                   href="https://kabinet.vtb.ru/ui/smb/smep/credits?src=newenergy">Нет</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+        
+
+    </body>
+
+</html>

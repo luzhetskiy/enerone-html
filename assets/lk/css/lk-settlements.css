@@ -1,0 +1,138 @@
+/* ==========================================================================
+   ЛК «Новая энергия» — страница «Акты сверки» (взаиморасчёты)
+   Фильтры, бейджи и карточный режим таблицы берутся из lk.css.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Печатная форма акта — отдельным блоком над фильтрами
+   -------------------------------------------------------------------------- */
+.lk-act {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  background: var(--lk-surface);
+  border: 1px solid var(--lk-line);
+  border-left: 3px solid var(--lk-green);
+  border-radius: var(--lk-r-lg);
+  padding: 14px 18px;
+  margin-bottom: 22px;
+}
+.lk-act-ico {
+  flex-shrink: 0;
+  width: 38px; height: 38px; border-radius: 9px;
+  background: var(--lk-green-bg);
+  display: flex; align-items: center; justify-content: center;
+}
+.lk-act-ico svg { width: 18px; height: 18px; fill: none; stroke: var(--lk-green); stroke-width: 1.4; }
+
+.lk-act-body { min-width: 0; flex: 1 1 260px; }
+.lk-act-title { font-size: 13px; font-weight: 700; color: var(--lk-ink); margin-bottom: 2px; }
+.lk-act-note { font-size: 11px; color: var(--lk-muted); line-height: 1.45; }
+
+.lk-act-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+
+.lk-act-dl {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: linear-gradient(90deg, var(--lk-green), var(--lk-green-lt));
+  color: #fff; border: none; border-radius: var(--lk-r-md);
+  padding: 9px 18px; font-size: 12px; font-weight: 700; cursor: pointer;
+  white-space: nowrap;
+}
+.lk-act-dl:hover { opacity: .9; color: #fff; }
+
+/* договор не выбран — выгружать нечего */
+.lk-act-dl.is-disabled {
+  background: #d7e6dc;
+  color: #fff;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.lk-act-dl svg { width: 14px; height: 14px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.5; }
+
+/* --------------------------------------------------------------------------
+   Период: месяц + год с двух сторон
+   -------------------------------------------------------------------------- */
+.lk-filters--set {
+  grid-template-columns: minmax(190px, 1fr) minmax(230px, 1.1fr) minmax(230px, 1.1fr) auto;
+}
+.lk-period { display: grid; grid-template-columns: 1.35fr 1fr; gap: 8px; }
+.lk-period .lk-select { min-width: 0; }
+
+/* --------------------------------------------------------------------------
+   Таблица взаиморасчётов
+   -------------------------------------------------------------------------- */
+.lk-set { table-layout: fixed; }
+.lk-set td { vertical-align: top; }
+
+/* семь колонок не помещаются в строку — разрешаем переносить заголовки */
+.lk-set th {
+  white-space: normal;
+  line-height: 1.35;
+  vertical-align: bottom;
+  padding: 9px 10px;
+}
+.lk-set td { padding: 10px; }
+.lk-th-unit { color: #c8d2dc; font-weight: 700; }
+
+.lk-set col.is-year  { width: 58px; }
+.lk-set col.is-month { width: 92px; }
+.lk-set th:nth-child(n+3),
+.lk-set td:nth-child(n+3) { text-align: right; }
+
+.lk-set-year { color: var(--lk-muted); white-space: nowrap; }
+.lk-set-month { font-weight: 600; color: var(--lk-ink-2); white-space: nowrap; }
+
+.lk-set-num {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  color: var(--lk-ink-2);
+}
+.lk-set-num--zero { color: var(--lk-muted-3); }
+.lk-set-num--minus { color: var(--lk-green-dk); }   /* уменьшение долга */
+.lk-set-num--plus  { color: var(--lk-red-dk); }     /* доначисление */
+.lk-set-num--close { font-weight: 700; color: var(--lk-ink); }
+
+/* итоговая строка */
+.lk-set tfoot td {
+  border-top: 1.5px solid #dfe7f0;
+  border-bottom: none;
+  padding-top: 12px;
+  font-weight: 700; color: var(--lk-ink);
+  background: #f7f9fc;
+}
+.lk-set tfoot .lk-set-num { font-weight: 700; color: var(--lk-ink); }
+
+.lk-set-empty { text-align: center; padding: 34px 16px; font-size: 12px; color: var(--lk-muted-2); }
+
+/* --------------------------------------------------------------------------
+   Адаптив
+   -------------------------------------------------------------------------- */
+@media (max-width: 1399.98px) {
+  .lk-filters--set { grid-template-columns: minmax(180px, 1fr) 1fr 1fr; }
+  .lk-filters--set .lk-filter-field:last-child { grid-column: 1 / -1; }
+  .lk-filters--set .lk-filter-reset { width: auto; }
+}
+
+@media (max-width: 991.98px) {
+  .lk-filters--set { grid-template-columns: 1fr 1fr; }
+  .lk-filters--set .lk-filter-field:first-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 900px) {
+  /* в карточном режиме числа выравниваем как обычные значения */
+  .lk-set td:nth-child(n+3) { text-align: left; }
+  .lk-set tfoot { display: block; }
+  .lk-set tfoot tr {
+    background: #f7f9fc;
+    border: 1px solid var(--lk-line);
+    border-radius: var(--lk-r-lg);
+    padding: 12px 14px;
+  }
+  .lk-set tfoot td { border-top: none; padding-top: 5px; background: none; }
+}
+
+@media (max-width: 575.98px) {
+  .lk-filters--set { grid-template-columns: 1fr; }
+  .lk-filters--set .lk-filter-reset { width: 100%; }
+  .lk-act { align-items: stretch; }
+  .lk-act-actions { width: 100%; }
+  .lk-act-dl { flex: 1; justify-content: center; }
+}

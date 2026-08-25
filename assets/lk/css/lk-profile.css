@@ -1,0 +1,96 @@
+/* ==========================================================================
+   ЛК «Новая энергия» — страница «Профиль»
+   Дополняет lk.css. Всё внутри .lk, классы с префиксом lk-.
+   ========================================================================== */
+
+.lk-profile { max-width: 720px; }
+
+/* --------------------------------------------------------------------------
+   Сетка полей
+   -------------------------------------------------------------------------- */
+.lk-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.lk-field-wide { grid-column: 1 / -1; }
+/* поле на всю строку, но не во всю ширину — «текущий пароль» */
+.lk-field-narrow { max-width: 340px; }
+
+.lk .lk-fields .lk-input { max-width: none; }
+
+/* нередактируемое поле */
+.lk .lk-input--ro {
+  background-color: #f5f7fa !important;
+  border-color: #e6ebf1;
+  color: var(--lk-ink-3);
+  cursor: default;
+}
+.lk .lk-input--ro:focus {
+  border-color: #d6dee7 !important;
+  box-shadow: none !important;
+}
+
+.lk-field-hint {
+  display: flex; align-items: flex-start; gap: 5px;
+  font-size: 11px; color: var(--lk-muted-3);
+  margin-top: 5px;
+}
+.lk-field-hint svg { width: 12px; height: 12px; flex-shrink: 0; margin-top: 1px; fill: none; stroke: currentColor; stroke-width: 1.4; }
+.lk-field-hint a { color: var(--lk-green); font-weight: 600; }
+.lk-field-hint a:hover { text-decoration: underline; }
+
+/* --------------------------------------------------------------------------
+   Поле пароля с показом символов
+   -------------------------------------------------------------------------- */
+.lk-pass { position: relative; }
+.lk .lk-pass .lk-input { padding-right: 40px !important; }
+
+.lk-pass-eye {
+  position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+  width: 28px; height: 28px; padding: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: none; border: none; border-radius: 6px;
+  color: var(--lk-muted-2); cursor: pointer;
+}
+.lk-pass-eye:hover { background: #f2f5f8; color: var(--lk-ink-3); }
+.lk-pass-eye svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.4; }
+.lk-pass-eye .lk-eye-off { display: none; }
+.lk-pass-eye[aria-pressed="true"] .lk-eye-on { display: none; }
+.lk-pass-eye[aria-pressed="true"] .lk-eye-off { display: block; }
+
+/* требования к паролю */
+.lk-pass-rules {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 4px;
+  margin-top: 10px;
+}
+.lk-pass-rule {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 11px; color: var(--lk-muted);
+}
+.lk-pass-rule-mark {
+  flex-shrink: 0; width: 14px; height: 14px; border-radius: 50%;
+  border: 1.5px solid #dbe3ec;
+  display: flex; align-items: center; justify-content: center;
+  color: transparent;
+}
+.lk-pass-rule-mark svg { width: 8px; height: 8px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.lk-pass-rule.is-ok { color: var(--lk-green-dk); }
+.lk-pass-rule.is-ok .lk-pass-rule-mark {
+  background: var(--lk-green); border-color: var(--lk-green); color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   Подвал формы и подтверждение
+   -------------------------------------------------------------------------- */
+
+
+/* --------------------------------------------------------------------------
+   Адаптив
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  .lk-fields { grid-template-columns: 1fr; }
+  .lk-field-narrow { max-width: none; }
+}
+
+@media (max-width: 575.98px) {
+  .lk-form-actions { flex-direction: column; align-items: stretch; }
+  .lk-form-actions .lk-btn-primary { width: 100%; }
+}
