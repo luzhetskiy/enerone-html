@@ -17,14 +17,33 @@
     { num: 'ДЭС740201287', service: 'Энергоснабжение', debt: 0 }
   ];
 
+  // Комиссия за оплату картой — одна и та же, привязанной или введённой заново.
+  var CARD_FEE = { fee: 1, feeMin: 30 };
+
+  // Карты, привязанные в разделе «Автоплатежи». Пустой массив — способ не предлагается.
+  var SAVED_CARDS = [
+    { id: 'card-1', mask: '220015xxxxxx2861', system: 'МИР', expires: '09/28' }
+  ];
+
   // Способы оплаты. fee — процент комиссии, feeMin — минимальная сумма комиссии.
-  var METHODS = [
+  // Привязанные карты идут первыми: по ним оплата в один клик, без ввода реквизитов.
+  var METHODS = SAVED_CARDS.map(function (c) {
+    return {
+      id: 'saved-' + c.id,
+      name: 'Привязанная карта',
+      desc: c.system + ' · ' + c.mask + ' · до ' + c.expires,
+      full: 'Привязанная карта ' + c.system + ' · ' + c.mask,
+      fee: CARD_FEE.fee,
+      feeMin: CARD_FEE.feeMin,
+      available: true
+    };
+  }).concat([
     {
       id: 'card',
       name: 'Банковская карта',
-      desc: 'Visa, Mastercard, МИР — переход на страницу банка',
-      fee: 1,
-      feeMin: 30,
+      desc: 'Visa, Mastercard, МИР — ввод реквизитов на странице банка',
+      fee: CARD_FEE.fee,
+      feeMin: CARD_FEE.feeMin,
       available: true
     },
     {
@@ -35,7 +54,7 @@
       feeMin: 10,
       available: false          // включается, когда способ запустят
     }
-  ];
+  ]);
 
   /* ======================================================================
      Утилиты
@@ -224,7 +243,7 @@
       contract: state.contract.num,
       amount: res.value.toFixed(2),
       fee: fee.toFixed(2),
-      method: state.method.name
+      method: state.method.full || state.method.name
     });
 
     console.log('[ЛК] переход к оплате:', params.toString());
