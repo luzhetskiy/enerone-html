@@ -82,6 +82,22 @@
 .lk-ap-hint-text a { color: var(--lk-green); font-weight: 700; }
 .lk-ap-hint-text a:hover { text-decoration: underline; }
 
+/* выбрана «Новая карта»: условия привязки. Зелёная рамка, а не синяя, как
+   у подсказки выше, — иначе два одинаковых блока подряд сливаются */
+.lk-ap-newcard {
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: var(--lk-green-bg);
+  border: 1px solid var(--lk-green-br);
+  border-radius: var(--lk-r-md);
+}
+.lk-ap-newcard[hidden] { display: none; }
+.lk-ap-newcard .lk-bind-note {
+  font-size: 11.5px; line-height: 1.5; color: #4d6d59; margin-bottom: 6px;
+}
+.lk-ap-newcard .lk-bind-note:last-of-type { margin-bottom: 0; }
+.lk-ap-newcard .lk-bind-note b { color: var(--lk-green-dk); }
+
 /* --------------------------------------------------------------------------
    3. Привязанные карты
    -------------------------------------------------------------------------- */

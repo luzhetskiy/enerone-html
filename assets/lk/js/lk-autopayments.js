@@ -34,6 +34,20 @@
 
   var LIMIT_MAX = 5000000;
 
+  // Условия привязки карты. Выводятся в двух местах — в блоке «Привязать карту»
+  // и в форме автоплатежа при выборе «Новая карта», поэтому текст лежит здесь.
+  var NEW_CARD = 'new';
+
+  var BIND_NOTES =
+    '<p class="lk-bind-note">' +
+      'Для регистрации и привязки карты к аккаунту, для совершения автоплатежей в дальнейшем, ' +
+      'вы будете перенаправлены на страницу платёжной системы ГазПромБанк.' +
+    '</p>' +
+    '<p class="lk-bind-note">' +
+      'В процессе регистрации карты с вашего счёта будет снята сумма в размере ' +
+      '<b>1 руб.</b> для подтверждения. Она вернётся на карту автоматически.' +
+    '</p>';
+
   /* ======================================================================
      Утилиты
      ====================================================================== */
@@ -203,19 +217,28 @@
     n.card.innerHTML = '<option value="" disabled selected>Выберите карту</option>' +
       CARDS.map(function (c) {
         return '<option value="' + esc(c.id) + '">' + esc(cardLabel(c)) + '</option>';
-      }).join('');
+      }).join('') +
+      '<option value="' + NEW_CARD + '">Новая карта</option>';
 
-    // подключать не к чему — объясняем, почему форма недоступна
+    syncNewCard();
+
+    // подключать не к чему — объясняем, почему форма недоступна.
+    // Отсутствие карт больше не блокирует: можно выбрать «Новая карта».
     var noContracts = !free.length;
-    var noCards = !CARDS.length;
 
-    n.form.querySelector('[type="submit"]').disabled = noContracts || noCards;
-    n.hint.innerHTML = noCards
-      ? 'Сначала привяжите карту — без неё автоплатёж подключить нельзя.'
-      : noContracts
-        ? 'Автоплатежи подключены по всем договорам.'
+    n.form.querySelector('[type="submit"]').disabled = noContracts;
+    n.hint.innerHTML = noContracts
+      ? 'Автоплатежи подключены по всем договорам.'
+      : !CARDS.length
+        ? 'Привязанных карт пока нет — выберите «Новая карта», и мы отправим вас в банк для привязки.'
         : 'Списание проходит в день выставления счёта. Если сумма счёта больше максимальной, ' +
           'автоплатёж не сработает — счёт нужно будет оплатить вручную.';
+  }
+
+  // подсказка про привязку показывается, только когда выбрана «Новая карта»
+  function syncNewCard() {
+    if (!n.newCard) return;
+    n.newCard.hidden = n.card.value !== NEW_CARD;
   }
 
   function openForm() {
@@ -259,6 +282,10 @@
     n.contract = document.getElementById('lk-ap-contract');
     n.card     = document.getElementById('lk-ap-card');
     n.hint     = document.querySelector('[data-ap-hint]');
+    n.newCard  = document.querySelector('[data-ap-newcard]');
+    if (n.newCard) n.newCard.innerHTML = BIND_NOTES;
+
+    n.card.addEventListener('change', syncNewCard);
 
     n.toggle.addEventListener('click', openForm);
     document.querySelectorAll('[data-ap-close]').forEach(function (b) {
@@ -282,6 +309,18 @@
       var lim = readLimit();
       if (lim.error) { setError('limit', lim.error); n.form.limit.focus(); return; }
 
+      // карты ещё нет — автоплатёж создавать не из чего, сначала привязка в банке
+      if (n.form.card.value === NEW_CARD) {
+        var num = n.form.contract.value;
+        console.log('[ЛК] привязка новой карты перед подключением автоплатежа:', num, lim.value);
+        n.form.reset();
+        syncNewCard();
+        closeForm();
+        showSaved('Переходим в ГазПромБанк для привязки карты. После подтверждения ' +
+                  'автоплатёж по договору № ' + num + ' будет подключён.');
+        return;
+      }
+
       AUTOPAYS.push({
         id: 'ap-' + Date.now(),
         contract: n.form.contract.value,
@@ -292,6 +331,7 @@
       console.log('[ЛК] автоплатёж подключён:', n.form.contract.value);
 
       n.form.reset();
+      syncNewCard();
       closeForm();
       renderAll();
       showSaved('Автоплатёж подключён. Первое списание пройдёт в день следующего счёта.');
@@ -381,6 +421,10 @@
     if (!n.list) return;
 
     n.cards = document.getElementById('lk-cards');
+
+    // тот же текст условий, что и в форме автоплатежа при выборе «Новая карта»
+    var bindNotes = document.querySelector('[data-bind-notes]');
+    if (bindNotes) bindNotes.innerHTML = BIND_NOTES;
 
     initConfirm();
     initForm();

@@ -582,7 +582,7 @@
 
                 <div>
                   <label class="lk-form-lbl" for="lk-ap-limit">
-                    Максимальная сумма <span class="lk-req" aria-hidden="true">*</span>
+                    Максимальная сумма, руб <span class="lk-req" aria-hidden="true">*</span>
                   </label>
                   <input class="lk-input lk-input--mono" id="lk-ap-limit" name="limit"
                          type="text" inputmode="decimal" autocomplete="off">
@@ -601,6 +601,10 @@
                   автоплатёж не сработает — счёт нужно будет оплатить вручную.
                 </p>
               </div>
+
+              <!-- выбрана «Новая карта» — те же условия, что в блоке «Привязать карту».
+                   Текст один на две страницы, его подставляет JS (BIND_NOTES). -->
+              <div class="lk-ap-newcard" data-ap-newcard hidden></div>
 
               <div class="lk-form-actions">
                 <button type="submit" class="lk-btn-primary">Подключить</button>
@@ -626,14 +630,7 @@
           </div>
 
           <div class="lk-panel">
-            <p class="lk-bind-note">
-              Для регистрации и привязки карты к аккаунту, для совершения автоплатежей в дальнейшем,
-              вы будете перенаправлены на страницу платёжной системы ГазПромБанк.
-            </p>
-            <p class="lk-bind-note">
-              В процессе регистрации карты с вашего счёта будет снята сумма в размере
-              <b>1 руб.</b> для подтверждения. Она вернётся на карту автоматически.
-            </p>
+            <div data-bind-notes></div>
 
             <button type="button" class="lk-btn-bind" data-lk-action="Привязать новую карту — переход в ГазПромБанк">
               <svg viewBox="0 0 16 16" aria-hidden="true">
