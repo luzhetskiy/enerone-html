@@ -19,15 +19,15 @@
     { id: 'c-1287', num: 'ДЭС740201287', service: 'Энергоснабжение' }
   ];
 
-  // справочник тем обращения
+  // справочник тем обращения — порядок задан заказчиком, в нём и выводим
   var TOPICS = [
-    { id: 't-terminate', name: 'Расторжение договора' },
+    { id: 't-charges',   name: 'Вопросы по начислениям/проведение перерасчета' },
     { id: 't-lk',        name: 'Вопросы по работе личного кабинета' },
-    { id: 't-other',     name: 'Прочее' },
+    { id: 't-changes',   name: 'Внесение изменений по договору' },
     { id: 't-meters',    name: 'Вопросы по приборам учёта (неисправность/замена/допуск)' },
     { id: 't-refund',    name: 'Возврат/перенос денежных средств' },
-    { id: 't-charges',   name: 'Вопросы по начислениям/проведение перерасчета' },
-    { id: 't-changes',   name: 'Внесение изменений по договору' }
+    { id: 't-terminate', name: 'Расторжение договора' },
+    { id: 't-other',     name: 'Прочее' }
   ];
 
 
@@ -62,11 +62,25 @@
       unread: true,
       answer: {
         date: '19 февраля 2026 г. 10:04',
-        author: 'Персональный менеджер, Соколова М. В.',
         text: 'Показания принимаются с 0:00 20 числа текущего месяца до 15:00 4 числа месяца, ' +
               'следующего за расчётным. В январе данные поступили 6 числа, поэтому не были учтены. ' +
               'Расчёт за январь скорректирован, изменения отражены в счёте за февраль.'
-      }
+      },
+      more: [
+        {
+          side: 'client',
+          date: '19 февраля 2026 г. 11:20',
+          text: 'Спасибо. А если показания снова не успеют пройти в срок — расчёт будет ' +
+                'по среднему или по нормативу?'
+        },
+        {
+          side: 'company',
+          date: '19 февраля 2026 г. 15:47',
+          text: 'Если показания не поступят в установленный период, месяц считается по среднему ' +
+                'потреблению за предыдущие три месяца. После передачи фактических показаний ' +
+                'выполняем перерасчёт.'
+        }
+      ]
     },
     {
       id: 'm-4',
@@ -79,7 +93,6 @@
       unread: true,
       answer: {
         date: '9 февраля 2026 г. 09:31',
-        author: 'Персональный менеджер, Соколова М. В.',
         text: 'Акт сверки за второе полугодие 2025 года сформирован и доступен в разделе «Акты сверки». ' +
               'Подписанный экземпляр направлен на вашу электронную почту.'
       }
@@ -95,7 +108,6 @@
       unread: true,
       answer: {
         date: '6 февраля 2026 г. 14:20',
-        author: 'Персональный менеджер, Соколова М. В.',
         text: 'Письма отклонялись почтовым сервером получателя. Адрес рассылки обновлён, ' +
               'счета за декабрь и январь отправлены повторно. Проверьте, пожалуйста, папку «Спам».'
       }
@@ -111,10 +123,24 @@
       unread: false,
       answer: {
         date: '15 декабря 2025 г. 12:45',
-        author: 'Персональный менеджер, Соколова М. В.',
         text: 'Направили на почту перечень документов и типовую форму заявки. ' +
               'После получения заявки срок подготовки технических условий — до 15 рабочих дней.'
-      }
+      },
+      more: [
+        {
+          side: 'client',
+          date: '16 декабря 2025 г. 09:12',
+          text: 'Заявку и схему направили на указанный адрес. Подтвердите, пожалуйста, ' +
+                'что документы получены.',
+          files: ['zayavka_podklyuchenie.pdf']
+        },
+        {
+          side: 'company',
+          date: '16 декабря 2025 г. 16:30',
+          text: 'Документы получены и переданы в технический отдел. Ориентировочный срок ' +
+                'подготовки технических условий — до 25 декабря.'
+        }
+      ]
     }
   ];
 
@@ -140,6 +166,15 @@
     if (m10 === 1 && m100 !== 11) return one;
     if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return few;
     return many;
+  }
+
+  var MONTHS = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
+                'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+
+  function nowStamp() {
+    var d = new Date();
+    return d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear() + ' г. ' +
+           d.getHours() + ':' + String(d.getMinutes()).padStart(2, '0');
   }
 
   function fileSize(bytes) {
@@ -237,9 +272,30 @@
 
   /* ======================================================================
      История обращений
+
+     Два вида, переключаются демо-тумблером (VIEW):
+       'classic' — как сейчас: обращение и один ответ;
+       'thread'  — переписка внутри обращения с полем ответа.
+     Данные общие: первая реплика — само обращение, вторая — m.answer,
+     дальше — необязательный массив m.more.
      ====================================================================== */
 
-  function renderMessages() {
+  var VIEW = 'classic';
+
+  // реплики обращения в хронологическом порядке
+  function threadOf(m) {
+    var turns = [{ side: 'client', date: m.date, text: m.text, files: m.files }];
+    if (m.answer) turns.push({ side: 'company', date: m.answer.date, text: m.answer.text });
+    return turns.concat(m.more || []);
+  }
+
+  // «обработано», пока последнее слово за компанией; ответил клиент — снова «принято»
+  function isAnswered(m) {
+    var turns = threadOf(m);
+    return turns[turns.length - 1].side === 'company';
+  }
+
+  function renderMessages(openId) {
     nodes.msgs.innerHTML = '';
 
     if (!MESSAGES.length) {
@@ -249,33 +305,30 @@
     }
 
     MESSAGES.forEach(function (m) {
-      nodes.msgs.appendChild(buildMessage(m));
+      var card = VIEW === 'thread' ? buildThreadCard(m) : buildMessage(m);
+      nodes.msgs.appendChild(card);
+      if (openId && m.id === openId) card.querySelector('[data-open]').click();
     });
 
     updateUnread();
   }
 
-  function buildMessage(m) {
-    var answered = m.status === 'processed' && m.answer;
-    var uid = 'answer-' + m.id;
-
-    var card = el('article', 'lk-msg' +
-      (answered ? ' has-answer is-answered' : '') +
-      (m.unread ? ' is-unread' : ''));
-
-    var filesHtml = m.files && m.files.length
-      ? m.files.map(function (f) {
+  function filesHtmlOf(files) {
+    return files && files.length
+      ? files.map(function (f) {
           return '<a class="lk-msg-file" href="#" data-lk-action="Скачать файл обращения ' + esc(f) + '">' +
                  ICO_FILE + esc(f) + '</a>';
         }).join('')
       : '<span class="lk-msg-nofile">—</span>';
+  }
 
-    var statusHtml = answered
+  // шапка карточки — общая для обоих видов
+  function topHtml(m, uid, expandable, label) {
+    var statusHtml = isAnswered(m)
       ? '<span class="lk-status lk-status--processed">обработано</span>'
       : '<span class="lk-status lk-status--accepted">принято</span>';
 
-    card.innerHTML =
-      '<div class="lk-msg-top">' +
+    return '<div class="lk-msg-top">' +
         '<div class="lk-msg-date">' + esc(m.date) + '</div>' +
 
         '<div>' +
@@ -286,41 +339,115 @@
           '<div class="lk-msg-contract">Договор № ' + esc(m.contract) + '</div>' +
         '</div>' +
 
-        '<div class="lk-msg-files">' + filesHtml + '</div>' +
+        '<div class="lk-msg-files">' + filesHtmlOf(m.files) + '</div>' +
 
         '<div class="lk-msg-status">' + statusHtml +
-          (answered
-            ? '<button type="button" class="lk-msg-toggle" aria-expanded="false" ' +
-                      'aria-controls="' + uid + '" aria-label="Показать ответ">' + ICO_CHEVRON + '</button>'
+          (expandable
+            ? '<button type="button" class="lk-msg-toggle" data-open aria-expanded="false" ' +
+                      'aria-controls="' + uid + '" aria-label="' + label + '">' + ICO_CHEVRON + '</button>'
             : '') +
         '</div>' +
-      '</div>' +
+      '</div>';
+  }
 
+  /* ---------- вид 1: обращение и ответ ---------- */
+
+  function buildMessage(m) {
+    var answered = !!m.answer;
+    var uid = 'answer-' + m.id;
+
+    var card = el('article', 'lk-msg' +
+      (answered ? ' has-answer is-answered' : '') +
+      (m.unread ? ' is-unread' : ''));
+
+    card.innerHTML =
+      topHtml(m, uid, answered, 'Показать ответ') +
       (answered
         ? '<div class="lk-msg-answer" id="' + uid + '" hidden>' +
             '<div class="lk-answer-hdr">' + ICO_ANSWER + 'Ответ' +
               '<span class="lk-answer-date">' + esc(m.answer.date) + '</span>' +
             '</div>' +
             '<div class="lk-answer-text">' + esc(m.answer.text) + '</div>' +
-            '<div class="lk-answer-author">' + esc(m.answer.author) + '</div>' +
           '</div>'
         : '');
 
-    if (answered) bindAnswer(card, m);
+    if (answered) bindPanel(card, m, '.lk-msg-answer', 'ответ');
     return card;
   }
 
-  function bindAnswer(card, m) {
+  /* ---------- вид 2: переписка внутри обращения ---------- */
+
+  function buildThreadCard(m) {
+    var uid = 'thread-' + m.id;
+    var turns = threadOf(m);
+
+    var card = el('article', 'lk-msg lk-msg--thread' +
+      (m.answer ? ' has-answer is-answered' : '') +
+      (m.unread ? ' is-unread' : ''));
+
+    var turnsHtml = turns.map(function (t) {
+      return '<div class="lk-th-msg is-' + t.side + '">' +
+               '<div class="lk-th-meta">' +
+                 '<span class="lk-th-who">' + (t.side === 'client' ? 'Вы' : 'Новая энергия') + '</span>' +
+                 '<span class="lk-th-date">' + esc(t.date) + '</span>' +
+               '</div>' +
+               '<div class="lk-th-text">' + esc(t.text) + '</div>' +
+               (t.files && t.files.length
+                 ? '<div class="lk-th-files">' + filesHtmlOf(t.files) + '</div>'
+                 : '') +
+             '</div>';
+    }).join('');
+
+    card.innerHTML =
+      topHtml(m, uid, true, 'Показать переписку') +
+      '<div class="lk-thread" id="' + uid + '" hidden>' +
+        turnsHtml +
+        (isAnswered(m)
+          ? ''
+          : '<div class="lk-th-wait">Обращение принято, ответ придёт сюда и на электронную почту</div>') +
+        '<form class="lk-th-reply" data-th-reply>' +
+          '<textarea class="lk-textarea lk-th-input" rows="2" name="reply" ' +
+                    'placeholder="Написать в это обращение"></textarea>' +
+          '<button type="submit" class="lk-btn-primary">Отправить</button>' +
+        '</form>' +
+      '</div>';
+
+    bindPanel(card, m, '.lk-thread', 'переписку');
+    bindReply(card, m);
+    return card;
+  }
+
+  function bindReply(card, m) {
+    var form = card.querySelector('[data-th-reply]');
+
+    form.addEventListener('click', function (e) { e.stopPropagation(); });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var text = form.reply.value.trim();
+      if (!text) { form.reply.focus(); return; }
+
+      // заглушка отправки: реплика уходит в конец переписки
+      console.log('[ЛК] ответ в обращение', m.id + ':', text);
+      m.more = (m.more || []).concat([{ side: 'client', date: nowStamp(), text: text }]);
+
+      renderMessages(m.id);
+    });
+  }
+
+  /* ---------- раскрытие панели ---------- */
+
+  function bindPanel(card, m, sel, what) {
     var top = card.querySelector('.lk-msg-top');
     var toggle = card.querySelector('.lk-msg-toggle');
-    var panel = card.querySelector('.lk-msg-answer');
+    var panel = card.querySelector(sel);
 
     function setOpen(open) {
       toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? 'Скрыть ответ' : 'Показать ответ');
+      toggle.setAttribute('aria-label', (open ? 'Скрыть ' : 'Показать ') + what);
       panel.hidden = !open;
 
-      // раскрыли ответ — обращение больше не непрочитанное
+      // раскрыли — обращение больше не непрочитанное
       if (open && m.unread) {
         m.unread = false;
         card.classList.remove('is-unread');
@@ -331,12 +458,29 @@
     }
 
     top.addEventListener('click', function (e) {
-      if (e.target.closest('a')) return;       // клик по файлу не раскрывает ответ
+      if (e.target.closest('a')) return;       // клик по файлу не раскрывает панель
       setOpen(panel.hidden);
     });
     toggle.addEventListener('click', function (e) {
       e.stopPropagation();
       setOpen(panel.hidden);
+    });
+  }
+
+  /* ---------- демо-переключатель вида ---------- */
+
+  function initViewSwitch() {
+    var btns = document.querySelectorAll('[data-msg-view]');
+    if (!btns.length) return;
+
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        VIEW = btn.getAttribute('data-msg-view');
+        btns.forEach(function (b) {
+          b.classList.toggle('is-on', b === btn);
+        });
+        renderMessages();
+      });
     });
   }
 
@@ -489,14 +633,9 @@
   function submitMessage(data) {
     console.log('[ЛК] новое обращение:', data);
 
-    var now = new Date();
-    var months = ['января','февраля','марта','апреля','мая','июня',
-                  'июля','августа','сентября','октября','ноября','декабря'];
-
     MESSAGES.unshift({
       id: 'm-' + Date.now(),
-      date: now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear() + ' г. ' +
-            now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0'),
+      date: nowStamp(),
       contract: data.contract,
       topic: data.topic,
       text: data.message,
@@ -535,6 +674,7 @@
     initFiles();
     initNewToggle();
     initForm();
+    initViewSwitch();
     renderMessages();
     applyDeepLink();
   }

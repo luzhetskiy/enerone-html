@@ -169,7 +169,72 @@
 .lk-answer-hdr svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.4; }
 .lk-answer-date { font-weight: 400; color: #8cb99b; letter-spacing: 0; text-transform: none; }
 .lk-answer-text { font-size: 12px; line-height: 1.5; color: var(--lk-ink-2); }
-.lk-answer-author { font-size: 11px; color: var(--lk-muted); margin-top: 8px; }
+
+/* --------------------------------------------------------------------------
+   Вид 2: переписка внутри обращения (демо-переключатель над списком)
+   -------------------------------------------------------------------------- */
+.lk-demo-btn--view { border: 1px solid var(--lk-line); color: var(--lk-ink-3); }
+.lk-demo-btn--view:hover { border-color: var(--lk-green-br); }
+.lk-demo-btn--view.is-on {
+  border-color: var(--lk-green); background: var(--lk-green-bg); color: var(--lk-green-dk);
+}
+
+.lk-thread {
+  border-top: 1px solid var(--lk-line-soft);
+  background: #fbfcfd;
+  padding: 14px 16px 15px;
+  display: flex; flex-direction: column; gap: 9px;
+}
+.lk-thread[hidden] { display: none; }
+
+.lk-th-msg {
+  max-width: 80%;
+  border-radius: 10px;
+  padding: 8px 12px 9px;
+}
+.lk-th-msg.is-client {
+  align-self: flex-end;
+  background: var(--lk-blue-bg); border: 1px solid #dbe7f7;
+  border-bottom-right-radius: 3px;
+}
+.lk-th-msg.is-company {
+  align-self: flex-start;
+  background: #f0f8f2; border: 1px solid var(--lk-green-br);
+  border-bottom-left-radius: 3px;
+}
+.lk-th-meta {
+  display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+  font-size: 10px; margin-bottom: 3px;
+}
+.lk-th-who { font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+.is-client  .lk-th-who { color: var(--lk-blue-dk); }
+.is-company .lk-th-who { color: var(--lk-green-dk); }
+.lk-th-date { color: var(--lk-muted); }
+.lk-th-text {
+  font-size: 12px; line-height: 1.5; color: var(--lk-ink-2); overflow-wrap: anywhere;
+}
+.lk-th-files { display: flex; flex-direction: column; gap: 3px; margin-top: 6px; }
+
+.lk-th-wait {
+  align-self: flex-start;
+  font-size: 11px; color: var(--lk-muted);
+  padding: 2px 0;
+}
+
+/* поле ответа в обращение */
+.lk-th-reply {
+  display: flex; align-items: flex-end; gap: 8px;
+  margin-top: 4px; padding-top: 12px;
+  border-top: 1px dashed #e3e9f0;
+}
+/* базовый .lk-textarea задаёт min-height: 120px !important — здесь поле низкое,
+   поэтому перебиваем и специфичностью, и !important (см. «Правила стилей» в README) */
+.lk .lk-th-reply .lk-th-input {
+  min-height: 58px !important;
+  font-size: 12px !important;
+  padding: 8px 10px !important;
+}
+.lk-th-reply .lk-btn-primary { flex-shrink: 0; }
 
 /* пусто */
 .lk-msg-empty {
@@ -190,6 +255,12 @@
   .lk-msg-top { grid-template-columns: 1fr; gap: 8px; }
   .lk-msg-files { flex-direction: row; flex-wrap: wrap; gap: 10px; }
   .lk-msg-status { justify-content: space-between; }
+
+  /* переписка: реплики шире, поле ответа — в столбик */
+  .lk-thread { padding: 12px; }
+  .lk-th-msg { max-width: 92%; }
+  .lk-th-reply { flex-direction: column; align-items: stretch; }
+  .lk-th-reply .lk-btn-primary { width: 100%; }
 }
 
 @media (max-width: 575.98px) {
