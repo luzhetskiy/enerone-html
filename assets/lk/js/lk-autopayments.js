@@ -72,6 +72,8 @@
 
   var ICO_CARD = '<svg viewBox="0 0 16 16" aria-hidden="true">' +
                  '<rect x="1.5" y="3.5" width="13" height="9" rx="1.5"/><path d="M1.5 6.5h13"/></svg>';
+  var ICO_EDIT = '<svg viewBox="0 0 14 14" aria-hidden="true">' +
+                 '<path d="M9.4 2.4l2.2 2.2-6.4 6.4-2.7.5.5-2.7 6.4-6.4z" stroke-linejoin="round"/></svg>';
   var ICO_MSG  = '<svg viewBox="0 0 14 14" aria-hidden="true">' +
                  '<path d="M2 2.5h10v7l-4.5 0L4.5 12V9.5H2z" stroke-linejoin="round"/></svg>';
   var ICO_TRASH = '<svg viewBox="0 0 14 14" aria-hidden="true">' +
@@ -135,7 +137,7 @@
           '<th scope="col">Договор</th>' +
           '<th scope="col">Карта</th>' +
           '<th scope="col">Максимальная сумма</th>' +
-          '<th scope="col"><span class="lk-visually-hidden">Отключение</span></th>' +
+          '<th scope="col"><span class="lk-visually-hidden">Действия</span></th>' +
         '</tr></thead>' +
         '<tbody></tbody>' +
       '</table>';
@@ -145,10 +147,13 @@
     AUTOPAYS.forEach(function (ap) {
       var card = cardById(ap.cardId);
 
-      var offHtml = ap.selfDisable
-        ? '<div class="lk-ap-off"><button type="button" class="lk-btn-off">Отключить</button></div>'
-        : '<div class="lk-ap-off"><a class="lk-ap-request" href="#">' + ICO_MSG +
-          'Запросить отключение</a></div>';
+      var offHtml =
+        '<div class="lk-ap-actions">' +
+          '<button type="button" class="lk-btn-edit">' + ICO_EDIT + 'Изменить</button>' +
+          (ap.selfDisable
+            ? '<button type="button" class="lk-btn-off">Отключить</button>'
+            : '<a class="lk-ap-request" href="#">' + ICO_MSG + 'Запросить отключение</a>') +
+        '</div>';
 
       var tr = document.createElement('tr');
       tr.innerHTML =
@@ -164,7 +169,9 @@
         '</td>' +
         '<td data-label="Максимальная сумма"><span class="lk-ap-limit">' + money(ap.limit) +
           '<span class="lk-ap-limit-note">за один платёж</span></span></td>' +
-        '<td data-label="Отключение">' + offHtml + '</td>';
+        '<td data-label="Действия">' + offHtml + '</td>';
+
+      tr.querySelector('.lk-btn-edit').addEventListener('click', function () { openEdit(ap); });
 
       if (ap.selfDisable) {
         tr.querySelector('.lk-btn-off').addEventListener('click', function () {
@@ -194,6 +201,77 @@
     console.log('[ЛК] автоплатёж отключён:', ap.contract);
     renderAll();
     showSaved('Автоплатёж по договору № ' + ap.contract + ' отключён.');
+  }
+
+  /* ======================================================================
+     Изменение автоплатежа
+
+     Меняются карта и максимальная сумма. Договор не меняется: другой договор —
+     это другой автоплатёж, его подключают через форму ниже. «Новой карты» здесь
+     нет — сначала карту привязывают в банке, потом выбирают её тут.
+     ====================================================================== */
+
+  var editing = null;
+
+  function initEdit() {
+    n.edit = document.getElementById('lk-ap-edit');
+    if (!n.edit) return;
+
+    n.editForm     = document.getElementById('lk-ap-edit-form');
+    n.editCard     = document.getElementById('lk-edit-card');
+    n.editLimit    = document.getElementById('lk-edit-limit');
+    n.editContract = n.edit.querySelector('[data-edit-contract]');
+    n.editErr      = n.edit.querySelector('[data-edit-err]');
+
+    n.editLimit.addEventListener('input', function () { setEditError(''); });
+    n.editForm.addEventListener('submit', saveEdit);
+  }
+
+  function setEditError(message) {
+    n.editLimit.classList.toggle('is-invalid', !!message);
+    n.editErr.hidden = !message;
+    if (message) n.editErr.textContent = message;
+  }
+
+  function openEdit(ap) {
+    if (!n.edit) return;
+    editing = ap;
+
+    n.editContract.textContent = '№ ' + ap.contract;
+
+    n.editCard.innerHTML = CARDS.map(function (c) {
+      return '<option value="' + esc(c.id) + '">' + esc(cardLabel(c)) + '</option>';
+    }).join('');
+    n.editCard.value = ap.cardId;
+
+    // с пробелами читается легче, parseLimit их всё равно убирает
+    n.editLimit.value = ap.limit.toLocaleString('ru-RU');
+
+    setEditError('');
+    if (window.LK && window.LK.openModal) window.LK.openModal(n.edit);
+  }
+
+  function saveEdit(e) {
+    e.preventDefault();
+    if (!editing) return;
+
+    var lim = parseLimit(n.editLimit.value);
+    if (lim.error) { setEditError(lim.error); n.editLimit.focus(); return; }
+
+    var changed = editing.cardId !== n.editCard.value || editing.limit !== lim.value;
+
+    editing.cardId = n.editCard.value;
+    editing.limit = lim.value;
+    console.log('[ЛК] автоплатёж изменён:', editing.contract, editing.cardId, editing.limit);
+
+    var num = editing.contract;
+    editing = null;
+
+    if (window.LK && window.LK.closeModal) window.LK.closeModal(n.edit);
+    renderAll();
+    showSaved(changed
+      ? 'Автоплатёж по договору № ' + num + ' изменён.'
+      : 'Автоплатёж по договору № ' + num + ' оставлен без изменений.');
   }
 
   /* ======================================================================
@@ -263,7 +341,11 @@
   }
 
   function readLimit() {
-    var raw = n.form.limit.value.trim().replace(/\s/g, '').replace(',', '.');
+    return parseLimit(n.form.limit.value);
+  }
+
+  function parseLimit(value) {
+    var raw = String(value).trim().replace(/\s/g, '').replace(',', '.');
     if (raw === '') return { error: 'Укажите максимальную сумму' };
     if (!/^\d+(\.\d{1,2})?$/.test(raw)) return { error: 'Введите сумму числом' };
     var v = parseFloat(raw);
@@ -427,6 +509,7 @@
     if (bindNotes) bindNotes.innerHTML = BIND_NOTES;
 
     initConfirm();
+    initEdit();
     initForm();
     renderAll();
   }

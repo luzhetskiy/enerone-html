@@ -133,6 +133,44 @@
   </div>
 
   <!-- ===== Подтверждение действия ===== -->
+  <!-- ===== Изменение автоплатежа: карта и максимальная сумма ===== -->
+  <dialog class="lk-modal" id="lk-ap-edit" aria-labelledby="lk-ap-edit-title">
+    <div class="lk-modal-inner">
+      <form id="lk-ap-edit-form" novalidate>
+
+        <div class="lk-modal-hdr">
+          <h2 class="lk-modal-title" id="lk-ap-edit-title">Изменить автоплатёж</h2>
+          <button type="button" class="lk-modal-close" data-lk-modal-close aria-label="Закрыть">
+            <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg>
+          </button>
+        </div>
+
+        <div class="lk-modal-body">
+          <!-- договор не меняем: другой договор — это уже другой автоплатёж -->
+          <p class="lk-edit-contract">Договор <b data-edit-contract></b></p>
+
+          <div class="lk-edit-row">
+            <label class="lk-form-lbl" for="lk-edit-card">Карта</label>
+            <select class="lk-select" id="lk-edit-card" name="card"></select>
+          </div>
+
+          <div class="lk-edit-row">
+            <label class="lk-form-lbl" for="lk-edit-limit">Максимальная сумма, руб</label>
+            <input class="lk-input lk-input--mono" id="lk-edit-limit" name="limit"
+                   type="text" inputmode="decimal" autocomplete="off">
+            <div class="lk-form-err" data-edit-err hidden></div>
+          </div>
+        </div>
+
+        <div class="lk-modal-foot">
+          <button type="button" class="lk-btn-ghost" data-lk-modal-close>Отмена</button>
+          <button type="submit" class="lk-btn-primary">Сохранить</button>
+        </div>
+
+      </form>
+    </div>
+  </dialog>
+
   <dialog class="lk-modal" id="lk-confirm" aria-labelledby="lk-confirm-title">
     <div class="lk-modal-inner">
       <div class="lk-modal-hdr">

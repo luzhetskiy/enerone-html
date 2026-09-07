@@ -34,6 +34,22 @@
 .lk-card-meta { display: block; font-size: 10px; color: var(--lk-muted-3); font-family: inherit; }
 
 /* действия отключения */
+/* действия строки: изменить и отключить */
+.lk-ap-actions {
+  display: flex; align-items: center; justify-content: flex-end; gap: 8px; flex-wrap: wrap;
+}
+.lk-btn-edit {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #fff; color: var(--lk-ink-3);
+  border: 1.5px solid var(--lk-line); border-radius: var(--lk-r-md);
+  padding: 7px 13px; font-size: 12px; font-weight: 600; cursor: pointer;
+  white-space: nowrap;
+}
+.lk-btn-edit:hover { border-color: var(--lk-green); color: var(--lk-green-dk); }
+.lk-btn-edit svg {
+  width: 13px; height: 13px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.4;
+}
+
 .lk-ap-off { display: flex; justify-content: flex-end; }
 .lk-btn-off {
   background: #fff; color: var(--lk-red-dk);
@@ -50,6 +66,14 @@
 }
 .lk-ap-request:hover { text-decoration: underline; }
 .lk-ap-request svg { width: 13px; height: 13px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.4; }
+
+/* модалка изменения автоплатежа */
+.lk-edit-contract {
+  font-size: 12px; color: var(--lk-muted); margin-bottom: 16px;
+}
+.lk-edit-contract b { font-weight: 700; color: var(--lk-ink-2); }
+.lk-edit-row { margin-bottom: 14px; }
+.lk-edit-row:last-child { margin-bottom: 0; }
 
 /* пусто */
 .lk-empty {
@@ -165,7 +189,8 @@
    Адаптив
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
-  .lk-ap-off { justify-content: flex-end; }
+  .lk-ap-off,
+  .lk-ap-actions { justify-content: flex-end; }
   .lk-ap td > .lk-card-line { margin-left: auto; }
 }
 
