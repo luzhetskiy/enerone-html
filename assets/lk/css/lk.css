@@ -305,8 +305,35 @@ a.lk-meter:hover .lk-m-num { color: var(--lk-green-dk); }
 }
 a.lk-meter:hover .lk-m-go { color: var(--lk-green); transform: translateX(2px); }
 .lk-m-num  { font-size: 11px; color: #888; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
-.lk-m-val  { font-size: 12px; font-weight: 700; color: var(--lk-blue); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.lk-m-val  { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
 .lk-m-unit { font-size: 10px; color: var(--lk-muted); font-weight: 400; }
+
+/* Показания — барабаны механического счётчика.
+   Разряды всегда до шести, как у настоящего ПУ: ведущие нули приглушены,
+   поэтому плашки в списке одинаковой ширины и число читается слева направо. */
+.lk-odo {
+  display: inline-flex;
+  gap: 1px;
+  padding: 2px;
+  background: #262c37;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .55), 0 1px 0 #fff;
+}
+.lk-odo i {
+  font-style: normal;
+  min-width: 11px;
+  padding: 0 1px;
+  line-height: 15px;
+  text-align: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  /* вертикальный градиент имитирует цилиндр барабана */
+  background: linear-gradient(180deg, #545d6d 0%, #39414f 42%, #1b202a 52%, #333b48 78%, #4b5464 100%);
+  border-radius: 1px;
+}
+.lk-odo i.is-lead { color: #7e879a; }
 
 /* карточка «добавить договор» */
 .lk-add {
@@ -327,7 +354,8 @@ a.lk-meter:hover .lk-m-go { color: var(--lk-green); transform: translateX(2px); 
 /* --------------------------------------------------------------------------
    Кнопки ЛК
    -------------------------------------------------------------------------- */
-.lk-btn-pay {
+.lk-btn-pay,
+.lk-btn-readings {
   display: inline-flex; align-items: center; justify-content: center;
   text-decoration: none;
   background: linear-gradient(90deg, var(--lk-green), var(--lk-green-lt));
@@ -335,14 +363,21 @@ a.lk-meter:hover .lk-m-go { color: var(--lk-green); transform: translateX(2px); 
   padding: 8px 16px; font-size: 12px; font-weight: 700; cursor: pointer;
   white-space: nowrap; flex-shrink: 0;
 }
-.lk-btn-pay:hover { opacity: .88; }
+.lk-btn-pay:hover,
+.lk-btn-readings:hover { opacity: .88; }
 .lk-btn-pay:disabled { background: var(--lk-green-bg); color: var(--lk-muted); cursor: default; opacity: 1; }
 
-.lk-btn-readings {
-  background: #fff; border: 1.5px solid #e0e8f0; color: var(--lk-green);
-  border-radius: 7px; padding: 6px 14px; font-size: 12px; font-weight: 700; cursor: pointer;
+/* аванс по договору без долга — тот же размер, но без заливки:
+   действие полезное, но не срочное, акцент забирать не должно */
+.lk-btn-prepay {
+  display: inline-flex; align-items: center; justify-content: center;
+  text-decoration: none;
+  background: transparent; color: var(--lk-green-dk);
+  border: 1.5px solid var(--lk-green-br); border-radius: var(--lk-r-md);
+  padding: 6.5px 14.5px; font-size: 12px; font-weight: 700; cursor: pointer;
+  white-space: nowrap; flex-shrink: 0;
 }
-.lk-btn-readings:hover { border-color: var(--lk-green); background: #f5faf6; }
+.lk-btn-prepay:hover { border-color: var(--lk-green); background: var(--lk-green-bg); }
 
 /* --------------------------------------------------------------------------
    Плашки разделов
@@ -409,7 +444,8 @@ a.lk-meter:hover .lk-m-go { color: var(--lk-green); transform: translateX(2px); 
   .lk-pg-title { font-size: 17px; }
   .lk-content { padding: 12px; }
   .lk-debt-row { flex-wrap: wrap; }
-  .lk-btn-pay { width: 100%; text-align: center; }
+  .lk-btn-pay,
+  .lk-btn-prepay { width: 100%; text-align: center; }
   .lk-c-numrow { flex-direction: column; align-items: flex-start; gap: 4px; }
   .lk-info-row { flex-direction: column; align-items: flex-start; gap: 1px; }
   .lk-info-v   { text-align: left; }

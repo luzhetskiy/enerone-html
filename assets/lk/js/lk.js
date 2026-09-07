@@ -35,7 +35,7 @@
       mod:   'lk-stat lk-stat--red',
       label: 'Задолженность',
       valMod: 'lk-stat-val is-danger',
-      val:   '187 432 ₽',
+      val:   '− 187 432 ₽',
       hint:  'По всем договорам'
     },
     overpay: {

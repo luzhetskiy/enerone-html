@@ -92,8 +92,9 @@
     var q = new URLSearchParams(window.location.search);
     state.contract = findContract(q.get('contract')) || CONTRACTS[0];
 
-    form.querySelector('[data-purpose]').textContent =
-      'Оплата текущей задолженности по договору № ' + state.contract.num;
+    form.querySelector('[data-purpose]').textContent = state.contract.debt
+      ? 'Оплата текущей задолженности по договору № ' + state.contract.num
+      : 'Внесение аванса на лицевой счёт по договору № ' + state.contract.num;
 
     var start = parseFloat(q.get('amount'));
     if (!isFinite(start) || start <= 0) start = state.contract.debt;
