@@ -717,6 +717,13 @@ a.lk-meter:hover .lk-m-go { color: var(--lk-green); transform: translateX(2px); 
 .lk-filter-field { min-width: 0; }
 .lk-filter-field[hidden] { display: none; }
 
+/* период «месяц + год» с двух сторон — счета и акты сверки */
+.lk-filters--period {
+  grid-template-columns: minmax(190px, 1fr) minmax(230px, 1.1fr) minmax(230px, 1.1fr) auto;
+}
+.lk-period { display: grid; grid-template-columns: 1.35fr 1fr; gap: 8px; }
+.lk-period .lk-select { min-width: 0; }
+
 .lk .lk-date {
   max-width: none;
   font-family: inherit;
@@ -822,6 +829,25 @@ a.lk-meter:hover .lk-m-go { color: var(--lk-green); transform: translateX(2px); 
   .lk-filter-reset { width: 100%; }
   .lk-seg { display: flex; }
   .lk-seg-btn { flex: 1; text-align: center; }
+}
+
+/* Период занимает больше места, чем два поля даты, поэтому ломается раньше.
+   Блок идёт после медиазапросов .lk-filters — специфичность у них одинаковая,
+   и решает порядок в файле. */
+@media (max-width: 1399.98px) {
+  .lk-filters--period { grid-template-columns: minmax(180px, 1fr) 1fr 1fr; }
+  .lk-filters--period .lk-filter-field:last-child { grid-column: 1 / -1; }
+  .lk-filters--period .lk-filter-reset { width: auto; }
+}
+
+@media (max-width: 991.98px) {
+  .lk-filters--period { grid-template-columns: 1fr 1fr; }
+  .lk-filters--period .lk-filter-field:first-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 575.98px) {
+  .lk-filters--period { grid-template-columns: 1fr; }
+  .lk-filters--period .lk-filter-reset { width: 100%; }
 }
 
 .lk-visually-hidden {

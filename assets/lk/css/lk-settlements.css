@@ -48,15 +48,6 @@
 .lk-act-dl svg { width: 14px; height: 14px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.5; }
 
 /* --------------------------------------------------------------------------
-   Период: месяц + год с двух сторон
-   -------------------------------------------------------------------------- */
-.lk-filters--set {
-  grid-template-columns: minmax(190px, 1fr) minmax(230px, 1.1fr) minmax(230px, 1.1fr) auto;
-}
-.lk-period { display: grid; grid-template-columns: 1.35fr 1fr; gap: 8px; }
-.lk-period .lk-select { min-width: 0; }
-
-/* --------------------------------------------------------------------------
    Таблица взаиморасчётов
    -------------------------------------------------------------------------- */
 .lk-set { table-layout: fixed; }
@@ -105,17 +96,6 @@
 /* --------------------------------------------------------------------------
    Адаптив
    -------------------------------------------------------------------------- */
-@media (max-width: 1399.98px) {
-  .lk-filters--set { grid-template-columns: minmax(180px, 1fr) 1fr 1fr; }
-  .lk-filters--set .lk-filter-field:last-child { grid-column: 1 / -1; }
-  .lk-filters--set .lk-filter-reset { width: auto; }
-}
-
-@media (max-width: 991.98px) {
-  .lk-filters--set { grid-template-columns: 1fr 1fr; }
-  .lk-filters--set .lk-filter-field:first-child { grid-column: 1 / -1; }
-}
-
 @media (max-width: 900px) {
   /* в карточном режиме числа выравниваем как обычные значения */
   .lk-set td:nth-child(n+3) { text-align: left; }
@@ -130,8 +110,6 @@
 }
 
 @media (max-width: 575.98px) {
-  .lk-filters--set { grid-template-columns: 1fr; }
-  .lk-filters--set .lk-filter-reset { width: 100%; }
   .lk-act { align-items: stretch; }
   .lk-act-actions { width: 100%; }
   .lk-act-dl { flex: 1; justify-content: center; }

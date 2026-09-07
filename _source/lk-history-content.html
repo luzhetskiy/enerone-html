@@ -13,20 +13,26 @@
       <div class="lk-pg-sub">История документов расчёта · ИП Коваленко Наталья Ивановна, ИНН 745301234567</div>
 
       <!-- фильтры -->
-      <div class="lk-filters">
+      <div class="lk-filters lk-filters--period">
         <div class="lk-filter-field" id="lk-filter-contract-wrap">
           <label class="lk-form-lbl" for="lk-filter-contract">Договор</label>
           <select class="lk-select" id="lk-filter-contract"></select>
         </div>
 
         <div class="lk-filter-field">
-          <label class="lk-form-lbl" for="lk-filter-from">Дата — начало</label>
-          <input class="lk-input lk-date" id="lk-filter-from" type="date">
+          <span class="lk-form-lbl" id="lk-from-label">Период с</span>
+          <div class="lk-period" role="group" aria-labelledby="lk-from-label">
+            <select class="lk-select" id="lk-from-month" aria-label="Месяц начала периода"></select>
+            <select class="lk-select" id="lk-from-year" aria-label="Год начала периода"></select>
+          </div>
         </div>
 
         <div class="lk-filter-field">
-          <label class="lk-form-lbl" for="lk-filter-to">Дата — конец</label>
-          <input class="lk-input lk-date" id="lk-filter-to" type="date">
+          <span class="lk-form-lbl" id="lk-to-label">по</span>
+          <div class="lk-period" role="group" aria-labelledby="lk-to-label">
+            <select class="lk-select" id="lk-to-month" aria-label="Месяц конца периода"></select>
+            <select class="lk-select" id="lk-to-year" aria-label="Год конца периода"></select>
+          </div>
         </div>
 
         <div class="lk-filter-field">

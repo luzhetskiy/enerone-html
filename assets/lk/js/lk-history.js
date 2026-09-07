@@ -1,8 +1,10 @@
 /* ==========================================================================
    ЛК «Новая энергия» — страница «Счета» (история документов расчёта)
 
-   Фильтры: договор и диапазон дат. Таблица: договор, номер документа, дата,
-   сумма, статус и ссылки на печатные формы (счёт, УПД, акт по объектам).
+   Фильтры: договор и период (месяц/год начала — месяц/год конца, как в актах
+   сверки: документ расчёта привязан к месяцу, а не к конкретному дню).
+   Таблица: договор, номер документа, дата, сумма, статус и ссылки на печатные
+   формы (счёт, УПД, акт по объектам).
    ========================================================================== */
 (function () {
   'use strict';
@@ -32,6 +34,7 @@
       contract: contract.num,
       num: docNum(contract.code, month, year),
       iso: year + '-' + String(month).padStart(2, '0') + '-' + String(day).padStart(2, '0'),
+      key: year * 100 + month,          // месяц документа — по нему фильтруем период
       date: String(day).padStart(2, '0') + '.' + String(month).padStart(2, '0') + '.' + year,
       sum: sum,
       status: status,          // paid | partial | unpaid
@@ -94,6 +97,9 @@
     });
   }
 
+  var MONTHS = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+                'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+
   var ICO_DL = '<svg viewBox="0 0 14 14" aria-hidden="true">' +
                '<path d="M7 2.5v7M7 9.5l-2.5-2.5M7 9.5l2.5-2.5" stroke-linecap="round" stroke-linejoin="round"/>' +
                '<path d="M2.5 11.5h9" stroke-linecap="round"/></svg>';
@@ -104,31 +110,57 @@
      Фильтры
      ====================================================================== */
 
+  function fillMonths(select) {
+    select.innerHTML = '<option value="">Месяц</option>' +
+      MONTHS.map(function (name, i) {
+        return '<option value="' + (i + 1) + '">' + name + '</option>';
+      }).join('');
+  }
+
+  function fillYears(select) {
+    var years = {};
+    DOCS.forEach(function (d) { years[Math.floor(d.key / 100)] = true; });
+    select.innerHTML = '<option value="">Год</option>' +
+      Object.keys(years).sort().map(function (y) {
+        return '<option value="' + y + '">' + y + '</option>';
+      }).join('');
+  }
+
+  // месяц без года (и наоборот) границу не задаёт — нужны оба значения
+  function bound(monthSel, yearSel) {
+    var m = parseInt(monthSel.value, 10);
+    var y = parseInt(yearSel.value, 10);
+    if (!m || !y) return null;
+    return y * 100 + m;
+  }
+
   function readFilters() {
     return {
       contract: n.contract ? n.contract.value : '',
-      from: n.from.value,
-      to: n.to.value
+      from: bound(n.fromMonth, n.fromYear),
+      to: bound(n.toMonth, n.toYear),
+      touched: !!(n.fromMonth.value || n.fromYear.value || n.toMonth.value || n.toYear.value)
     };
   }
 
   function isFiltered(f) {
-    return !!(f.contract || f.from || f.to);
+    return !!(f.contract || f.touched);
   }
 
   function applyFilters() {
     var f = readFilters();
 
-    // некорректный диапазон не должен молча отдавать пустой список
+    // перевёрнутый период подтягиваем, а не отдаём пустой список
     if (f.from && f.to && f.from > f.to) {
-      n.to.value = f.from;
+      n.toMonth.value = n.fromMonth.value;
+      n.toYear.value = n.fromYear.value;
       f.to = f.from;
     }
 
     var rows = DOCS.filter(function (d) {
       if (f.contract && d.contract !== f.contract) return false;
-      if (f.from && d.iso < f.from) return false;
-      if (f.to && d.iso > f.to) return false;
+      if (f.from && d.key < f.from) return false;
+      if (f.to && d.key > f.to) return false;
       return true;
     });
 
@@ -197,9 +229,14 @@
     n.tbody = document.getElementById('lk-docs');
     if (!n.tbody) return;
 
-    n.from    = document.getElementById('lk-filter-from');
-    n.to      = document.getElementById('lk-filter-to');
-    n.reset   = document.getElementById('lk-filter-reset');
+    n.reset     = document.getElementById('lk-filter-reset');
+    n.fromMonth = document.getElementById('lk-from-month');
+    n.fromYear  = document.getElementById('lk-from-year');
+    n.toMonth   = document.getElementById('lk-to-month');
+    n.toYear    = document.getElementById('lk-to-year');
+
+    fillMonths(n.fromMonth); fillMonths(n.toMonth);
+    fillYears(n.fromYear);   fillYears(n.toYear);
 
     var wrap = document.getElementById('lk-filter-contract-wrap');
     var select = document.getElementById('lk-filter-contract');
@@ -216,27 +253,37 @@
       wrap.hidden = true;
     }
 
-    // договор можно передать ссылкой: history.html?contract=ДЭС740201104
+    // договор и период можно передать ссылкой:
+    // history.html?contract=ДЭС740201104&from=2026-01&to=2026-07
     var q = new URLSearchParams(window.location.search);
     var pre = q.get('contract');
     if (pre && n.contract) {
       var exists = Array.prototype.some.call(n.contract.options, function (o) { return o.value === pre; });
       if (exists) n.contract.value = pre;
     }
-    if (q.get('from')) n.from.value = q.get('from');
-    if (q.get('to')) n.to.value = q.get('to');
+    setPeriod(q.get('from'), n.fromYear, n.fromMonth);
+    setPeriod(q.get('to'), n.toYear, n.toMonth);
 
-    n.from.addEventListener('change', applyFilters);
-    n.to.addEventListener('change', applyFilters);
+    [n.fromMonth, n.fromYear, n.toMonth, n.toYear].forEach(function (sel) {
+      sel.addEventListener('change', applyFilters);
+    });
 
     n.reset.addEventListener('click', function () {
       if (n.contract) n.contract.value = '';
-      n.from.value = '';
-      n.to.value = '';
+      [n.fromMonth, n.fromYear, n.toMonth, n.toYear].forEach(function (s) { s.value = ''; });
       applyFilters();
     });
 
     applyFilters();
+  }
+
+  // history.html?from=2026-01&to=2026-07 (день в YYYY-MM-DD отбрасывается)
+  function setPeriod(value, yearSel, monthSel) {
+    if (!value) return;
+    var parts = String(value).split('-');
+    if (parts.length < 2) return;
+    yearSel.value = parts[0];
+    monthSel.value = String(parseInt(parts[1], 10));
   }
 
   if (document.readyState === 'loading') {
