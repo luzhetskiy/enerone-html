@@ -174,6 +174,13 @@
   var WINDOW_TEXT = 'Показания принимаются в период с 0:00 20 числа текущего месяца ' +
                     'до 15:00 4 числа месяца следующего за расчетным.';
 
+  // одна и та же плашка выводится в начале страницы и внутри карточки ПУ
+  function windowNoteHtml() {
+    return ICO_CLOCK +
+           '<div class="lk-window-closed-text"><b>Окно передачи показаний закрыто</b>' +
+           WINDOW_TEXT + '</div>';
+  }
+
   function windowIsOpen(now) {
     now = now || new Date();
     var d = now.getDate();
@@ -190,6 +197,10 @@
   var state = { contract: null, object: null, windowOpen: windowIsOpen() };
 
   var nodes = {};
+
+  function syncWindowNote() {
+    if (nodes.windowNote) nodes.windowNote.hidden = state.windowOpen;
+  }
 
   /* ======================================================================
      Шаг 1 — договоры
@@ -389,10 +400,7 @@
                 '<input class="lk-input lk-input--mono" id="' + uid + '-in" type="text" inputmode="decimal" ' +
                        'autocomplete="off" placeholder="0">' +
                 '<div class="lk-input-err" data-err hidden></div>'
-              : '<div class="lk-window-closed">' + ICO_CLOCK +
-                  '<div class="lk-window-closed-text"><b>Окно передачи показаний закрыто</b>' +
-                    WINDOW_TEXT + '</div>' +
-                '</div>') +
+              : '<div class="lk-window-closed">' + windowNoteHtml() + '</div>') +
           '</div>' +
 
           '<div class="lk-calc">' +
@@ -602,10 +610,15 @@
     nodes.bulkUpload   = document.getElementById('lk-bulk-upload');
     nodes.uploadGrid   = document.getElementById('lk-upload-grid');
 
+    nodes.windowNote = document.getElementById('lk-window-note');
+    if (nodes.windowNote) nodes.windowNote.innerHTML = windowNoteHtml();
+    syncWindowNote();
+
     // демо-переключатель состояния окна передачи
     document.querySelectorAll('[data-window-state]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         state.windowOpen = btn.getAttribute('data-window-state') === 'open';
+        syncWindowNote();
         if (state.object) renderMeters(state.object);
       });
     });

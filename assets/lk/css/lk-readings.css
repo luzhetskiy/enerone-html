@@ -248,6 +248,17 @@
 .lk-window-closed-text { font-size: 11px; line-height: 1.45; color: #8a6b1c; }
 .lk-window-closed-text b { display: block; font-size: 11px; color: #6d5414; margin-bottom: 2px; }
 
+/* та же плашка в начале страницы: шире, крупнее и заметнее — её видно до того,
+   как пользователь дошёл до карточки прибора учёта */
+.lk-window-closed--page {
+  gap: 11px;
+  padding: 13px 16px;
+  margin-bottom: 20px;
+}
+.lk-window-closed--page svg { width: 18px; height: 18px; margin-top: 0; }
+.lk-window-closed--page .lk-window-closed-text { font-size: 12px; }
+.lk-window-closed--page .lk-window-closed-text b { font-size: 12.5px; margin-bottom: 3px; }
+
 /* график внутри карточки ПУ */
 .lk-meter-chart { margin-top: 18px; }
 .lk-meter-chart .ec-card { box-shadow: none; border: 1px solid var(--lk-line); border-radius: var(--lk-r-lg); }

@@ -534,6 +534,10 @@
         <button type="button" class="lk-demo-btn lk-demo-btn--debt" data-window-state="closed">Закрыто</button>
       </div>
 
+      <!-- Окно передачи закрыто — предупреждаем в начале страницы, до выбора договора,
+           чтобы это было видно сразу, а не только в карточке ПУ. Содержимое собирает JS. -->
+      <div class="lk-window-closed lk-window-closed--page" id="lk-window-note" hidden></div>
+
       <!-- ШАГ 1 — договор -->
       <section class="lk-step">
         <div class="lk-sec-hdr">
