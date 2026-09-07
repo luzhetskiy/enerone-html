@@ -30,8 +30,8 @@
   var METHODS = SAVED_CARDS.map(function (c) {
     return {
       id: 'saved-' + c.id,
-      name: 'Привязанная карта',
-      desc: c.system + ' · ' + c.mask + ' · до ' + c.expires,
+      name: c.mask,
+      desc: 'Привязанная карта ' + c.system + ' · до ' + c.expires,
       full: 'Привязанная карта ' + c.system + ' · ' + c.mask,
       fee: CARD_FEE.fee,
       feeMin: CARD_FEE.feeMin,
