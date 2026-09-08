@@ -514,8 +514,6 @@
     nodes.bar.hidden = true;
     nodes.toggle.setAttribute('aria-expanded', 'true');
 
-    if (!opts.keepOk) nodes.ok.hidden = true;
-
     if (opts.scroll !== false) {
       nodes.panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -580,7 +578,6 @@
 
   function initForm() {
     var form = nodes.form;
-    var ok = nodes.ok;
 
     function showError(name, show) {
       var field = form.querySelector('[name="' + name + '"]');
@@ -597,7 +594,6 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      ok.hidden = true;
 
       var contract = form.contract.value;
       var topic = form.topic.value;
@@ -620,30 +616,57 @@
         message: message,
         files: attached.map(function (f) { return f.name; })
       });
-
-      form.reset();
-      attached = [];
-      renderFiles();
-      closeNew();                      // форма сворачивается, подтверждение остаётся
-      ok.hidden = false;
     });
   }
 
-  // заглушка отправки: обращение сразу попадает в историю со статусом «принято»
+  // заглушка отправки: показываем экран подтверждения.
+  // В боевой версии сюда встанет запрос к бэкенду, а номер обращения придёт в ответе.
   function submitMessage(data) {
     console.log('[ЛК] новое обращение:', data);
 
-    MESSAGES.unshift({
-      id: 'm-' + Date.now(),
-      date: nowStamp(),
+    var params = new URLSearchParams({
+      id: genTicketId(),
       contract: data.contract,
       topic: data.topic,
-      text: data.message,
-      files: data.files,
-      status: 'accepted'
+      date: nowStamp()
     });
+    if (data.files.length) params.set('files', data.files.join(', '));
 
-    renderMessages();
+    window.location.href = 'feedback-sent.html?' + params.toString();
+  }
+
+  function genTicketId() {
+    return 'ОБР-' + new Date().getFullYear() + '-' +
+           String(Math.floor(Math.random() * 900000) + 100000);
+  }
+
+  /* ======================================================================
+     Экран «обращение отправлено»
+     ====================================================================== */
+
+  function initSent() {
+    var root = document.querySelector('[data-sent-result]');
+    if (!root) return false;
+
+    var q = new URLSearchParams(window.location.search);
+
+    function set(key, value) {
+      var cell = root.querySelector('[data-sent-' + key + ']');
+      var row = root.querySelector('[data-sent-' + key + '-row]');
+      if (!cell) return;
+      // строка без значения только мешает — прячем её целиком
+      if (!value) { if (row) row.hidden = true; return; }
+      cell.textContent = value;
+      if (row) row.hidden = false;
+    }
+
+    set('id', q.get('id') || genTicketId());
+    set('contract', q.get('contract') ? '№ ' + q.get('contract') : '');
+    set('topic', q.get('topic'));
+    set('files', q.get('files'));
+    set('date', q.get('date') || nowStamp());
+
+    return true;
   }
 
   /* ======================================================================
@@ -651,6 +674,8 @@
      ====================================================================== */
 
   function init() {
+    if (initSent()) return;                  // страница подтверждения отправки
+
     nodes.form = document.getElementById('lk-feedback-form');
     if (!nodes.form) return;                 // не эта страница
 
@@ -660,7 +685,6 @@
     nodes.panel  = document.getElementById('lk-new-panel');
     nodes.bar    = document.getElementById('lk-new-bar');
     nodes.toggle = document.querySelector('[data-new-toggle]');
-    nodes.ok     = document.querySelector('[data-form-ok]');
 
     fillSelect(document.getElementById('lk-fb-contract'),
       CONTRACTS.map(function (c) {

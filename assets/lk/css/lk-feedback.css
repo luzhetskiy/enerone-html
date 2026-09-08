@@ -29,26 +29,6 @@
   border-top: 1px solid var(--lk-line-soft);
 }
 
-/* успешная отправка */
-.lk-form-ok {
-  display: flex; align-items: flex-start; gap: 9px;
-  background: var(--lk-green-bg);
-  border: 1px solid var(--lk-green-br);
-  border-radius: var(--lk-r-md);
-  padding: 11px 13px;
-  margin-top: 16px;
-}
-.lk-new-bar + .lk-form-ok { margin-top: 16px; }
-.lk-form-ok + .lk-panel { margin-top: 16px; }
-.lk-new-bar + .lk-panel,
-.lk-new-bar + .lk-form-ok + .lk-panel { margin-top: 0; }
-.lk-form-ok[hidden] { display: none; }
-.lk-form-ok svg {
-  width: 15px; height: 15px; flex-shrink: 0; margin-top: 1px;
-  fill: none; stroke: var(--lk-green-dk); stroke-width: 1.6;
-}
-.lk-form-ok-text { font-size: 11px; line-height: 1.45; color: var(--lk-green-dk); }
-
 /* --------------------------------------------------------------------------
    История обращений
    -------------------------------------------------------------------------- */

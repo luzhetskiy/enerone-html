@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
-    <title>Сообщения | ООО «ЭСК Новая энергия»</title>
+    <title>Обращение отправлено | ООО «ЭСК Новая энергия»</title>
 
     <link rel="shortcut icon" href="assets/site/favicon.ico" type="image/x-icon">
 
@@ -464,7 +464,7 @@
         <section class="section">
             <div class="bs-container">
 
-<!-- ================= ЛК: Сообщения — начало ================= -->
+<!-- ================= ЛК: Обращение отправлено — начало ================= -->
 <div class="lk">
   <div class="lk-layout">
 
@@ -517,124 +517,70 @@
       </div>
     </nav>
 
-    <!-- ===== Контент ===== -->
     <div class="lk-content">
       <button type="button" class="lk-burger" data-lk-burger aria-label="Разделы кабинета">
         <span></span><span></span><span></span>
       </button>
 
-      <h1 class="lk-pg-title">Сообщения</h1>
-      <div class="lk-pg-sub">Индивидуальный предприниматель Коваленко Наталья Ивановна · ИНН 745301234567</div>
+      <div class="lk-result" data-sent-result>
+        <div class="lk-panel">
 
-      <!-- ===== 1. Форма обращения (по умолчанию свёрнута) ===== -->
-      <section class="lk-step">
-
-        <div class="lk-new-bar" id="lk-new-bar">
-          <button type="button" class="lk-btn-primary lk-btn-new"
-                  data-new-toggle aria-expanded="false" aria-controls="lk-new-panel">
-            <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 2v10M2 7h10"/></svg>
-            Новое обращение
-          </button>
-          <span class="lk-new-hint">
-            Задайте вопрос персональному менеджеру — ответ придёт сюда и на электронную почту
-          </span>
-        </div>
-
-        <div class="lk-panel" id="lk-new-panel" hidden>
-          <div class="lk-panel-hdr">
-            <h2 class="lk-sec-title lk-sec-title--major">Новое обращение</h2>
-            <button type="button" class="lk-panel-close" data-new-close aria-label="Свернуть форму">
-              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg>
-            </button>
+          <div class="lk-result-ico lk-result-ico--ok">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>
           </div>
 
-          <p class="lk-form-intro">
-            Здесь вы можете задать интересующий вопрос, выбрав тему из списка.
-            Персональный менеджер ответит на электронную почту или перезвонит,
-            а ответ появится в истории обращений ниже.
+          <h1 class="lk-result-title">Обращение отправлено</h1>
+          <p class="lk-result-text">
+            Обращение зарегистрировано и передано персональному менеджеру.
+            Ответ придёт в личный кабинет и на электронную почту, указанную в договоре.
           </p>
 
-          <form id="lk-feedback-form" novalidate>
-
-            <div class="lk-form-grid">
-              <div>
-                <label class="lk-form-lbl" for="lk-fb-contract">
-                  Номер договора <span class="lk-req" aria-hidden="true">*</span>
-                </label>
-                <select class="lk-select" id="lk-fb-contract" name="contract" required></select>
-                <div class="lk-form-err" data-err-for="contract" hidden>Выберите договор</div>
-              </div>
-
-              <div>
-                <label class="lk-form-lbl" for="lk-fb-topic">
-                  Тема обращения <span class="lk-req" aria-hidden="true">*</span>
-                </label>
-                <select class="lk-select" id="lk-fb-topic" name="topic" required></select>
-                <div class="lk-form-err" data-err-for="topic" hidden>Выберите тему обращения</div>
-              </div>
+          <div class="lk-result-info">
+            <div class="lk-result-row">
+              <span class="lk-result-k">Номер обращения</span>
+              <span class="lk-result-v" data-sent-id>—</span>
             </div>
-
-            <div class="lk-form-row">
-              <label class="lk-form-lbl" for="lk-fb-text">
-                Текст сообщения <span class="lk-req" aria-hidden="true">*</span>
-              </label>
-              <textarea class="lk-textarea" id="lk-fb-text" name="message" rows="5"
-                        placeholder="Опишите вопрос как можно подробнее — это ускорит ответ"></textarea>
-              <div class="lk-form-err" data-err-for="message" hidden>Введите текст сообщения</div>
+            <div class="lk-result-row" data-sent-contract-row hidden>
+              <span class="lk-result-k">Договор</span>
+              <span class="lk-result-v" data-sent-contract>—</span>
             </div>
-
-            <div class="lk-form-row">
-              <label class="lk-form-lbl" for="lk-fb-files">
-                Приложенные файлы <span class="lk-opt">— если требуется</span>
-              </label>
-              <div class="lk-file">
-                <input type="file" id="lk-fb-files" name="files" multiple>
-                <label class="lk-file-drop" for="lk-fb-files">
-                  <svg viewBox="0 0 16 16" aria-hidden="true">
-                    <path d="M8 11V3M8 3L5 6M8 3l3 3" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2.5 10.5v1.5A1.5 1.5 0 004 13.5h8a1.5 1.5 0 001.5-1.5v-1.5" stroke-width="1.4" stroke-linecap="round"/>
-                  </svg>
-                  Выберите файлы или перетащите их сюда
-                </label>
-                <div class="lk-file-hint">PDF, JPG, PNG, XLSX, DOCX — до 10 МБ каждый</div>
-                <ul class="lk-file-list" data-file-list></ul>
-              </div>
+            <div class="lk-result-row" data-sent-topic-row hidden>
+              <span class="lk-result-k">Тема обращения</span>
+              <span class="lk-result-v" data-sent-topic>—</span>
             </div>
-
-            <div class="lk-form-foot">
-              <button type="submit" class="lk-btn-primary">Отправить</button>
-              <button type="button" class="lk-btn-ghost" data-new-close>Отмена</button>
-              <span class="lk-form-intro" style="margin:0;">Ответ приходит в течение 3 рабочих дней</span>
+            <div class="lk-result-row" data-sent-files-row hidden>
+              <span class="lk-result-k">Приложенные файлы</span>
+              <span class="lk-result-v" data-sent-files>—</span>
             </div>
+            <div class="lk-result-row">
+              <span class="lk-result-k">Дата и время</span>
+              <span class="lk-result-v" data-sent-date>—</span>
+            </div>
+            <div class="lk-result-row">
+              <span class="lk-result-k">Статус</span>
+              <span class="lk-result-v">
+                <span class="lk-status lk-status--accepted">принято</span>
+              </span>
+            </div>
+          </div>
 
-          </form>
+          <div class="lk-result-actions">
+            <a class="lk-btn-primary" href="feedback.html">Мои обращения</a>
+            <a class="lk-btn-ghost" href="index.html">Вернуться в кабинет</a>
+          </div>
+
+          <p class="lk-result-help">
+            Обычно менеджер отвечает в течение 3 рабочих дней. Ответ появится
+            в разделе «Сообщения» — там же можно уточнить вопрос.
+          </p>
+
         </div>
-      </section>
-
-      <!-- ===== 2. История обращений ===== -->
-      <section class="lk-step lk-step--sep">
-        <div class="lk-msg-hdr">
-          <h2 class="lk-sec-title lk-sec-title--major">Отправленные сообщения</h2>
-          <span class="lk-unread-count" id="lk-unread-count" hidden>
-            <span class="lk-unread-dot" aria-hidden="true"></span>
-            <span data-unread-text></span>
-          </span>
-        </div>
-
-        <!-- Демо-переключатель вида истории (только прототип) -->
-        <div class="lk-demo">
-          <span class="lk-demo-lbl">Демо — вид истории:</span>
-          <button type="button" class="lk-demo-btn lk-demo-btn--view is-on" data-msg-view="classic">Обращение и ответ</button>
-          <button type="button" class="lk-demo-btn lk-demo-btn--view" data-msg-view="thread">Переписка в обращении</button>
-        </div>
-
-        <div class="lk-msgs" id="lk-msgs"></div>
-      </section>
+      </div>
 
     </div>
   </div>
 </div>
-<!-- ================= ЛК: Сообщения — конец ================= -->
+<!-- ================= ЛК: Обращение отправлено — конец ================= -->
 
 
             </div>

@@ -49,6 +49,14 @@ PAGES = [
         "js":  ["assets/lk/js/lk-feedback.js"],
     },
     {
+        "out": "feedback-sent.html",
+        "content": "lk-feedback-sent-content.html",
+        "nav": "messages",
+        "title": "Обращение отправлено | ООО «ЭСК Новая энергия»",
+        "css": ["assets/lk/css/lk-feedback.css"],
+        "js":  ["assets/lk/js/lk-feedback.js"],
+    },
+    {
         "out": "history.html",
         "content": "lk-history-content.html",
         "nav": "invoices",
