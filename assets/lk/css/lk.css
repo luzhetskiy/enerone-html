@@ -833,14 +833,27 @@ a.lk-meter:hover .lk-m-go { color: var(--lk-green); transform: translateX(2px); 
 .lk-period { display: grid; grid-template-columns: 1.35fr 1fr; gap: 8px; }
 .lk-period .lk-select { min-width: 0; }
 
+/* Поле даты.
+   Safari на iOS игнорирует width у нативного input[type=date] и растягивает его
+   по своей внутренней ширине — поле вылезало за карточку фильтров. Лечится
+   отключением нативной отрисовки; календарь при этом никуда не девается:
+   на iOS его открывает сам системный пикер, в Chrome — псевдоэлемент ниже. */
 .lk .lk-date {
-  max-width: none;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 38px !important;   /* пустое поле на iOS схлопывалось по высоте */
   font-family: inherit;
   font-size: 13px !important;
   font-weight: 500;
   text-align: left;
   padding: 9px 12px !important;
 }
+/* значение внутри поля Safari рисует отдельным блоком и центрирует его */
+.lk .lk-date::-webkit-date-and-time-value { text-align: left; margin: 0; }
+.lk .lk-date::-webkit-datetime-edit { padding: 0; }
 .lk .lk-date::-webkit-calendar-picker-indicator { cursor: pointer; opacity: .5; }
 .lk .lk-date:hover::-webkit-calendar-picker-indicator { opacity: .9; }
 
