@@ -280,7 +280,6 @@
      Значение пишется обратно в <select>, оттуда его и заберёт форма;
      на селекте вызывается событие change. */
 
-  var COMBO_LIMIT = 60;          // столько совпадений рисуем сразу
   var comboSeq = 0;
 
   // «ё» и регистр не должны мешать поиску
@@ -386,10 +385,10 @@
       clear.hidden = !picked;
     }
 
+    // в поле показываем только value (номер договора) — название организации
+    // нужно, чтобы найти договор, а не чтобы занимать поле после выбора
     function labelOf(value) {
-      if (!value) return '';
-      var hit = items.filter(function (it) { return it.value === value; })[0];
-      return hit ? hit.label : '';
+      return value || '';
     }
 
     function render(query) {
@@ -400,7 +399,7 @@
         ? items.filter(function (it) { return comboNorm(it.label).indexOf(q) >= 0; })
         : items;
 
-      shown = found.slice(0, COMBO_LIMIT);
+      shown = found;
       active = -1;
       list.innerHTML = '';
 
@@ -410,14 +409,6 @@
         empty.textContent = 'Ничего не найдено';
         list.appendChild(empty);
         return;
-      }
-
-      if (found.length > shown.length) {
-        var count = document.createElement('li');
-        count.className = 'lk-combo-count';
-        count.textContent = 'Показаны первые ' + shown.length + ' из ' + found.length +
-                            ' — уточните запрос';
-        list.appendChild(count);
       }
 
       shown.forEach(function (it, i) {
@@ -457,7 +448,7 @@
     function pick(it) {
       picked = it.value;
       select.value = it.value;
-      input.value = it.label;
+      input.value = labelOf(it.value);
       clear.hidden = false;
       close();
       select.dispatchEvent(new Event('change', { bubbles: true }));

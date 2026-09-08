@@ -702,12 +702,6 @@ a.lk-meter:hover .lk-m-go { color: var(--lk-green); transform: translateX(2px); 
   padding: 14px 10px; text-align: center;
   font-size: 12px; color: var(--lk-muted-2);
 }
-.lk-combo-count {
-  padding: 7px 10px 5px;
-  font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-  color: var(--lk-muted-2);
-}
-
 /* --- Поле выбора файлов --- */
 .lk-file { display: block; }
 .lk-file input[type="file"] {
