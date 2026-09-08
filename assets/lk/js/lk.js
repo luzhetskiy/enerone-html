@@ -271,6 +271,255 @@
     setTimeout(function () { onError(); }, 400);
   }
 
+  /* ---------- Селект с поиском (комбобокс) ----------
+     Работает поверх обычного <select data-lk-combo>: сам селект прячем,
+     рядом строим поле ввода и список. Без JS остаётся рабочий нативный селект,
+     бэкенду достаточно отдавать <option>.
+
+     Поиск — по вхождению в любом месте строки, регистр и ё/е не важны.
+     Значение пишется обратно в <select>, оттуда его и заберёт форма;
+     на селекте вызывается событие change. */
+
+  var COMBO_LIMIT = 60;          // столько совпадений рисуем сразу
+  var comboSeq = 0;
+
+  // «ё» и регистр не должны мешать поиску
+  function comboNorm(s) {
+    return String(s).toLowerCase().replace(/ё/g, 'е');
+  }
+
+  function comboMark(text, query) {
+    if (!query) return escapeHtml(text);
+    var i = comboNorm(text).indexOf(comboNorm(query));
+    if (i < 0) return escapeHtml(text);
+    return escapeHtml(text.slice(0, i)) +
+           '<mark>' + escapeHtml(text.slice(i, i + query.length)) + '</mark>' +
+           escapeHtml(text.slice(i + query.length));
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  function initCombos() {
+    document.querySelectorAll('[data-lk-combo]').forEach(buildCombo);
+  }
+
+  function buildCombo(root) {
+    var select = root.querySelector('select');
+    if (!select) return;
+
+    // пустой disabled-пункт — это плейсхолдер, в списке он не нужен
+    var items = Array.prototype.filter.call(select.options, function (o) {
+      return o.value !== '';
+    }).map(function (o) {
+      return { value: o.value, label: o.textContent.trim() };
+    });
+
+    var id = 'lk-combo-' + (++comboSeq);
+    var placeholder = root.getAttribute('data-placeholder') || 'Начните вводить';
+
+    select.hidden = true;
+    select.tabIndex = -1;
+
+    var input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'lk-combo-input';
+    input.id = id + '-input';
+    input.autocomplete = 'off';
+    input.placeholder = placeholder;
+    input.setAttribute('role', 'combobox');
+    input.setAttribute('aria-expanded', 'false');
+    input.setAttribute('aria-controls', id + '-list');
+    input.setAttribute('aria-autocomplete', 'list');
+
+    // подпись селекта должна указывать на поле, в которое реально печатают
+    var label = select.id && document.querySelector('label[for="' + select.id + '"]');
+    if (label) label.setAttribute('for', input.id);
+
+    var btns = document.createElement('div');
+    btns.className = 'lk-combo-btns';
+    btns.innerHTML =
+      '<button type="button" class="lk-combo-clear" aria-label="Очистить" hidden>' +
+        '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8"/></svg>' +
+      '</button>' +
+      '<button type="button" class="lk-combo-arrow" tabindex="-1" aria-label="Показать список">' +
+        '<svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5L6 6.5l5-5"/></svg>' +
+      '</button>';
+
+    var list = document.createElement('ul');
+    list.className = 'lk-combo-list';
+    list.id = id + '-list';
+    list.setAttribute('role', 'listbox');
+    list.hidden = true;
+
+    root.appendChild(input);
+    root.appendChild(btns);
+    root.appendChild(list);
+
+    var clear = btns.querySelector('.lk-combo-clear');
+    var arrow = btns.querySelector('.lk-combo-arrow');
+
+    var shown = [];        // что сейчас в списке
+    var active = -1;       // подсвеченный пункт
+    var picked = null;     // выбранное значение
+
+    function open() {
+      if (!list.hidden) return;
+      render(input.value === labelOf(picked) ? '' : input.value);
+      list.hidden = false;
+      root.classList.add('is-open');
+      input.setAttribute('aria-expanded', 'true');
+    }
+
+    function close() {
+      if (list.hidden) return;
+      list.hidden = true;
+      root.classList.remove('is-open');
+      input.setAttribute('aria-expanded', 'false');
+      input.removeAttribute('aria-activedescendant');
+      active = -1;
+      // ушли, ничего не выбрав — возвращаем прежнее значение, а не обрывок запроса
+      input.value = labelOf(picked);
+      clear.hidden = !picked;
+    }
+
+    function labelOf(value) {
+      if (!value) return '';
+      var hit = items.filter(function (it) { return it.value === value; })[0];
+      return hit ? hit.label : '';
+    }
+
+    function render(query) {
+      query = (query || '').trim();
+      var q = comboNorm(query);
+
+      var found = q
+        ? items.filter(function (it) { return comboNorm(it.label).indexOf(q) >= 0; })
+        : items;
+
+      shown = found.slice(0, COMBO_LIMIT);
+      active = -1;
+      list.innerHTML = '';
+
+      if (!found.length) {
+        var empty = document.createElement('li');
+        empty.className = 'lk-combo-empty';
+        empty.textContent = 'Ничего не найдено';
+        list.appendChild(empty);
+        return;
+      }
+
+      if (found.length > shown.length) {
+        var count = document.createElement('li');
+        count.className = 'lk-combo-count';
+        count.textContent = 'Показаны первые ' + shown.length + ' из ' + found.length +
+                            ' — уточните запрос';
+        list.appendChild(count);
+      }
+
+      shown.forEach(function (it, i) {
+        var li = document.createElement('li');
+        li.className = 'lk-combo-opt' + (it.value === picked ? ' is-picked' : '');
+        li.id = id + '-opt-' + i;
+        li.setAttribute('role', 'option');
+        li.setAttribute('aria-selected', String(it.value === picked));
+        li.innerHTML = comboMark(it.label, query);
+
+        // mousedown, а не click: blur поля не должен успеть закрыть список
+        li.addEventListener('mousedown', function (e) {
+          e.preventDefault();
+          pick(it);
+        });
+        list.appendChild(li);
+      });
+    }
+
+    function setActive(i) {
+      var opts = list.querySelectorAll('.lk-combo-opt');
+      if (!opts.length) return;
+
+      if (active >= 0 && opts[active]) opts[active].classList.remove('is-active');
+      active = (i + opts.length) % opts.length;
+      opts[active].classList.add('is-active');
+      input.setAttribute('aria-activedescendant', opts[active].id);
+
+      var el = opts[active];
+      var top = el.offsetTop, bottom = top + el.offsetHeight;
+      if (top < list.scrollTop) list.scrollTop = top - 4;
+      else if (bottom > list.scrollTop + list.clientHeight) {
+        list.scrollTop = bottom - list.clientHeight + 4;
+      }
+    }
+
+    function pick(it) {
+      picked = it.value;
+      select.value = it.value;
+      input.value = it.label;
+      clear.hidden = false;
+      close();
+      select.dispatchEvent(new Event('change', { bubbles: true }));
+      console.log('[ЛК] выбран договор:', it.value);
+    }
+
+    function reset() {
+      picked = null;
+      select.value = '';
+      input.value = '';
+      clear.hidden = true;
+      select.dispatchEvent(new Event('change', { bubbles: true }));
+      input.focus();
+      open();
+    }
+
+    input.addEventListener('input', function () {
+      if (list.hidden) { list.hidden = false; root.classList.add('is-open');
+                         input.setAttribute('aria-expanded', 'true'); }
+      render(input.value);
+      list.scrollTop = 0;
+    });
+
+    input.addEventListener('focus', open);
+    input.addEventListener('mousedown', function () { setTimeout(open, 0); });
+
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (list.hidden) { open(); setActive(0); return; }
+        setActive(active + (e.key === 'ArrowDown' ? 1 : -1));
+        return;
+      }
+      if (e.key === 'Enter') {
+        var opts = list.querySelectorAll('.lk-combo-opt');
+        if (!list.hidden && active >= 0 && opts[active]) {
+          e.preventDefault();
+          pick(shown[active]);
+        }
+        return;
+      }
+      if (e.key === 'Escape') { close(); return; }
+      if (e.key === 'Tab') close();
+    });
+
+    input.addEventListener('blur', function () { setTimeout(close, 0); });
+
+    arrow.addEventListener('mousedown', function (e) {
+      e.preventDefault();
+      if (list.hidden) { input.focus(); open(); } else { close(); input.focus(); }
+    });
+
+    clear.addEventListener('mousedown', function (e) { e.preventDefault(); reset(); });
+
+    // значение могло быть выбрано в разметке заранее
+    if (select.value) {
+      picked = select.value;
+      input.value = labelOf(picked);
+      clear.hidden = false;
+    }
+  }
+
   /* ---------- Заглушки действий ----------
      В прототипе действия ЛК не подключены к бэкенду — логируем намерение.
      Каждый элемент помечен data-lk-action="…". */
@@ -291,6 +540,7 @@
     initModals();
     initAddContract();
     initActions();
+    initCombos();
   }
 
   // публичный хук для страниц, которые дорисовывают разметку на лету

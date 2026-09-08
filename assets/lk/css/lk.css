@@ -72,6 +72,22 @@
 .lk-burger span { display: block; width: 20px; height: 2px; background: #555; border-radius: 2px; }
 
 /* --------------------------------------------------------------------------
+   Админский поиск по договорам (главная)
+   -------------------------------------------------------------------------- */
+.lk-admin-pick {
+  max-width: 520px;
+  margin: 0 0 20px;
+  padding: 12px 14px 13px;
+  background: #fbfcfd;
+  border: 1px dashed #d8e0ea;
+  border-radius: var(--lk-r-lg);
+}
+.lk-admin-note {
+  margin-top: 7px;
+  font-size: 11px; line-height: 1.45; color: var(--lk-muted-3);
+}
+
+/* --------------------------------------------------------------------------
    Каркас: сайдбар + контент
    -------------------------------------------------------------------------- */
 .lk-layout {
@@ -592,6 +608,105 @@ a.lk-meter:hover .lk-m-go { color: var(--lk-green); transform: translateX(2px); 
 .lk .lk-select.is-invalid,
 .lk .lk-select.is-invalid:focus { border-color: var(--lk-red) !important; }
 .lk .lk-select:invalid { color: var(--lk-muted-3); }   /* пока выбран пустой пункт */
+
+/* --------------------------------------------------------------------------
+   Селект с поиском (комбобокс)
+
+   Разметка в HTML — обычный <select>; lk.js прячет его и строит поле ввода
+   со списком. Без JS остаётся рабочий нативный селект.
+   Правила идут после .lk-input и .lk-select, чтобы перебивать их по порядку;
+   !important — там же, где он стоит у боевого сайта (см. «Правила стилей»).
+   -------------------------------------------------------------------------- */
+.lk-combo { position: relative; }
+
+.lk .lk-combo-input {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  min-height: 0 !important;
+  font-family: inherit;
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+  font-weight: 500;
+  color: var(--lk-ink);
+  padding: 10px 60px 10px 12px !important;
+  background-color: #fff !important;
+  border: 1.5px solid var(--lk-line);
+  border-radius: var(--lk-r-md) !important;
+  outline: none;
+  text-overflow: ellipsis;
+  transition: border-color .12s, box-shadow .12s;
+}
+.lk .lk-combo-input::placeholder { color: var(--lk-muted-3); }
+.lk .lk-combo-input:focus {
+  border-color: var(--lk-green) !important;
+  box-shadow: 0 0 0 3px rgba(98, 182, 124, .14) !important;
+}
+.lk-combo.is-open .lk-combo-input {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* стрелка и сброс — поверх поля справа */
+.lk-combo-btns {
+  position: absolute; top: 0; right: 8px; height: 40px;
+  display: flex; align-items: center; gap: 2px;
+}
+.lk-combo-clear,
+.lk-combo-arrow {
+  display: flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; padding: 0;
+  background: none; border: none; cursor: pointer;
+  color: var(--lk-muted-2);
+}
+.lk-combo-clear:hover { color: var(--lk-ink-3); }
+.lk-combo-clear[hidden] { display: none; }
+.lk-combo-clear svg { width: 10px; height: 10px; }
+.lk-combo-arrow { cursor: pointer; }
+.lk-combo-arrow svg { width: 11px; height: 8px; transition: transform .15s; }
+.lk-combo.is-open .lk-combo-arrow svg { transform: rotate(180deg); }
+.lk-combo-clear svg,
+.lk-combo-arrow svg { fill: none; stroke: currentColor; stroke-width: 1.6;
+  stroke-linecap: round; stroke-linejoin: round; }
+
+/* выпадающий список */
+.lk-combo-list {
+  position: absolute; z-index: 30; top: 100%; left: 0; right: 0;
+  margin: -1.5px 0 0; padding: 4px;
+  max-height: 288px; overflow-y: auto;
+  list-style: none;
+  background: #fff;
+  border: 1.5px solid var(--lk-green);
+  border-top-color: var(--lk-line);
+  border-radius: 0 0 var(--lk-r-md) var(--lk-r-md);
+  box-shadow: 0 12px 28px rgba(24, 40, 60, .12);
+}
+.lk-combo-list[hidden] { display: none; }
+
+.lk-combo-opt {
+  padding: 8px 10px;
+  border-radius: var(--lk-r-sm);
+  font-size: 12.5px; line-height: 1.4; color: var(--lk-ink-2);
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.lk-combo-opt:hover,
+.lk-combo-opt.is-active { background: #f0f8f2; color: var(--lk-ink); }
+.lk-combo-opt.is-picked { font-weight: 700; color: var(--lk-green-dk); }
+.lk-combo-opt mark {
+  background: #fdf0c4; color: inherit; font-weight: 700; border-radius: 2px; padding: 0 1px;
+}
+
+.lk-combo-empty {
+  padding: 14px 10px; text-align: center;
+  font-size: 12px; color: var(--lk-muted-2);
+}
+.lk-combo-count {
+  padding: 7px 10px 5px;
+  font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--lk-muted-2);
+}
 
 /* --- Поле выбора файлов --- */
 .lk-file { display: block; }
