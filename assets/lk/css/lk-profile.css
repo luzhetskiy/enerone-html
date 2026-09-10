@@ -8,10 +8,11 @@
 /* --------------------------------------------------------------------------
    Сетка полей
    -------------------------------------------------------------------------- */
-.lk-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.lk-fields { --lk-fields-gap: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: var(--lk-fields-gap); }
 .lk-field-wide { grid-column: 1 / -1; }
-/* поле на всю строку, но не во всю ширину — «текущий пароль» */
-.lk-field-narrow { max-width: 340px; }
+/* поле на всю строку, но шириной ровно в одну колонку — «текущий пароль»:
+   иначе оно оказывается шире полей нового пароля под ним */
+.lk-field-narrow { max-width: calc((100% - var(--lk-fields-gap)) / 2); }
 
 .lk .lk-fields .lk-input { max-width: none; }
 
