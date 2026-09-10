@@ -89,6 +89,27 @@ PAGES = [
         "js":  ["assets/lk/js/lk-autopayments.js"],
     },
     {
+        "out": "stats-users.html",
+        "content": "lk-stats-users-content.html",
+        "nav": "stats-users",
+        "title": "Отчёт по пользователям | ООО «ЭСК Новая энергия»",
+        "css": ["assets/lk/css/lk-stats.css"],
+    },
+    {
+        "out": "stats-payments.html",
+        "content": "lk-stats-payments-content.html",
+        "nav": "stats-payments",
+        "title": "Статистика по платежам | ООО «ЭСК Новая энергия»",
+        "css": ["assets/lk/css/lk-stats.css"],
+    },
+    {
+        "out": "stats-transfers.html",
+        "content": "lk-stats-transfers-content.html",
+        "nav": "stats-transfers",
+        "title": "Статистика по переданным показаниям | ООО «ЭСК Новая энергия»",
+        "css": ["assets/lk/css/lk-stats.css"],
+    },
+    {
         "out": "profile.html",
         "content": "lk-profile-content.html",
         "nav": "profile",

@@ -1,0 +1,147 @@
+<!-- ================= ЛК: Статистика по переданным показаниям — начало ================= -->
+<div class="lk">
+  <div class="lk-layout">
+
+{{SIDEBAR}}
+
+    <div class="lk-content">
+      <button type="button" class="lk-burger" data-lk-burger aria-label="Разделы кабинета">
+        <span></span><span></span><span></span>
+      </button>
+
+      <h1 class="lk-pg-title">Статистика по переданным показаниям</h1>
+      <div class="lk-pg-sub">Служебный раздел — доступен администраторам личного кабинета</div>
+
+      <section class="lk-step">
+        <div class="lk-sec-hdr">
+          <h2 class="lk-sec-title lk-sec-title--major">Данные на графике</h2>
+        </div>
+
+      <div class="lk-filters lk-filters--stats">
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-st-from">Дата (начало)</label>
+          <input class="lk-input lk-date" id="lk-st-from" type="date" value="2026-09-01">
+        </div>
+
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-st-to">Дата (конец)</label>
+          <input class="lk-input lk-date" id="lk-st-to" type="date" value="2026-09-11">
+        </div>
+
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-st-kind">Тип передачи</label>
+          <select class="lk-select" id="lk-st-kind">
+            <option selected>Ручная</option>
+            <option>Все</option>
+            <option>Файлом</option>
+            <option>По всем ПУ одним файлом</option>
+          </select>
+        </div>
+
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-st-step">Детализация</label>
+          <select class="lk-select" id="lk-st-step">
+            <option selected>День</option>
+            <option>Неделя</option>
+            <option>Месяц</option>
+            <option>Год</option>
+          </select>
+        </div>
+
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-st-contract">Договор</label>
+          <select class="lk-select" id="lk-st-contract">
+            <option selected>Все</option>
+            <option>ДЭС740201104</option>
+            <option>ДЭС740201287</option>
+            <option>ДЭС740215171</option>
+          </select>
+        </div>
+
+        <div class="lk-filter-field lk-filter-actions">
+          <button type="button" class="lk-btn-primary" data-lk-action="Показать статистику">Показать</button>
+          <button type="button" class="lk-filter-reset" data-lk-action="Сбросить фильтры статистики">Сбросить</button>
+        </div>
+      </div>
+
+      <div class="lk-panel lk-chart-panel">
+        <div class="lk-chart-legend">
+          <span class="lk-chart-key"><i style="background:#f7b114"></i>Передачи</span>
+        </div>
+
+        <div class="lk-chart">
+          <svg class="lk-chart-svg" viewBox="0 0 720 250" role="img" aria-label="График: Передачи">
+          <line class="lk-chart-grid" x1="52" y1="14.0" x2="668" y2="14.0"/>
+          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="17.5">200</text>
+          <line class="lk-chart-grid" x1="52" y1="55.2" x2="668" y2="55.2"/>
+          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="58.7">160</text>
+          <line class="lk-chart-grid" x1="52" y1="96.4" x2="668" y2="96.4"/>
+          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="99.9">120</text>
+          <line class="lk-chart-grid" x1="52" y1="137.6" x2="668" y2="137.6"/>
+          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="141.1">80</text>
+          <line class="lk-chart-grid" x1="52" y1="178.8" x2="668" y2="178.8"/>
+          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="182.3">40</text>
+          <line class="lk-chart-grid" x1="52" y1="220.0" x2="668" y2="220.0"/>
+          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="223.5">0</text>
+          <text class="lk-chart-x" x="52.0" y="242">01.09</text>
+          <text class="lk-chart-x" x="113.6" y="242">02.09</text>
+          <text class="lk-chart-x" x="175.2" y="242">03.09</text>
+          <text class="lk-chart-x" x="236.8" y="242">04.09</text>
+          <text class="lk-chart-x" x="298.4" y="242">05.09</text>
+          <text class="lk-chart-x" x="360.0" y="242">06.09</text>
+          <text class="lk-chart-x" x="421.6" y="242">07.09</text>
+          <text class="lk-chart-x" x="483.2" y="242">08.09</text>
+          <text class="lk-chart-x" x="544.8" y="242">09.09</text>
+          <text class="lk-chart-x" x="606.4" y="242">10.09</text>
+          <text class="lk-chart-x" x="668.0" y="242">11.09</text>
+          <path class="lk-chart-line" style="stroke:#f7b114" d="M52.0 116.0 C62.3 121.6 93.1 139.1 113.6 150.0 C134.1 160.8 154.7 171.8 175.2 180.9 C195.7 190.0 216.3 198.2 236.8 204.6 C257.3 210.9 277.9 216.4 298.4 219.0 C318.9 220.0 339.5 219.8 360.0 220.0 C380.5 220.0 401.1 220.0 421.6 220.0 C442.1 220.0 462.7 220.0 483.2 220.0 C503.7 220.0 524.3 220.0 544.8 220.0 C565.3 220.0 585.9 220.0 606.4 220.0 C626.9 220.0 657.7 220.0 668.0 220.0"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="52.0" cy="116.0" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="113.6" cy="150.0" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="175.2" cy="180.9" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="236.8" cy="204.6" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="298.4" cy="219.0" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="360.0" cy="220.0" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="421.6" cy="220.0" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="483.2" cy="220.0" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="544.8" cy="220.0" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="606.4" cy="220.0" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="668.0" cy="220.0" r="3.4"/>
+          </svg>
+        </div>
+      </div>
+      </section>
+
+      <section class="lk-step lk-step--sep">
+        <div class="lk-sec-hdr">
+          <h2 class="lk-sec-title lk-sec-title--major">
+            Суммарно по периоду с 01.09.2026 по 11.09.2026
+            <span class="lk-sec-note-inline">все договоры</span>
+          </h2>
+        </div>
+
+        <a class="lk-xls lk-xls--inline" href="#"
+           data-lk-action="Лог переданных показаний по выбранным фильтрам">
+          <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5h5l3 3v8H3z"/><path d="M8 1.5v3h3"/><path d="M5.4 7.2l3.2 3.2M8.6 7.2l-3.2 3.2" stroke-linecap="round"/></svg>
+          Лог переданных показаний пользователями (согласно выбранным фильтрам)
+        </a>
+
+        <div class="lk-panel lk-totals lk-totals--one">
+          <div class="lk-total">
+            <div class="lk-total-val">222</div>
+            <div class="lk-total-lbl">количество отправленных показаний в выбранном периоде</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lk-step lk-step--sep">
+        <div class="lk-sec-hdr">
+          <h2 class="lk-sec-title lk-sec-title--major">Выгрузить данные в XLS</h2>
+        </div>
+        <div class="lk-xls-list">
+        <a class="lk-xls" href="#" data-lk-action="Выгрузить в XLS: Лог переданных показаний пользователями (все передачи)"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5h5l3 3v8H3z"/><path d="M8 1.5v3h3"/><path d="M5.4 7.2l3.2 3.2M8.6 7.2l-3.2 3.2" stroke-linecap="round"/></svg>Лог переданных показаний пользователями (все передачи)</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- ================= ЛК: Статистика по переданным показаниям — конец ================= -->

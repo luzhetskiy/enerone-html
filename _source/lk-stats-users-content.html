@@ -1,0 +1,143 @@
+<!-- ================= ЛК: Отчёт по пользователям — начало ================= -->
+<div class="lk">
+  <div class="lk-layout">
+
+{{SIDEBAR}}
+
+    <div class="lk-content">
+      <button type="button" class="lk-burger" data-lk-burger aria-label="Разделы кабинета">
+        <span></span><span></span><span></span>
+      </button>
+
+      <h1 class="lk-pg-title">Отчёт по пользователям</h1>
+      <div class="lk-pg-sub">Служебный раздел — доступен администраторам личного кабинета</div>
+
+      <div class="lk-panel lk-kpi-panel">
+        <div class="lk-kpi-hero">
+          <div class="lk-kpi-hero-val">4 563</div>
+          <div class="lk-kpi-hero-lbl">пользователей</div>
+        </div>
+
+        <div class="lk-kpi-cols">
+          <div class="lk-kpi-col">
+            <div class="lk-kpi-row"><span class="lk-kpi-k">Общее кол-во пользователей</span><span class="lk-kpi-v">4 563</span></div>
+            <div class="lk-kpi-row"><span class="lk-kpi-k">Активные пользователи</span><span class="lk-kpi-v">4 563</span></div>
+            <div class="lk-kpi-row"><span class="lk-kpi-k">Не завершили регистрацию</span><span class="lk-kpi-v is-zero">0</span></div>
+            <div class="lk-kpi-row"><span class="lk-kpi-k">Заполнили весь профиль</span><span class="lk-kpi-v">9</span></div>
+            <div class="lk-kpi-row"><span class="lk-kpi-k">Всего договоров</span><span class="lk-kpi-v">6 036</span></div>
+            <div class="lk-kpi-row"><span class="lk-kpi-k">Пользователи с договорами</span><span class="lk-kpi-v">3 639</span></div>
+          </div>
+
+          <div class="lk-kpi-col">
+            <div class="lk-kpi-row is-long">
+              <span class="lk-kpi-k">Уникальные пользователи, заходившие в ЛК за последние 30 дней</span>
+              <span class="lk-kpi-v">1 819</span>
+            </div>
+            <div class="lk-kpi-row is-long">
+              <span class="lk-kpi-k">Уникальные пользователи, передававшие показания через ЛК за последние 30 дней</span>
+              <span class="lk-kpi-v">1 590</span>
+            </div>
+            <div class="lk-kpi-row is-long">
+              <span class="lk-kpi-k">Договоры, по которым передавали показания через ЛК за последние 30 дней</span>
+              <span class="lk-kpi-v">1 939</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="lk-step lk-step--sep">
+        <div class="lk-sec-hdr">
+          <h2 class="lk-sec-title lk-sec-title--major">Данные на графике</h2>
+        </div>
+
+      <div class="lk-filters lk-filters--stats">
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-st-from">Дата (начало)</label>
+          <input class="lk-input lk-date" id="lk-st-from" type="date" value="2026-09-01">
+        </div>
+
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-st-to">Дата (конец)</label>
+          <input class="lk-input lk-date" id="lk-st-to" type="date" value="2026-09-30">
+        </div>
+
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-st-step">Детализация</label>
+          <select class="lk-select" id="lk-st-step">
+            <option selected>Месяц</option>
+            <option>День</option>
+            <option>Неделя</option>
+            <option>Год</option>
+          </select>
+        </div>
+
+        <div class="lk-filter-field lk-filter-actions">
+          <button type="button" class="lk-btn-primary" data-lk-action="Показать статистику">Показать</button>
+          <button type="button" class="lk-filter-reset" data-lk-action="Сбросить фильтры статистики">Сбросить</button>
+        </div>
+      </div>
+
+      <div class="lk-panel lk-chart-panel">
+        <div class="lk-chart-legend">
+          <span class="lk-chart-key"><i style="background:#62b67c"></i>Новые пользователи</span>
+        </div>
+
+        <div class="lk-chart">
+          <svg class="lk-chart-svg" viewBox="0 0 720 250" role="img" aria-label="График: Новые пользователи">
+          <line class="lk-chart-grid" x1="52" y1="14.0" x2="668" y2="14.0"/>
+          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="17.5">250</text>
+          <line class="lk-chart-grid" x1="52" y1="55.2" x2="668" y2="55.2"/>
+          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="58.7">200</text>
+          <line class="lk-chart-grid" x1="52" y1="96.4" x2="668" y2="96.4"/>
+          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="99.9">150</text>
+          <line class="lk-chart-grid" x1="52" y1="137.6" x2="668" y2="137.6"/>
+          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="141.1">100</text>
+          <line class="lk-chart-grid" x1="52" y1="178.8" x2="668" y2="178.8"/>
+          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="182.3">50</text>
+          <line class="lk-chart-grid" x1="52" y1="220.0" x2="668" y2="220.0"/>
+          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="223.5">0</text>
+          <text class="lk-chart-x" x="52.0" y="242">окт</text>
+          <text class="lk-chart-x" x="108.0" y="242">ноя</text>
+          <text class="lk-chart-x" x="164.0" y="242">дек</text>
+          <text class="lk-chart-x" x="220.0" y="242">янв</text>
+          <text class="lk-chart-x" x="276.0" y="242">фев</text>
+          <text class="lk-chart-x" x="332.0" y="242">мар</text>
+          <text class="lk-chart-x" x="388.0" y="242">апр</text>
+          <text class="lk-chart-x" x="444.0" y="242">май</text>
+          <text class="lk-chart-x" x="500.0" y="242">июн</text>
+          <text class="lk-chart-x" x="556.0" y="242">июл</text>
+          <text class="lk-chart-x" x="612.0" y="242">авг</text>
+          <text class="lk-chart-x" x="668.0" y="242">сен</text>
+          <path class="lk-chart-line" style="stroke:#62b67c" d="M52.0 122.8 C61.3 120.8 89.3 111.2 108.0 111.2 C126.7 114.3 145.3 140.9 164.0 140.9 C182.7 135.5 201.3 87.1 220.0 79.1 C238.7 79.1 257.3 89.3 276.0 93.1 C294.7 96.9 313.3 102.2 332.0 102.2 C350.7 100.2 369.3 82.4 388.0 81.6 C406.7 81.6 425.3 97.2 444.0 97.2 C462.7 92.1 481.3 56.4 500.0 51.1 C518.7 51.1 537.3 59.2 556.0 65.1 C574.7 71.0 593.3 86.5 612.0 86.5 C630.7 85.3 658.7 62.5 668.0 57.7"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="52.0" cy="122.8" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="108.0" cy="111.2" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="164.0" cy="140.9" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="220.0" cy="79.1" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="276.0" cy="93.1" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="332.0" cy="102.2" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="388.0" cy="81.6" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="444.0" cy="97.2" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="500.0" cy="51.1" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="556.0" cy="65.1" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="612.0" cy="86.5" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="668.0" cy="57.7" r="3.4"/>
+          </svg>
+        </div>
+      </div>
+      </section>
+
+      <section class="lk-step lk-step--sep">
+        <div class="lk-sec-hdr">
+          <h2 class="lk-sec-title lk-sec-title--major">Экспорт данных в XLS</h2>
+        </div>
+        <div class="lk-xls-list">
+        <a class="lk-xls" href="#" data-lk-action="Выгрузить в XLS: Пользователи с договорами + все другие активные пользователи"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5h5l3 3v8H3z"/><path d="M8 1.5v3h3"/><path d="M5.4 7.2l3.2 3.2M8.6 7.2l-3.2 3.2" stroke-linecap="round"/></svg>Пользователи с договорами + все другие активные пользователи</a>
+        <a class="lk-xls" href="#" data-lk-action="Выгрузить в XLS: Пользователи с договорами"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5h5l3 3v8H3z"/><path d="M8 1.5v3h3"/><path d="M5.4 7.2l3.2 3.2M8.6 7.2l-3.2 3.2" stroke-linecap="round"/></svg>Пользователи с договорами</a>
+        <a class="lk-xls" href="#" data-lk-action="Выгрузить в XLS: Активные пользователи"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5h5l3 3v8H3z"/><path d="M8 1.5v3h3"/><path d="M5.4 7.2l3.2 3.2M8.6 7.2l-3.2 3.2" stroke-linecap="round"/></svg>Активные пользователи</a>
+        <a class="lk-xls" href="#" data-lk-action="Выгрузить в XLS: Заполнили весь профиль"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5h5l3 3v8H3z"/><path d="M8 1.5v3h3"/><path d="M5.4 7.2l3.2 3.2M8.6 7.2l-3.2 3.2" stroke-linecap="round"/></svg>Заполнили весь профиль</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- ================= ЛК: Отчёт по пользователям — конец ================= -->

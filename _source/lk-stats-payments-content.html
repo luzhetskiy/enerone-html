@@ -1,0 +1,146 @@
+<!-- ================= ЛК: Статистика по платежам — начало ================= -->
+<div class="lk">
+  <div class="lk-layout">
+
+{{SIDEBAR}}
+
+    <div class="lk-content">
+      <button type="button" class="lk-burger" data-lk-burger aria-label="Разделы кабинета">
+        <span></span><span></span><span></span>
+      </button>
+
+      <h1 class="lk-pg-title">Статистика по платежам</h1>
+      <div class="lk-pg-sub">Служебный раздел — доступен администраторам личного кабинета</div>
+
+      <section class="lk-step">
+        <div class="lk-sec-hdr">
+          <h2 class="lk-sec-title lk-sec-title--major">Данные на графике</h2>
+        </div>
+
+      <div class="lk-filters lk-filters--stats">
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-st-from">Дата (начало)</label>
+          <input class="lk-input lk-date" id="lk-st-from" type="date" value="2026-09-01">
+        </div>
+
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-st-to">Дата (конец)</label>
+          <input class="lk-input lk-date" id="lk-st-to" type="date" value="2026-09-11">
+        </div>
+
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-st-step">Детализация</label>
+          <select class="lk-select" id="lk-st-step">
+            <option selected>День</option>
+            <option>Неделя</option>
+            <option>Месяц</option>
+            <option>Год</option>
+          </select>
+        </div>
+
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-st-contract">Договор</label>
+          <select class="lk-select" id="lk-st-contract">
+            <option selected>Все</option>
+            <option>ДЭС740201104</option>
+            <option>ДЭС740201287</option>
+            <option>ДЭС740215171</option>
+          </select>
+        </div>
+
+        <div class="lk-filter-field lk-filter-actions">
+          <button type="button" class="lk-btn-primary" data-lk-action="Показать статистику">Показать</button>
+          <button type="button" class="lk-filter-reset" data-lk-action="Сбросить фильтры статистики">Сбросить</button>
+        </div>
+      </div>
+
+      <div class="lk-panel lk-chart-panel">
+        <div class="lk-chart-legend">
+          <span class="lk-chart-key"><i style="background:#62b67c"></i>Сумма платежей</span>
+          <span class="lk-chart-key"><i style="background:#f7b114"></i>Платежи</span>
+        </div>
+
+        <div class="lk-chart">
+          <svg class="lk-chart-svg" viewBox="0 0 720 250" role="img" aria-label="График: Сумма платежей, Платежи">
+          <line class="lk-chart-grid" x1="52" y1="14.0" x2="668" y2="14.0"/>
+          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="17.5">1 000</text>
+          <text class="lk-chart-ax lk-chart-ax--r" x="676" y="17.5">50 000 000</text>
+          <line class="lk-chart-grid" x1="52" y1="55.2" x2="668" y2="55.2"/>
+          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="58.7">800</text>
+          <text class="lk-chart-ax lk-chart-ax--r" x="676" y="58.7">40 000 000</text>
+          <line class="lk-chart-grid" x1="52" y1="96.4" x2="668" y2="96.4"/>
+          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="99.9">600</text>
+          <text class="lk-chart-ax lk-chart-ax--r" x="676" y="99.9">30 000 000</text>
+          <line class="lk-chart-grid" x1="52" y1="137.6" x2="668" y2="137.6"/>
+          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="141.1">400</text>
+          <text class="lk-chart-ax lk-chart-ax--r" x="676" y="141.1">20 000 000</text>
+          <line class="lk-chart-grid" x1="52" y1="178.8" x2="668" y2="178.8"/>
+          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="182.3">200</text>
+          <text class="lk-chart-ax lk-chart-ax--r" x="676" y="182.3">10 000 000</text>
+          <line class="lk-chart-grid" x1="52" y1="220.0" x2="668" y2="220.0"/>
+          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="223.5">0</text>
+          <text class="lk-chart-ax lk-chart-ax--r" x="676" y="223.5">0</text>
+          <text class="lk-chart-x" x="52.0" y="242">01.09</text>
+          <text class="lk-chart-x" x="113.6" y="242">02.09</text>
+          <text class="lk-chart-x" x="175.2" y="242">03.09</text>
+          <text class="lk-chart-x" x="236.8" y="242">04.09</text>
+          <text class="lk-chart-x" x="298.4" y="242">05.09</text>
+          <text class="lk-chart-x" x="360.0" y="242">06.09</text>
+          <text class="lk-chart-x" x="421.6" y="242">07.09</text>
+          <text class="lk-chart-x" x="483.2" y="242">08.09</text>
+          <text class="lk-chart-x" x="544.8" y="242">09.09</text>
+          <text class="lk-chart-x" x="606.4" y="242">10.09</text>
+          <text class="lk-chart-x" x="668.0" y="242">11.09</text>
+          <path class="lk-chart-line" style="stroke:#62b67c" d="M52.0 161.5 C62.3 153.3 93.1 120.2 113.6 112.5 C134.1 112.5 154.7 112.5 175.2 115.4 C195.7 132.4 216.3 198.2 236.8 215.1 C257.3 216.7 277.9 216.3 298.4 216.7 C318.9 217.1 339.5 217.5 360.0 217.5 C380.5 217.3 401.1 217.4 421.6 215.5 C442.1 213.5 462.7 215.5 483.2 206.0 C503.7 191.2 524.3 135.5 544.8 126.9 C565.3 126.9 585.9 138.7 606.4 154.1 C626.9 169.5 657.7 208.3 668.0 219.2"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="52.0" cy="161.5" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="113.6" cy="112.5" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="175.2" cy="115.4" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="236.8" cy="215.1" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="298.4" cy="216.7" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="360.0" cy="217.5" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="421.6" cy="215.5" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="483.2" cy="206.0" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="544.8" cy="126.9" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="606.4" cy="154.1" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#62b67c" cx="668.0" cy="219.2" r="3.4"/>
+          <path class="lk-chart-line" style="stroke:#f7b114" d="M52.0 211.3 C62.3 211.4 93.1 211.6 113.6 211.8 C134.1 211.9 154.7 211.8 175.2 212.2 C195.7 212.8 216.3 214.8 236.8 215.5 C257.3 216.2 277.9 215.7 298.4 216.3 C318.9 216.8 339.5 218.4 360.0 218.8 C380.5 218.8 401.1 218.8 421.6 218.6 C442.1 216.7 462.7 218.6 483.2 207.6 C503.7 187.3 524.3 107.0 544.8 96.4 C565.3 96.4 585.9 123.5 606.4 143.8 C626.9 164.0 657.7 205.6 668.0 217.9"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="52.0" cy="211.3" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="113.6" cy="211.8" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="175.2" cy="212.2" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="236.8" cy="215.5" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="298.4" cy="216.3" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="360.0" cy="218.8" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="421.6" cy="218.6" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="483.2" cy="207.6" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="544.8" cy="96.4" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="606.4" cy="143.8" r="3.4"/>
+          <circle class="lk-chart-dot" style="fill:#f7b114" cx="668.0" cy="217.9" r="3.4"/>
+          </svg>
+        </div>
+      </div>
+      </section>
+
+      <section class="lk-step lk-step--sep">
+        <div class="lk-sec-hdr">
+          <h2 class="lk-sec-title lk-sec-title--major">
+            Суммарно по периоду с 01.09.2026 по 11.09.2026
+            <span class="lk-sec-note-inline">все договоры</span>
+          </h2>
+        </div>
+
+        <div class="lk-panel lk-totals">
+          <div class="lk-total">
+            <div class="lk-total-val">1 165</div>
+            <div class="lk-total-lbl">общее количество платежей</div>
+          </div>
+          <div class="lk-total">
+            <div class="lk-total-val">83 324 054,45 <span class="lk-total-cur">₽</span></div>
+            <div class="lk-total-lbl">общая сумма платежей</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+<!-- ================= ЛК: Статистика по платежам — конец ================= -->
