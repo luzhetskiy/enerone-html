@@ -53,7 +53,7 @@
 /* --------------------------------------------------------------------------
    График
    -------------------------------------------------------------------------- */
-.lk-chart-panel { padding: 16px 18px 12px; }
+.lk-chart-panel { position: relative; padding: 16px 18px 12px; }
 
 .lk-chart-legend {
   display: flex; justify-content: center; flex-wrap: wrap; gap: 18px;
@@ -78,6 +78,44 @@
 .lk-chart-ax--l { text-anchor: end; }
 .lk-chart-ax--r { text-anchor: start; }
 .lk-chart-x { text-anchor: middle; }
+
+/* Подсказка при наведении. Полосы .lk-chart-hit прозрачные и лежат поверх
+   графика — по ним lk-stats.js ловит колонку целиком. Отступ подсказки от
+   точки (12px) продублирован в скрипте константой GAP. */
+.lk-chart-hit { fill: transparent; }
+.lk-chart-hits { cursor: crosshair; }
+.lk-chart-cursor { stroke: var(--lk-line); stroke-width: 1; stroke-dasharray: 3 3; }
+.lk-chart-dot.is-on { stroke-width: 2; }
+
+.lk-chart-tip {
+  position: absolute;
+  z-index: 3;
+  transform: translate(-50%, calc(-100% - 12px));
+  min-width: 108px;
+  padding: 8px 10px;
+  background: #fff;
+  border: 1px solid var(--lk-line);
+  border-radius: var(--lk-r-md);
+  box-shadow: 0 6px 18px rgba(23, 43, 66, .14);
+  pointer-events: none;
+  white-space: nowrap;
+}
+.lk-chart-tip.is-below { transform: translate(-50%, 12px); }
+
+.lk-chart-tip-h {
+  font-size: 11px; font-weight: 700; color: var(--lk-ink);
+  margin-bottom: 5px;
+}
+.lk-chart-tip-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  font-size: 11px; line-height: 1.5;
+}
+.lk-chart-tip-k {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--lk-muted);
+}
+.lk-chart-tip-k i { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+.lk-chart-tip-v { font-weight: 700; color: var(--lk-ink); }
 
 /* --------------------------------------------------------------------------
    Итоги по периоду

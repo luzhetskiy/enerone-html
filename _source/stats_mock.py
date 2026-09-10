@@ -53,7 +53,13 @@ def fmt(v):
 
 
 def chart(series, x_labels, right_axis=False, ind=10):
-    """series: [{'name','color','values','axis':'left'|'right'}]"""
+    """series: [{'name','color','values','axis':'left'|'right','unit'}]
+
+    Кроме самой картинки размечаем данные для подсказки при наведении:
+    у каждой точки — data-i (номер деления по X), название ряда и готовое
+    значение, а поверх графика лежат прозрачные полосы .lk-chart-hit —
+    по ним lk-stats.js ловит наведение сразу на всю колонку.
+    """
     pad = ' ' * ind
     inner_w = W - PAD_L - PAD_R
     inner_h = H - PAD_T - PAD_B
@@ -88,14 +94,30 @@ def chart(series, x_labels, right_axis=False, ind=10):
     for i, lb in enumerate(x_labels):
         a('<text class="lk-chart-x" x="%.1f" y="%d">%s</text>' % (xs[i], H - 8, lb))
 
+    # вертикальная направляющая под курсором — показывает её скрипт
+    a('<line class="lk-chart-cursor" x1="0" y1="%d" x2="0" y2="%.1f" hidden/>'
+      % (PAD_T, PAD_T + inner_h))
+
     # линии
     for s in series:
         top = max_r if s.get('axis') == 'right' else max_l
+        unit = (' ' + s['unit']) if s.get('unit') else ''
         pts = [(xs[i], PAD_T + inner_h * (1 - v / top)) for i, v in enumerate(s['values'])]
         a('<path class="lk-chart-line" style="stroke:%s" d="%s"/>' % (s['color'], smooth(pts)))
-        for p in pts:
-            a('<circle class="lk-chart-dot" style="fill:%s" cx="%.1f" cy="%.1f" r="3.4"/>'
-              % (s['color'], p[0], p[1]))
+        for i, p in enumerate(pts):
+            a('<circle class="lk-chart-dot" style="fill:%s" cx="%.1f" cy="%.1f" r="3.4"'
+              ' data-i="%d" data-name="%s" data-val="%s%s"/>'
+              % (s['color'], p[0], p[1], i, s['name'], fmt(s['values'][i]), unit))
+
+    # прозрачные полосы для наведения — по одной на деление, поверх всего
+    a('<g class="lk-chart-hits">')
+    for i, lb in enumerate(x_labels):
+        x0 = 0 if i == 0 else (xs[i - 1] + xs[i]) / 2.0
+        x1 = W if i == n - 1 else (xs[i] + xs[i + 1]) / 2.0
+        a('  <rect class="lk-chart-hit" x="%.1f" y="0" width="%.1f" height="%.1f"'
+          ' data-i="%d" data-x="%.1f" data-label="%s"/>'
+          % (x0, x1 - x0, PAD_T + inner_h, i, xs[i], lb))
+    a('</g>')
 
     a('</svg>')
     return ('\n' + pad).join(out)
@@ -115,6 +137,15 @@ def legend(series, ind=10):
 from pathlib import Path
 
 ROOT = str(Path(__file__).resolve().parent) + '/'
+
+
+def contracts():
+    """Номера договоров берём из комбобокса на главной, чтобы списки
+    в служебных отчётах и на главной не разъезжались."""
+    import re
+    src = open(ROOT + 'lk-content.html', encoding='utf-8').read()
+    block = re.search(r'id="lk-admin-contract".*?</select>', src, re.S).group(0)
+    return re.findall(r'<option value="(ДЭС[^"]+)"', block)
 
 HEAD = """<!-- ================= ЛК: %(comment)s — начало ================= -->
 <div class="lk">
@@ -151,6 +182,23 @@ def field(label, kind='date', fid='', options=None, wide=False, value='2026-09-0
           <label class="lk-form-lbl" for="%s">%s</label>
           %s
         </div>""" % (cls, fid, label, ctrl)
+
+
+def combo_field(label, fid, options, placeholder='Номер договора'):
+    """Поле выбора договора: в разметке обычный <select>, поле ввода со
+    списком и поиском строит lk.js (initCombos). Без JS остаётся рабочий
+    нативный селект, бэкенду по-прежнему достаточно отдать <option>."""
+    opts = '\n'.join('              <option%s>%s</option>'
+                     % (' selected' if i == 0 else '', o) for i, o in enumerate(options))
+    return """        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="%s">%s</label>
+
+          <div class="lk-combo" data-lk-combo data-placeholder="%s">
+            <select class="lk-select" id="%s">
+%s
+            </select>
+          </div>
+        </div>""" % (fid, label, placeholder, fid, opts)
 
 
 def filters(fields, ind=6):
@@ -255,7 +303,7 @@ users = (HEAD % {'comment': 'Отчёт по пользователям', 'title
 
 # ─────────────────────────── 2. Платежи ───────────────────────────
 pay_series = [
-    {'name': 'Сумма платежей', 'color': '#62b67c', 'axis': 'right',
+    {'name': 'Сумма платежей', 'color': '#62b67c', 'axis': 'right', 'unit': '₽',
      'values': [14.2e6, 26.1e6, 25.4e6, 1.2e6, 0.8e6, 0.6e6, 1.1e6, 3.4e6, 22.6e6, 16.0e6, 0.2e6]},
     {'name': 'Платежи', 'color': '#f7b114',
      'values': [42, 40, 38, 22, 18, 6, 7, 60, 600, 370, 10]},
@@ -272,8 +320,7 @@ payments = (HEAD % {'comment': 'Статистика по платежам', 'ti
     field('Дата (начало)', 'date', 'lk-st-from'),
     field('Дата (конец)', 'date', 'lk-st-to', value='2026-09-11'),
     field('Детализация', 'select', 'lk-st-step', ['День', 'Неделя', 'Месяц', 'Год']),
-    field('Договор', 'select', 'lk-st-contract',
-          ['Все', 'ДЭС740201104', 'ДЭС740201287', 'ДЭС740215171']),
+    combo_field('Договор', 'lk-st-contract', ['Все'] + contracts()),
 ]) + "\n\n" + chart_block(pay_series, pay_days, right_axis=True) + """
       </section>
 
@@ -314,8 +361,7 @@ transfers = (HEAD % {'comment': 'Статистика по переданным 
     field('Дата (конец)', 'date', 'lk-st-to', value='2026-09-11'),
     field('Тип передачи', 'select', 'lk-st-kind', ['Ручная', 'Все', 'Файлом', 'По всем ПУ одним файлом']),
     field('Детализация', 'select', 'lk-st-step', ['День', 'Неделя', 'Месяц', 'Год']),
-    field('Договор', 'select', 'lk-st-contract',
-          ['Все', 'ДЭС740201104', 'ДЭС740201287', 'ДЭС740215171']),
+    combo_field('Договор', 'lk-st-contract', ['Все'] + contracts()),
 ]) + "\n\n" + chart_block(tr_series, pay_days) + """
       </section>
 

@@ -94,6 +94,7 @@ PAGES = [
         "nav": "stats-users",
         "title": "Отчёт по пользователям | ООО «ЭСК Новая энергия»",
         "css": ["assets/lk/css/lk-stats.css"],
+        "js":  ["assets/lk/js/lk-stats.js"],
     },
     {
         "out": "stats-payments.html",
@@ -101,6 +102,7 @@ PAGES = [
         "nav": "stats-payments",
         "title": "Статистика по платежам | ООО «ЭСК Новая энергия»",
         "css": ["assets/lk/css/lk-stats.css"],
+        "js":  ["assets/lk/js/lk-stats.js"],
     },
     {
         "out": "stats-transfers.html",
@@ -108,6 +110,7 @@ PAGES = [
         "nav": "stats-transfers",
         "title": "Статистика по переданным показаниям | ООО «ЭСК Новая энергия»",
         "css": ["assets/lk/css/lk-stats.css"],
+        "js":  ["assets/lk/js/lk-stats.js"],
     },
     {
         "out": "profile.html",
