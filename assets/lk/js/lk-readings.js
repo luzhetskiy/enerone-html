@@ -205,6 +205,23 @@
   }
 
   /* ======================================================================
+     Подтверждение при аномальном расходе
+
+     Если расход за месяц сильно выше среднего за последние 12 месяцев,
+     скорее всего в показаниях опечатка (лишняя цифра, показания другого ПУ).
+     Перед отправкой переспрашиваем — но не запрещаем: значение может быть
+     верным, тогда пользователь просто подтверждает.
+     ====================================================================== */
+
+  var BIG_USAGE_RATIO = 3;   // во сколько раз расход должен превысить средний
+
+  function avgUsage(m) {
+    if (!m.chart || !m.chart.length) return 0;
+    var sum = m.chart.reduce(function (n, p) { return n + p.value; }, 0);
+    return sum / m.chart.length;
+  }
+
+  /* ======================================================================
      Состояние
      ====================================================================== */
 
@@ -593,7 +610,7 @@
     input.addEventListener('input', recalc);
     input.addEventListener('change', recalc);
 
-    submit.addEventListener('click', function () {
+    function send() {
       console.log('[ЛК] отправка показаний', {
         договор: state.contract.num,
         объект: o.name,
@@ -606,9 +623,84 @@
         submit.textContent = 'Отправить';
         submit.disabled = false;
       }, 2000);
+    }
+
+    submit.addEventListener('click', function () {
+      var cur = parseFloat(input.value.trim().replace(',', '.'));
+      var usage = (cur - prev) * m.kt;
+      var avg = avgUsage(m);
+
+      if (avg > 0 && usage > avg * BIG_USAGE_RATIO) {
+        askBigUsage({
+          meter: m, usage: usage, avg: avg, prev: m.prev, cur: input.value.trim(),
+          onSend: send,
+          onEdit: function () { input.focus(); input.select(); }
+        });
+        return;
+      }
+
+      send();
     });
 
     renderChart();
+  }
+
+  /* ======================================================================
+     Модалка «расход заметно выше обычного»
+
+     Одна на страницу: карточки ПУ отдают в неё данные и коллбэки.
+     ====================================================================== */
+
+  function askBigUsage(opts) {
+    var dlg = nodes.bigUsage;
+    if (!dlg) { opts.onSend(); return; }          // без модалки не блокируем отправку
+
+    var times = opts.usage / opts.avg;
+
+    dlg.querySelector('[data-big-text]').innerHTML =
+      'Расход по счётчику <b>№ ' + esc(opts.meter.num) + '</b> получается ' +
+      '<b>' + num(opts.usage, opts.usage % 1 ? 2 : 0) + ' кВт·ч</b> — это в ' +
+      num(times, 1) + ' раза больше среднего за последние 12 месяцев. ' +
+      'Проверьте, не пропущена ли цифра и то ли это показание.';
+
+    dlg.querySelector('[data-big-facts]').innerHTML =
+      fact('Предыдущие показания', esc(opts.prev)) +
+      fact('Текущие показания', esc(opts.cur)) +
+      fact('Расход по ПУ', num(opts.usage, opts.usage % 1 ? 2 : 0) + ' кВт·ч') +
+      fact('Обычно за месяц', '≈ ' + num(opts.avg, 0) + ' кВт·ч');
+
+    // кнопки создаются заново, чтобы не копить обработчики от прошлых вызовов
+    var foot = dlg.querySelector('.lk-modal-foot');
+    var edit = replaceNode(foot.querySelector('[data-big-edit]'));
+    var send = replaceNode(foot.querySelector('[data-big-send]'));
+
+    edit.addEventListener('click', function () {
+      closeBigUsage();
+      opts.onEdit();
+    });
+    send.addEventListener('click', function () {
+      closeBigUsage();
+      opts.onSend();
+    });
+
+    if (window.LK && window.LK.openModal) window.LK.openModal(dlg);
+  }
+
+  function closeBigUsage() {
+    if (window.LK && window.LK.closeModal) window.LK.closeModal(nodes.bigUsage);
+  }
+
+  function fact(k, v) {
+    return '<div class="lk-fact">' +
+             '<dt class="lk-fact-k">' + k + '</dt>' +
+             '<dd class="lk-fact-v">' + v + '</dd>' +
+           '</div>';
+  }
+
+  function replaceNode(node) {
+    var copy = node.cloneNode(true);
+    node.parentNode.replaceChild(copy, node);
+    return copy;
   }
 
   /* ======================================================================
@@ -654,6 +746,7 @@
     nodes.metersCount  = document.getElementById('lk-meters-count');
     nodes.sentFiles    = document.getElementById('lk-sent-files');
     nodes.sentPanel    = document.getElementById('lk-sent-panel');
+    nodes.bigUsage     = document.getElementById('lk-big-usage');
     nodes.bulkUpload   = document.getElementById('lk-bulk-upload');
     nodes.uploadGrid   = document.getElementById('lk-upload-grid');
 

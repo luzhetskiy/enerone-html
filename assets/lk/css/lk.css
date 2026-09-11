@@ -1259,6 +1259,50 @@ a.lk-meter:hover .lk-m-go { color: var(--lk-green); transform: translateX(2px); 
   fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round;
 }
 
+/* Модалка-предупреждение: иконка слева от заголовка, полоса сверху — янтарная */
+.lk-modal--warn .lk-modal-inner::before {
+  background: linear-gradient(90deg, var(--lk-amber), #f3d089);
+}
+.lk-modal-ico {
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; margin-top: -3px;
+  border-radius: 50%;
+  background: var(--lk-amber-bg); color: #d99b12;
+}
+.lk-modal-ico svg {
+  width: 20px; height: 20px;
+  fill: none; stroke: currentColor; stroke-width: 1.6;
+}
+/* заголовок должен занимать всё, что осталось между иконкой и крестиком */
+.lk-modal-hdr .lk-modal-title { flex: 1 1 auto; }
+
+.lk .lk-modal-text { font-size: 12.5px; line-height: 1.55; color: var(--lk-ink-3); }
+.lk .lk-modal-text b { font-weight: 700; color: var(--lk-ink); }
+.lk .lk-modal-note {
+  font-size: 11px; line-height: 1.45; color: var(--lk-muted);
+  margin-top: 14px;
+}
+
+/* пары «показатель — значение» внутри модалки */
+.lk-facts {
+  margin: 14px 0 0;
+  border: 1px solid var(--lk-line);
+  border-radius: var(--lk-r-lg);
+  overflow: hidden;
+}
+.lk-fact {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 14px;
+  padding: 9px 12px;
+}
+.lk-fact + .lk-fact { border-top: 1px solid var(--lk-line-soft); }
+.lk-fact-k { font-size: 11px; color: var(--lk-muted); }
+.lk-fact-v {
+  margin: 0;
+  font-size: 12px; font-weight: 700; color: var(--lk-ink);
+  font-variant-numeric: tabular-nums; text-align: right;
+}
+
 .lk-modal-body { padding: 14px 20px 18px; }
 .lk-modal-foot {
   display: flex; align-items: center; justify-content: flex-end; gap: 10px;

@@ -666,6 +666,34 @@
 
     </div>
   </div>
+
+  <!-- ===== Расход заметно выше обычного: подтверждение перед отправкой ===== -->
+  <dialog class="lk-modal lk-modal--warn" id="lk-big-usage" aria-labelledby="lk-big-usage-title">
+    <div class="lk-modal-inner">
+      <div class="lk-modal-hdr">
+        <div class="lk-modal-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.4v5.2" stroke-linecap="round"/><circle cx="12" cy="16.3" r=".9" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <h2 class="lk-modal-title" id="lk-big-usage-title">Проверьте показания</h2>
+        <button type="button" class="lk-modal-close" data-lk-modal-close aria-label="Закрыть">
+          <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg>
+        </button>
+      </div>
+
+      <div class="lk-modal-body">
+        <p class="lk-modal-text" data-big-text></p>
+
+        <dl class="lk-facts" data-big-facts></dl>
+
+        <p class="lk-modal-note">Если показания верны — передайте их, мы примем значение как есть.</p>
+      </div>
+
+      <div class="lk-modal-foot">
+        <button type="button" class="lk-btn-ghost" data-big-edit>Изменить</button>
+        <button type="button" class="lk-btn-primary" data-big-send>Передать</button>
+      </div>
+    </div>
+  </dialog>
 </div>
 <!-- ================= ЛК: Передача показаний — конец ================= -->
 
