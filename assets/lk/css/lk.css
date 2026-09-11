@@ -900,6 +900,8 @@ a.lk-meter:hover .lk-m-go { color: var(--lk-green); transform: translateX(2px); 
 .lk-badge--unpaid  { color: var(--lk-red-dk); background: #fdf3f3; border: 1px solid #f5c9c9; }
 .lk-badge--ok    { color: var(--lk-green-dk); background: var(--lk-green-bg); border: 1px solid var(--lk-green-br); }
 .lk-badge--error { color: var(--lk-red-dk); background: #fdf3f3; border: 1px solid #f5c9c9; }
+/* выключено — это не ошибка, поэтому нейтральный серый */
+.lk-badge--off   { color: var(--lk-muted); background: #f5f7fa; border: 1px solid var(--lk-line); }
 
 /* --------------------------------------------------------------------------
    Карточный режим таблицы на узких экранах: строка становится карточкой,
@@ -970,6 +972,25 @@ a.lk-meter:hover .lk-m-go { color: var(--lk-green); transform: translateX(2px); 
 @media (max-width: 575.98px) {
   .lk-filters--period { grid-template-columns: 1fr; }
   .lk-filters--period .lk-filter-reset { width: 100%; }
+}
+
+/* Фильтры служебных страниц: полей больше, чем на клиентских, и есть пара
+   кнопок «Показать» / «Сбросить». Медиазапросы идут после базовых правил
+   .lk-filters — специфичность одинаковая, решает порядок в файле. */
+.lk-filters--stats {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  align-items: end;
+}
+.lk-filter-actions { display: flex; align-items: center; gap: 10px; }
+.lk-filter-actions .lk-btn-primary { padding: 10px 20px; }
+.lk-filter-actions .lk-filter-reset { border: none; background: none; padding: 10px 4px; }
+.lk-filter-actions .lk-filter-reset:hover { color: var(--lk-green-dk); background: none; }
+
+@media (max-width: 575.98px) {
+  .lk-filters--stats { grid-template-columns: 1fr; }
+  .lk-filter-actions { flex-direction: column; align-items: stretch; }
+  .lk-filter-actions .lk-btn-primary,
+  .lk-filter-actions .lk-filter-reset { width: 100%; text-align: center; }
 }
 
 .lk-visually-hidden {

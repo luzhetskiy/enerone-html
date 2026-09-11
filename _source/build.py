@@ -113,6 +113,14 @@ PAGES = [
         "js":  ["assets/lk/js/lk-stats.js"],
     },
     {
+        "out": "admin-autopayments.html",
+        "content": "lk-admin-autopayments-content.html",
+        "nav": "admin-autopayments",
+        "title": "Автоплатежи (ГазпромБанк) | ООО «ЭСК Новая энергия»",
+        "css": ["assets/lk/css/lk-admin-autopayments.css"],
+        "js":  ["assets/lk/js/lk-admin-autopayments.js"],
+    },
+    {
         "out": "profile.html",
         "content": "lk-profile-content.html",
         "nav": "profile",

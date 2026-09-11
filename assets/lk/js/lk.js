@@ -310,6 +310,13 @@
     var select = root.querySelector('select');
     if (!select) return;
 
+    // Комбобокс могли построить раньше — например, страница наполнила <select>
+    // данными уже после старта lk.js и позвала initCombos повторно.
+    // Собираем заново из актуальных <option>, а не дублируем разметку.
+    root.querySelectorAll('.lk-combo-input, .lk-combo-btns, .lk-combo-list')
+        .forEach(function (n) { n.remove(); });
+    root.classList.remove('is-open');
+
     // пустой disabled-пункт — это плейсхолдер, в списке он не нужен
     var items = Array.prototype.filter.call(select.options, function (o) {
       return o.value !== '';
@@ -539,6 +546,8 @@
   window.LK.refreshTips = refreshTips;
   window.LK.hideTip = hideTip;
   window.LK.openModal = openModal;
+  // страницы, которые наполняют <select> из данных, зовут его после отрисовки
+  window.LK.initCombos = initCombos;
   window.LK.closeModal = closeModal;
 
   if (document.readyState === 'loading') {

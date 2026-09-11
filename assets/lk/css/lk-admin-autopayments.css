@@ -1,0 +1,25 @@
+/* ЛК · служебная страница «Автоплатежи (ГазпромБанк)».
+   Таблица и фильтры — общие примитивы из lk.css, здесь только колонки. */
+
+.lk-adm-user { overflow-wrap: anywhere; color: var(--lk-ink-2); }
+
+/* номера карт и договоров — цифры в столбик, так строки сравнивать легче */
+.lk-adm-card,
+.lk-adm-contract,
+.lk-adm-sum {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.lk-adm-contract { font-weight: 600; color: var(--lk-ink-2); }
+.lk-adm-sum { font-weight: 700; color: var(--lk-ink); }
+
+.lk-adm-aps th:nth-child(4),
+.lk-adm-aps td:nth-child(4) { text-align: right; }
+
+@media (max-width: 900px) {
+  /* карточный режим: значение справа, подпись слева — выравнивание сбрасываем */
+  .lk-adm-aps td:nth-child(4) { text-align: left; }
+  .lk-adm-card,
+  .lk-adm-contract,
+  .lk-adm-sum { white-space: normal; }
+}

@@ -1,0 +1,74 @@
+<!-- ================= ЛК: Автоплатежи (ГПБ) — служебное — начало ================= -->
+<div class="lk">
+  <div class="lk-layout">
+
+{{SIDEBAR}}
+
+    <div class="lk-content">
+      <button type="button" class="lk-burger" data-lk-burger aria-label="Разделы кабинета">
+        <span></span><span></span><span></span>
+      </button>
+
+      <h1 class="lk-pg-title">Автоплатежи (ГазпромБанк)</h1>
+      <div class="lk-pg-sub">Служебный раздел — доступен администраторам личного кабинета</div>
+
+      <!-- Фильтры. Логика на бэкенде, здесь только разметка. -->
+      <div class="lk-filters lk-filters--stats">
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-adm-contract">Договор</label>
+
+          <!-- селект с поиском: в разметке обычный <select>,
+               поле ввода со списком строит lk.js (initCombos) -->
+          <div class="lk-combo" data-lk-combo data-placeholder="Номер договора">
+            <select class="lk-select" id="lk-adm-contract"></select>
+          </div>
+        </div>
+
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-adm-card">Карта</label>
+          <div class="lk-combo" data-lk-combo data-placeholder="Номер карты">
+            <select class="lk-select" id="lk-adm-card"></select>
+          </div>
+        </div>
+
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-adm-state">Включён</label>
+          <select class="lk-select" id="lk-adm-state">
+            <option selected>Все</option>
+            <option>Да</option>
+            <option>Нет</option>
+          </select>
+        </div>
+
+        <div class="lk-filter-field lk-filter-actions">
+          <button type="button" class="lk-btn-primary" data-lk-action="Показать автоплатежи">Показать</button>
+          <button type="button" class="lk-filter-reset" data-lk-action="Сбросить фильтры автоплатежей">Сбросить</button>
+        </div>
+      </div>
+
+      <div class="lk-sec-hdr">
+        <h2 class="lk-sec-title lk-sec-title--major">Подключённые автоплатежи</h2>
+        <span class="lk-sec-note" id="lk-adm-count"></span>
+      </div>
+
+      <div class="lk-table-wrap">
+        <table class="lk-table lk-table--cards lk-adm-aps">
+          <thead>
+            <tr>
+              <th scope="col">Пользователь</th>
+              <th scope="col">Карта</th>
+              <th scope="col">Договор</th>
+              <th scope="col">Макс. сумма</th>
+              <th scope="col">Создан</th>
+              <th scope="col">Обновлён</th>
+              <th scope="col">Включён</th>
+            </tr>
+          </thead>
+          <tbody id="lk-adm-rows"></tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ================= ЛК: Автоплатежи (ГПБ) — служебное — конец ================= -->

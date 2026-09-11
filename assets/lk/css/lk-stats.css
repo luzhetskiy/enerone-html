@@ -38,17 +38,8 @@
 }
 .lk-kpi-v.is-zero { color: var(--lk-muted-3); }
 
-/* --------------------------------------------------------------------------
-   Фильтры: полей больше, чем на клиентских страницах
-   -------------------------------------------------------------------------- */
-.lk-filters--stats {
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  align-items: end;
-}
-.lk-filter-actions { display: flex; align-items: center; gap: 10px; }
-.lk-filter-actions .lk-btn-primary { padding: 10px 20px; }
-.lk-filter-actions .lk-filter-reset { border: none; background: none; padding: 10px 4px; }
-.lk-filter-actions .lk-filter-reset:hover { color: var(--lk-green-dk); background: none; }
+/* Фильтры служебных страниц (.lk-filters--stats, .lk-filter-actions)
+   — общий примитив, лежит в lk.css */
 
 /* --------------------------------------------------------------------------
    График
@@ -182,10 +173,6 @@
 }
 
 @media (max-width: 575.98px) {
-  .lk-filters--stats { grid-template-columns: 1fr; }
-  .lk-filter-actions { flex-direction: column; align-items: stretch; }
-  .lk-filter-actions .lk-btn-primary,
-  .lk-filter-actions .lk-filter-reset { width: 100%; text-align: center; }
   .lk-kpi-hero-val { font-size: 30px; }
   .lk-total-val { font-size: 22px; }
 }

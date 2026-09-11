@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
-    <title>Статистика по переданным показаниям | ООО «ЭСК Новая энергия»</title>
+    <title>Автоплатежи (ГазпромБанк) | ООО «ЭСК Новая энергия»</title>
 
     <link rel="shortcut icon" href="assets/site/favicon.ico" type="image/x-icon">
 
@@ -21,7 +21,7 @@
 
     <!-- Наши стили личного кабинета -->
     <link rel="stylesheet" href="assets/lk/css/lk.css">
-    <link rel="stylesheet" href="assets/lk/css/lk-stats.css">
+    <link rel="stylesheet" href="assets/lk/css/lk-admin-autopayments.css">
 </head>
 <body class="page-body">
 
@@ -235,11 +235,11 @@
         <svg class="lk-nav-ico" viewBox="0 0 18 18" aria-hidden="true"><path d="M2.5 12.5l4-4.5 3 2.5 6-6.5" stroke-width="1.4"/><path d="M11.5 4h4v4" stroke-width="1.3"/><path d="M2.5 15.5h13" stroke-width="1.3"/></svg>
         По платежам
       </a>
-      <a class="lk-nav-item is-active" data-nav="stats-transfers" aria-current="page" href="stats-transfers.html">
+      <a class="lk-nav-item" data-nav="stats-transfers" href="stats-transfers.html">
         <svg class="lk-nav-ico" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 14V9M7 14V5M11 14v-3M15 14V7" stroke-width="1.5"/><path d="M2 16h14" stroke-width="1.2"/></svg>
         По показаниям
       </a>
-      <a class="lk-nav-item" data-nav="admin-autopayments" href="admin-autopayments.html">
+      <a class="lk-nav-item is-active" data-nav="admin-autopayments" aria-current="page" href="admin-autopayments.html">
         <svg class="lk-nav-ico" viewBox="0 0 18 18" aria-hidden="true"><rect x="2" y="4" width="14" height="10" rx="1.5" stroke-width="1.4"/><path d="M2 7.5h14" stroke-width="1.3"/><path d="M11 11.5h3" stroke-width="1.3"/></svg>
         Автоплатежи (ГПБ)
       </a>
@@ -483,7 +483,7 @@
         <section class="section">
             <div class="bs-container">
 
-<!-- ================= ЛК: Статистика по переданным показаниям — начало ================= -->
+<!-- ================= ЛК: Автоплатежи (ГПБ) — служебное — начало ================= -->
 <div class="lk">
   <div class="lk-layout">
 
@@ -532,11 +532,11 @@
         <svg class="lk-nav-ico" viewBox="0 0 18 18" aria-hidden="true"><path d="M2.5 12.5l4-4.5 3 2.5 6-6.5" stroke-width="1.4"/><path d="M11.5 4h4v4" stroke-width="1.3"/><path d="M2.5 15.5h13" stroke-width="1.3"/></svg>
         По платежам
       </a>
-      <a class="lk-nav-item is-active" data-nav="stats-transfers" aria-current="page" href="stats-transfers.html">
+      <a class="lk-nav-item" data-nav="stats-transfers" href="stats-transfers.html">
         <svg class="lk-nav-ico" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 14V9M7 14V5M11 14v-3M15 14V7" stroke-width="1.5"/><path d="M2 16h14" stroke-width="1.2"/></svg>
         По показаниям
       </a>
-      <a class="lk-nav-item" data-nav="admin-autopayments" href="admin-autopayments.html">
+      <a class="lk-nav-item is-active" data-nav="admin-autopayments" aria-current="page" href="admin-autopayments.html">
         <svg class="lk-nav-ico" viewBox="0 0 18 18" aria-hidden="true"><rect x="2" y="4" width="14" height="10" rx="1.5" stroke-width="1.4"/><path d="M2 7.5h14" stroke-width="1.3"/><path d="M11 11.5h3" stroke-width="1.3"/></svg>
         Автоплатежи (ГПБ)
       </a>
@@ -560,269 +560,69 @@
         <span></span><span></span><span></span>
       </button>
 
-      <h1 class="lk-pg-title">Статистика по переданным показаниям</h1>
+      <h1 class="lk-pg-title">Автоплатежи (ГазпромБанк)</h1>
       <div class="lk-pg-sub">Служебный раздел — доступен администраторам личного кабинета</div>
 
-      <section class="lk-step">
-        <div class="lk-sec-hdr">
-          <h2 class="lk-sec-title lk-sec-title--major">Данные на графике</h2>
-        </div>
-
+      <!-- Фильтры. Логика на бэкенде, здесь только разметка. -->
       <div class="lk-filters lk-filters--stats">
         <div class="lk-filter-field">
-          <label class="lk-form-lbl" for="lk-st-from">Дата (начало)</label>
-          <input class="lk-input lk-date" id="lk-st-from" type="date" value="2026-09-01">
-        </div>
+          <label class="lk-form-lbl" for="lk-adm-contract">Договор</label>
 
-        <div class="lk-filter-field">
-          <label class="lk-form-lbl" for="lk-st-to">Дата (конец)</label>
-          <input class="lk-input lk-date" id="lk-st-to" type="date" value="2026-09-11">
-        </div>
-
-        <div class="lk-filter-field">
-          <label class="lk-form-lbl" for="lk-st-kind">Тип передачи</label>
-          <select class="lk-select" id="lk-st-kind">
-            <option selected>Ручная</option>
-            <option>Все</option>
-            <option>Файлом</option>
-            <option>По всем ПУ одним файлом</option>
-          </select>
-        </div>
-
-        <div class="lk-filter-field">
-          <label class="lk-form-lbl" for="lk-st-step">Детализация</label>
-          <select class="lk-select" id="lk-st-step">
-            <option selected>День</option>
-            <option>Неделя</option>
-            <option>Месяц</option>
-            <option>Год</option>
-          </select>
-        </div>
-
-        <div class="lk-filter-field">
-          <label class="lk-form-lbl" for="lk-st-contract">Договор</label>
-
+          <!-- селект с поиском: в разметке обычный <select>,
+               поле ввода со списком строит lk.js (initCombos) -->
           <div class="lk-combo" data-lk-combo data-placeholder="Номер договора">
-            <select class="lk-select" id="lk-st-contract">
-              <option selected>Все</option>
-              <option>ДЭС740201104</option>
-              <option>ДЭС740201287</option>
-              <option>ДЭС740215171</option>
-              <option>ДЭС740216327</option>
-              <option>ДЭС740217049</option>
-              <option>ДЭС740221213</option>
-              <option>ДЭС740224080</option>
-              <option>ДЭС740224597</option>
-              <option>ДЭС740225478</option>
-              <option>ДЭС740227879</option>
-              <option>ДЭС740231552</option>
-              <option>ДЭС740234424</option>
-              <option>ДЭС740235459</option>
-              <option>ДЭС740235477</option>
-              <option>ДЭС740235874</option>
-              <option>ДЭС740237318</option>
-              <option>ДЭС740244412</option>
-              <option>ДЭС740246817</option>
-              <option>ДЭС740247447</option>
-              <option>ДЭС740248384</option>
-              <option>ДЭС740251920</option>
-              <option>ДЭС740254357</option>
-              <option>ДЭС740261970</option>
-              <option>ДЭС740263463</option>
-              <option>ДЭС740265225</option>
-              <option>ДЭС740267037</option>
-              <option>ДЭС740267297</option>
-              <option>ДЭС740268516</option>
-              <option>ДЭС740275586</option>
-              <option>ДЭС740275597</option>
-              <option>ДЭС740277745</option>
-              <option>ДЭС740283291</option>
-              <option>ДЭС740284161</option>
-              <option>ДЭС740287055</option>
-              <option>ДЭС740289210</option>
-              <option>ДЭС740292150</option>
-              <option>ДЭС740292648</option>
-              <option>ДЭС740293162</option>
-              <option>ДЭС740293235</option>
-              <option>ДЭС740293274</option>
-              <option>ДЭС740293463</option>
-              <option>ДЭС740298861</option>
-              <option>ДЭС740323242</option>
-              <option>ДЭС740329787</option>
-              <option>ДЭС740364580</option>
-              <option>ДЭС740377449</option>
-              <option>ДЭС740390545</option>
-              <option>ДЭС740394881</option>
-              <option>ДЭС740511969</option>
-              <option>ДЭС740512189</option>
-              <option>ДЭС740515154</option>
-              <option>ДЭС740515535</option>
-              <option>ДЭС740517672</option>
-              <option>ДЭС740519683</option>
-              <option>ДЭС740527452</option>
-              <option>ДЭС740541743</option>
-              <option>ДЭС740544311</option>
-              <option>ДЭС740545650</option>
-              <option>ДЭС740558591</option>
-              <option>ДЭС740567777</option>
-              <option>ДЭС740569244</option>
-              <option>ДЭС740580227</option>
-              <option>ДЭС740586244</option>
-              <option>ДЭС740615030</option>
-              <option>ДЭС740628735</option>
-              <option>ДЭС740631716</option>
-              <option>ДЭС740634738</option>
-              <option>ДЭС740635729</option>
-              <option>ДЭС740641250</option>
-              <option>ДЭС740651272</option>
-              <option>ДЭС740652921</option>
-              <option>ДЭС740659119</option>
-              <option>ДЭС740664543</option>
-              <option>ДЭС740665520</option>
-              <option>ДЭС740665691</option>
-              <option>ДЭС740677361</option>
-              <option>ДЭС740679224</option>
-              <option>ДЭС740680749</option>
-              <option>ДЭС740684985</option>
-              <option>ДЭС740693050</option>
-              <option>ДЭС740693660</option>
-              <option>ДЭС740695942</option>
-              <option>ДЭС740696278</option>
-              <option>ДЭС740715072</option>
-              <option>ДЭС740717968</option>
-              <option>ДЭС740732780</option>
-              <option>ДЭС740733471</option>
-              <option>ДЭС740742534</option>
-              <option>ДЭС740751776</option>
-              <option>ДЭС740768930</option>
-              <option>ДЭС740770060</option>
-              <option>ДЭС740774166</option>
-              <option>ДЭС740786937</option>
-              <option>ДЭС740792047</option>
-              <option>ДЭС740794472</option>
-              <option>ДЭС740820876</option>
-              <option>ДЭС740827381</option>
-              <option>ДЭС740827637</option>
-              <option>ДЭС740847286</option>
-              <option>ДЭС740854455</option>
-              <option>ДЭС740863164</option>
-              <option>ДЭС740870521</option>
-              <option>ДЭС740872750</option>
-              <option>ДЭС740886283</option>
-              <option>ДЭС740895252</option>
-              <option>ДЭС740924078</option>
-              <option>ДЭС740929683</option>
-              <option>ДЭС740955674</option>
-              <option>ДЭС740956069</option>
-              <option>ДЭС740956311</option>
-              <option>ДЭС740966270</option>
-              <option>ДЭС740982080</option>
-              <option>ДЭС740988332</option>
-            </select>
+            <select class="lk-select" id="lk-adm-contract"></select>
           </div>
+        </div>
+
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-adm-card">Карта</label>
+          <div class="lk-combo" data-lk-combo data-placeholder="Номер карты">
+            <select class="lk-select" id="lk-adm-card"></select>
+          </div>
+        </div>
+
+        <div class="lk-filter-field">
+          <label class="lk-form-lbl" for="lk-adm-state">Включён</label>
+          <select class="lk-select" id="lk-adm-state">
+            <option selected>Все</option>
+            <option>Да</option>
+            <option>Нет</option>
+          </select>
         </div>
 
         <div class="lk-filter-field lk-filter-actions">
-          <button type="button" class="lk-btn-primary" data-lk-action="Показать статистику">Показать</button>
-          <button type="button" class="lk-filter-reset" data-lk-action="Сбросить фильтры статистики">Сбросить</button>
+          <button type="button" class="lk-btn-primary" data-lk-action="Показать автоплатежи">Показать</button>
+          <button type="button" class="lk-filter-reset" data-lk-action="Сбросить фильтры автоплатежей">Сбросить</button>
         </div>
       </div>
 
-      <div class="lk-panel lk-chart-panel">
-        <div class="lk-chart-legend">
-          <span class="lk-chart-key"><i style="background:#f7b114"></i>Передачи</span>
-        </div>
-
-        <div class="lk-chart">
-          <svg class="lk-chart-svg" viewBox="0 0 720 250" role="img" aria-label="График: Передачи">
-          <line class="lk-chart-grid" x1="52" y1="14.0" x2="668" y2="14.0"/>
-          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="17.5">200</text>
-          <line class="lk-chart-grid" x1="52" y1="55.2" x2="668" y2="55.2"/>
-          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="58.7">160</text>
-          <line class="lk-chart-grid" x1="52" y1="96.4" x2="668" y2="96.4"/>
-          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="99.9">120</text>
-          <line class="lk-chart-grid" x1="52" y1="137.6" x2="668" y2="137.6"/>
-          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="141.1">80</text>
-          <line class="lk-chart-grid" x1="52" y1="178.8" x2="668" y2="178.8"/>
-          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="182.3">40</text>
-          <line class="lk-chart-grid" x1="52" y1="220.0" x2="668" y2="220.0"/>
-          <text class="lk-chart-ax lk-chart-ax--l" x="44" y="223.5">0</text>
-          <text class="lk-chart-x" x="52.0" y="242">01.09</text>
-          <text class="lk-chart-x" x="113.6" y="242">02.09</text>
-          <text class="lk-chart-x" x="175.2" y="242">03.09</text>
-          <text class="lk-chart-x" x="236.8" y="242">04.09</text>
-          <text class="lk-chart-x" x="298.4" y="242">05.09</text>
-          <text class="lk-chart-x" x="360.0" y="242">06.09</text>
-          <text class="lk-chart-x" x="421.6" y="242">07.09</text>
-          <text class="lk-chart-x" x="483.2" y="242">08.09</text>
-          <text class="lk-chart-x" x="544.8" y="242">09.09</text>
-          <text class="lk-chart-x" x="606.4" y="242">10.09</text>
-          <text class="lk-chart-x" x="668.0" y="242">11.09</text>
-          <line class="lk-chart-cursor" x1="0" y1="14" x2="0" y2="220.0" hidden/>
-          <path class="lk-chart-line" style="stroke:#f7b114" d="M52.0 116.0 C62.3 121.6 93.1 139.1 113.6 150.0 C134.1 160.8 154.7 171.8 175.2 180.9 C195.7 190.0 216.3 198.2 236.8 204.6 C257.3 210.9 277.9 216.4 298.4 219.0 C318.9 220.0 339.5 219.8 360.0 220.0 C380.5 220.0 401.1 220.0 421.6 220.0 C442.1 220.0 462.7 220.0 483.2 220.0 C503.7 220.0 524.3 220.0 544.8 220.0 C565.3 220.0 585.9 220.0 606.4 220.0 C626.9 220.0 657.7 220.0 668.0 220.0"/>
-          <circle class="lk-chart-dot" style="fill:#f7b114" cx="52.0" cy="116.0" r="3.4" data-i="0" data-name="Передачи" data-val="101"/>
-          <circle class="lk-chart-dot" style="fill:#f7b114" cx="113.6" cy="150.0" r="3.4" data-i="1" data-name="Передачи" data-val="68"/>
-          <circle class="lk-chart-dot" style="fill:#f7b114" cx="175.2" cy="180.9" r="3.4" data-i="2" data-name="Передачи" data-val="38"/>
-          <circle class="lk-chart-dot" style="fill:#f7b114" cx="236.8" cy="204.6" r="3.4" data-i="3" data-name="Передачи" data-val="15"/>
-          <circle class="lk-chart-dot" style="fill:#f7b114" cx="298.4" cy="219.0" r="3.4" data-i="4" data-name="Передачи" data-val="1"/>
-          <circle class="lk-chart-dot" style="fill:#f7b114" cx="360.0" cy="220.0" r="3.4" data-i="5" data-name="Передачи" data-val="0"/>
-          <circle class="lk-chart-dot" style="fill:#f7b114" cx="421.6" cy="220.0" r="3.4" data-i="6" data-name="Передачи" data-val="0"/>
-          <circle class="lk-chart-dot" style="fill:#f7b114" cx="483.2" cy="220.0" r="3.4" data-i="7" data-name="Передачи" data-val="0"/>
-          <circle class="lk-chart-dot" style="fill:#f7b114" cx="544.8" cy="220.0" r="3.4" data-i="8" data-name="Передачи" data-val="0"/>
-          <circle class="lk-chart-dot" style="fill:#f7b114" cx="606.4" cy="220.0" r="3.4" data-i="9" data-name="Передачи" data-val="0"/>
-          <circle class="lk-chart-dot" style="fill:#f7b114" cx="668.0" cy="220.0" r="3.4" data-i="10" data-name="Передачи" data-val="0"/>
-          <g class="lk-chart-hits">
-            <rect class="lk-chart-hit" x="0.0" y="0" width="82.8" height="220.0" data-i="0" data-x="52.0" data-label="01.09"/>
-            <rect class="lk-chart-hit" x="82.8" y="0" width="61.6" height="220.0" data-i="1" data-x="113.6" data-label="02.09"/>
-            <rect class="lk-chart-hit" x="144.4" y="0" width="61.6" height="220.0" data-i="2" data-x="175.2" data-label="03.09"/>
-            <rect class="lk-chart-hit" x="206.0" y="0" width="61.6" height="220.0" data-i="3" data-x="236.8" data-label="04.09"/>
-            <rect class="lk-chart-hit" x="267.6" y="0" width="61.6" height="220.0" data-i="4" data-x="298.4" data-label="05.09"/>
-            <rect class="lk-chart-hit" x="329.2" y="0" width="61.6" height="220.0" data-i="5" data-x="360.0" data-label="06.09"/>
-            <rect class="lk-chart-hit" x="390.8" y="0" width="61.6" height="220.0" data-i="6" data-x="421.6" data-label="07.09"/>
-            <rect class="lk-chart-hit" x="452.4" y="0" width="61.6" height="220.0" data-i="7" data-x="483.2" data-label="08.09"/>
-            <rect class="lk-chart-hit" x="514.0" y="0" width="61.6" height="220.0" data-i="8" data-x="544.8" data-label="09.09"/>
-            <rect class="lk-chart-hit" x="575.6" y="0" width="61.6" height="220.0" data-i="9" data-x="606.4" data-label="10.09"/>
-            <rect class="lk-chart-hit" x="637.2" y="0" width="82.8" height="220.0" data-i="10" data-x="668.0" data-label="11.09"/>
-          </g>
-          </svg>
-        </div>
+      <div class="lk-sec-hdr">
+        <h2 class="lk-sec-title lk-sec-title--major">Подключённые автоплатежи</h2>
+        <span class="lk-sec-note" id="lk-adm-count"></span>
       </div>
-      </section>
 
-      <section class="lk-step lk-step--sep">
-        <div class="lk-sec-hdr">
-          <h2 class="lk-sec-title lk-sec-title--major">
-            Суммарно по периоду с 01.09.2026 по 11.09.2026
-            <span class="lk-sec-note-inline">все договоры</span>
-          </h2>
-        </div>
+      <div class="lk-table-wrap">
+        <table class="lk-table lk-table--cards lk-adm-aps">
+          <thead>
+            <tr>
+              <th scope="col">Пользователь</th>
+              <th scope="col">Карта</th>
+              <th scope="col">Договор</th>
+              <th scope="col">Макс. сумма</th>
+              <th scope="col">Создан</th>
+              <th scope="col">Обновлён</th>
+              <th scope="col">Включён</th>
+            </tr>
+          </thead>
+          <tbody id="lk-adm-rows"></tbody>
+        </table>
+      </div>
 
-        <a class="lk-xls lk-xls--inline" href="#"
-           data-lk-action="Лог переданных показаний по выбранным фильтрам">
-          <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5h5l3 3v8H3z"/><path d="M8 1.5v3h3"/><path d="M5.4 7.2l3.2 3.2M8.6 7.2l-3.2 3.2" stroke-linecap="round"/></svg>
-          Лог переданных показаний пользователями (согласно выбранным фильтрам)
-        </a>
-
-        <div class="lk-panel lk-totals lk-totals--one">
-          <div class="lk-total">
-            <div class="lk-total-val">222</div>
-            <div class="lk-total-lbl">количество отправленных показаний в выбранном периоде</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="lk-step lk-step--sep">
-        <div class="lk-sec-hdr">
-          <h2 class="lk-sec-title lk-sec-title--major">Выгрузить данные в XLS</h2>
-        </div>
-        <div class="lk-xls-list">
-        <a class="lk-xls" href="#" data-lk-action="Выгрузить в XLS: Лог переданных показаний пользователями (все передачи)"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5h5l3 3v8H3z"/><path d="M8 1.5v3h3"/><path d="M5.4 7.2l3.2 3.2M8.6 7.2l-3.2 3.2" stroke-linecap="round"/></svg>Лог переданных показаний пользователями (все передачи)</a>
-        </div>
-      </section>
     </div>
   </div>
 </div>
-<!-- ================= ЛК: Статистика по переданным показаниям — конец ================= -->
+<!-- ================= ЛК: Автоплатежи (ГПБ) — служебное — конец ================= -->
 
 
             </div>
@@ -1105,7 +905,7 @@
 
 <!-- Наши скрипты личного кабинета -->
 <script src="assets/lk/js/lk.js"></script>
-<script src="assets/lk/js/lk-stats.js"></script>
+<script src="assets/lk/js/lk-admin-autopayments.js"></script>
 
 </body>
 </html>
