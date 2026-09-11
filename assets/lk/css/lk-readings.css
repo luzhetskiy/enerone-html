@@ -272,6 +272,8 @@
 }
 /* окно передачи закрыто — блок загрузки скрыт, шаблоны на всю ширину */
 .lk-upload-grid.is-single { grid-template-columns: 1fr; }
+/* нет ПУ — прячем всю сетку целиком (display:grid перебил бы [hidden]) */
+.lk-upload-grid[hidden] { display: none; }
 
 
 .lk-upload-grid .lk-panel .lk-btn-upload--wide { margin-top: auto; }

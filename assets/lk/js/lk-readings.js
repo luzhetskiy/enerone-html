@@ -104,6 +104,16 @@
             ]
           },
           {
+            // объект без ПУ — так выглядит кейс «приборов учёта не найдено»
+            id: 'o-1287-3',
+            name: 'ДЭС740201287_Челябинск_250-летия Челябинска_27',
+            addr: '454003, Челябинская обл, Челябинск г, 250-летия Челябинска ул, дом 27, помещение 40',
+            tariff: 13.75,
+            tariffName: 'Фиксированные цены Челябинская область',
+            meters: [],
+            sentFiles: []
+          },
+          {
             id: 'o-1287-2',
             name: 'Парковочный комплекс',
             addr: 'г. Магнитогорск, пр. Ленина, 55А',
@@ -161,6 +171,10 @@
   var ICO_CHEVRON = '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3.5 8.5L7 5l3.5 3.5"/></svg>';
   var ICO_CLOCK = '<svg viewBox="0 0 16 16" aria-hidden="true">' +
                   '<circle cx="8" cy="8" r="6"/><path d="M8 4.8V8l2.1 1.6" stroke-linecap="round"/></svg>';
+  var ICO_METER = '<svg viewBox="0 0 24 24" aria-hidden="true">' +
+                  '<rect x="3.2" y="4.2" width="17.6" height="15.6" rx="3"/>' +
+                  '<rect x="6.6" y="8" width="10.8" height="4.6" rx="1.2"/>' +
+                  '<path d="M8 16.2h8"/></svg>';
   var ICO_FILE = '<svg viewBox="0 0 14 14" aria-hidden="true">' +
                  '<path d="M3 1.5h5l3 3v8H3z"/><path d="M8 1.5v3h3"/></svg>';
 
@@ -353,10 +367,42 @@
     if (nodes.uploadGrid) nodes.uploadGrid.classList.toggle('is-single', !state.windowOpen);
   }
 
+  // за объектом не закреплено ни одного ПУ — передавать нечего
+  function renderNoMeters(o) {
+    var link = 'feedback.html?new=1' +
+               '&contract=' + encodeURIComponent(state.contract.num) +
+               '&topic=t-meters' +
+               '&text=' + encodeURIComponent(
+                 'По объекту «' + o.name + '» в личном кабинете не отображаются приборы учёта. ' +
+                 'Прошу проверить и закрепить ПУ за объектом.');
+
+    var box = el('div', 'lk-panel lk-empty');
+    box.innerHTML =
+      '<div class="lk-empty-ico">' + ICO_METER + '</div>' +
+      '<p class="lk-empty-title">Приборов учёта нет</p>' +
+      '<p class="lk-empty-text">За объектом <b>' + esc(o.name) + '</b> не закреплён ' +
+        'ни один прибор учёта, поэтому передавать показания не по чему. ' +
+        'Если ПУ должен быть здесь — напишите менеджеру, он проверит данные по объекту.</p>' +
+      '<a class="lk-btn-ghost" href="' + link + '">Написать менеджеру</a>';
+
+    nodes.meters.appendChild(box);
+  }
+
   function renderMeters(o, openMeterNum) {
     nodes.meters.innerHTML = '';
-    nodes.metersCount.textContent =
-      o.meters.length + ' ' + plural(o.meters.length, 'прибор', 'прибора', 'приборов') + ' учёта';
+    nodes.metersCount.textContent = o.meters.length
+      ? o.meters.length + ' ' + plural(o.meters.length, 'прибор', 'прибора', 'приборов') + ' учёта'
+      : 'приборов учёта нет';
+
+    // без ПУ прятать нужно и загрузку файлом, и шаблоны, и историю файлов:
+    // всё это про показания, которых по этому объекту быть не может
+    if (nodes.uploadGrid) nodes.uploadGrid.hidden = !o.meters.length;
+    if (nodes.sentPanel) nodes.sentPanel.hidden = !o.meters.length;
+
+    if (!o.meters.length) {
+      renderNoMeters(o);
+      return;
+    }
 
     o.meters.forEach(function (m, i) {
       // один ПУ — раскрыт; несколько — свёрнуты, кроме того, на который перешли
@@ -607,6 +653,7 @@
     nodes.meters       = document.getElementById('lk-meters');
     nodes.metersCount  = document.getElementById('lk-meters-count');
     nodes.sentFiles    = document.getElementById('lk-sent-files');
+    nodes.sentPanel    = document.getElementById('lk-sent-panel');
     nodes.bulkUpload   = document.getElementById('lk-bulk-upload');
     nodes.uploadGrid   = document.getElementById('lk-upload-grid');
 
