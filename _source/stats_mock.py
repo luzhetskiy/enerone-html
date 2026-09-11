@@ -154,10 +154,6 @@ HEAD = """<!-- ================= ЛК: %(comment)s — начало ============
 {{SIDEBAR}}
 
     <div class="lk-content">
-      <button type="button" class="lk-burger" data-lk-burger aria-label="Разделы кабинета">
-        <span></span><span></span><span></span>
-      </button>
-
       <h1 class="lk-pg-title">%(title)s</h1>
       <div class="lk-pg-sub">Служебный раздел — доступен администраторам личного кабинета</div>
 """

@@ -5,28 +5,6 @@
 (function () {
   'use strict';
 
-  /* ---------- Мобильный сайдбар ---------- */
-  function initSidebar() {
-    var sidebar = document.querySelector('[data-lk-sidebar]');
-    var burger  = document.querySelector('[data-lk-burger]');
-    if (!sidebar || !burger) return;
-
-    burger.addEventListener('click', function (e) {
-      e.stopPropagation();
-      sidebar.classList.toggle('is-open');
-    });
-
-    document.addEventListener('click', function (e) {
-      if (!sidebar.classList.contains('is-open')) return;
-      if (sidebar.contains(e.target) || burger.contains(e.target)) return;
-      sidebar.classList.remove('is-open');
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') sidebar.classList.remove('is-open');
-    });
-  }
-
   /* ---------- Демо: переключение состояния баланса ----------
      Показывает, как выглядит сводная карточка при задолженности
      и при переплате. В боевой версии значения приходят с бэкенда. */
@@ -531,7 +509,6 @@
   }
 
   function init() {
-    initSidebar();
     initDemoSwitch();
     initObjectInfo();
     initTips();

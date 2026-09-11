@@ -57,21 +57,6 @@
 .lk a { text-decoration: none; }
 
 /* --------------------------------------------------------------------------
-   Бургер мобильного сайдбара (шапка сайта — общая, боевая)
-   -------------------------------------------------------------------------- */
-.lk-burger {
-  display: none;
-  flex-direction: column;
-  gap: 4px;
-  cursor: pointer;
-  padding: 8px;
-  margin: 0 0 12px -8px;
-  background: none;
-  border: none;
-}
-.lk-burger span { display: block; width: 20px; height: 2px; background: #555; border-radius: 2px; }
-
-/* --------------------------------------------------------------------------
    Админский поиск по договорам (главная)
    -------------------------------------------------------------------------- */
 .lk-admin-pick {
@@ -443,13 +428,10 @@ a.lk-meter:hover .lk-m-go { color: var(--lk-green); transform: translateX(2px); 
   .lk-contracts { grid-template-columns: 1fr; }
   .lk-tiles     { grid-template-columns: repeat(2, 1fr); }
 
-  .lk-layout { grid-template-columns: 1fr; position: relative; }
-  .lk-sidebar {
-    display: none; position: absolute; top: 0; left: 0; bottom: 0;
-    width: 220px; z-index: 20; box-shadow: 4px 0 24px rgba(0, 0, 0, .08);
-  }
-  .lk-sidebar.is-open { display: block; }
-  .lk-burger { display: flex; }
+  .lk-layout { grid-template-columns: 1fr; }
+  /* на узких экранах разделы ЛК живут в меню шапки сайта (#offcanvas-user),
+     поэтому колонку-сайдбар просто убираем — второй бургер был её дублем */
+  .lk-sidebar { display: none; }
   .lk-content { padding: 16px; }
 }
 
