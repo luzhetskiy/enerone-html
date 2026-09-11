@@ -1059,6 +1059,67 @@ a.lk-meter:hover .lk-m-go { color: var(--lk-green); transform: translateX(2px); 
 .lk .lk-panel-title + .lk-panel-text { margin-top: -8px; }
 .lk .lk-panel-text  { font-size: 11px; color: var(--lk-muted); line-height: 1.45; margin-bottom: 18px; }
 
+/* --- Длинная текстовая справка от бэкенда ---------------------------------
+   Экран «договор не привязан» на «Договорах»: текст и его разметку отдаёт
+   бэкенд (обычно бутстраповский .alert с <p>, <b>, <ul>), трогать их нельзя.
+   Поэтому стилизуем через обёртку .lk-panel--text: гасим оформление .alert
+   (панель уже своя) и приводим типографику к ЛК.
+
+   font-size на самих <p> и <li>, а не на .alert: у него в разметке бывает
+   инлайновый font-size, а наследование проигрывает любому правилу. */
+.lk-panel--text { padding: 20px 22px; }
+
+.lk .lk-panel--text .alert {
+  margin: 0; padding: 0;
+  background: none; border: 0; border-radius: 0;
+  color: var(--lk-ink-3);
+}
+
+.lk .lk-panel--text p,
+.lk .lk-panel--text li {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--lk-ink-3);
+}
+.lk .lk-panel--text p { margin: 0 0 10px; }
+.lk .lk-panel--text > *:last-child,
+.lk .lk-panel--text .alert > *:last-child { margin-bottom: 0; }
+
+.lk .lk-panel--text b,
+.lk .lk-panel--text strong { font-weight: 700; color: var(--lk-ink); }
+
+/* подзаголовки набраны отдельным жирным абзацем («1. Электронный адрес…»).
+   :has() нет в старых браузерах — там абзац просто останется жирным. */
+.lk .lk-panel--text p:has(> b:only-child),
+.lk .lk-panel--text p:has(> strong:only-child) {
+  font-size: 13px;
+  margin: 22px 0 10px;
+}
+.lk .lk-panel--text .alert > p:first-child:has(> b:only-child) { margin-top: 0; }
+
+/* на случай, если бэкенд отдаст настоящие заголовки */
+.lk .lk-panel--text h2,
+.lk .lk-panel--text h3,
+.lk .lk-panel--text h4 {
+  font-size: 13px; font-weight: 700; color: var(--lk-ink);
+  margin: 22px 0 10px;
+}
+
+.lk .lk-panel--text ul,
+.lk .lk-panel--text ol { margin: 0 0 12px; padding-left: 20px; }
+.lk .lk-panel--text li { margin-bottom: 7px; }
+.lk .lk-panel--text li:last-child { margin-bottom: 0; }
+.lk .lk-panel--text li::marker { color: var(--lk-green); }
+
+.lk .lk-panel--text a {
+  color: var(--lk-green); font-weight: 600; text-decoration: none;
+}
+.lk .lk-panel--text a:hover { color: var(--lk-green-dk); text-decoration: underline; }
+
+@media (max-width: 575.98px) {
+  .lk-panel--text { padding: 16px 15px; }
+}
+
 /* --- «Пусто»: нет автоплатежей, нет приборов учёта и т.п. --- */
 .lk-empty {
   display: flex; flex-direction: column; align-items: center; gap: 12px;
