@@ -28,15 +28,15 @@
   // desktop / mobile — в каком режиме подсказка нужна.
   var STEPS = [
     { hints: [
-      { target: '.lk-layout .lk-sidebar [data-nav="readings"]', side: 'right', desktop: true,
+      { target: '.lk-layout .lk-sidebar [data-nav="readings"]', side: 'right', desktop: true, main: true,
         text: 'Передайте показания здесь' },
-      { target: '[data-lk-coach="readings"]', side: 'top', desktop: true, mobile: true, main: true,
+      { target: '[data-lk-coach="readings"]', side: 'top', mobile: true,
         text: 'Передайте показания здесь' }
     ] },
     { hints: [
-      { target: '.lk-layout .lk-sidebar [data-nav="invoices"]', side: 'right', desktop: true,
+      { target: '.lk-layout .lk-sidebar [data-nav="invoices"]', side: 'right', desktop: true, main: true,
         text: 'Посмотрите начисления и оплатите здесь' },
-      { target: '[data-lk-coach="pay"]', side: 'bottom', desktop: true, mobile: true, main: true,
+      { target: '[data-lk-coach="pay"]', side: 'bottom', mobile: true,
         text: 'Оплатите задолженность по договору здесь' }
     ] },
     { hints: [
