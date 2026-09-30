@@ -1,0 +1,100 @@
+/* ==========================================================================
+   ЛК — подсказки первого входа (главная), см. lk-coach.js
+   Слой .lk.lk-coach скрипт кладёт прямо в <body>: так рамки и пузыри
+   не обрезает overflow:hidden у .lk-layout и карточек договоров.
+   ========================================================================== */
+
+.lk-coach {
+  --lk-coach-bg: #24323f;
+  --lk-coach-arrow: 50%;
+  position: absolute; top: 0; left: 0; width: 0; height: 0;
+  /* над шапкой сайта (.bs-header — 1030), но под открытым меню (offcanvas — 1045) */
+  z-index: 1040;
+}
+
+/* затемнение с «окнами» под цели — ловит клики мимо целей */
+.lk-coach-shade { position: absolute; pointer-events: none; overflow: visible; }
+.lk-coach-shade path { fill: rgba(20, 28, 36, .55); pointer-events: auto; }
+
+/* рамка вокруг цели */
+.lk-coach-ring {
+  position: absolute; pointer-events: none;
+  border: 2px solid var(--lk-green);
+  box-shadow: 0 0 0 0 rgba(98, 182, 124, .45);
+  animation: lk-coach-pulse 1.8s ease-out infinite;
+}
+@keyframes lk-coach-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(98, 182, 124, .5); }
+  70%  { box-shadow: 0 0 0 10px rgba(98, 182, 124, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(98, 182, 124, 0); }
+}
+
+/* пузырь */
+.lk-coach-tip {
+  position: absolute;
+  width: max-content; max-width: 250px;
+  padding: 11px 14px;
+  background: var(--lk-coach-bg); color: #fff;
+  border-radius: var(--lk-r-lg);
+  box-shadow: 0 10px 28px rgba(20, 28, 36, .28);
+  animation: lk-coach-in .22s ease-out both;
+}
+.lk-coach-tip.is-main { max-width: 270px; padding: 13px 16px 12px; }
+.lk .lk-coach-text { margin: 0; font-size: 14px; font-weight: 600; line-height: 1.35; color: #fff; }
+
+/* стрелка смотрит на центр цели: --lk-coach-arrow выставляет скрипт */
+.lk-coach-tip::before {
+  content: ''; position: absolute;
+  width: 12px; height: 12px;
+  background: var(--lk-coach-bg);
+  border-radius: 2px;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.lk-coach-tip[data-side="top"]::before    { left: var(--lk-coach-arrow); top: 100%; }
+.lk-coach-tip[data-side="bottom"]::before { left: var(--lk-coach-arrow); top: 0; }
+.lk-coach-tip[data-side="right"]::before  { top: var(--lk-coach-arrow); left: 0; }
+.lk-coach-tip[data-side="left"]::before   { top: var(--lk-coach-arrow); left: 100%; }
+
+/* въезжает со стороны цели */
+@keyframes lk-coach-in {
+  from { opacity: 0; translate: var(--lk-coach-from, 0 0); }
+  to   { opacity: 1; translate: 0 0; }
+}
+.lk-coach-tip[data-side="top"]    { --lk-coach-from: 0 6px; }
+.lk-coach-tip[data-side="bottom"] { --lk-coach-from: 0 -6px; }
+.lk-coach-tip[data-side="right"]  { --lk-coach-from: -6px 0; }
+.lk-coach-tip[data-side="left"]   { --lk-coach-from: 6px 0; }
+
+/* подвал главного пузыря: счётчик, «Пропустить», «Далее» */
+.lk-coach-foot {
+  display: flex; align-items: center; gap: 12px;
+  margin-top: 12px;
+}
+.lk-coach-count { font-size: 11px; color: rgba(255, 255, 255, .55); margin-right: auto; white-space: nowrap; }
+.lk .lk-coach-skip,
+.lk .lk-coach-ok {
+  padding: 0; background: none; border: 0; cursor: pointer;
+  font-size: 12px; font-weight: 500; color: rgba(255, 255, 255, .7);
+}
+.lk .lk-coach-skip:hover { color: #fff; }
+.lk .lk-coach-next {
+  padding: 6px 14px;
+  background: linear-gradient(90deg, var(--lk-green), var(--lk-green-lt));
+  border: 0; border-radius: var(--lk-r-md); cursor: pointer;
+  font-size: 12px; font-weight: 700; color: #fff; white-space: nowrap;
+}
+.lk .lk-coach-next:hover { opacity: .9; }
+.lk .lk-coach-next:focus-visible,
+.lk .lk-coach-skip:focus-visible,
+.lk .lk-coach-ok:focus-visible { outline: 2px solid rgba(255, 255, 255, .6); outline-offset: 2px; }
+
+/* мобильный пузырь: одна кнопка «Понятно» под текстом */
+.lk .lk-coach-ok { display: block; margin-top: 8px; color: var(--lk-green-lt); font-weight: 700; }
+.lk .lk-coach-ok:hover { color: #fff; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lk-coach-ring, .lk-coach-tip { animation: none; }
+}
+
+/* демо-кнопка «Показать заново» (только прототип) */
+.lk-demo-btn--coach { border: 1px solid var(--lk-blue); color: var(--lk-blue-dk); }

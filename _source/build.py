@@ -29,6 +29,8 @@ PAGES = [
         "content": "lk-content.html",
         "nav": "home",
         "title": "Личный кабинет — Договоры | ООО «ЭСК Новая энергия»",
+        "css": ["assets/lk/css/lk-coach.css"],
+        "js":  ["assets/lk/js/lk-coach.js"],
     },
     {
         "out": "readings.html",
