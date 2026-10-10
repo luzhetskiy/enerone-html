@@ -150,6 +150,14 @@
 .lk-answer-date { font-weight: 400; color: #8cb99b; letter-spacing: 0; text-transform: none; }
 .lk-answer-text { font-size: 12px; line-height: 1.5; color: var(--lk-ink-2); }
 
+/* несколько ответов в одном обращении — каждый отдельным блоком со своей шапкой */
+.lk-answer + .lk-answer {
+  margin-top: 12px; padding-top: 12px;
+  border-top: 1px dashed #cfe3d6;
+}
+.lk-answer-text p:last-child { margin-bottom: 0; }
+.lk-answer .lk-msg-files { margin-top: 8px; }
+
 /* --------------------------------------------------------------------------
    Вид 2: переписка внутри обращения (демо-переключатель над списком)
    -------------------------------------------------------------------------- */
