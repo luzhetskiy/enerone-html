@@ -231,6 +231,74 @@
 .lk-submit-note[hidden] { display: none; }
 
 /* --------------------------------------------------------------------------
+   Распознавание показаний с фото: загрузка → результат или «не распознано»
+   -------------------------------------------------------------------------- */
+.lk-photo-scan {
+  display: flex; align-items: flex-start; gap: 14px;
+  margin-top: 16px; padding: 12px 14px;
+  background: var(--lk-blue-bg);
+  border: 1px solid #dce8f8;
+  border-radius: var(--lk-r-lg);
+}
+.lk-photo-scan[hidden] { display: none; }
+.lk-photo-scan[data-state="result"] { background: var(--lk-green-bg); border-color: var(--lk-green-br); }
+.lk-photo-scan[data-state="failed"] { background: var(--lk-amber-bg); border-color: #f3d089; }
+
+.lk-photo-scan-thumbs { display: flex; gap: 8px; flex-shrink: 0; }
+.lk-photo-scan-thumbs:empty { display: none; }
+.lk-photo-scan-thumb {
+  width: 64px; height: 64px; object-fit: cover;
+  border-radius: var(--lk-r-md); border: 1px solid rgba(0, 0, 0, .06);
+  background: #fff;
+}
+/* HEIC браузер (кроме Safari) не показывает — вместо картинки подпись */
+.lk-photo-scan-thumb--file {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; color: var(--lk-muted); text-transform: uppercase;
+}
+
+.lk-photo-scan-body { flex: 1; min-width: 0; }
+.lk-photo-scan-state { display: none; }
+.lk-photo-scan[data-state="loading"] [data-scan-state="loading"],
+.lk-photo-scan[data-state="failed"] [data-scan-state="failed"] {
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.lk-photo-scan[data-state="result"] [data-scan-state="result"] { display: block; }
+
+.lk-photo-scan-title { font-size: 12px; font-weight: 700; color: var(--lk-ink-2); margin: 0 0 2px; }
+.lk-photo-scan-text { font-size: 11px; line-height: 1.45; color: #5f7794; margin: 0; }
+.lk-photo-scan[data-state="result"] .lk-photo-scan-text { color: #4f7a5c; }
+.lk-photo-scan[data-state="failed"] .lk-photo-scan-text { color: #8a6b1c; }
+.lk-photo-scan-ico {
+  width: 15px; height: 15px; flex-shrink: 0; margin-top: 1px;
+  fill: none; stroke: #d19a12; stroke-width: 1.4;
+}
+
+.lk-photo-scan-values { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 4px 0 6px; }
+.lk-photo-scan-value { display: flex; align-items: baseline; gap: 6px; }
+.lk-photo-scan-value dt { font-size: 11px; color: var(--lk-muted); font-weight: 400; }
+.lk-photo-scan-value dd {
+  margin: 0; font-size: 17px; font-weight: 700; color: var(--lk-green-dk);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.lk-photo-scan-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+
+.lk-spinner {
+  width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px;
+  border: 2px solid #c9dbf3; border-top-color: var(--lk-blue-dk); border-radius: 50%;
+  animation: lk-spin .8s linear infinite;
+}
+@keyframes lk-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .lk-spinner { animation-duration: 2.4s; }
+}
+
+/* пока идёт распознавание, форма не трогается */
+.meter-form.is-scanning .lk-btn-upload,
+.meter-form.is-scanning .meter-submit { opacity: .5; pointer-events: none; }
+
+/* --------------------------------------------------------------------------
    8. Окно передачи показаний закрыто
    -------------------------------------------------------------------------- */
 .lk-window-closed {
@@ -335,6 +403,9 @@
   .lk-alt-lbl { text-align: center; }
   .lk-btn-upload, .lk-btn-submit { justify-content: center; }
   .lk-selected-reset { margin-left: 0; width: 100%; text-align: center; }
+  .lk-photo-scan { flex-direction: column; gap: 10px; }
+  .lk-photo-scan-actions { flex-direction: column; align-items: stretch; }
+  .lk-photo-scan-actions .lk-btn-submit { justify-content: center; }
   .lk-template { flex-direction: column; align-items: flex-start; gap: 8px; }
 
   /* таблица отправленных файлов: дате — минимум места, имени файла — максимум */

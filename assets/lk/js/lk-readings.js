@@ -432,6 +432,60 @@
     if (window.LK && window.LK.refreshTips) window.LK.refreshTips();
   }
 
+  /* Блок распознавания показаний с фото — та же разметка, что
+     lk/include/meter_photo_scan.html в проекте. */
+  function photoScanHtml() {
+    return (
+      '<div class="lk-photo-scan" data-photo-scan data-state="loading" hidden aria-live="polite">' +
+        '<div class="lk-photo-scan-thumbs" data-scan-thumbs></div>' +
+        '<div class="lk-photo-scan-body">' +
+          '<div class="lk-photo-scan-state" data-scan-state="loading">' +
+            '<span class="lk-spinner" aria-hidden="true"></span>' +
+            '<div>' +
+              '<p class="lk-photo-scan-title">Распознаём показания с фото…</p>' +
+              '<p class="lk-photo-scan-text">Обычно это занимает до 15 секунд.</p>' +
+            '</div>' +
+          '</div>' +
+          '<div class="lk-photo-scan-state" data-scan-state="result">' +
+            '<p class="lk-photo-scan-title">Показания с фото</p>' +
+            '<dl class="lk-photo-scan-values" data-scan-values></dl>' +
+            '<p class="lk-photo-scan-text" data-scan-message></p>' +
+            '<div class="lk-photo-scan-actions">' +
+              '<button type="button" class="lk-btn-submit" data-scan-confirm>Подтвердить и передать</button>' +
+              '<button type="button" class="lk-btn-ghost" data-scan-edit>Исправить</button>' +
+            '</div>' +
+          '</div>' +
+          '<div class="lk-photo-scan-state" data-scan-state="failed">' +
+            '<svg class="lk-photo-scan-ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2"/>' +
+              '<path d="M8 4.8v3.8" stroke-linecap="round"/><circle cx="8" cy="11" r=".7" fill="currentColor" stroke="none"/></svg>' +
+            '<p class="lk-photo-scan-text" data-scan-fail-message></p>' +
+          '</div>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  var PHOTO_EXTENSIONS = ['jpg', 'jpeg', 'jfif', 'png', 'webp', 'heic', 'heif'];
+  var SCAN_DEMO_MS = 2500;
+  var SCAN_FAILED_MSG = 'Не удалось распознать показания на фото. ' +
+                        'Введите их в поле «Текущие показания».';
+
+  function isPhoto(file) {
+    var ext = (file.name.split('.').pop() || '').toLowerCase();
+    return PHOTO_EXTENSIONS.indexOf(ext) !== -1 || /^image\//.test(file.type);
+  }
+
+  /* Демо-«распознавание»: предыдущее показание плюс средний месячный расход,
+     с той же разрядностью, что и у предыдущего. */
+  function demoReading(m) {
+    var dec = (m.prev.split('.')[1] || '').length;
+    var value = parseFloat(m.prev) + (avgUsage(m) / (m.kt || 1) || 100);
+    var text = value.toFixed(dec);
+    var width = m.prev.length;
+    while (text.length < width) text = '0' + text;
+    return text;
+  }
+
   function buildMeterCard(m, o, idx, open) {
     var uid = 'pu-' + o.id + '-' + idx;
     var card = el('article', 'lk-meter-card' + (open ? '' : ' is-collapsed'));
@@ -483,15 +537,18 @@
         '</div>' +
 
         (state.windowOpen
-          ? '<div class="lk-meter-actions">' +
+          ? photoScanHtml() +
+            '<div class="lk-meter-actions">' +
               '<div class="lk-actions-alt">' +
                 '<span class="lk-alt-lbl">Другой способ передачи</span>' +
-                '<button type="button" class="lk-btn-upload" ' +
-                        'data-lk-action="Загрузить файл с показаниями по ПУ ' + esc(m.num) + '">' +
+                '<label class="lk-btn-upload" for="' + uid + '-file">' +
                   '<svg class="lk-btn-ico" viewBox="0 0 16 16" aria-hidden="true">' +
                     '<path d="M8 11V3M8 3L5 6M8 3l3 3" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>' +
                     '<path d="M2.5 10.5v1.5A1.5 1.5 0 004 13.5h8a1.5 1.5 0 001.5-1.5v-1.5" stroke-width="1.4" stroke-linecap="round"/>' +
-                  '</svg>Загрузить файл или фото</button>' +
+                  // пробел перед текстом: правило сайта label:not(…) делает label блоком, gap не работает
+                  '</svg> Загрузить файл или фото</label>' +
+                '<input class="lk-visually-hidden" id="' + uid + '-file" type="file" data-file ' +
+                       'style="position:absolute; width:1px; height:1px; overflow:hidden; opacity:0;">' +
               '</div>' +
               '<div class="lk-actions-main">' +
                 '<span class="lk-submit-note" data-note>Введите текущие показания, чтобы отправить</span>' +
@@ -609,6 +666,85 @@
 
     input.addEventListener('input', recalc);
     input.addEventListener('change', recalc);
+
+    /* Распознавание с фото. В прототипе ответа сервера нет: первая попытка
+       на карточке «распознаётся», следующая — нет, и так по очереди. */
+    var fileInput = card.querySelector('[data-file]');
+    var scan = card.querySelector('[data-photo-scan]');
+    var scanTries = 0;
+
+    function setScan(st) {
+      if (!st) { scan.hidden = true; return; }
+      scan.dataset.state = st;
+      scan.hidden = false;
+    }
+
+    function renderThumbs(file) {
+      var holder = scan.querySelector('[data-scan-thumbs]');
+      holder.innerHTML = '';
+      var img = document.createElement('img');
+      img.className = 'lk-photo-scan-thumb';
+      img.alt = '';
+      img.onerror = function () {
+        var stub = el('span', 'lk-photo-scan-thumb lk-photo-scan-thumb--file');
+        stub.textContent = (file.name.split('.').pop() || 'фото').slice(0, 5);
+        img.replaceWith(stub);
+      };
+      img.src = URL.createObjectURL(file);
+      holder.appendChild(img);
+    }
+
+    fileInput.addEventListener('change', function () {
+      var file = fileInput.files[0];
+      if (!file) return;
+      if (!isPhoto(file)) {
+        // таблица по шаблону — как раньше, файл уходит как есть
+        console.log('[ЛК] загрузка файла с показаниями', { пу: m.num, файл: file.name });
+        setScan(null);
+        fileInput.value = '';
+        return;
+      }
+
+      renderThumbs(file);
+      setScan('loading');
+      submit.hidden = true;
+      scanTries += 1;
+      var ok = scanTries % 2 === 1;
+
+      setTimeout(function () {
+        fileInput.value = '';
+        if (!ok) {
+          scan.querySelector('[data-scan-fail-message]').textContent = SCAN_FAILED_MSG;
+          setScan('failed');
+          recalc();                // уже введённые показания можно передать
+          input.focus();
+          return;
+        }
+        input.value = demoReading(m);
+        recalc();
+        submit.hidden = true;      // рядом с «Подтвердить» вторая кнопка отправки только путает
+        note.hidden = true;
+        scan.querySelector('[data-scan-values]').innerHTML =
+          '<div class="lk-photo-scan-value"><dt>Текущие показания</dt><dd>' +
+            esc(input.value.replace('.', ',')) + '</dd></div>';
+        scan.querySelector('[data-scan-message]').textContent =
+          'Проверьте показания, распознанные с фото.';
+        setScan('result');
+      }, SCAN_DEMO_MS);
+    });
+
+    scan.querySelector('[data-scan-confirm]').addEventListener('click', function () {
+      setScan(null);
+      recalc();
+      submit.click();
+    });
+
+    scan.querySelector('[data-scan-edit]').addEventListener('click', function () {
+      setScan(null);
+      recalc();
+      input.focus();
+      input.select();
+    });
 
     function send() {
       console.log('[ЛК] отправка показаний', {
