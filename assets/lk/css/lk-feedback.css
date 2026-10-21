@@ -159,7 +159,7 @@
 .lk-answer .lk-msg-files { margin-top: 8px; }
 
 /* --------------------------------------------------------------------------
-   Вид 2: переписка внутри обращения (демо-переключатель над списком)
+   Переписка внутри обращения (в прототипе — вид 2 демо-переключателя)
    -------------------------------------------------------------------------- */
 .lk-demo-btn--view { border: 1px solid var(--lk-line); color: var(--lk-ink-3); }
 .lk-demo-btn--view:hover { border-color: var(--lk-green-br); }
@@ -201,6 +201,8 @@
 .lk-th-text {
   font-size: 12px; line-height: 1.5; color: var(--lk-ink-2); overflow-wrap: anywhere;
 }
+.lk-th-text p { margin-bottom: .5em; }
+.lk-th-text p:last-child { margin-bottom: 0; }
 .lk-th-files { display: flex; flex-direction: column; gap: 3px; margin-top: 6px; }
 
 .lk-th-wait {
@@ -209,12 +211,19 @@
   padding: 2px 0;
 }
 
-/* поле ответа в обращение */
+/* поле ответа в обращение: текст, под ним — файлы и отправка */
 .lk-th-reply {
-  display: flex; align-items: flex-end; gap: 8px;
+  display: flex; flex-direction: column; gap: 8px;
   margin-top: 4px; padding-top: 12px;
   border-top: 1px dashed #e3e9f0;
 }
+.lk-th-reply-foot { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.lk-th-reply-foot .lk-btn-primary { margin-left: auto; }
+/* кнопка выбора файлов — компактный вариант .lk-file-drop из lk.css */
+.lk .lk-th-reply .lk-th-attach { padding: 6px 12px; font-size: 11px; }
+.lk .lk-th-reply .lk-th-attach svg { width: 13px; height: 13px; }
+.lk-th-hint { font-size: 11px; color: var(--lk-muted-3); }
+.lk-th-reply .lk-file-list { margin-top: 0; }
 /* базовый .lk-textarea задаёт min-height: 120px !important — здесь поле низкое,
    поэтому перебиваем и специфичностью, и !important (см. «Правила стилей» в README) */
 .lk .lk-th-reply .lk-th-input {
@@ -247,8 +256,7 @@
   /* переписка: реплики шире, поле ответа — в столбик */
   .lk-thread { padding: 12px; }
   .lk-th-msg { max-width: 92%; }
-  .lk-th-reply { flex-direction: column; align-items: stretch; }
-  .lk-th-reply .lk-btn-primary { width: 100%; }
+  .lk-th-reply-foot .lk-btn-primary { width: 100%; margin-left: 0; }
 }
 
 @media (max-width: 575.98px) {

@@ -189,6 +189,7 @@
   var ICO_ANSWER = '<svg viewBox="0 0 14 14" aria-hidden="true">' +
                    '<path d="M2 2.5h10v7l-4.5 0L4.5 12V9.5H2z" stroke-linejoin="round"/></svg>';
   var ICO_CROSS = '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 2l6 6M8 2l-6 6"/></svg>';
+  var ICO_CLIP = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 7.5l-5.6 5.6a3.3 3.3 0 01-4.7-4.7l5.9-5.9a2.2 2.2 0 013.1 3.1l-5.9 5.9a1.1 1.1 0 01-1.6-1.6l5.4-5.4" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
   var nodes = {};
 
@@ -274,13 +275,13 @@
      История обращений
 
      Два вида, переключаются демо-тумблером (VIEW):
-       'classic' — как сейчас: обращение и один ответ;
-       'thread'  — переписка внутри обращения с полем ответа.
+       'thread'  — переписка внутри обращения с полем ответа (боевой ЛК);
+       'classic' — прежний вид: обращение и один ответ.
      Данные общие: первая реплика — само обращение, вторая — m.answer,
      дальше — необязательный массив m.more.
      ====================================================================== */
 
-  var VIEW = 'classic';
+  var VIEW = 'thread';
 
   // реплики обращения в хронологическом порядке
   function threadOf(m) {
@@ -377,12 +378,16 @@
 
   /* ---------- вид 2: переписка внутри обращения ---------- */
 
+  // Раскрывается обращение, как только компания ответила; с этого момента
+  // под перепиской — форма ответа с файлами, отвечать можно сколько угодно раз.
   function buildThreadCard(m) {
     var uid = 'thread-' + m.id;
     var turns = threadOf(m);
+    var answered = !!m.answer;
 
     var card = el('article', 'lk-msg lk-msg--thread' +
-      (m.answer ? ' has-answer is-answered' : '') +
+      (answered ? ' has-answer' : '') +
+      (isAnswered(m) ? ' is-answered' : '') +
       (m.unread ? ' is-unread' : ''));
 
     var turnsHtml = turns.map(function (t) {
@@ -399,26 +404,68 @@
     }).join('');
 
     card.innerHTML =
-      topHtml(m, uid, true, 'Показать переписку') +
-      '<div class="lk-thread" id="' + uid + '" hidden>' +
-        turnsHtml +
-        (isAnswered(m)
-          ? ''
-          : '<div class="lk-th-wait">Обращение принято, ответ придёт сюда и на электронную почту</div>') +
-        '<form class="lk-th-reply" data-th-reply>' +
-          '<textarea class="lk-textarea lk-th-input" rows="2" name="reply" ' +
-                    'placeholder="Написать в это обращение"></textarea>' +
-          '<button type="submit" class="lk-btn-primary">Отправить</button>' +
-        '</form>' +
-      '</div>';
+      topHtml(m, uid, answered, 'Показать переписку') +
+      (answered
+        ? '<div class="lk-thread" id="' + uid + '" hidden>' +
+            turnsHtml +
+            (isAnswered(m)
+              ? ''
+              : '<div class="lk-th-wait">Ответ придёт сюда и на электронную почту</div>') +
+            '<form class="lk-th-reply" data-th-reply>' +
+              '<textarea class="lk-textarea lk-th-input" rows="2" name="reply" ' +
+                        'placeholder="Написать в это обращение"></textarea>' +
+              '<ul class="lk-file-list" data-file-list></ul>' +
+              '<div class="lk-th-reply-foot">' +
+                '<div class="lk-file">' +
+                  '<input type="file" multiple id="' + uid + '-attach">' +
+                  '<label class="lk-th-attach lk-file-drop" for="' + uid + '-attach">' +
+                    ICO_CLIP + 'Приложить файлы' +
+                  '</label>' +
+                '</div>' +
+                '<span class="lk-th-hint">до 10 файлов, каждый до 15 МБ</span>' +
+                '<button type="submit" class="lk-btn-primary">Отправить</button>' +
+              '</div>' +
+            '</form>' +
+          '</div>'
+        : '');
 
-    bindPanel(card, m, '.lk-thread', 'переписку');
-    bindReply(card, m);
+    if (answered) {
+      bindPanel(card, m, '.lk-thread', 'переписку');
+      bindReply(card, m);
+    }
     return card;
   }
 
   function bindReply(card, m) {
     var form = card.querySelector('[data-th-reply]');
+    var input = form.querySelector('input[type="file"]');
+    var list = form.querySelector('[data-file-list]');
+    var files = [];
+
+    function renderReplyFiles() {
+      list.innerHTML = '';
+      files.forEach(function (f, idx) {
+        var li = el('li', 'lk-file-item');
+        li.innerHTML = ICO_FILE +
+          '<span class="lk-file-name">' + esc(f.name) + '</span>' +
+          '<span class="lk-file-size">' + fileSize(f.size) + '</span>';
+        var del = el('button', 'lk-file-del', ICO_CROSS);
+        del.type = 'button';
+        del.setAttribute('aria-label', 'Убрать файл ' + f.name);
+        del.addEventListener('click', function () {
+          files.splice(idx, 1);
+          renderReplyFiles();
+        });
+        li.appendChild(del);
+        list.appendChild(li);
+      });
+    }
+
+    input.addEventListener('change', function () {
+      Array.prototype.forEach.call(input.files, function (f) { files.push(f); });
+      input.value = '';
+      renderReplyFiles();
+    });
 
     form.addEventListener('click', function (e) { e.stopPropagation(); });
     form.addEventListener('submit', function (e) {
@@ -428,8 +475,13 @@
       if (!text) { form.reply.focus(); return; }
 
       // заглушка отправки: реплика уходит в конец переписки
-      console.log('[ЛК] ответ в обращение', m.id + ':', text);
-      m.more = (m.more || []).concat([{ side: 'client', date: nowStamp(), text: text }]);
+      console.log('[ЛК] ответ в обращение', m.id + ':', text, files.map(function (f) { return f.name; }));
+      m.more = (m.more || []).concat([{
+        side: 'client',
+        date: nowStamp(),
+        text: text,
+        files: files.map(function (f) { return f.name; })
+      }]);
 
       renderMessages(m.id);
     });
