@@ -442,12 +442,12 @@
           '<div class="lk-photo-scan-state" data-scan-state="loading">' +
             '<span class="lk-spinner" aria-hidden="true"></span>' +
             '<div>' +
-              '<p class="lk-photo-scan-title">Распознаём показания с фото…</p>' +
+              '<p class="lk-photo-scan-title">Распознаём показания…</p>' +
               '<p class="lk-photo-scan-text">Обычно это занимает до 15 секунд.</p>' +
             '</div>' +
           '</div>' +
           '<div class="lk-photo-scan-state" data-scan-state="result">' +
-            '<p class="lk-photo-scan-title">Показания с фото</p>' +
+            '<p class="lk-photo-scan-title">Распознанные показания</p>' +
             '<dl class="lk-photo-scan-values" data-scan-values></dl>' +
             '<p class="lk-photo-scan-text" data-scan-message></p>' +
             '<div class="lk-photo-scan-actions">' +
@@ -458,7 +458,15 @@
           '<div class="lk-photo-scan-state" data-scan-state="failed">' +
             '<svg class="lk-photo-scan-ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2"/>' +
               '<path d="M8 4.8v3.8" stroke-linecap="round"/><circle cx="8" cy="11" r=".7" fill="currentColor" stroke="none"/></svg>' +
-            '<p class="lk-photo-scan-text" data-scan-fail-message></p>' +
+            '<div>' +
+              '<p class="lk-photo-scan-text" data-scan-fail-message></p>' +
+              '<div class="lk-photo-scan-operator" data-scan-operator hidden>' +
+                '<button type="button" class="lk-btn-operator" data-scan-operator-send>Отправить файл оператору</button>' +
+                '<p class="lk-photo-scan-note">Ваш файл будет отправлен человеку для анализа. ' +
+                  'Если хотите ускорить передачу показаний, пожалуйста, введите текущее значение ' +
+                  'со счётчика в поле выше.</p>' +
+              '</div>' +
+            '</div>' +
           '</div>' +
         '</div>' +
       '</div>'
@@ -467,12 +475,19 @@
 
   var PHOTO_EXTENSIONS = ['jpg', 'jpeg', 'jfif', 'png', 'webp', 'heic', 'heif'];
   var SCAN_DEMO_MS = 2500;
-  var SCAN_FAILED_MSG = 'Не удалось распознать показания на фото. ' +
-                        'Введите их в поле «Текущие показания».';
 
   function isPhoto(file) {
     var ext = (file.name.split('.').pop() || '').toLowerCase();
     return PHOTO_EXTENSIONS.indexOf(ext) !== -1 || /^image\//.test(file.type);
+  }
+
+  function isDocument(file) {
+    return /\.pdf$/i.test(file.name) || file.type === 'application/pdf';
+  }
+
+  function scanFailedMsg(file) {
+    return 'Не удалось распознать показания ' + (isDocument(file) ? 'в документе' : 'на фото') +
+           '. Введите их в поле «Текущие показания».';
   }
 
   /* Демо-«распознавание»: предыдущее показание плюс средний месячный расход,
@@ -672,6 +687,7 @@
     var fileInput = card.querySelector('[data-file]');
     var scan = card.querySelector('[data-photo-scan]');
     var scanTries = 0;
+    var scanFile = null;
 
     function setScan(st) {
       if (!st) { scan.hidden = true; return; }
@@ -690,14 +706,18 @@
         stub.textContent = (file.name.split('.').pop() || 'фото').slice(0, 5);
         img.replaceWith(stub);
       };
-      img.src = URL.createObjectURL(file);
       holder.appendChild(img);
+      if (!isPhoto(file)) {          // PDF превью нет — подпись с расширением
+        img.onerror();
+        return;
+      }
+      img.src = URL.createObjectURL(file);
     }
 
     fileInput.addEventListener('change', function () {
       var file = fileInput.files[0];
       if (!file) return;
-      if (!isPhoto(file)) {
+      if (!isPhoto(file) && !isDocument(file)) {
         // таблица по шаблону — как раньше, файл уходит как есть
         console.log('[ЛК] загрузка файла с показаниями', { пу: m.num, файл: file.name });
         setScan(null);
@@ -714,7 +734,9 @@
       setTimeout(function () {
         fileInput.value = '';
         if (!ok) {
-          scan.querySelector('[data-scan-fail-message]').textContent = SCAN_FAILED_MSG;
+          scan.querySelector('[data-scan-fail-message]').textContent = scanFailedMsg(file);
+          scanFile = file;           // держим для «Отправить файл оператору»
+          scan.querySelector('[data-scan-operator]').hidden = false;
           setScan('failed');
           recalc();                // уже введённые показания можно передать
           input.focus();
@@ -728,7 +750,7 @@
           '<div class="lk-photo-scan-value"><dt>Текущие показания</dt><dd>' +
             esc(input.value.replace('.', ',')) + '</dd></div>';
         scan.querySelector('[data-scan-message]').textContent =
-          'Проверьте показания, распознанные с фото.';
+          'Проверьте показания, распознанные ' + (isDocument(file) ? 'из документа.' : 'с фото.');
         setScan('result');
       }, SCAN_DEMO_MS);
     });
@@ -737,6 +759,16 @@
       setScan(null);
       recalc();
       submit.click();
+    });
+
+    // не распознано → исходный файл оператору, как раньше; ручной ввод — без файла
+    scan.querySelector('[data-scan-operator-send]').addEventListener('click', function () {
+      console.log('[ЛК] файл отправлен оператору', { пу: m.num, файл: scanFile && scanFile.name });
+      scanFile = null;
+      setScan(null);
+      submit.hidden = true;
+      note.hidden = false;
+      note.textContent = 'Файл отправлен оператору ✓';
     });
 
     scan.querySelector('[data-scan-edit]').addEventListener('click', function () {

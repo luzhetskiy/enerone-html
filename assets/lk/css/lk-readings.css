@@ -294,6 +294,19 @@
   .lk-spinner { animation-duration: 2.4s; }
 }
 
+/* «не распознано»: вторая ветка — отдать исходный файл оператору, как раньше */
+.lk-photo-scan-operator { margin-top: 10px; }
+.lk-photo-scan-operator[hidden] { display: none; }
+.lk-btn-operator {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--lk-amber); color: #4a3500;
+  border: none; border-radius: var(--lk-r-md);
+  padding: 9px 18px; font-size: 12px; font-weight: 700; cursor: pointer;
+}
+.lk-btn-operator:hover { background: #e9a307; }
+.lk-btn-operator:disabled { opacity: .6; cursor: default; }
+.lk-photo-scan-note { font-size: 11px; line-height: 1.45; color: #8a6b1c; margin: 6px 0 0; max-width: 560px; }
+
 /* пока идёт распознавание, форма не трогается */
 .meter-form.is-scanning .lk-btn-upload,
 .meter-form.is-scanning .meter-submit { opacity: .5; pointer-events: none; }
@@ -406,6 +419,7 @@
   .lk-photo-scan { flex-direction: column; gap: 10px; }
   .lk-photo-scan-actions { flex-direction: column; align-items: stretch; }
   .lk-photo-scan-actions .lk-btn-submit { justify-content: center; }
+  .lk-btn-operator { width: 100%; justify-content: center; }
   .lk-template { flex-direction: column; align-items: flex-start; gap: 8px; }
 
   /* таблица отправленных файлов: дате — минимум места, имени файла — максимум */
