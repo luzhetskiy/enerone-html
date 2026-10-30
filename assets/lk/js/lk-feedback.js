@@ -4,7 +4,8 @@
    Блок 1 — форма обращения: договор, тема, текст, файлы (опционально).
    Блок 2 — история: дата, сообщение, файлы, статус.
             «принято»   — обращение зарегистрировано, ответа ещё нет;
-            «обработано» — есть ответ; непрочитанные выделяются.
+            «обработано» — есть ответ; непрочитанные выделяются;
+            «закрыто»   — переписка завершена, форма ответа недоступна.
    ========================================================================== */
 (function () {
   'use strict';
@@ -33,6 +34,20 @@
 
   // история обращений, новые сверху
   var MESSAGES = [
+    {
+      id: 'm-8',
+      date: '30 октября 2026 г. 10:15',
+      contract: 'ДЭС740201104',
+      topic: 'Прочее',
+      text: 'Подскажите, где посмотреть контакты обслуживающей организации?',
+      files: [],
+      status: 'closed',
+      unread: false,
+      answer: {
+        date: '30 октября 2026 г. 11:02',
+        text: 'Контакты размещены в разделе «О компании». Обращение закрыто.'
+      }
+    },
     {
       id: 'm-7',
       date: '16 июля 2026 г. 14:36',
@@ -325,9 +340,11 @@
 
   // шапка карточки — общая для обоих видов
   function topHtml(m, uid, expandable, label) {
-    var statusHtml = isAnswered(m)
-      ? '<span class="lk-status lk-status--processed">обработано</span>'
-      : '<span class="lk-status lk-status--accepted">принято</span>';
+    var statusHtml = m.status === 'closed'
+      ? '<span class="lk-status lk-status--closed">закрыто</span>'
+      : (isAnswered(m)
+          ? '<span class="lk-status lk-status--processed">обработано</span>'
+          : '<span class="lk-status lk-status--accepted">принято</span>');
 
     return '<div class="lk-msg-top">' +
         '<div class="lk-msg-date">' + esc(m.date) + '</div>' +
@@ -408,30 +425,34 @@
       (answered
         ? '<div class="lk-thread" id="' + uid + '" hidden>' +
             turnsHtml +
-            (isAnswered(m)
+            (m.status === 'closed'
+              ? '<div class="lk-th-wait">Обращение закрыто. Для нового вопроса создайте новое обращение.</div>'
+              : (isAnswered(m)
+                  ? ''
+                  : '<div class="lk-th-wait">Ответ придёт сюда и на электронную почту</div>')) +
+            (m.status === 'closed'
               ? ''
-              : '<div class="lk-th-wait">Ответ придёт сюда и на электронную почту</div>') +
-            '<form class="lk-th-reply" data-th-reply>' +
-              '<textarea class="lk-textarea lk-th-input" rows="2" name="reply" ' +
-                        'placeholder="Написать в это обращение"></textarea>' +
-              '<ul class="lk-file-list" data-file-list></ul>' +
-              '<div class="lk-th-reply-foot">' +
-                '<div class="lk-file">' +
-                  '<input type="file" multiple id="' + uid + '-attach">' +
-                  '<label class="lk-th-attach lk-file-drop" for="' + uid + '-attach">' +
-                    ICO_CLIP + 'Приложить файлы' +
-                  '</label>' +
-                '</div>' +
-                '<span class="lk-th-hint">до 10 файлов, каждый до 15 МБ</span>' +
-                '<button type="submit" class="lk-btn-primary">Отправить</button>' +
-              '</div>' +
-            '</form>' +
+              : '<form class="lk-th-reply" data-th-reply>' +
+                  '<textarea class="lk-textarea lk-th-input" rows="2" name="reply" ' +
+                            'placeholder="Написать в это обращение"></textarea>' +
+                  '<ul class="lk-file-list" data-file-list></ul>' +
+                  '<div class="lk-th-reply-foot">' +
+                    '<div class="lk-file">' +
+                      '<input type="file" multiple id="' + uid + '-attach">' +
+                      '<label class="lk-th-attach lk-file-drop" for="' + uid + '-attach">' +
+                        ICO_CLIP + 'Приложить файлы' +
+                      '</label>' +
+                    '</div>' +
+                    '<span class="lk-th-hint">до 10 файлов, каждый до 15 МБ</span>' +
+                    '<button type="submit" class="lk-btn-primary">Отправить</button>' +
+                  '</div>' +
+                '</form>') +
           '</div>'
         : '');
 
     if (answered) {
       bindPanel(card, m, '.lk-thread', 'переписку');
-      bindReply(card, m);
+      if (m.status !== 'closed') bindReply(card, m);
     }
     return card;
   }

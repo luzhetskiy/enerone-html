@@ -106,6 +106,7 @@
 }
 .lk-status--accepted  { color: #a97205; background: var(--lk-amber-bg); border: 1px solid #f3d089; }
 .lk-status--processed { color: var(--lk-green-dk); background: var(--lk-green-bg); border: 1px solid var(--lk-green-br); }
+.lk-status--closed    { color: var(--lk-muted-2); background: #f1f3f5; border: 1px solid #d8dde3; }
 
 .lk-msg-toggle {
   flex-shrink: 0;
