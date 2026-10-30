@@ -95,6 +95,10 @@
 }
 .lk-msg-file:hover { color: var(--lk-green-dk); text-decoration: underline; }
 .lk-msg-file svg { width: 12px; height: 12px; flex-shrink: 0; margin-top: 1px; fill: none; stroke: currentColor; stroke-width: 1.3; }
+/* файл ответа не скачивается: ссылка погашена, под ней — подсказка */
+.lk-msg-file.is-unavailable { color: var(--lk-muted-2); cursor: default; }
+.lk-msg-file.is-unavailable:hover { color: var(--lk-muted-2); text-decoration: none; }
+.lk-msg-file-hint { display: block; font-size: 10px; line-height: 1.35; color: #b42318; }
 .lk-msg-nofile { font-size: 11px; color: var(--lk-muted-3); }
 
 /* статус */

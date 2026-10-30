@@ -153,7 +153,8 @@
           side: 'company',
           date: '16 декабря 2025 г. 16:30',
           text: 'Документы получены и переданы в технический отдел. Ориентировочный срок ' +
-                'подготовки технических условий — до 25 декабря.'
+                'подготовки технических условий — до 25 декабря.',
+          files: [{name: 'Информация по ТУ.xls', broken: true}]
         }
       ]
     }
@@ -329,11 +330,21 @@
     updateUnread();
   }
 
+  // Файл ответа может быть недоступен (пропал с чужого домена): в ЛК такая
+  // ссылка неактивна, под ней — подсказка. В демо файл задаётся объектом
+  // {name, broken: true}; обычная строка — рабочий файл.
   function filesHtmlOf(files) {
     return files && files.length
       ? files.map(function (f) {
-          return '<a class="lk-msg-file" href="#" data-lk-action="Скачать файл обращения ' + esc(f) + '">' +
-                 ICO_FILE + esc(f) + '</a>';
+          var name = typeof f === 'string' ? f : f.name;
+          if (typeof f === 'object' && f.broken) {
+            return '<a class="lk-msg-file is-unavailable" aria-disabled="true">' +
+                   ICO_FILE + esc(name) + '</a>' +
+                   '<span class="lk-msg-file-hint">Ошибка загрузки файла. ' +
+                   'Запросите файл повторно у менеджера.</span>';
+          }
+          return '<a class="lk-msg-file" href="#" data-lk-action="Скачать файл обращения ' + esc(name) + '">' +
+                 ICO_FILE + esc(name) + '</a>';
         }).join('')
       : '<span class="lk-msg-nofile">—</span>';
   }
